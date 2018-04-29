@@ -1,13 +1,15 @@
 package com.codeup.omelette_abc.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="user_skills")
 public class UserSkills {
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     @Column(nullable = false, length = 500)
     private String video;
