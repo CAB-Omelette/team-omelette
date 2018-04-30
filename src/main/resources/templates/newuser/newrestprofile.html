@@ -9,41 +9,45 @@
     <div class="header-content">
         <div class="header-content-inner">
             <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+            <form th:action="@{/newuser/newrestprofile}" th:method="post" th:object="${rest}">
             <div class="form-group">
-                <label for="rest_profile">Insert Logo Picture</label>
-                <input id="rest_profile" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}" th:value="*{picture}" />
+                <label for="picture">Insert Logo Picture</label>
+                <input id="picture" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}"/>
             </div>
             <hr />
             <div class="form-group">
-                <label for="rest_profile">Restaurant Name</label>
-                <input id="rest_profile" class="form-control" placeholder="First Name" type="text" th:field="*{rest_name}" th:value="*{rest_name}" />
+                <label for="rest_name">Restaurant Name</label>
+                <input id="rest_name" class="form-control" placeholder="First Name" type="text" th:field="*{rest_name}" />
             </div>
             <div class="form-group">
-                <label for="rest_profile">Restaurant Address</label>
-                <input id="rest_profile" class="form-control" placeholder="Last Name" type="text" th:field="*{location}" th:value="*{location}" />
+                <label for="location">Restaurant Address</label>
+                <input id="location" class="form-control" placeholder="Last Name" type="text" th:field="*{location}" />
             </div>
             <div class="form-group">
-                <label for="rest_profile">Phone Number</label>
-                <input id="rest_profile" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" th:value="*{phone}" />
+                <label for="phone">Phone Number</label>
+                <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
             </div>
             <div class="form-group">
-                <label for="rest_profile">About Restaurant</label>
-                <input id="rest_profile" class="form-control" placeholder="About Me" type="text" th:field="*{about}" th:value="*{about}" />
+                <label for="about">About Restaurant</label>
+                <input id="about" class="form-control" placeholder="About Me" type="text" th:field="*{about}" />
+            </div>
+                <div class="form-group">
+                <label for="video">Add Video's of Kitchen Experience</label>
+                <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
             </div>
             <hr />
-            <div class="form-group">
-                <label for="job_listings">Job Listings</label>
-                <input id="job_listings" class="form-control" placeholder="Title" type="text" th:field="*{title}" th:value="*{title}" />
-                <input id="job_listings" class="form-control" placeholder="Pay/Salary" type="text" th:field="*{pay}" th:value="*{pay}" />
-                <input id="job_listings" class="form-control" placeholder="Job Description" type="text" th:field="*{description}" th:value="*{description}" />
-            </div>
-            <hr />
-            <div class="form-group">
-                <label for="rest_profile">Add Video's of Kitchen Experience</label>
-                <input id="rest_profile" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" th:value="*{video}" />
-            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="title">Job Listings</label>-->
+                <!--<input id="title" class="form-control" placeholder="Title" type="text" th:field="*{title}" />-->
+                <!--<label for="pay">Job Listings</label>-->
+                <!--<input id="pay" class="form-control" placeholder="Pay/Salary" type="text" th:field="*{pay}" th:value="*{pay}" />-->
+                <!--<label for="description">Job Listings</label>-->
+                <!--<input id="description" class="form-control" placeholder="Job Description" type="text" th:field="*{description}"/>-->
+            <!--</div>-->
+            <!--<hr />-->
 
 
+            </form>
         </div>
     </div>
 </header>

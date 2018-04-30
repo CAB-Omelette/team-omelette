@@ -1,7 +1,9 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.ChefProfileRepository;
+import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProfileController {
 
     private ChefProfileRepository chefrepo;
+    private RestProfileRepository restrepo;
 
     private UserService userSvc;
     private ProfileServices proSvc;
@@ -37,7 +40,18 @@ public class ProfileController {
         return "/profile";
     }
 
+    @GetMapping("/createprofile")
+    public String createRestProfile(Model model){
+        model.addAttribute("rest", new RestProfile());
+        return "newuser/newrestprofile";
+    }
 
+    @PostMapping("/createprofile")
+    public String saveRestProfile(RestProfile restProfile){
+        restProfile.setUser(userSvc.currentUser());
+        restrepo.save(restProfile);
+        return "/profile";
+    }
 
 
 }
