@@ -5,48 +5,48 @@
     <title>Create Chef's Profile </title>
 </head>
 <body>
-<!--<header>-->
-    <!--<div class="header-content">-->
-        <!--<div class="header-content-inner">-->
-            <!--&lt;!&ndash;TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE &ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;<label for="rest_profile">Insert Logo Picture</label>&ndash;&gt;-->
-                <!--&lt;!&ndash;<input id="rest_profile" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}" th:value="*{picture}" />&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--<hr />-->
-            <!--<div class="form-group">-->
-                <!--<label for="rest_profile">Restaurant Name</label>-->
-                <!--<input id="rest_profile" class="form-control" placeholder="First Name" type="text" th:field="*{rest_profile.rest_name}" th:value="*{rest_profile.rest_name}" />-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="rest_profile">Restaurant Address</label>-->
-                <!--<input id="rest_profile" class="form-control" placeholder="Last Name" type="text" th:field="*{rest_profile.location}" th:value="*{rest_profile.location}" />-->
-            <!--</div>-->
-            <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;<label for="rest_profile">Phone Number</label>&ndash;&gt;-->
-                <!--&lt;!&ndash;<input id="rest_profile" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone_number}" th:value="*{phone_number}" />&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--<div class="form-group">-->
-                <!--<label for="rest_profile">About Restaurant</label>-->
-                <!--<input id="rest_profile" class="form-control" placeholder="About Me" type="text" th:field="*{rest_profile.bio}" th:value="*{rest_profile.bio}" />-->
-            <!--</div>-->
-            <!--<hr />-->
-            <!--<div class="form-group">-->
-                <!--<label for="job_listings">Job Listings</label>-->
-                <!--<input id="job_listings" class="form-control" placeholder="Title" type="text" th:field="*{job_listings.title}" th:value="*{job_listings.title}" />-->
-                <!--<input id="job_listings" class="form-control" placeholder="Pay/Salary" type="text" th:field="*{job_listings.pay}" th:value="*{job_listings.pay}" />-->
-                <!--<input id="job_listings" class="form-control" placeholder="Job Description" type="text" th:field="*{job_listings.description}" th:value="*{job_listings.description}" />-->
-            <!--</div>-->
-            <!--<hr />-->
-            <!--<div class="form-group">-->
-                <!--<label for="rest_profile">Add Video's of Kitchen Experience</label>-->
-                <!--<input id="rest_profile" class="form-control" placeholder="Add Video" type="file" th:field="*{rest_profile.video}" th:value="*{rest_profile.video}" />-->
-            <!--</div>-->
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+            <div class="form-group">
+                <label for="rest_profile">Insert Logo Picture</label>
+                <input id="rest_profile" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}" th:value="*{picture}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="rest_profile">Restaurant Name</label>
+                <input id="rest_profile" class="form-control" placeholder="First Name" type="text" th:field="*{rest_name}" th:value="*{rest_name}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">Restaurant Address</label>
+                <input id="rest_profile" class="form-control" placeholder="Last Name" type="text" th:field="*{location}" th:value="*{location}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">Phone Number</label>
+                <input id="rest_profile" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" th:value="*{phone}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">About Restaurant</label>
+                <input id="rest_profile" class="form-control" placeholder="About Me" type="text" th:field="*{about}" th:value="*{about}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="job_listings">Job Listings</label>
+                <input id="job_listings" class="form-control" placeholder="Title" type="text" th:field="*{title}" th:value="*{title}" />
+                <input id="job_listings" class="form-control" placeholder="Pay/Salary" type="text" th:field="*{pay}" th:value="*{pay}" />
+                <input id="job_listings" class="form-control" placeholder="Job Description" type="text" th:field="*{description}" th:value="*{description}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="rest_profile">Add Video's of Kitchen Experience</label>
+                <input id="rest_profile" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" th:value="*{video}" />
+            </div>
 
 
-        <!--</div>-->
-    <!--</div>-->
-<!--</header>-->
+        </div>
+    </div>
+</header>
 <h1>new Rest Profile</h1>
 
 </body>
