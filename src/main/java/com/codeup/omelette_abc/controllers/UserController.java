@@ -2,6 +2,7 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
+import com.codeup.omelette_abc.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,12 @@ public class UserController {
 
     private UserRepository users;
     private PasswordEncoder passwordEncoder;
+    private UserService userSvc;
 
-    public UserController(UserRepository users, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository users, PasswordEncoder passwordEncoder, UserService userSvc) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
+        this.userSvc = userSvc;
     }
 
     @GetMapping("/sign-up")
@@ -41,9 +44,13 @@ public class UserController {
         return "users/login";
     }
 
-    @GetMapping("/success")
-    public String loggedIn(){
-        return"/success";
+    @GetMapping("/profile")
+    public String loggedIn(Model model){
+        if(userSvc.isLoggedIn()){
+            model.addAttribute("user", userSvc.currentUser());
+            return"redirect:/profile";
+        }
+        return"/login";
     }
 
 
