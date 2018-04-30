@@ -24,15 +24,22 @@ public class RestProfile {
     @Column(length = 250)
     private String video;
 
+    @Column(nullable = false, length = 30)
+    private String phone;
+
     @Column(nullable = false, length = 250)
     private String location;
 
-    public RestProfile(String rest_name, String about, String picture, String video, String location) {
+    public RestProfile(String rest_name, String about, String picture, String phone, String video, String location) {
         this.rest_name = rest_name;
         this.about = about;
         this.picture = picture;
         this.video = video;
         this.location = location;
+        this.phone = phone;
+    }
+
+    public RestProfile() {
     }
 
     public long getId() {
