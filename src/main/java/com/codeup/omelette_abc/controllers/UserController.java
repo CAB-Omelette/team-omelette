@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
-
 @Controller
 public class UserController {
 
@@ -34,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String saveUser( @Valid User user, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+    public String saveUser(User user, @RequestParam(defaultValue = "false") boolean isOwner) {
         if(isOwner){
             user.setOwner(true);
         }
