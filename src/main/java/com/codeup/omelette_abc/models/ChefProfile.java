@@ -27,16 +27,23 @@ public class ChefProfile {
     @Column(nullable = false, length = 200)
     private String picture;
 
+    @Column(nullable = false, length = 30)
+    private String phone;
+
     @Column(nullable = true, length = 500)
     private String video;
 
-    public ChefProfile(String first_name, String last_name, String profession, String bio, String picture, String video) {
+    public ChefProfile(String first_name, String last_name, String profession, String bio, String phone, String picture, String video) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.profession = profession;
         this.bio = bio;
+        this.phone = phone;
         this.picture = picture;
         this.video = video;
+    }
+
+    public ChefProfile() {
     }
 
     public long getId() {
@@ -71,6 +78,10 @@ public class ChefProfile {
         this.profession = profession;
     }
 
+    public String getPhone() { return phone; }
+
+    public void setPhone(String phone) { this.phone = phone; }
+
     public String getBio() {
         return bio;
     }
@@ -94,5 +105,6 @@ public class ChefProfile {
     public void setVideo(String video) {
         this.video = video;
     }
+
 }
 
