@@ -26,11 +26,6 @@ public class UserController {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.userSvc = userSvc;
-=======
-
-    public UserController(UserRepository users, PasswordEncoder passwordEncoder) {
-        this.users = users;
-        this.passwordEncoder = passwordEncoder;
 
     }
 
@@ -65,8 +60,9 @@ public class UserController {
     }
 
     @GetMapping("/map")
-    public String googleMap(){
-        return"/googlemaps";
+    public String googleMap() {
+        return "/googlemaps";
+    }
 
     @GetMapping("/success")
     public String loggedIn(){
