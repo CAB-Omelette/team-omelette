@@ -53,6 +53,11 @@ public class UserController {
         return"/login";
     }
 
+    @GetMapping("/map")
+    public String googleMap(){
+        return"/googlemaps";
+    }
+
 
 
 
