@@ -10,6 +10,4 @@ public class ProfileController {
     public String createChefProfile(){
         return "newuser/newchefprofile";
     }
-
-
 }
