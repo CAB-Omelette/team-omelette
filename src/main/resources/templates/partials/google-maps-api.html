@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="google-maps">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>View Location</title>
-    <link rel="stylesheet" href="/googlemapsstyle.css">
+    <link rel="stylesheet" href="/googlemapsstyle.css" />
 </head>
 <body>
 
@@ -12,14 +12,14 @@
     <section class="input">
         <h1>Options</h1>
 
-        <button data-zoom=5 class="zoom">Zoom x 5</button>
-        <button data-zoom=10 class="zoom">Zoom x 10</button>
-        <button data-zoom=15 class="zoom">Zoom x 15</button>
-        <button data-zoom=18 class="zoom">Zoom x 18</button>
-        <button data-zoom=20 class="zoom">Zoom x 20</button>
+        <button data-zoom="5" class="zoom">Zoom x 5</button>
+        <button data-zoom="10" class="zoom">Zoom x 10</button>
+        <button data-zoom="15" class="zoom">Zoom x 15</button>
+        <button data-zoom="18" class="zoom">Zoom x 18</button>
+        <button data-zoom="20" class="zoom">Zoom x 20</button>
 
         <div>
-            <input type="text" id="address" name="address" value="124 Broadway, San Antonio, TX 78205" placeholder="Please input the address of a location to map!">
+            <input type="text" id="address" name="address" value="124 Broadway, San Antonio, TX 78205" placeholder="Please input the address of a location to map!" />
         </div>
 
         <button id="get-address-button">Map it!</button>
