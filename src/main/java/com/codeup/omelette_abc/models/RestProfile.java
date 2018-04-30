@@ -30,6 +30,17 @@ public class RestProfile {
     @Column(nullable = false, length = 250)
     private String location;
 
+    @OneToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public RestProfile(String rest_name, String about, String picture, String phone, String video, String location) {
         this.rest_name = rest_name;
         this.about = about;
@@ -37,6 +48,16 @@ public class RestProfile {
         this.video = video;
         this.location = location;
         this.phone = phone;
+    }
+    public RestProfile(Long id, String rest_name, String about, String picture, String phone, String video, String location, User user) {
+        this.id = id;
+        this.rest_name = rest_name;
+        this.about = about;
+        this.picture = picture;
+        this.video = video;
+        this.location = location;
+        this.phone = phone;
+        this.user = user;
     }
 
     public RestProfile() {

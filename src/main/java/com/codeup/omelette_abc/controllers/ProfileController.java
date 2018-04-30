@@ -1,7 +1,9 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.ChefProfileRepository;
+import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProfileController {
 
     private ChefProfileRepository chefrepo;
+    private RestProfileRepository restrepo;
 
     private UserService userSvc;
     private ProfileServices proSvc;
@@ -40,8 +43,5 @@ public class ProfileController {
         chefrepo.save(chefProfile);
         return "redirect:/success";
     }
-
-//Creat a new postmapping controller for /newuser/newrestprofile
-// and make sure that on that form the action is set as newuser/newrestprofile
 
 }
