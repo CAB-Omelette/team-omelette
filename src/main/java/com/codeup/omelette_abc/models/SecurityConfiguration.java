@@ -1,6 +1,5 @@
 package com.codeup.omelette_abc.models;
 
-import com.codeup.omelette_abc.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,11 +11,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsLoader usersLoader;
 
-    public SecurityConfiguration(UserDetailsLoader usersLoader) {
+    private com.codeup.omelette_abc.services.UserDetailsLoader usersLoader;
+
+
+    public SecurityConfiguration(com.codeup.omelette_abc.services.UserDetailsLoader usersLoader) {
         this.usersLoader = usersLoader;
     }
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
