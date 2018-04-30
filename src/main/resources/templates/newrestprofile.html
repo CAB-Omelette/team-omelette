@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Chef's Profile </title>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+            <div class="form-group">
+                <label for="rest_profile">Insert Logo Picture</label>
+                <input id="rest_profile" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{rest_profile.picture}" th:value="*{rest_profile.picture}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="rest_profile">Restaurant Name</label>
+                <input id="rest_profile" class="form-control" placeholder="First Name" type="text" th:field="*{rest_profile.rest_name}" th:value="*{rest_profile.rest_name}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">Restaurant Address</label>
+                <input id="rest_profile" class="form-control" placeholder="Last Name" type="text" th:field="*{rest_profile.location}" th:value="*{rest_profile.location}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">Phone Number</label>
+                <input id="rest_profile" class="form-control" placeholder="Phone Number" type="text" th:field="*{rest_profile.phone_number}" th:value="*{rest_profile.phone_number}" />
+            </div>
+            <div class="form-group">
+                <label for="rest_profile">About Restaurant</label>
+                <input id="rest_profile" class="form-control" placeholder="About Me" type="text" th:field="*{rest_profile.bio}" th:value="*{rest_profile.bio}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="job_listings">Job Listings</label>
+                <input id="job_listings" class="form-control" placeholder="Title" type="text" th:field="*{job_listings.title}" th:value="*{job_listings.title}" />
+                <input id="job_listings" class="form-control" placeholder="Pay/Salary" type="text" th:field="*{job_listings.pay}" th:value="*{job_listings.pay}" />
+                <input id="job_listings" class="form-control" placeholder="Job Description" type="text" th:field="*{job_listings.description}" th:value="*{job_listings.description}" />
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="rest_profile">Add Video's of Kitchen Experience</label>
+                <input id="rest_profile" class="form-control" placeholder="Add Video" type="file" th:field="*{rest_profile.video}" th:value="*{rest_profile.video}" />
+            </div>
+
+
+        </div>
+    </div>
+</header>
+
+
+</body>
+</html>

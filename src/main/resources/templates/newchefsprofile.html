@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Chef's Profile </title>
+</head>
+<body>
+<header>
+<div class="header-content">
+    <div class="header-content-inner">
+        <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+        <div class="form-group">
+            <label for="chef_profile">Insert Profile Picture</label>
+            <input id="chef_profile" class="form-control" placeholder="Profile Picture" type="file" th:field="*{chef_profile.picture}" th:value="*{chef_profile.picture}" />
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="chef_profile">First Name</label>
+            <input id="chef_profile" class="form-control" placeholder="First Name" type="text" th:field="*{chef_profile.first_name}" th:value="*{chef_profile.first_name}" />
+        </div>
+        <div class="form-group">
+            <label for="chef_profile">Last Name</label>
+            <input id="chef_profile" class="form-control" placeholder="Last Name" type="text" th:field="*{chef_profile.last_name}" th:value="*{chef_profile.last_name}" />
+        </div>
+        <div class="form-group">
+            <label for="chef_profile">Phone Number</label>
+            <input id="chef_profile" class="form-control" placeholder="Phone Number" type="text" th:field="*{chef_profile.phone_number}" th:value="*{chef_profile.phone_number}" />
+        </div>
+        <div class="form-group">
+            <label for="chef_profile">About Me</label>
+            <input id="chef_profile" class="form-control" placeholder="About Me" type="text" th:field="*{chef_profile.bio}" th:value="*{chef_profile.bio}" />
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <!--TODO: build and add education table to db-->
+            <label for="education">Education (If Applicable)</label>
+            <input id="education" class="form-control" placeholder="Name" type="text" th:field="*{education.schoolname}" th:value="*{education.schoolname}" />
+            <input id="education" class="form-control" placeholder="Graduation Date" type="text" th:field="*{education.graddate}" th:value="*{education.graddate}" />
+            <input id="education" class="form-control" placeholder="Focus of Study" type="text" th:field="*{education.focus}" th:value="*{education.focus}" />
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="job_history">Job History(If Applicable)</label>
+            <input id="job_history" class="form-control" placeholder="Name" type="text" th:field="*{job_history.location}" th:value="*{job_history.location}" />
+            <input id="job_history" class="form-control" placeholder="Start Date" type="text" th:field="*{job_history.start_date}" th:value="*{job_history.start_date}" />
+            <input id="job_history" class="form-control" placeholder="End Date" type="text" th:field="*{job_history.end_date}" th:value="*{job_history.end_date}" />
+            <input id="job_history" class="form-control" placeholder="Title" type="text" th:field="*{job_history.title}" th:value="*{job_history.title}" />
+            <input id="job_history" class="form-control" placeholder="Title" type="text" th:field="*{job_history.title}" th:value="*{job_history.title}" />
+            <input id="job_history" class="form-control" placeholder="Reason For Leaving (Not Necessary)" type="text" th:field="*{job_history.reason_left}" th:value="*{job_history.reason_left}" />
+
+        </div>
+        <div class="form-group">
+            <label for="chef_profile">Add Video</label>
+            <input id="chef_profile" class="form-control" placeholder="Add Video" type="file" th:field="*{chef_profile.video}" th:value="*{chef_profile.video}" />
+        </div>
+
+
+    </div>
+</div>
+</header>
+
+
+</body>
+</html>
