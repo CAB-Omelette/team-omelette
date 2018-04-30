@@ -25,18 +25,20 @@ public class ProfileController {
         this.proSvc = proSvc;
         this.chefrepo = chefrepo;
         this.userSvc = userSvc;
-
     }
 
     @GetMapping("/createprofile")
     public String createChefProfile(Model model){
+//        if(userSvc.currentUser().isOwner()){
+//            model.addAttribute("rest", new RestProfile());
+//            return "newuser/newrestprofile";
+//        }
         model.addAttribute("chef", new ChefProfile());
         return "newuser/newchefprofile";
     }
 
     @PostMapping("/newuser/newchefprofile")
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
-        System.out.println(chefProfile.getBio());
         chefProfile.setUser(userSvc.currentUser());
         chefrepo.save(chefProfile);
         return "redirect:/success";
