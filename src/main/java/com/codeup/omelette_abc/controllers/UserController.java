@@ -2,15 +2,13 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
-
 import com.codeup.omelette_abc.services.UserService;
-
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -36,7 +34,10 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String saveUser(@Valid User user) {
+    public String saveUser( @Valid User user, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+        if(isOwner){
+            user.setOwner(true);
+        }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
