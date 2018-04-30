@@ -2,6 +2,7 @@ package com.codeup.omelette_abc.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="users")
@@ -11,32 +12,45 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(nullable = false, unique = true)
+    @NotBlank
     private String email;
 
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
-    private boolean isOwner;
+    private String username;
 
-    public User(String email, String password, boolean isOwner) {
-        this.email = email;
-        this.password = password;
-        this.isOwner = isOwner;
+    public User() {
     }
 
-    public User(long id, String email, String password, boolean isOwner) {
+    public User(String email, String username, String password) {
+        this.email = email;
+        this.username = email;
+        this.password = password;
+    }
+
+    public User(long id, String email, String username, String password) {
         this.id = id;
         this.email = email;
+        this.username = email;
         this.password = password;
-        this.isOwner = isOwner;
     }
 
     public User(User copy) {
         id = copy.id;
         email = copy.email;
+        username = copy.email;
         password = copy.password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public long getId() {
@@ -63,11 +77,4 @@ public class User {
         this.password = password;
     }
 
-    public boolean isOwner() {
-        return isOwner;
-    }
-
-    public void setOwner(boolean owner) {
-        isOwner = owner;
-    }
 }

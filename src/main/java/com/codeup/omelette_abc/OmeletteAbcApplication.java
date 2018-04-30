@@ -11,8 +11,7 @@ public class OmeletteAbcApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(OmeletteAbcApplication.class, args);
 	}
-
-
+	
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(OmeletteAbcApplication.class);
 	}

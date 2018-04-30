@@ -2,17 +2,19 @@ package com.codeup.omelette_abc.services;
 
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.models.UserWithRoles;
-import com.codeup.omelette_abc.models.Users;
+import com.codeup.omelette_abc.repositories.UsersRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UserDetailsLoader implements UserDetailsService {
-    private final Users users;
 
-    public UserDetailsLoader(Users users) {
+    private final UsersRepository users;
+
+    public UserDetailsLoader(UsersRepository users) {
         this.users = users;
     }
 
@@ -25,4 +27,6 @@ public class UserDetailsLoader implements UserDetailsService {
 
         return new UserWithRoles(user);
     }
+
+
 }
