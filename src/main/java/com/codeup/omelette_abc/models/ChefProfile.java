@@ -24,13 +24,13 @@ public class ChefProfile {
     @Column(nullable = false, length = 500)
     private String bio;
 
-    @Column(nullable = false, length = 200)
+    @Column(length = 200)
     private String picture;
 
     @Column(nullable = false, length = 30)
     private String phone;
 
-    @Column(nullable = true, length = 500)
+    @Column(length = 500)
     private String video;
 
     @OneToOne
@@ -49,7 +49,6 @@ public class ChefProfile {
         this.first_name = first_name;
         this.last_name = last_name;
         this.profession = profession;
-
         this.bio = bio;
         this.phone = phone;
         this.picture = picture;

@@ -9,6 +9,7 @@ import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -33,11 +34,12 @@ public class ProfileController {
         return "newuser/newchefprofile";
     }
 
-    @PostMapping("/createprofile")
-    public String saveProfile(ChefProfile chefProfile){
+    @PostMapping("/newuser/newchefprofile")
+    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
+        System.out.println(chefProfile.getBio());
         chefProfile.setUser(userSvc.currentUser());
         chefrepo.save(chefProfile);
-        return "/profile";
+        return "redirect:/success";
     }
 
 }
