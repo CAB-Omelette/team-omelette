@@ -4,6 +4,12 @@ import com.codeup.omelette_abc.models.User;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import org.springframework.stereotype.Service;
+
+@Service
+=======
+
+
 public class UserService {
 
     public boolean isLoggedIn(){
