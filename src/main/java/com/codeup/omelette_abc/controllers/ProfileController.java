@@ -11,9 +11,5 @@ public class ProfileController {
         return "newuser/newchefprofile";
     }
 
-    @GetMapping("/createrestprofile")
-    public String createRestProfile(){
-        return "newuser/newrestprofile";
-    }
 
 }

@@ -1,8 +1,9 @@
 package com.codeup.omelette_abc.models;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="users")
@@ -22,20 +23,25 @@ public class User {
     @Column(nullable = false)
     private String username;
 
+    @Column(nullable = false)
+    private boolean isOwner;
+
     public User() {
     }
 
-    public User(String email, String username, String password) {
+    public User(String email, String username, String password, Boolean isOwner) {
         this.email = email;
         this.username = email;
         this.password = password;
+        this.isOwner = isOwner;
     }
 
-    public User(long id, String email, String username, String password) {
+    public User(long id, String email, String username, String password, Boolean isOwner) {
         this.id = id;
         this.email = email;
         this.username = email;
         this.password = password;
+        this.isOwner = isOwner;
     }
 
     public User(User copy) {
@@ -43,6 +49,7 @@ public class User {
         email = copy.email;
         username = copy.email;
         password = copy.password;
+        isOwner = copy.isOwner;
     }
 
     public String getUsername() {
@@ -76,5 +83,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isOwner() { return isOwner; }
+
+    public void setOwner(boolean owner) { isOwner = owner; }
 
 }

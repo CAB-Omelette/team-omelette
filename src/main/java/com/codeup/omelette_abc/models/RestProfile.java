@@ -89,4 +89,9 @@ public class RestProfile {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public String getPhone() { return phone; }
+
+    public void setPhone(String phone) { this.phone = phone; }
 }
+
