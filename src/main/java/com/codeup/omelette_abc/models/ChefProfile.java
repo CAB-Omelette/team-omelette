@@ -33,6 +33,30 @@ public class ChefProfile {
     @Column(nullable = true, length = 500)
     private String video;
 
+    @OneToOne
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public ChefProfile(Long id, String first_name, String last_name, String profession, String bio, String phone, String picture, String video, User user) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.profession = profession;
+
+        this.bio = bio;
+        this.phone = phone;
+        this.picture = picture;
+        this.video = video;
+        this.user = user;
+    }
+
     public ChefProfile(String first_name, String last_name, String profession, String bio, String phone, String picture, String video) {
         this.first_name = first_name;
         this.last_name = last_name;
