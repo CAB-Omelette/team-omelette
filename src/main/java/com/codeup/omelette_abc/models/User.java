@@ -11,7 +11,7 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -31,6 +31,12 @@ public class User {
         this.email = email;
         this.password = password;
         this.isOwner = isOwner;
+    }
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        password = copy.password;
     }
 
     public long getId() {
