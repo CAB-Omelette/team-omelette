@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="google-maps">
 
-<head th:fragment="maps-header">
+<head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View Location</title>
     <link rel="stylesheet" href="/googlemapsstyle.css">
 </head>
 <body>
-<div th:fragment="maps">
-<header>
-</header>
+
 <main>
     <section class="input">
         <h1>Options</h1>
@@ -35,9 +32,7 @@
 
     </section>
 </main>
-<footer>
 
-</footer>
 <script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key')}"></script>
 <script>
     "use strict";
@@ -117,7 +112,6 @@
     });
 
 </script>
-</div>
 </body>
 </html>
 
