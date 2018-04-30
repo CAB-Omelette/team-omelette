@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -27,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String saveUser(User user) {
+    public String saveUser(@Valid User user) {
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
@@ -38,6 +39,11 @@ public class UserController {
     @GetMapping("/login")
     public String showLoginForm() {
         return "users/login";
+    }
+
+    @GetMapping("/success")
+    public String loggedIn(){
+        return"/success";
     }
 
 
