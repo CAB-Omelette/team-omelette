@@ -1,4 +1,11 @@
 package com.codeup.omelette_abc.repositories;
 
-public interface ChefProfileRepository {
+
+import com.codeup.omelette_abc.models.ChefProfile;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ChefProfileRepository extends CrudRepository<ChefProfile, Long>{
+
+
+
 }
