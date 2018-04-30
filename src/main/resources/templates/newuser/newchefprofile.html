@@ -11,10 +11,10 @@
 <div class="header-content-inner">
 <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
     <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
-        <div class="form-group">
-        <label for="picture">Insert Profile Picture</label>
-        <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
-        </div>
+        <!--<div class="form-group">-->
+        <!--<label for="picture">Insert Profile Picture</label>-->
+        <!--<input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />-->
+        <!--</div>-->
         <hr />
         <div class="form-group">
         <label for="first_name">First Name</label>
@@ -22,20 +22,24 @@
         </div>
         <div class="form-group">
         <label for="last_name">Last Name</label>
-        <input id="last_name" class="form-control" placeholder="Last Name" type="text" th:field="*{last_name}" th:value="*{last_name}" />
+        <input id="last_name" class="form-control" placeholder="Last Name" type="text" th:field="*{last_name}" />
         </div>
         <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" th:value="*{phone}" />
+        <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
         </div>
         <div class="form-group">
         <label for="bio">About Me</label>
-        <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" th:value="*{bio}" />
+        <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" />
         </div>
         <div class="form-group">
-            <label for="video">Add Video</label>
-            <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
+            <label for="profession">Profession</label>
+            <input id="profession" class="form-control" placeholder="Profession" type="text" th:field="*{profession}" />
         </div>
+        <!--<div class="form-group">-->
+            <!--<label for="video">Add Video</label>-->
+            <!--<input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />-->
+        <!--</div>-->
 
 <!--<hr />-->
 <!--<div class="form-group">-->

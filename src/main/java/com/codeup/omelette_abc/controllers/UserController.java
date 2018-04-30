@@ -22,7 +22,6 @@ public class UserController {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.userSvc = userSvc;
-
     }
 
     @GetMapping("/sign-up")
@@ -30,6 +29,8 @@ public class UserController {
         model.addAttribute("user", new User());
         return "users/signup";
     }
+
+
 
     @PostMapping("/sign-up")
     public String saveUser(User user, @RequestParam(defaultValue = "false") boolean isOwner) {
@@ -65,7 +66,7 @@ public class UserController {
 
     @GetMapping("/success")
     public String loggedIn(){
-        return"/profile";
+        return"/success";
     }
 
 }
