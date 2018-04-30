@@ -40,18 +40,4 @@ public class ProfileController {
         return "/profile";
     }
 
-    @GetMapping("/createprofile")
-    public String createRestProfile(Model model){
-        model.addAttribute("rest", new RestProfile());
-        return "newuser/newrestprofile";
-    }
-
-    @PostMapping("/createprofile")
-    public String saveRestProfile(RestProfile restProfile){
-        restProfile.setUser(userSvc.currentUser());
-        restrepo.save(restProfile);
-        return "/profile";
-    }
-
-
 }
