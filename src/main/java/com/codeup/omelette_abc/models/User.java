@@ -20,6 +20,9 @@ public class User {
     @Column(nullable = false)
     private boolean isOwner;
 
+    public User() {
+    }
+
     public User(String email, String password, boolean isOwner) {
         this.email = email;
         this.password = password;
