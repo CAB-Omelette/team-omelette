@@ -29,12 +29,14 @@ public class ProfileController {
         model.addAttribute("chef", new ChefProfile());
         return "newuser/newchefprofile";
     }
+
     @PostMapping("/createprofile")
     public String saveProfile(ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefrepo.save(chefProfile);
         return "/profile";
     }
+
 
 
 

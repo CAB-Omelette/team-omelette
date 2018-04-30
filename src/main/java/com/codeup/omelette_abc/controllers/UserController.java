@@ -65,11 +65,7 @@ public class UserController {
 
     @GetMapping("/success")
     public String loggedIn(){
-        return"/success";
-
+        return"/profile";
     }
-
-
-
 
 }
