@@ -2,52 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Trebuchet MS";
-        }
-
-        header > span {
-            font-family: monospace;
-        }
-
-        main {
-            padding: 1em;
-        }
-
-        #map-canvas {
-            width: 50%;
-            height: 581px;
-        }
-
-        input {
-            font-size: 1.2em;
-            width: 80%;
-            height: 2em;
-        }
-
-        section {
-            padding: 0.5em;
-        }
-
-        button {
-            height: 3em;
-            width: 5.5em;
-            margin-top: .5em;
-            margin-bottom: .5em;
-        }
-
-    </style>
-
+    <title>Location</title>
 </head>
 <body>
 
-<div th:replace="partials/google-maps-api :: maps"></div>
+<div th:replace="partials/google-maps-api :: google-maps"></div>
 
 </body>
 </html>
