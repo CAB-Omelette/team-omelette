@@ -19,7 +19,7 @@
         <button data-zoom="20" class="zoom">Zoom x 20</button>
 
         <div>
-            <input type="text" id="address" name="address" value="124 Broadway, San Antonio, TX 78205" placeholder="Please input the address of a location to map!" />
+            <input type="text" id="address" name="address" value="codeup" placeholder="Please input the address of a location to map!" />
         </div>
 
         <button id="get-address-button">Map it!</button>
@@ -82,7 +82,8 @@
                 // Add the marker to our existing map
                 var marker = new google.maps.Marker({
                     position: results[0].geometry.location,
-                    map: map
+                    map: map,
+                    animation: google.maps.Animation.DROP
                 });
 
             } else {
