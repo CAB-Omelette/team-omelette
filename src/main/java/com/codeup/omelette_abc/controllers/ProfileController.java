@@ -1,8 +1,10 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.JobHistory;
 import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.ChefProfileRepository;
+import com.codeup.omelette_abc.repositories.JobHistoryRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
@@ -11,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProfileController {
@@ -20,12 +21,14 @@ public class ProfileController {
     private RestProfileRepository restRepo;
     private UserService userSvc;
     private ProfileServices proSvc;
+    private JobHistoryRepository jobHistRepo;
 
-    public ProfileController(ProfileServices proSvc, ChefProfileRepository chefrepo, UserService userSvc, RestProfileRepository restRepo ) {
+    public ProfileController(ProfileServices proSvc, ChefProfileRepository chefrepo, UserService userSvc, RestProfileRepository restRepo, JobHistoryRepository jobHistRepo ) {
         this.proSvc = proSvc;
         this.chefRepo = chefrepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
+        this.jobHistRepo = jobHistRepo;
     }
 
 //    When a user clicks create a profile - this will determine if they are a rest or a chef
@@ -46,21 +49,28 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/";
+        return "redirect:/chefjobhistory";
     }
 
     @PostMapping("/newuser/newrestprofile")
-    @ResponseBody
     public String saveRestProfile(@ModelAttribute RestProfile restProfile){
         restProfile.setUser(userSvc.currentUser());
         restRepo.save(restProfile);
-        return "You got it!";
+        return "/";
     }
 
-//    @GetMapping("/chefjobhistory")
-//    public String chefJobHistory(){
-//        return"newuser/chefjobhistory";
-//    }
+    @GetMapping("/chefjobhistory")
+    public String addJobHistory(Model model){
+        model.addAttribute("jobHistory", new JobHistory());
+        return "newuser/chefjobhistory";
+    }
+
+    @PostMapping("/newuser/chefjobhistory")
+    public String saveRestProfile(@ModelAttribute JobHistory jobHistory){
+        jobHistory.setUser(userSvc.currentUser());
+        jobHistRepo.save(jobHistory);
+        return "/";
+    }
 
 
 
