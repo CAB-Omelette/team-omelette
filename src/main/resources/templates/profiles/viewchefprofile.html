@@ -9,7 +9,41 @@
 <h1 class="text-center"><span th:text="${chef.first_name}"></span>
     <span th:text="${chef.last_name}"></span>'s profile</h1>
 
+<div class="text-center">
+<h2>About me:</h2>
+<p><span th:text="${chef.bio}"></span></p>
 
+<br />
+
+
+<p>Phone: <span th:text="${chef.phone}"></span></p>
+
+<h2><u>Previous Experience:</u></h2>
+<div th:each="job : ${jobs}">
+    <p><span th:text="${job.title}"></span> at <span th:text="${job.location}"></span></p>
+    <h5>Start Date:</h5>
+    <p><span th:text="${job.start_date}"></span> to <span th:text="${job.end_date}"></span> </p>
+    <h5>Reason for leaving</h5>
+    <p th:text="${job.reason_left}" />
+    <hr />
+</div>
+
+    <h2><u>Education:</u></h2>
+    <div th:each="ed : ${education}">
+        <p><span th:text="${ed.name}"></span></p>
+        <p><span th:text="${ed.focus}"></span> </p>
+        <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
+        <hr />
+    </div>
+
+    <h2><u>Skills:</u></h2>
+    <ul>
+    <div th:each="skill : ${skills}">
+
+            <li><span th:text="${skill.name}"></span></li>
+    </div>
+    </ul>
+</div>
 
 </body>
 </html>
