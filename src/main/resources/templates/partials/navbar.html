@@ -10,13 +10,15 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <h1 class="">Omelette is a matchmaking service for the restaurant industry</h1>
-            <h4><a class="btn btn-success" href="/">See all Job Postings</a></h4>
-            <h4><a class="btn btn-success" href="/">Create a Job Post</a></h4>
-            <h4 sec:authorize="!isAuthenticated()"><a class="btn btn-success" href="/">Login</a></h4>
-            <h4 sec:authorize="!isAuthenticated()"><a class="btn btn-success" href="/">Sign Up!</a></h4>
+            <h1 class="navbar-logo">Omelette</h1>
+            <h4><a class="see-all-posts-button btn btn-success" href="/">See all Job Postings</a></h4>
+            <h4><a class="create-post-button btn btn-success" href="/">Create a Job Post</a></h4>
+            <h4 sec:authorize="!isAuthenticated()"><a class="login-button btn btn-success" href="/login">Login</a></h4>
+            <h4 sec:authorize="!isAuthenticated()"><a class="sign-up-button btn btn-success" href="/sign-up">Sign Up!</a></h4>
+            <h4 sec:authorize="isAuthenticated()"><a class="my-profile-button btn btn-success" href="/profile">My Profile</a></h4>
+            <h4 sec:authorize="isAuthenticated()"><a class="create-a-profile-button btn btn-success" href="/createprofile">Create a Profile</a></h4>
             <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                <button class="btn btn-success">Logout</button>
+                <button class="logout-button btn btn-success">Logout</button>
             </form>
         </div>
     </div><!-- /.navbar-collapse -->
