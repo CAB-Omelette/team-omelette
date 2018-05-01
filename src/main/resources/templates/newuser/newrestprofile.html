@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(profile)">
+<head th:replace="partials/header :: header('Profile')">
     <meta charset="UTF-8"/>
     <title>Create Chef's Profile </title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <div class="container">
 
     <h1 class="text-center">New Restaurant Profile</h1>
@@ -45,8 +47,5 @@
         </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
-
-
-
 </body>
 </html>
