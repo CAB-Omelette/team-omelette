@@ -63,7 +63,7 @@ public class ProfileController {
     public String saveRestProfile(@ModelAttribute RestProfile restProfile){
         restProfile.setUser(userSvc.currentUser());
         restRepo.save(restProfile);
-        return "/";
+        return "redirect:/profile";
     }
 
     @GetMapping("/chefjobhistory")
@@ -108,11 +108,18 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        Long id = userSvc.currentUser().getId();
-        model.addAttribute("chef", chefRepo.findByUserId(id));
-        model.addAttribute("jobs", jobHistRepo.findByUserId(id));
-        model.addAttribute("education", edRepo.findByUserId(id));
-        model.addAttribute("skills", skillsRepo.findByUserId(id));
-            return"profiles/viewchefprofile";
+        if(userSvc.currentUser().isOwner()){
+            Long id = userSvc.currentUser().getId();
+            model.addAttribute("rest", restRepo.findByUserId(id));
+            return"profiles/viewrestprofile";
+        }else if(!userSvc.currentUser().isOwner()) {
+            Long id = userSvc.currentUser().getId();
+            model.addAttribute("chef", chefRepo.findByUserId(id));
+            model.addAttribute("jobs", jobHistRepo.findByUserId(id));
+            model.addAttribute("education", edRepo.findByUserId(id));
+            model.addAttribute("skills", skillsRepo.findByUserId(id));
+            return "profiles/viewchefprofile";
+        }
+        return "/home";
     }
 }
