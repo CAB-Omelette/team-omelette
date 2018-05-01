@@ -33,6 +33,7 @@ public class RestProfile {
     @OneToOne
     private User user;
 
+
     public RestProfile(String rest_name, String about, String picture, String phone, String video, String location) {
         this.rest_name = rest_name;
         this.about = about;
@@ -41,7 +42,6 @@ public class RestProfile {
         this.location = location;
         this.phone = phone;
     }
-
     public RestProfile(Long id, String rest_name, String about, String picture, String phone, String video, String location, User user) {
         this.id = id;
         this.rest_name = rest_name;
@@ -52,6 +52,7 @@ public class RestProfile {
         this.phone = phone;
         this.user = user;
     }
+
 
     public RestProfile() {
     }

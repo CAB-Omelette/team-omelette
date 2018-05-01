@@ -17,6 +17,10 @@ public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
+    private ChefProfileRepository chefrepo;
+    private RestProfileRepository restrepo;
+
+
     private UserService userSvc;
     private ProfileServices proSvc;
 
@@ -50,8 +54,5 @@ public class ProfileController {
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
-
-//Creat a new postmapping controller for /newuser/newrestprofile
-// and make sure that on that form the action is set as newuser/newrestprofile
 
 }
