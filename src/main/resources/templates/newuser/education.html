@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(history)">
+<head th:replace="partials/header :: header('History')">
     <meta charset="UTF-8" />
     <title> </title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 
 <div class="container">
@@ -31,9 +32,8 @@
     <br />
     <a href="/newuser/skills"><button class="btn btn-success form-control"> Continue to skills</button></a>
 
-
-
 </div>
+
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
