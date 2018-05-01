@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(signup)">
+<head th:replace="partials/header :: header('Chef Profile')">
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <h1 class="text-center"><span th:text="${chef.first_name}"></span>
     <span th:text="${chef.last_name}"></span>'s profile</h1>
 
 
-
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

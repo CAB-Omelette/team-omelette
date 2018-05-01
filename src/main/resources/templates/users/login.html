@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(login)"></head>
+<head th:replace="partials/header :: header('Login')"></head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
 <h1>Log In</h1>
@@ -18,5 +19,7 @@
 
 </form>
 </div>
+
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
