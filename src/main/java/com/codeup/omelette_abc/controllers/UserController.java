@@ -16,6 +16,7 @@ public class UserController {
     private UserRepository users;
     private PasswordEncoder passwordEncoder;
 
+
     private UserService userSvc;
 
     public UserController(UserRepository users, PasswordEncoder passwordEncoder, UserService userSvc) {
@@ -54,7 +55,7 @@ public class UserController {
     public String loggedIn(Model model){
         if(userSvc.isLoggedIn()){
             model.addAttribute("user", userSvc.currentUser());
-            return"redirect:/profile";
+            return"/profile";
         }
         return"/login";
     }
@@ -62,11 +63,6 @@ public class UserController {
     @GetMapping("/map")
     public String googleMap() {
         return "/googlemaps";
-    }
-
-    @GetMapping("/success")
-    public String loggedIn(){
-        return"/success";
     }
 
 }
