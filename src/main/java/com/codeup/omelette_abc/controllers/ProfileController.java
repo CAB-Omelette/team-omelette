@@ -40,6 +40,7 @@ public class ProfileController {
     }
 
     @PostMapping("/newuser/newchefprofile")
+
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
