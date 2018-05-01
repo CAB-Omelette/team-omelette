@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(profile)">
+<head th:replace="partials/header :: header('Profile')">
     <meta charset="UTF-8" />
     <title> </title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 
 <div class="container">
 
@@ -43,7 +45,8 @@
         <button class="btn btn-primary form-control">Save and Continue to Job History</button>
 
     </form>
-    <footer th:replace="partials/footer :: footer"></footer>
+
+<footer th:replace="partials/footer :: footer"></footer>
 </div>
 
 

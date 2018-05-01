@@ -16,54 +16,35 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Omelette</a>
+            <a class="navbar-brand" href="/index">Omelette</a>
         </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+                <li><a href="/job_post">See all Job Postings</a></li>
+                <li><a href="/job_post/create">Create a Post</a></li>
             </ul>
-            <!--<form class="navbar-form navbar-left">-->
-                <!--<div class="form-group">-->
-                    <!--<input type="text" class="form-control" placeholder="Search">-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default">Submit</button>-->
-            <!--</form>-->
-        </div>
-    </div>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="" sec:authorize="!isAuthenticated()" href="/sign-up">Sign Up!</a></li>
+                <li><a class="" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
+                <li><a class="" sec:authorize="!isAuthenticated()" href="/createprofile">Create a Profile</a></li>
+                <li><a class="" sec:authorize="isAuthenticated()" href="/profile">My Profile</a></li>
+
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                    <button class="btn btn-primary form-control">Logout</button>
+                </form>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
-
-
-<!--<nav th:fragment="navbar" class="navbar navbar-default">-->
-    <!--<div class="container-fluid">-->
-        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-        <!--<div class="navbar-header">-->
-            <!--<h4><a class="see-all-posts-button btn btn-success" href="/">See all Job Postings</a></h4>-->
-            <!--<h4><a class="create-post-button btn btn-success" href="/">Create a Job Post</a></h4>-->
-            <!--<h4 sec:authorize="!isAuthenticated()"><a class="login-button btn btn-success" href="/login">Login</a></h4>-->
-            <!--<h4 sec:authorize="!isAuthenticated()"><a class="sign-up-button btn btn-success" href="/sign-up">Sign Up!</a></h4>-->
-            <!--<h4 sec:authorize="isAuthenticated()"><a class="my-profile-button btn btn-success" href="/profile">My Profile</a></h4>-->
-            <!--<h4 sec:authorize="isAuthenticated()"><a class="create-a-profile-button btn btn-success" href="/createprofile">Create a Profile</a></h4>-->
-            <!--<form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">-->
-                <!--<button class="logout-button btn btn-success">Logout</button>-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-<!--</nav>-->
-
 
 </body>
 </html>
