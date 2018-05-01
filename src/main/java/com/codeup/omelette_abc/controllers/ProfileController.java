@@ -1,11 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
-import com.codeup.omelette_abc.models.ChefProfile;
-import com.codeup.omelette_abc.models.JobHistory;
-import com.codeup.omelette_abc.models.RestProfile;
-import com.codeup.omelette_abc.repositories.ChefProfileRepository;
-import com.codeup.omelette_abc.repositories.JobHistoryRepository;
-import com.codeup.omelette_abc.repositories.RestProfileRepository;
+import com.codeup.omelette_abc.models.*;
+import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
@@ -22,13 +18,23 @@ public class ProfileController {
     private UserService userSvc;
     private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
+    private EducationRepository edRepo;
+    private SkillsRepository skillsRepo;
 
-    public ProfileController(ProfileServices proSvc, ChefProfileRepository chefrepo, UserService userSvc, RestProfileRepository restRepo, JobHistoryRepository jobHistRepo ) {
+    public ProfileController(ProfileServices proSvc,
+                             ChefProfileRepository chefrepo,
+                             UserService userSvc,
+                             RestProfileRepository restRepo,
+                             JobHistoryRepository jobHistRepo,
+                             EducationRepository edRepo,
+                             SkillsRepository skillsRepo) {
         this.proSvc = proSvc;
         this.chefRepo = chefrepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
         this.jobHistRepo = jobHistRepo;
+        this.edRepo = edRepo;
+        this.skillsRepo = skillsRepo;
     }
 
 //    When a user clicks create a profile - this will determine if they are a rest or a chef
@@ -69,9 +75,33 @@ public class ProfileController {
     public String saveRestProfile(@ModelAttribute JobHistory jobHistory){
         jobHistory.setUser(userSvc.currentUser());
         jobHistRepo.save(jobHistory);
-        return "/";
+        return "redirect:/chefjobhistory";
     }
 
+    @GetMapping("/education")
+    public String addEducation(Model model){
+        model.addAttribute("education", new Education());
+        return "newuser/education";
+    }
 
+    @PostMapping("/newuser/education")
+    public String saveRestProfile(@ModelAttribute Education education){
+        education.setUser(userSvc.currentUser());
+        edRepo.save(education);
+        return "redirect:/education";
+    }
+
+    @GetMapping("/newuser/skills")
+    public String addSkill(Model model){
+        model.addAttribute("skill", new Skills());
+        return "newuser/skills";
+    }
+
+    @PostMapping("/newuser/skills")
+    public String saveSkill(@ModelAttribute Skills skill){
+        skill.setUser(userSvc.currentUser());
+        skillsRepo.save(skill);
+        return "redirect:/newuser/skills";
+    }
 
 }
