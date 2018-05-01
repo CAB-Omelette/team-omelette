@@ -23,14 +23,14 @@ public class ProfileController {
     private SkillsRepository skillsRepo;
 
     public ProfileController(ProfileServices proSvc,
-                             ChefProfileRepository chefrepo,
+                             ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,
                              JobHistoryRepository jobHistRepo,
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo) {
         this.proSvc = proSvc;
-        this.chefRepo = chefrepo;
+        this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
         this.jobHistRepo = jobHistRepo;
@@ -53,7 +53,6 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
@@ -106,4 +105,14 @@ public class ProfileController {
         return "redirect:/newuser/skills";
     }
 
+
+    @GetMapping("/profile")
+    public String viewProfile(Model model){
+        Long id = userSvc.currentUser().getId();
+        model.addAttribute("chef", chefRepo.findByUserId(id));
+        model.addAttribute("jobs", jobHistRepo.findByUserId(id));
+        model.addAttribute("education", edRepo.findByUserId(id));
+        model.addAttribute("skills", skillsRepo.findByUserId(id));
+            return"profiles/viewchefprofile";
+    }
 }
