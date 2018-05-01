@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header(home)">
+
 </head>
 <body>
+<div class="container">
+    <h1 class="text-center">Welcome to Omelette!</h1>
+
+
+    <form action="/login">
+        <button class="form-control btn btn-primary">log in</button>
+    </form>
+
+    <br />
+
+    <form action="/profile">
+        <button class="form-control btn btn-primary">View my profile</button>
+    </form>
+
+    <br />
+
+    <form action="/map">
+        <button class="form-control btn btn-primary">View map</button>
+    </form>
+
+</div>
 
 </body>
 </html>
