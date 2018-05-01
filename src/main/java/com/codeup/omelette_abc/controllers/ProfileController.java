@@ -15,24 +15,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ProfileController {
 
+    private ChefProfileRepository chefRepo;
+    private RestProfileRepository restRepo;
     private ChefProfileRepository chefrepo;
     private RestProfileRepository restrepo;
+
 
     private UserService userSvc;
     private ProfileServices proSvc;
 
-    public ProfileController(ProfileServices proSvc, ChefProfileRepository chefrepo, UserService userSvc ) {
+    public ProfileController(ProfileServices proSvc, ChefProfileRepository chefrepo, UserService userSvc, RestProfileRepository restRepo ) {
         this.proSvc = proSvc;
-        this.chefrepo = chefrepo;
+        this.chefRepo = chefrepo;
         this.userSvc = userSvc;
+        this.restRepo = restRepo;
     }
 
     @GetMapping("/createprofile")
     public String createChefProfile(Model model){
-//        if(userSvc.currentUser().isOwner()){
-//            model.addAttribute("rest", new RestProfile());
-//            return "newuser/newrestprofile";
-//        }
+        if(userSvc.currentUser().isOwner()){
+            model.addAttribute("rest", new RestProfile());
+            return "newuser/newrestprofile";
+        }
         model.addAttribute("chef", new ChefProfile());
         return "newuser/newchefprofile";
     }
@@ -40,8 +44,15 @@ public class ProfileController {
     @PostMapping("/newuser/newchefprofile")
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
-        chefrepo.save(chefProfile);
-        return "redirect:/success";
+        chefRepo.save(chefProfile);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/newuser/newrestprofile")
+    public String saveRestProfile(@ModelAttribute RestProfile restProfile){
+        restProfile.setUser(userSvc.currentUser());
+        restRepo.save(restProfile);
+        return "redirect:/profile";
     }
 
 }

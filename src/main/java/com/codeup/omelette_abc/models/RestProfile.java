@@ -33,13 +33,6 @@ public class RestProfile {
     @OneToOne
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public RestProfile(String rest_name, String about, String picture, String phone, String video, String location) {
         this.rest_name = rest_name;
@@ -60,8 +53,13 @@ public class RestProfile {
         this.user = user;
     }
 
+
     public RestProfile() {
     }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 
     public long getId() {
         return id;
