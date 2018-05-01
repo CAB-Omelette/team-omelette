@@ -11,16 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
-    private ChefProfileRepository chefrepo;
-    private RestProfileRepository restrepo;
-
-
     private UserService userSvc;
     private ProfileServices proSvc;
 
@@ -31,6 +28,8 @@ public class ProfileController {
         this.restRepo = restRepo;
     }
 
+//    When a user clicks create a profile - this will determine if they are a rest or a chef
+//    and direct them to the correct profile creation page.
     @GetMapping("/createprofile")
     public String createChefProfile(Model model){
         if(userSvc.currentUser().isOwner()){
@@ -41,18 +40,28 @@ public class ProfileController {
         return "newuser/newchefprofile";
     }
 
+//    Once a chef clicks submit on the profile creation form they will be directed to the
+//    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/profile";
+        return "redirect:/";
     }
 
     @PostMapping("/newuser/newrestprofile")
+    @ResponseBody
     public String saveRestProfile(@ModelAttribute RestProfile restProfile){
         restProfile.setUser(userSvc.currentUser());
         restRepo.save(restProfile);
-        return "redirect:/profile";
+        return "You got it!";
     }
+
+//    @GetMapping("/chefjobhistory")
+//    public String chefJobHistory(){
+//        return"newuser/chefjobhistory";
+//    }
+
+
 
 }

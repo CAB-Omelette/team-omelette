@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: header(profile)">
     <meta charset="UTF-8" />
-    <title>Create Chef's Profile </title>
+    <title> </title>
 </head>
 <body>
-<header>
 
-<div class="header-content">
-<div class="header-content-inner">
+
+
+
+
+
+
+
+
+
 <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+<div class="container">
     <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
-        <!--<div class="form-group">-->
-        <!--<label for="picture">Insert Profile Picture</label>-->
-        <!--<input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />-->
-        <!--</div>-->
-        <hr />
-        <div class="form-group">
+
+        <label for="picture">Insert Profile Picture</label>
+        <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
+
+        <br />
+
         <label for="first_name">First Name</label>
         <input id="first_name" class="form-control" placeholder="First Name" type="text" th:field="*{first_name}" />
-        </div>
-        <div class="form-group">
+
+        <br />
+
         <label for="last_name">Last Name</label>
         <input id="last_name" class="form-control" placeholder="Last Name" type="text" th:field="*{last_name}" />
-        </div>
-        <div class="form-group">
+
+        <br />
+
         <label for="phone">Phone Number</label>
         <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
-        </div>
-        <div class="form-group">
+
+        <br />
+
         <label for="bio">About Me</label>
         <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" />
-        </div>
-        <div class="form-group">
-            <label for="profession">Profession</label>
-            <input id="profession" class="form-control" placeholder="Profession" type="text" th:field="*{profession}" />
-        </div>
-        <!--<div class="form-group">-->
-            <!--<label for="video">Add Video</label>-->
-            <!--<input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />-->
-        <!--</div>-->
+
+        <br />
+
+        <label for="video">Add Video</label>
+        <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
+
+        <br />
+
+        <button class="btn btn-primary form-control">Save and Continue</button>
+
+    </form>
+    <footer th:replace="partials/footer :: footer"></footer>
+</div>
 
 <!--<hr />-->
 <!--<div class="form-group">-->
@@ -60,14 +74,12 @@
 
 <!--</div>-->
 
-        <button>submit</button>
+        <!--<button>submit</button>-->
 
-    </form>
+    <!--</form>-->
 
-</div>
-</div>
-</header>
 
-<h1>new Chef Profile</h1>
+
+
 </body>
 </html>

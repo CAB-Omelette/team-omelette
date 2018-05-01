@@ -35,6 +35,9 @@ public class JobHistory {
         this.reason_left = reason_left;
     }
 
+    public JobHistory() {
+    }
+
     public String getLocation() {
         return location;
     }
