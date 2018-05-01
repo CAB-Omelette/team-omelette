@@ -15,6 +15,7 @@ public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
+
     private UserService userSvc;
     private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
@@ -52,6 +53,7 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
+
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
