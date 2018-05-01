@@ -1,7 +1,7 @@
 USE om_db;
 
 
-INSERT INTO chef_profile(bio, first_name, last_name, phone, picture, profession, video, user_id)
+INSERT INTO chef_profile(bio, first_name, last_name, phone, picture, video, user_id)
 VALUES("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 1),
   ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 2),
   ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 3),
