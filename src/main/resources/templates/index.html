@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(home)">
+<head th:replace="partials/header :: header('Home')">
 
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <div class="container">
 <h1 class="text-center">Welcome to Omelette!</h1>
 
@@ -32,6 +34,6 @@
 </div>
 
 
-
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
