@@ -10,26 +10,16 @@
         <div class="header-content-inner">
             <form th:action="@{/newuser/newrestprofile}" th:method="post" th:object="${rest}">
             <!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
-<<<<<<< HEAD
+
             <!--<div class="form-group">-->
-                <!--<label for="rest_profile">Insert Logo Picture</label>-->
-                <!--<input id="rest_profile" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}" th:value="*{picture}" />-->
+                <!--<label for="picture">Insert Logo Picture</label>-->
+                <!--<input id="picture" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}"/>-->
             <!--</div>-->
-            <hr />
-            <div class="form-group">
-                <label for="name">Restaurant Name</label>
-                <input id="name" class="form-control" placeholder="First Name" type="text" th:field="*{rest_name}" />
-=======
-            <form th:action="@{/newuser/newrestprofile}" th:method="post" th:object="${rest}">
-            <div class="form-group">
-                <label for="picture">Insert Logo Picture</label>
-                <input id="picture" class="form-control" placeholder="Restaurant Logo" type="file" th:field="*{picture}"/>
-            </div>
             <hr />
             <div class="form-group">
                 <label for="rest_name">Restaurant Name</label>
                 <input id="rest_name" class="form-control" placeholder="First Name" type="text" th:field="*{rest_name}" />
->>>>>>> c29a760049a22411139d5db2f16947b74ada6aeb
+
             </div>
             <div class="form-group">
                 <label for="location">Restaurant Address</label>
@@ -37,17 +27,14 @@
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-<<<<<<< HEAD
-                <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}"  />
-=======
                 <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
->>>>>>> c29a760049a22411139d5db2f16947b74ada6aeb
+
             </div>
             <div class="form-group">
                 <label for="about">About Restaurant</label>
                 <input id="about" class="form-control" placeholder="About Me" type="text" th:field="*{about}" />
             </div>
-<<<<<<< HEAD
+
 
             <hr />
             <!--<div class="form-group">-->
@@ -63,11 +50,11 @@
             <!--</div>-->
 
                 <button>Submit</button>
-=======
-                <div class="form-group">
-                <label for="video">Add Video's of Kitchen Experience</label>
-                <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
-            </div>
+
+                <!--<div class="form-group">-->
+                <!--<label for="video">Add Video's of Kitchen Experience</label>-->
+                <!--<input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />-->
+            <!--</div>-->
             <hr />
             <!--<div class="form-group">-->
                 <!--<label for="title">Job Listings</label>-->
@@ -79,13 +66,12 @@
             <!--</div>-->
             <!--<hr />-->
 
-            <button>submit</button>
->>>>>>> c29a760049a22411139d5db2f16947b74ada6aeb
             </form>
         </div>
     </div>
+
 </header>
-<h1>new Rest Profile</h1>
+
 
 </body>
 </html>
