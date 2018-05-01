@@ -17,8 +17,6 @@ public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
-    private ChefProfileRepository chefrepo;
-    private RestProfileRepository restrepo;
 
 
     private UserService userSvc;
