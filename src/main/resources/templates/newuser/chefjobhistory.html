@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('History')">
+    <meta charset="UTF-8" />
+    <title> </title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+
+<div class="container">
+    <h1 class="text-center">Job History</h1>
+<form th:action="@{/newuser/chefjobhistory}" th:method="post" th:object="${jobHistory}">
+
+    <label for="title">Title</label>
+    <input id="title" class="form-control" placeholder="Title held" type="text" th:field="*{title}" />
+
+    <br />
+
+    <label for="location">Location</label>
+    <input id="location" class="form-control" placeholder="Location" type="text" th:field="*{location}" />
+
+    <br />
+
+    <label for="start_date">Start Date</label>
+    <input id="start_date" class="form-control" type="date" th:field="*{start_date}" />
+
+    <br />
+
+    <label for="end_date">End Date</label>
+    <input id="end_date" class="form-control" type="date" th:field="*{end_date}" />
+
+    <br />
+
+    <label for="reason_left">Reason for leaving:</label>
+    <input id="reason_left" class="form-control" type="text" th:field="*{reason_left}" />
+
+    <br />
+
+    <button class="btn btn-primary form-control">Save or add another</button>
+    </form>
+
+    <br />
+
+    <a href="/education"><button class="btn btn-success form-control">Continue to education</button></a>
+
+</div>
+
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

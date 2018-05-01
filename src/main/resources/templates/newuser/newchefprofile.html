@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Profile')">
+    <meta charset="UTF-8" />
+    <title> </title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+
+<div class="container">
+
+    <h1 class="text-center">Basic Information</h1>
+    <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
+
+        <label for="picture">Insert Profile Picture</label>
+        <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
+
+        <br />
+
+        <label for="first_name">First Name</label>
+        <input id="first_name" class="form-control" placeholder="First Name" type="text" th:field="*{first_name}" />
+
+        <br />
+        <label for="last_name">Last Name</label>
+        <input id="last_name" class="form-control" placeholder="Last Name" type="text" th:field="*{last_name}" />
+
+        <br />
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
+
+        <br />
+
+        <label for="bio">About Me</label>
+        <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" />
+
+        <br />
+
+        <label for="video">Add Video</label>
+        <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
+
+        <br />
+
+        <button class="btn btn-primary form-control">Save and Continue to Job History</button>
+
+    </form>
+
+<footer th:replace="partials/footer :: footer"></footer>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

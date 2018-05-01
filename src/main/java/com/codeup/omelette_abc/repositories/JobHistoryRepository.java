@@ -1,16 +1,16 @@
 package com.codeup.omelette_abc.repositories;
 
-
-import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.JobHistory;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ChefProfileRepository extends CrudRepository<ChefProfile, Long>{
+public interface JobHistoryRepository extends CrudRepository<JobHistory, Long> {
 
 
-    @Query(value = "SELECT * FROM CHEF_PROFILE WHERE user_id = :id", nativeQuery = true)
-    ChefProfile findByUserId(@Param("id") long id);
+    @Query(value = "SELECT * FROM job_history WHERE user_id = :id", nativeQuery = true)
+    Iterable<JobHistory> findByUserId(@Param("id") long id);
+
 }
