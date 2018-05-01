@@ -94,7 +94,7 @@ public class ProfileController {
     @GetMapping("/newuser/skills")
     public String addSkill(Model model){
         model.addAttribute("skill", new Skills());
-        return "newuser/skills";
+        return "/newuser/skills";
     }
 
     @PostMapping("/newuser/skills")

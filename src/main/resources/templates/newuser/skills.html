@@ -11,7 +11,7 @@
     <form th:action="@{/newuser/skills}" th:method="post" th:object="${skill}">
 
         <label for="skill">Skill</label>
-        <input id="skill" class="form-control" placeholder="School name" type="text" th:field="*{skill_name}" />
+        <input id="skill" class="form-control" type="text" placeholder="add a skill" th:field="*{name}" />
 
         <button class="btn btn-primary form-control">Save or add another</button>
     </form>
