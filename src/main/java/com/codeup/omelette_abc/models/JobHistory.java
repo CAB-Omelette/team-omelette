@@ -1,7 +1,6 @@
 package com.codeup.omelette_abc.models;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
@@ -19,15 +18,18 @@ public class JobHistory {
     private String title;
 
     @Column(nullable = false)
-    private Date start_date;
+    private String start_date;
 
     @Column(nullable = false)
-    private Date end_date;
+    private String end_date;
 
     @Column(nullable = true)
     private String reason_left;
 
-    public JobHistory(String location, String title, Date start_date, Date end_date, String reason_left) {
+    @OneToOne
+    private User user;
+
+    public JobHistory(String location, String title, String start_date, String end_date, String reason_left) {
         this.location = location;
         this.title = title;
         this.start_date = start_date;
@@ -35,7 +37,25 @@ public class JobHistory {
         this.reason_left = reason_left;
     }
 
+    public JobHistory(Long id, String location, String title, String start_date, String end_date, String reason_left, User user) {
+        this.id = id;
+        this.location = location;
+        this.title = title;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.reason_left = reason_left;
+        this.user = user;
+    }
+
     public JobHistory() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getLocation() {
@@ -54,20 +74,16 @@ public class JobHistory {
         this.title = title;
     }
 
-    public Date getStart_date() {
+    public String getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
-    }
+    public void setStart_date(String start_date) { this.start_date = start_date; }
 
-    public Date getEnd_date() {
+    public void setEnd_date(String end_date) { this.end_date = end_date; }
+
+    public String getEnd_date() {
         return end_date;
-    }
-
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
     }
 
     public String getReason_left() {
