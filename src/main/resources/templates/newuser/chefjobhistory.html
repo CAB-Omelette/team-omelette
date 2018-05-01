@@ -8,6 +8,7 @@
 
 
 <div class="container">
+    <h1 class="text-center">Job History</h1>
 <form th:action="@{/newuser/chefjobhistory}" th:method="post" th:object="${jobHistory}">
 
     <label for="title">Title</label>
@@ -39,11 +40,11 @@
     </form>
 
     <br />
-    <a href="/education"><button class="btn btn-success form-control"> Continue to education</button></a>
 
-
+    <a href="/education"><button class="btn btn-success form-control">Continue to education</button></a>
 
 </div>
+
     <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

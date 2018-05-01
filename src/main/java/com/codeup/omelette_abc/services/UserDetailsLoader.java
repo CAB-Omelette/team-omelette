@@ -27,6 +27,4 @@ public class UserDetailsLoader implements UserDetailsService {
 
         return new UserWithRoles(user);
     }
-
-
 }

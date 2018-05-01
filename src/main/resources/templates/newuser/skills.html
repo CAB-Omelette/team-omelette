@@ -6,12 +6,14 @@
 </head>
 <body>
 
-
 <div class="container">
+    <h1 class="text-center">Skills</h1>
     <form th:action="@{/newuser/skills}" th:method="post" th:object="${skill}">
 
         <label for="skill">Skill</label>
         <input id="skill" class="form-control" type="text" placeholder="add a skill" th:field="*{name}" />
+
+        <br />
 
         <button class="btn btn-primary form-control">Save or add another</button>
     </form>

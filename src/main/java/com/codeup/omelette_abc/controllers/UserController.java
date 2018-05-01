@@ -51,13 +51,13 @@ public class UserController {
     }
 
 
-    @GetMapping("/profile")
+    @GetMapping("/home")
     public String loggedIn(Model model){
         if(userSvc.isLoggedIn()){
             model.addAttribute("user", userSvc.currentUser());
-            return"/profile";
+            return"/home";
         }
-        return"/login";
+        return"redirect:/login";
     }
 
     @GetMapping("/map")
