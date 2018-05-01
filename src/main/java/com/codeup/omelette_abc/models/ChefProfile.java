@@ -18,9 +18,6 @@ public class ChefProfile {
     @Column(nullable = false, length = 50)
     private String last_name;
 
-    @Column(nullable = false, length = 50)
-    private String profession;
-
     @Column(nullable = false, length = 500)
     private String bio;
 
@@ -44,11 +41,10 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(Long id, String first_name, String last_name, String profession, String bio, String phone, String picture, String video, User user) {
+    public ChefProfile(Long id, String first_name, String last_name,  String bio, String phone, String picture, String video, User user) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.profession = profession;
         this.bio = bio;
         this.phone = phone;
         this.picture = picture;
@@ -56,10 +52,9 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(String first_name, String last_name, String profession, String bio, String phone, String picture, String video) {
+    public ChefProfile(String first_name, String last_name, String bio, String phone, String picture, String video) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.profession = profession;
         this.bio = bio;
         this.phone = phone;
         this.picture = picture;
@@ -91,14 +86,6 @@ public class ChefProfile {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
-    }
-
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
     }
 
     public String getPhone() { return phone; }
