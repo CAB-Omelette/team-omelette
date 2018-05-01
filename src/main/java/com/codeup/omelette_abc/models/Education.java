@@ -1,7 +1,6 @@
 package com.codeup.omelette_abc.models;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
@@ -9,10 +8,21 @@ import java.util.Date;
 public class Education {
 
 
-    public Education(String name, Date graduationDate, String focus) {
+    public Education(String name, String graduationDate, String focus) {
         this.name = name;
         this.graduationDate = graduationDate;
         this.focus = focus;
+    }
+
+    public Education(Long id, String name, String graduationDate, String focus, User user) {
+        this.id = id;
+        this.name = name;
+        this.graduationDate = graduationDate;
+        this.focus = focus;
+        this.user = user;
+    }
+
+    public Education() {
     }
 
     @Id
@@ -23,10 +33,13 @@ public class Education {
     private String name;
 
     @Column(length = 500)
-    private Date graduationDate;
+    private String graduationDate;
 
     @Column(length = 500)
     private String focus;
+
+    @OneToOne
+    private User user;
 
     public String getName() {
         return focus;
@@ -36,13 +49,13 @@ public class Education {
         this.name = name;
     }
 
-    public Date getGraduationDate() {
-        return graduationDate;
-    }
+    public long getId() { return id; }
 
-    public void setGraduationDate(Date graduationDate) {
-        this.graduationDate = graduationDate;
-    }
+    public String getGraduationDate() { return graduationDate; }
+
+    public void setId(long id) { this.id = id; }
+
+    public void setGraduationDate(String graduationDate) { this.graduationDate = graduationDate; }
 
     public String getFocus() {
         return focus;
@@ -51,4 +64,8 @@ public class Education {
     public void setFocus(String focus) {
         this.focus = focus;
     }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

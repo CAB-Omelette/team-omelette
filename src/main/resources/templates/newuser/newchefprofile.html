@@ -1,73 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: header(profile)">
     <meta charset="UTF-8" />
-    <title>Create Chef's Profile </title>
+    <title> </title>
 </head>
 <body>
-<header>
 
-<div class="header-content">
-<div class="header-content-inner">
-<!--TODO: MAKE SURE THIS PART IS CORRECT. SYNTAX FOR EL EXPRESSIONS TO PULL AND INSERT PROFILE PICTURE -->
+<div class="container">
     <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
-        <!--<div class="form-group">-->
-        <!--<label for="picture">Insert Profile Picture</label>-->
-        <!--<input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />-->
-        <!--</div>-->
-        <hr />
-        <div class="form-group">
+
+        <label for="picture">Insert Profile Picture</label>
+        <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
+
+        <br />
+
         <label for="first_name">First Name</label>
         <input id="first_name" class="form-control" placeholder="First Name" type="text" th:field="*{first_name}" />
-        </div>
-        <div class="form-group">
+
+        <br />
         <label for="last_name">Last Name</label>
         <input id="last_name" class="form-control" placeholder="Last Name" type="text" th:field="*{last_name}" />
-        </div>
-        <div class="form-group">
+
+        <br />
+
         <label for="phone">Phone Number</label>
         <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
-        </div>
-        <div class="form-group">
+
+        <br />
+
         <label for="bio">About Me</label>
         <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" />
-        </div>
-        <div class="form-group">
-            <label for="profession">Profession</label>
-            <input id="profession" class="form-control" placeholder="Profession" type="text" th:field="*{profession}" />
-        </div>
-        <!--<div class="form-group">-->
-            <!--<label for="video">Add Video</label>-->
-            <!--<input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />-->
-        <!--</div>-->
 
-<!--<hr />-->
-<!--<div class="form-group">-->
-<!--&lt;!&ndash;TODO: build and add education table to db&ndash;&gt;-->
-<!--<label for="education">Education (If Applicable)</label>-->
-<!--<input id="name" class="form-control" placeholder="Name" type="text" th:field="*{name}"  />-->
-<!--<input id="graduation_date" class="form-control" placeholder="Graduation Date" type="text" th:field="*{graduation_date}" />-->
-<!--<input id="education" class="form-control" placeholder="Focus of Study" type="text" th:field="*{focus}"  />-->
-<!--</div>-->
-<!--<hr />-->
-<!--<div class="form-group">-->
-<!--<label for="job_history">Job History(If Applicable)</label>-->
-<!--<input id="location" class="form-control" placeholder="Name" type="text" th:field="*{location}" th:value="*{location}" />-->
-<!--<input id="start_date" class="form-control" placeholder="Start Date" type="text" th:field="*{start_date}" th:value="*{start_date}" />-->
-<!--<input id="end_date" class="form-control" placeholder="End Date" type="text" th:field="*{end_date}" th:value="*{end_date}" />-->
-<!--<input id="title" class="form-control" placeholder="Title" type="text" th:field="*{title}" th:value="*{title}" />-->
-<!--<input id="reason_left" class="form-control" placeholder="Reason For Leaving (Not Necessary)" type="text" th:field="*{reason_left}" />-->
+        <br />
 
-<!--</div>-->
+        <label for="video">Add Video</label>
+        <input id="video" class="form-control" placeholder="Add Video" type="file" th:field="*{video}" />
 
-        <button>submit</button>
+        <br />
+
+        <button class="btn btn-primary form-control">Save and Continue to Job History</button>
 
     </form>
-
+    <footer th:replace="partials/footer :: footer"></footer>
 </div>
-</div>
-</header>
 
-<h1>new Chef Profile</h1>
+
+
+
+
+
+
 </body>
 </html>

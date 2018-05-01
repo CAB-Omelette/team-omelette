@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Log In</title>
-</head>
+<head th:replace="partials/header :: header(login)"></head>
 <body>
-<h1>Log In Page!</h1>
+
+<div class="container">
+<h1>Log In</h1>
 
 <form th:action="@{/login}" method="post">
+
     <label for="username">Email</label>
-    <input id="username" name="username" type="text" />
+
+    <input class="form-control" id="username" name="username" type="text" />
     <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <input type="submit" value="Log In" />
+
+    <input class="form-control" id="password" name="password" type="password" />
+    <button class="btn btn-primary form-control">Login</button>
+
 </form>
+</div>
 </body>
 </html>

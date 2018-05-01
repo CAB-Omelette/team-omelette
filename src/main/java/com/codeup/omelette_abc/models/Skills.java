@@ -1,5 +1,6 @@
 package com.codeup.omelette_abc.models;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -10,27 +11,62 @@ public class Skills {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 300)
-    private String skill_name;
+    @Column(length = 500)
+    private String video;
 
-    public long getId() {
-        return id;
+    @Column(length = 500)
+    private String picture;
+
+    @Column
+    private String name;
+
+    @OneToOne
+    private User user;
+
+    public Skills(String video, String picture, String name) {
+        this.video = video;
+        this.picture = picture;
+        this.name = name;
     }
 
-    public void setId(long id) {
+    public Skills(Long id, String video, String picture, String name, User user) {
         this.id = id;
+        this.video = video;
+        this.picture = picture;
+        this.name = name;
+        this.user = user;
     }
 
-    public String getSkill_name() {
-        return skill_name;
+    public Skills() {
     }
 
-    public void setSkill_name(String skill_name) {
-        this.skill_name = skill_name;
+    public Skills(String video) {
+        this.video = video;
     }
 
-    public Skills(String skill_name) {
-
-        this.skill_name = skill_name;
+    public String getVideo() {
+        return video;
     }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public long getId() { return id; }
+
+    public void setId(long id) { this.id = id; }
+
+    public String getPicture() { return picture; }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

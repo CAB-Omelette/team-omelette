@@ -1,10 +1,10 @@
 package com.codeup.omelette_abc.repositories;
 
-import com.codeup.omelette_abc.models.RestProfile;
+import com.codeup.omelette_abc.models.Skills;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface RestProfileRepository extends CrudRepository<RestProfile, Long> {
-}
 
+@Repository
+public interface SkillsRepository extends CrudRepository<Skills, Long> {
+}
