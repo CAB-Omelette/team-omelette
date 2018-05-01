@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header(home)">
-
+<head th:replace="partials/header :: header('Job Post Form')">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <div class="container">
     <h1 class="text-center">Welcome to Omelette!</h1>
 
@@ -26,5 +32,7 @@
 
 </div>
 
+
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
