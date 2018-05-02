@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Montserrat');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+#body {
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
 }
 
 
@@ -13,8 +19,17 @@
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #efefef;
+    background-color: rgba(0,0,0,.2);
     text-align: center;
+}
+
+.goog-te-gadget-simple {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+}
+
+#google_translate_element {
+    border-radius: 20px;
 }
 
 
