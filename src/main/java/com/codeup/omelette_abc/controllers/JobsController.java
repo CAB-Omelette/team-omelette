@@ -14,16 +14,16 @@ public class JobsController {
 
     private JobPostRepository jobs;
 
-    @GetMapping(value= "/job_post/create")
-    public String createNewJob(Model model){
-        model.addAttribute("newJob", new JobListing());
-        return "/job_post_form";
-    }
-
-    @PostMapping(value = "/job_post/{id}")
-    public String saveNewJob(){
-
-    }
+//    @GetMapping(value= "/job_post/create")
+//    public String createNewJob(Model model){
+//        model.addAttribute("newJob", new JobListing());
+//        return "/job_post_form";
+//    }
+//
+//    @PostMapping(value = "/job_post/{id}")
+//    public String saveNewJob(){
+//
+//    }
 
 
     @RequestMapping(value = "/job_post/{id}", method = RequestMethod.GET)
