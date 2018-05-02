@@ -22,10 +22,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a class="" sec:authorize="isAuthenticated()" href="/home">Home</a></li>
                 <li><a href="/all">View Jobs</a></li>
                 <li><a href="/chefs">View Chefs</a></li>
                 <li><a href="/restaurants">View Restaurants</a></li>
                 <li><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
+
             </ul>
             <!--<form class="navbar-form navbar-left">-->
                 <!--<div class="form-group">-->

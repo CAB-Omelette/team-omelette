@@ -6,22 +6,24 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-
-
+<div class="text-center container">
+<img th:src="${rest.getPicture()}" alt="chuys profile picture" />
 <h1>Profile for <span th:text="${rest.rest_name}"></span></h1>
 <h3>Phone: <span th:text="${rest.phone}"></span></h3>
 <h3>Located at: <span th:text="${rest.location}"></span></h3>
 <h3><span th:text="${rest.about}"></span></h3>
 <div th:replace="partials/google-maps-api :: google-maps"></div>
-
-
+</div>
+<div class="text-center">
 <div th:each="job : ${jobs}">
 
-    <h3>Title: <span th:text="${job.title}"></span></h3>
-    <h3>Job Description: <span th:text="${job.description}"></span></h3>
-    <h4>Pay: <span th:text="${job.pay}"></span></h4>
+    <h3><span th:text="${job.title}"></span></h3>
+    <a th:href="@{/job/{id}(id=${job.id})}">
+        <button class="btn btn-default">View Job</button>
+    </a>
     <hr />
 
+</div>
 </div>
 
 

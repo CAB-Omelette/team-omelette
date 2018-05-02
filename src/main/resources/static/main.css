@@ -23,6 +23,11 @@
     text-align: center;
 }
 
+.flexbox{
+    display: flex;
+    justify-content: center;
+}
+
 .goog-te-gadget-simple {
     font-family: 'Montserrat', sans-serif;
     border-radius: 20px;

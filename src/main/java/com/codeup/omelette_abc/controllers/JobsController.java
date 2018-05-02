@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.JobListing;
+import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.JobsService;
@@ -8,8 +9,9 @@ import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -39,10 +41,19 @@ public class JobsController {
         return "/jobs/create";
     }
 
+    @PostMapping("/jobs/create")
+    public String postJob(@ModelAttribute JobListing newJob){
+        newJob.setUser(userSvc.currentUser());
+        jobsRepo.save(newJob);
+        return"redirect:/profile";
+    }
+
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
+        RestProfile rest = restRepo.findByUser(jobsRepo.findOne(id).getUser());
         model.addAttribute("job", jobsRepo.findOne(id));
+        model.addAttribute("rest", rest);
         return "jobs/view";
     }
 
