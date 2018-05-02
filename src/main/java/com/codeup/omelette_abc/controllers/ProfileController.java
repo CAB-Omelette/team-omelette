@@ -15,7 +15,6 @@ public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
-
     private UserService userSvc;
     private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
@@ -99,10 +98,17 @@ public class ProfileController {
     }
 
     @PostMapping("/newuser/skills")
-    public String saveSkill(@ModelAttribute Skills skill){
+    public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
         return "redirect:/newuser/skills";
+    }
+
+    @PostMapping("/newuser/saveskills")
+    public String saveSkill(@ModelAttribute Skills skill){
+        skill.setUser(userSvc.currentUser());
+        skillsRepo.save(skill);
+        return "redirect:/profile";
     }
 
 
@@ -113,11 +119,11 @@ public class ProfileController {
             model.addAttribute("rest", restRepo.findByUserId(id));
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
-            Long id = userSvc.currentUser().getId();
-            model.addAttribute("chef", chefRepo.findByUserId(id));
-            model.addAttribute("jobs", jobHistRepo.findByUserId(id));
-            model.addAttribute("education", edRepo.findByUserId(id));
-            model.addAttribute("skills", skillsRepo.findByUserId(id));
+            User user = userSvc.currentUser();
+            model.addAttribute("chef", chefRepo.findByUser(user));
+            model.addAttribute("jobs", jobHistRepo.findByUser(user));
+            model.addAttribute("education", edRepo.findByUser(user));
+            model.addAttribute("skills", skillsRepo.findByUser(user));
             return "profiles/viewchefprofile";
         }
         return "/home";
