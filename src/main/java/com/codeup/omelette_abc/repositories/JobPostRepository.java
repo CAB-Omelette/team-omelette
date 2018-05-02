@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface JobPostRepository extends CrudRepository<JobListing, Long> {
 
+
+    Iterable<JobListing> findAll();
 }

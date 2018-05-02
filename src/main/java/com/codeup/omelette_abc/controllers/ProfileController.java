@@ -115,8 +115,8 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         if(userSvc.currentUser().isOwner()){
-            Long id = userSvc.currentUser().getId();
-            model.addAttribute("rest", restRepo.findByUserId(id));
+            User user = userSvc.currentUser();
+            model.addAttribute("rest", restRepo.findByUser(user));
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
             User user = userSvc.currentUser();
