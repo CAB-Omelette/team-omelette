@@ -119,11 +119,11 @@ public class ProfileController {
             model.addAttribute("rest", restRepo.findByUserId(id));
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
-            Long id = userSvc.currentUser().getId();
-            model.addAttribute("chef", chefRepo.findByUserId(id));
-            model.addAttribute("jobs", jobHistRepo.findByUserId(id));
-            model.addAttribute("education", edRepo.findByUserId(id));
-            model.addAttribute("skills", skillsRepo.findByUserId(id));
+            User user = userSvc.currentUser();
+            model.addAttribute("chef", chefRepo.findByUser(user));
+            model.addAttribute("jobs", jobHistRepo.findByUser(user));
+            model.addAttribute("education", edRepo.findByUser(user));
+            model.addAttribute("skills", skillsRepo.findByUser(user));
             return "profiles/viewchefprofile";
         }
         return "/home";
