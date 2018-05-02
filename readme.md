@@ -73,9 +73,15 @@ RESTAURANT PROFILE PAGE
 
 VIEW ALL CHEFS PAGE
 
-- [ ] Able to view a list of all chefs who have profiles on omelette
+- [x] Able to view a list of all chefs who have profiles on omelette
 
 - [ ] Able to click a link and view a specific chef's full profile
+
+VIEW ALL RESTAURANTS PAGE
+
+- [x] Able to view a list of all restaurants who have profiles on omelette
+
+- [ ] Able to click a link and view a specific restaurants's full profile
 
 
 
