@@ -86,7 +86,6 @@ VIEW ALL RESTAURANTS PAGE
 - [x] Able to click a link and view a specific restaurants's full profile
 
 
-
 VIEW ALL JOB POSTINGS
 
 - [x] Able to view a list of all jobs posted from restaurants

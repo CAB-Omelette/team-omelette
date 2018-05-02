@@ -15,6 +15,15 @@
 <div th:replace="partials/google-maps-api :: google-maps"></div>
 
 
+<div th:each="job : ${jobs}">
+
+    <h3>Title: <span th:text="${job.title}"></span></h3>
+    <h3>Job Description: <span th:text="${job.description}"></span></h3>
+    <h4>Pay: <span th:text="${job.pay}"></span></h4>
+    <hr />
+
+</div>
+
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
