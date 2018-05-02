@@ -1,9 +1,5 @@
 package com.codeup.omelette_abc.controllers;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> df381644304fe434178a6ab1958de73b78399f5e
 import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
@@ -12,9 +8,8 @@ import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 @Controller
@@ -36,45 +31,19 @@ public class JobsController {
         this.userSvc = userSvc;
     }
 
-<<<<<<< HEAD
-    @GetMapping(value= "/job_post/create")
-=======
 
 
     @GetMapping("/jobs/create")
->>>>>>> df381644304fe434178a6ab1958de73b78399f5e
     public String createNewJob(Model model){
         model.addAttribute("newJob", new JobListing());
         return "/jobs/create";
     }
 
-<<<<<<< HEAD
-    @PostMapping(value = "/job_post/{id}")
-=======
-    @PostMapping( "/jobs/create")
->>>>>>> df381644304fe434178a6ab1958de73b78399f5e
-    public String saveNewJob(@ModelAttribute JobListing newJob){
-        newJob.setUser(userSvc.currentUser());
-        jobsRepo.save(newJob);
-        return "redirect:/all";
-    }
-
-<<<<<<< HEAD
-    @GetMapping(value = "/job_post/{id}")
-    public String viewJobPost(@PathVariable Long id, Model model) {
-        JobListing job = jobsRepo.findOne(id);
-        RestProfile rest = restRepo.findByUser(job.getUser());
-        model.addAttribute("rest", rest);
-        model.addAttribute("job", job);
-        return "jobs/job_post";
-=======
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
         model.addAttribute("job", jobsRepo.findOne(id));
         return "jobs/view";
-
->>>>>>> df381644304fe434178a6ab1958de73b78399f5e
     }
 
     @GetMapping(value = "/all")
