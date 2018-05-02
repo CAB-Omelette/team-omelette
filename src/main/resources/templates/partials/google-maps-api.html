@@ -12,24 +12,17 @@
     <section class="input">
         <h1>Options</h1>
 
-        <button data-zoom="5" class="zoom">Zoom x 5</button>
-        <button data-zoom="10" class="zoom">Zoom x 10</button>
         <button data-zoom="15" class="zoom">Zoom x 15</button>
-        <button data-zoom="18" class="zoom">Zoom x 18</button>
         <button data-zoom="20" class="zoom">Zoom x 20</button>
 
         <div>
             <input type="text" id="address" name="address" th:value="${rest.location}" placeholder="Please input the address of a location to map!" />
         </div>
-
-        <button id="get-address-button">Map it!</button>
-
     </section>
-    <section class="map">
 
+    <section class="map">
         <h1>Map</h1>
         <div id="map-canvas"></div>
-
     </section>
 </main>
 
