@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Job List')">
+    <meta charset="UTF-8" />
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="container">
+<div th:each="job : ${jobs}">
+<h3>Title: <span th:text="${job.title}"></span></h3>
+    <h4>Job Description: <span th:text="${job.description}"></span></h4>
+    <h5>Pay: <span th:text="${job.pay}"></span></h5>
+    <button class="btn btn-default">View Job</button>
+    <hr />
+</div>
+</div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>
