@@ -37,14 +37,6 @@ public class JobListing {
         this.user = user;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public JobListing(JobListing copy) {
         id = copy.id;
         title = copy.title;
@@ -54,6 +46,14 @@ public class JobListing {
 
 
     public JobListing() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {

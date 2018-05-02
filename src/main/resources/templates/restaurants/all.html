@@ -11,7 +11,9 @@
     <div th:each="rest : ${restaurants}">
         <h3><span th:text="${rest.rest_name}"></span> </h3>
         <h5><span th:text="${rest.location}"></span></h5>
-        <button class="btn btn-default">View profile</button>
+        <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+            <button class="btn btn-default">View profile</button>
+        </a>
         <hr />
     </div>
 </div>

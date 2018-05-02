@@ -10,7 +10,9 @@
 <div class="container">
 <div th:each="chef : ${chefs}">
 <h3><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h3>
-    <button class="btn btn-default">View profile</button>
+    <a th:href="@{/chefs/{id}(id=${chef.id})}">
+        <button class="btn btn-default">View profile</button>
+    </a>
     <hr />
 </div>
 </div>
