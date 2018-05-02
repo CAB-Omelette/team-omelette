@@ -9,7 +9,7 @@ public class TestController {
 
     @GetMapping("/")
     public String showIndex() {
-
-        return ("/index");
+        return"/index";
     }
-}
+    }
+
