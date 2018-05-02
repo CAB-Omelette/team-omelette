@@ -12,4 +12,10 @@ public class TestController {
         return("/index");
     }
 
+    @GetMapping("/")
+    public String showHome(){
+        return("/index");
+    }
+
+
 }
