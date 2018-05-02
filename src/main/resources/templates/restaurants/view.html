@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Restaurant Profile')">
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="text-center container">
+
+
+<h1>Profile for <span th:text="${restaurant.rest_name}"></span></h1>
+<h3>Phone: <span th:text="${restaurant.phone}"></span></h3>
+<h3>Located at: <span th:text="${restaurant.location}"></span></h3>
+<h3><span th:text="${restaurant.about}"></span></h3>
+
+</div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

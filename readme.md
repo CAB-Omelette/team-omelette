@@ -62,7 +62,7 @@ RESTAURANT PROFILE PAGE
 
 - [ ] Able to add a video of restaurant
 
-- [ ] Able to display restaurant on a google map based on location from profile
+- [x] Able to display restaurant on a google map based on location from profile
 
 - [ ] Able to edit basic information of profile
 
@@ -75,21 +75,25 @@ VIEW ALL CHEFS PAGE
 
 - [x] Able to view a list of all chefs who have profiles on omelette
 
-- [ ] Able to click a link and view a specific chef's full profile
+- [x] Able to click a link and view a specific chef's full profile
+
+
 
 VIEW ALL RESTAURANTS PAGE
 
 - [x] Able to view a list of all restaurants who have profiles on omelette
 
-- [ ] Able to click a link and view a specific restaurants's full profile
+- [x] Able to click a link and view a specific restaurants's full profile
 
 
 
 VIEW ALL JOB POSTINGS
 
-- [ ] Able to view a list of all jobs posted from restaurants
+- [x] Able to view a list of all jobs posted from restaurants
 
-- [ ] Able to click a link and view more details of a specific job posting
+- [ ] Able to view what restaurant posted the job
+
+- [x] Able to click a link and view more details of a specific job posting
 
 - [ ] Able to view a google map with markers for all jobs in a certain area
 
@@ -97,7 +101,7 @@ VIEW ALL JOB POSTINGS
 
 JOB POSTING PAGE
 
-- [ ] Able to post a new job listing for a logged in restaurant owner
+- [x] Able to post a new job listing for a logged in restaurant owner
 
 - [ ] Able to edit a job posting that is owned by currently logged in user
 

@@ -8,9 +8,9 @@
 <div class="container">
 <div th:each="job : ${jobs}">
 <h3>Title: <span th:text="${job.title}"></span></h3>
-    <h4>Job Description: <span th:text="${job.description}"></span></h4>
-    <h5>Pay: <span th:text="${job.pay}"></span></h5>
-    <button class="btn btn-default">View Job</button>
+    <a th:href="@{/job/{id}(id=${job.id})}">
+        <button class="btn btn-default">View Job</button>
+    </a>
     <hr />
 </div>
 </div>

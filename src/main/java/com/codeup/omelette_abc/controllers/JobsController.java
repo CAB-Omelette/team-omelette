@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -41,29 +42,24 @@ public class JobsController {
         return "/jobs/create";
     }
 
-
-
-    @PostMapping( "/job_post/{id}")
+    @PostMapping( "/jobs/create")
     public String saveNewJob(@ModelAttribute JobListing newJob){
         newJob.setUser(userSvc.currentUser());
         jobsRepo.save(newJob);
-        return "jobs/all";
+        return "redirect:/all";
     }
 
-//    @GetMapping(value = "/job_post/{id}")
-//    public String viewJobPost(@PathVariable Long id, Model model) {
-//        JobListing job = jobsRepo.findOne(id);
-//        RestProfile rest = restRepo.findByUser(job.getUser());
-//        model.addAttribute("rest", rest);
-//        model.addAttribute("job", job);
-//        return "jobs/job_post";
-//    }
+
+    @GetMapping("/job/{id}")
+    public String viewJob(@PathVariable Long id, Model model){
+        model.addAttribute("job", jobsRepo.findOne(id));
+        return "jobs/view";
+
+    }
 
     @GetMapping(value = "/all")
     public String viewAllJobPosts(Model model) {
         model.addAttribute("jobs", jobsRepo.findAll());
-//        model.addAttribute("rest", restRepo.findByUser(jobList.getUser()));
-//        model.addAttribute("jobs", jobsRepo.findAll());
         return "jobs/all";
     }
 
