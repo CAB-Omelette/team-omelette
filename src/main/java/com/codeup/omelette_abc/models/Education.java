@@ -42,7 +42,7 @@ public class Education {
     private User user;
 
     public String getName() {
-        return focus;
+        return name;
     }
 
     public void setName(String name) {

@@ -14,7 +14,6 @@
 <h2>About me:</h2>
 <p><span th:text="${chef.bio}"></span></p>
 
-
 <br />
 
 
@@ -41,9 +40,8 @@
     <h2><u>Skills:</u></h2>
     <ul>
     <div th:each="skill : ${skills}">
-
             <li><span th:text="${skill.name}"></span></li>
-    </div>
+        </div>
     </ul>
 </div>
 
