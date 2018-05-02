@@ -16,11 +16,14 @@
 
         <br />
 
-        <button class="btn btn-primary form-control">Save or add another</button>
+        <button class="btn btn-primary form-control">Save and add another</button>
     </form>
 
     <br />
-    <a href="/profile"><button class="btn btn-success form-control"> Continue to profile</button></a>
+
+    <form th:action="@{/newuser/saveskills}" th:method="post" th:object="${skill}">
+        <button class="btn btn-primary form-control">Save and continue</button>
+    </form>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

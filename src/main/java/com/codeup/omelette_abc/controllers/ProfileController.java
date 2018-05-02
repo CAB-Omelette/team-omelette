@@ -15,7 +15,6 @@ public class ProfileController {
 
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
-
     private UserService userSvc;
     private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
@@ -99,10 +98,17 @@ public class ProfileController {
     }
 
     @PostMapping("/newuser/skills")
-    public String saveSkill(@ModelAttribute Skills skill){
+    public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
         return "redirect:/newuser/skills";
+    }
+
+    @PostMapping("/newuser/saveskills")
+    public String saveSkill(@ModelAttribute Skills skill){
+        skill.setUser(userSvc.currentUser());
+        skillsRepo.save(skill);
+        return "redirect:/profile";
     }
 
 
