@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Chef Profile')">
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container">
+<div th:each="chef : ${chefs}">
+<h3><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h3>
+    <button class="btn btn-default">View profile</button>
+    <hr />
+</div>
+</div>
+</body>
+</html>
