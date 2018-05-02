@@ -3,7 +3,7 @@ Omelette ReadMe
 
 Sign up / login page
 
-[] Create a new user account
+[ ] Create a new user account
 
 Choose what type of user you are
 
