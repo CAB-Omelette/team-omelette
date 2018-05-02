@@ -9,21 +9,17 @@
 <body>
 
 <main>
+
     <section class="input">
-        <h1>Options</h1>
-
-        <button data-zoom="15" class="zoom">Zoom x 15</button>
-        <button data-zoom="20" class="zoom">Zoom x 20</button>
-
         <div>
             <input type="text" id="address" name="address" th:value="${rest.location}" placeholder="Please input the address of a location to map!" />
         </div>
     </section>
 
     <section class="map">
-        <h1>Map</h1>
         <div id="map-canvas"></div>
     </section>
+
 </main>
 
 <script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key')}"></script>
@@ -31,14 +27,6 @@
     "use strict";
 
     var addressInput = document.getElementById('address');
-    var getAddress = document.getElementById('get-address-button');
-
-    function buttonClick () {
-        getAddress.addEventListener('click', function () {// get the address from the address text input
-            var address = addressInput.value;
-            initMap(address);
-        });
-    } buttonClick();
 
     function keyPress () {
         addressInput.addEventListener('keypress', function (e) {
@@ -53,8 +41,7 @@
     // Generate a map that shows the city with your favorite restaurant using geocoding.
     var mapOptions = {
         // Set the zoom level
-        zoom: 19,
-
+        zoom: 17,
         // Show this map in satellite view
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -63,52 +50,29 @@
     var geocoder = new google.maps.Geocoder();
 
     function initMap(address) {
-
         // Geocode our address
         geocoder.geocode({ "address": address }, function(results, status) {
             // Check for a successful result
             if (status === google.maps.GeocoderStatus.OK) {
-
                 // Recenter the map over the address
                 map.setCenter(results[0].geometry.location);
-
                 // Add the marker to our existing map
                 var marker = new google.maps.Marker({
                     position: results[0].geometry.location,
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
-
             } else {
-
                 // Show an error message with the status if our request fails
                 alert("Geocoding was not successful - STATUS: " + status);
             }
-
         });
     }
-
     initMap(addressInput.value);
-
-
-    // Redraw the map of the above location at zoom levels 5, 15, and 20.
-    // Create a marker on your map of the exact location of your favorite restaurant and adjust the zoom to allow for best viewing distance.
-    // Create an info window with the name of the restaurant.
-
-    var zoomButtons = document.getElementsByClassName('zoom');
-    zoomButtons = Array.from(zoomButtons);
-    zoomButtons.forEach(function(element) {
-        element.addEventListener('click', function(event) {
-            var zoomLevel = event.target.getAttribute("data-zoom");
-            zoomLevel = parseInt(zoomLevel);
-            map.setZoom(zoomLevel);
-        });
-    });
 
 </script>
 </body>
 </html>
-
 
 
 
