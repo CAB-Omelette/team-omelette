@@ -20,10 +20,39 @@ public class JobListing {
     @Column(length = 255)
     private String pay;
 
+    @OneToOne
+    private User user;
     public JobListing(String title, String description, String pay) {
         this.title = title;
         this.description = description;
         this.pay = pay;
+    }
+
+    public JobListing(Long id, String title, String description, String pay, User user){
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.pay = pay;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public JobListing(JobListing copy) {
+        id = copy.id;
+        title = copy.title;
+        description = copy.description;
+        pay = copy.pay;
+    }
+
+
+    public JobListing() {
     }
 
     public String getTitle() {
