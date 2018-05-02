@@ -1,23 +1,53 @@
 Omelette ReadMe
 
+LANDING PAGE
+    
+    - [ ] About us section
+    
+    - [ ] View example profiles
+    
+    - [x] Access sign up / login
 
-Sign up / login page
 
-- [x] Create a new user account
+SIGN UP / LOG IN PAGE
 
-Choose what type of user you are
-
-Login to user account
-
-Create profile based on type of user
+    - [x] Able to create  new user account
+    
+    - [x] Able to choose what type of user you are
+    
+    - [x] Able to login to user account
+    
+    - [x] Able to reach the create profile page based on the type of user
 
 
 
 CHEF PROFILE PAGE
 
-Create a profile with basic information
+    - [ ] Able to add a profile picture
 
-Add previous job experience to chef profile
+    - [x] Able to create a profile with basic information
+    
+    - [x] Able to add previous job experience to chef profile
+    
+    - [x] Able to add education history to chef profile
+    
+    - [x] Able to add skills to chef profile
+    
+    - [ ] Able to add a video of chef making an omelette
 
-Add education history to chef profile
+RESTAURANT PROFILE PAGE
+
+    - [ ] Able to add a profile picture of restaurant
+    
+    - [x] Able to add basic information to profile
+    
+    - [ ] Able to add a video of restaurant
+    
+    - [ ] Able to display restaurant on a google map based on location from profile
+
+
+
+ 
+
+
 
