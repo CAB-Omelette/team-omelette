@@ -22,6 +22,7 @@ public class JobListing {
 
     @OneToOne
     private User user;
+
     public JobListing(String title, String description, String pay) {
         this.title = title;
         this.description = description;
