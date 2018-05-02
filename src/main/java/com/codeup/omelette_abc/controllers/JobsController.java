@@ -1,7 +1,5 @@
 package com.codeup.omelette_abc.controllers;
 
-
-
 import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class JobsController {
 
-
     private RestProfileRepository restRepo;
     private JobsService jobSvc;
     private JobListing jobList;
@@ -27,15 +24,11 @@ public class JobsController {
         this.jobsRepo = jobsRepo;
     }
 
-
-
     @GetMapping(value= "/job_post/create")
     public String createNewJob(Model model){
         model.addAttribute("newJob", new JobListing());
         return "jobs/job_post_form";
     }
-
-
 
     @PostMapping(value = "/job_post/{id}")
     public String saveNewJob(@ModelAttribute JobListing newJob){
@@ -45,8 +38,6 @@ public class JobsController {
         jobsRepo.save(newJob);
         return "jobs/job_post_list";
     }
-
-
 
     @GetMapping(value = "/job_post/{id}")
     public String viewJobPost(@PathVariable Long id, Model model) {
