@@ -7,10 +7,12 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center container">
-<img th:src="${rest.getPicture()}" alt="chuys profile picture" />
-<h1>Profile for <span th:text="${rest.rest_name}"></span></h1>
-<h3>Phone: <span th:text="${rest.phone}"></span></h3>
-<h3>Located at: <span th:text="${rest.location}"></span></h3>
+<!--<img th:src="${rest.getPicture()}" alt="chuys profile picture" />-->
+<h1>Profile for <span th:text="${rest.name}"></span></h1>
+<h3>P: <span th:text="${rest.phone}"></span></h3>
+<h5><span th:text="${rest.street}"></span></h5>
+    <h5><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h5>
+    <h5><span th:text="${rest.zip}"></span></h5>
 <h3><span th:text="${rest.about}"></span></h3>
 <div th:replace="partials/google-maps-api :: google-maps"></div>
 </div>

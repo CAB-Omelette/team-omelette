@@ -12,7 +12,7 @@
 
     <section class="input">
         <div>
-            <input type="hidden" id="address" name="address" th:value="${rest.location}" />
+            <input type="hidden" id="address" name="address" th:value="${rest.street} + ${rest.city} " />
         </div>
     </section>
 

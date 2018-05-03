@@ -9,17 +9,19 @@
 
 <div class="text-center container">
 
-<h1>Profile for <span th:text="${rest.rest_name}"></span></h1>
-<h3>Phone: <span th:text="${rest.phone}"></span></h3>
-<h3>Located at: <span th:text="${rest.location}"></span></h3>
-<h3><span th:text="${rest.about}"></span></h3>
+<h1> <span th:text="${rest.name}"></span></h1>
+<h3>P: <span th:text="${rest.phone}"></span></h3>
+    <h4> <span th:text="${rest.street}"></span></h4>
+    <h4><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
+    <h4><span th:text="${rest.zip}"></span></h4>
+<p><span th:text="${rest.about}"></span></p>
     <div th:replace="partials/google-maps-api :: google-maps"></div>
 
 
     <hr />
 
 </div>
-<h1 class="text-center">Current Job Listings for <span th:text="${rest.rest_name}"></span></h1>
+<h1 class="text-center">Current Job Listings for <span th:text="${rest.name}"></span></h1>
 <div class="text-center">
 <div th:each="job : ${jobs}">
 
