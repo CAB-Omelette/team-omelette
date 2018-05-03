@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1 class="text-center">Education</h1>
-    <form th:action="@{/newuser/education}" th:method="post" th:object="${education}">
+    <form th:action="@{/education}" th:method="post" th:object="${education}">
 
         <label for="school">School Name</label>
         <input id="school" class="form-control" placeholder="School name" type="text" th:field="*{name}" />
@@ -27,11 +27,11 @@
 
         <br />
 
-        <button class="btn btn-primary form-control">Save or add another</button>
+        <button class="btn btn-primary form-control">Save to profile</button>
     </form>
 
     <br />
-    <a href="/newuser/skills"><button class="btn btn-success form-control"> Continue to skills</button></a>
+    <a href="/skills"><button class="btn btn-success form-control">Continue to skills</button></a>
 
 </div>
 
