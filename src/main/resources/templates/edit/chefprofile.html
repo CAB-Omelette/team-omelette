@@ -11,7 +11,10 @@
 <div class="container">
 
     <h1 class="text-center">Basic Information</h1>
-    <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
+    <form th:action="@{/edit/chef}" th:method="post" th:object="${chef}">
+
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{user}"/><br />
 
         <label for="picture">Insert Profile Picture</label>
         <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
@@ -38,11 +41,11 @@
         <br />
 
 
-        <button class="btn btn-primary form-control">Save and Continue to Job History</button>
+        <button class="btn btn-primary form-control">Save Changes</button>
 
     </form>
 
-<footer th:replace="partials/footer :: footer"></footer>
+    <footer th:replace="partials/footer :: footer"></footer>
 </div>
 
 

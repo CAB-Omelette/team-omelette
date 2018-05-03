@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Profile')">
+    <meta charset="UTF-8"/>
+    <title>Create Chef's Profile </title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container">
+
+    <h1 class="text-center">New Restaurant Profile</h1>
+
+    <form th:action="@{/edit/restaurant}" th:method="post" th:object="${rest}">
+
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{user}"/><br />
+
+        <label for="picture">Insert Logo Picture</label>
+        <input id="picture" class="form-control" type="file" th:field="*{picture}"/>
+
+        <br />
+
+        <label for="rest_name">Restaurant Name</label>
+        <input id="rest_name" class="form-control" type="text" th:field="*{name}" />
+
+        <br />
+
+
+        <label for="street">Street Address</label>
+        <input id="street" class="form-control" type="text" th:field="*{street}" />
+
+        <br />
+
+        <label for="city">City</label>
+        <input id="city" class="form-control"  type="text" th:field="*{city}" />
+
+        <br />
+
+        <label for="state">State</label>
+        <input id="state" class="form-control"  type="text" th:field="*{state}" />
+
+        <br />
+
+        <label for="zip">Zipcode</label>
+        <input id="zip" class="form-control"  type="text" th:field="*{zip}" />
+
+        <br />
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" class="form-control" placeholder="Phone Number" type="text" th:field="*{phone}" />
+
+        <br />
+
+        <label for="about">About Restaurant</label>
+        <input id="about" class="form-control" placeholder="About Me" type="text" th:field="*{about}" />
+
+        <br />
+
+        <button class="btn btn-primary form-control">Submit</button>
+    </form>
+</div>
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>
