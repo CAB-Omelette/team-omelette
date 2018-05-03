@@ -8,42 +8,110 @@
     <title>Filestack</title>
 </head>
 <body>
-<main th:fragment="filestack">
+<!--<div th:fragment="filestack">-->
 
-    <div class="container">
-        <h1 class="text-center">upload a profile picture</h1>
-        <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
-            <button id="picture" type="button" th:value="*{picture}">Insert a profile picture</button>
-        </form>
+    <!--<div class="container">-->
+        <!--<h1 class="text-center">upload a profile picture</h1>-->
+        <!--<form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">-->
+            <!--<button id="picture" type="button" th:value="*{picture}">Insert a profile picture</button>-->
+        <!--</form>-->
+    <!--</div>-->
+
+<!--<div th:field="*{picture}"></div>-->
+
+<!--<img src="https://cdn.filestackcontent.com/resize=width:400/crop_faces=faces:1,buffer:200,w:300/circle/2h25ZGRHTfmQ2DBEt3yR" alt="Image uploaded with Filestack" title="Image uploaded with Filestack">-->
+
+
+
+    <div class="control-group">
+        <div class="controls">
+            <button id="picture" type="button" class="btn btn-link btn-secondary">Upload Image</button>
+        </div>
     </div>
+    <div id="picUrl"></div>
+    <div id="posts"></div>
 
-<div th:field="*{picture}"></div>
+<!--video button call-->
+    <div class="control-group">
+        <div class="controls">
+            <button id="video" type="button" class="btn btn-link btn-secondary">Upload Video</button>
+        </div>
+    </div>
+    <div id="videoUrl"></div>
+    <div id="video-post"></div>
 
-<img src="https://cdn.filestackcontent.com/resize=width:400/crop_faces=faces:1,buffer:200,w:300/circle/2h25ZGRHTfmQ2DBEt3yR" alt="Image uploaded with Filestack" title="Image uploaded with Filestack">
 
-    <!--th:value="${chef.picture}"-->
 
 <script src="https://static.filestackapi.com/v3/filestack.js"></script>
 <script type="text/javascript">
+
+    //=====================IMAGE API CALL=====================//
+
     var fsClient = filestack.init('ATnrBVr9hSauBEG4HxXF3z');
-    function openPicker() {
+    function openImagePicker() {
         fsClient.pick({
-            accept: 'image/*',
-            minFiles: 1,
-            maxFiles: 1,
-            maxSize: (100 * 1024 * 1024)
+            fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
+            accept:["image/*"],
+            maxFiles:1,
+            maxSize:10485760,
+            transformations:{circle:true}
         }).then(function (response) {
             // declare this function to handle response
-            // handleFilestack(response);
+            handleImageFilestack(response);
         });
     }
 
+    //this function handles the response from filestack and uploads the picture to the page
+    function handleImageFilestack(response){
+        console.log(response);
+        document.getElementById('posts').innerHTML = '<div>';
+        document.getElementById('picUrl').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '">';
+        document.getElementById('posts').innerHTML = '</div>';
+
+        document.getElementById('upload').dataset.handler = response.url;
+    }
+
+    //open ImagePicker button
     var picture = document.getElementById('picture');
-    function buttonClick () {
+    function pictureButton () {
         picture.addEventListener('click', function () {
-            openPicker();
+            openImagePicker();
         });
-    } buttonClick();
+    } pictureButton();
+
+
+    //=====================VIDEO API CALL=====================//
+
+    function openVideoPicker() {
+        fsClient.pick({
+            fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
+            accept:["video/*"],
+            maxFiles:1,
+            maxSize:10485760
+        }).then(function (response) {
+            // declare this function to handle response
+            handleVideoFilestack(response);
+        });
+    }
+
+    function handleVideoFilestack(response){
+        console.log(response);
+        document.getElementById('video-post').innerHTML = '<div>';
+        document.getElementById('videoUrl').innerHTML = '<video id="video-upload" src=" ' +response.filesUploaded['0'].url +  '"></video>';
+        document.getElementById('video-post').innerHTML = '</div>';
+
+        document.getElementById('video-upload').dataset.handler = response.url;
+    }
+
+
+    //open VideoPicker button
+    var video = document.getElementById('video');
+    function videoButton () {
+         video.addEventListener('click', function () {
+            openVideoPicker();
+        });
+    } videoButton();
+
 </script>
 
 </main>
