@@ -51,21 +51,20 @@ public class JobsController {
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
-        RestProfile rest = restRepo.findByUser(jobsRepo.findOne(id).getUser());
-        model.addAttribute("job", jobsRepo.findOne(id));
-        model.addAttribute("rest", rest);
+        JobListing job = jobsRepo.findOne(id);
+        RestProfile rest = restRepo.findFirstByUser(job.getUser());
+        job.setRest(rest);
+        model.addAttribute("job", job);
         return "jobs/view";
     }
 
     @GetMapping(value = "/all")
     public String viewAllJobPosts(Model model) {
         Iterable<JobListing> jobs = jobsRepo.findAll();
-        for (JobListing job: jobs
-             ) {
-            job.setRest(restRepo.findByUser(job.getUser()));
+        for (JobListing job: jobs) {
+            job.setRest(restRepo.findFirstByUser(job.getUser()));
         }
         model.addAttribute("jobs", jobs);
-
         return "jobs/all";
     }
 

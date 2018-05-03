@@ -26,6 +26,10 @@
     <p><span th:text="${job.start_date}"></span> to <span th:text="${job.end_date}"></span> </p>
     <h5>Reason for leaving</h5>
     <p th:text="${job.reason_left}" />
+
+    <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
+        <button class="btn btn-default">Edit</button>
+    </a>
     <hr />
 </div>
 
@@ -34,6 +38,12 @@
         <p><span th:text="${ed.name}"></span></p>
         <p><span th:text="${ed.focus}"></span> </p>
         <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
+
+        <a th:href="@{/education/{id}/edit(id=${ed.id})}">
+            <button class="btn btn-default">Edit</button>
+        </a>
+
+
         <hr />
     </div>
 

@@ -1,14 +1,14 @@
 package com.codeup.omelette_abc.controllers;
 
 
-import com.codeup.omelette_abc.models.ChefProfile;
-import com.codeup.omelette_abc.models.RestProfile;
+import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -51,18 +51,80 @@ public String editProfile(Model model) {
         model.addAttribute("chef", chefPro);
         return "/edit/chefprofile";
     }
-    RestProfile restPro = restRepo.findByUser(userSvc.currentUser());
+    RestProfile restPro = restRepo.findFirstByUser(userSvc.currentUser());
     model.addAttribute("rest", restPro);
     return"/edit/restprofile";
 
 }
 
-@PostMapping("/edit/restaurant")
+    @PostMapping("/edit/restaurant")
     public String saveRestEdit(RestProfile restPro, Model model){
         model.addAttribute(restPro);
         restRepo.save(restPro);
-        return"/profile";
-}
+        return"redirect:/profile";
+    }
+
+    @PostMapping("/edit/chef")
+    public String saveChefProfile(ChefProfile chefPro, Model model){
+        model.addAttribute(chefPro);
+        chefRepo.save(chefPro);
+        return"redirect:/profile";
+    }
+
+    @GetMapping("/job/{id}/edit")
+    public String editJobPost(@PathVariable long id, Model model){
+        RestProfile rest = restRepo.findFirstByUser(jobPostRepo.findOne(id).getUser());
+        JobListing job = jobPostRepo.findOne(id);
+        model.addAttribute("job", job);
+        return"/edit/jobpost";
+    }
+
+
+    @PostMapping("/edit/job")
+    public String saveJobEdit(JobListing job, Model model){
+        model.addAttribute(job);
+        jobPostRepo.save(job);
+        System.out.println(job.getId());
+        return"redirect:/job/" +job.getId();
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteJob(@PathVariable long id){
+        JobListing job = jobPostRepo.findOne(id);
+        jobPostRepo.delete(job);
+        return "redirect:/profile";
+    }
+
+    @GetMapping("/jobhistory/{id}/edit")
+    public String editJobHistory(@PathVariable long id, Model model){
+        JobHistory job = jobHistRepo.findOne(id);
+        model.addAttribute("job", job);
+        return"/edit/jobhistory";
+    }
+
+
+    @PostMapping("/edit/jobhistory")
+    public String saveJobHistoryEdit(JobHistory job, Model model){
+        model.addAttribute(job);
+        job.setUser(userSvc.currentUser());
+        jobHistRepo.save(job);
+        return"redirect:/profile";
+    }
+
+    @GetMapping("/education/{id}/edit")
+    public String editEducation(@PathVariable long id, Model model){
+        Education edu = edRepo.findOne(id);
+        model.addAttribute("edu", edu);
+        return"/edit/education";
+    }
+
+    @PostMapping("/edit/education")
+    public String saveEducationEdit(Education edu, Model model){
+        model.addAttribute(edu);
+        edu.setUser(userSvc.currentUser());
+        edRepo.save(edu);
+        return"redirect:/profile";
+    }
 
 
 }

@@ -11,7 +11,7 @@
 
     <h1 class="text-center">New Restaurant Profile</h1>
 
-    <form th:action="@{/edit/restaurantprofile}" th:method="post" th:object="${rest}">
+    <form th:action="@{/edit/restaurant}" th:method="post" th:object="${rest}">
 
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{user}"/><br />

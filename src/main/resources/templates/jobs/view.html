@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Job Post')">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
-<h3>Title: <span th:text="${job.title}"></span> and <span th:text="${rest.name}"></span></h3>
-    <h3>Location: <span th:text="${rest.city}">, <span th:text="${rest.state}"></span></span></h3>
-<h3>Pay: <span th:text="${job.pay}"></span></h3>
-<h3>Job Description: <span th:text="${job.description}"></span></h3>
+    <h3>Title: <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+    <h3>Location: <span th:text="${job.rest.city}">, <span th:text="${job.rest.state}"></span></span></h3>
+    <h3>Pay: <span th:text="${job.pay}"></span></h3>
+    <h3>Job Description: <span th:text="${job.description}"></span></h3>
 </div>
 
-<div th:replace="partials/job-map :: google-maps"></div>
+<!--<div th:replace="partials/job-map :: google-maps"></div>-->
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
