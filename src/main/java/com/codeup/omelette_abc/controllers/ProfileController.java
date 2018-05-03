@@ -43,6 +43,7 @@ public class ProfileController {
 //    When a user clicks create a profile - this will determine if they already have a profile and if
 // they are a rest or a chef and direct them to the correct profile creation page.
 
+
     @GetMapping("/createprofile")
     public String createProfile(Model model){
         if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
@@ -83,7 +84,6 @@ public class ProfileController {
         jobHistRepo.save(jobHistory);
         return "redirect:/jobhistory";
     }
-
 
 
     @GetMapping("/education")

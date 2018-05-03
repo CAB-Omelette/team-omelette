@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Oops!')">
+    <meta charset="UTF-8"/>
+</head>
+
+
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container">
+<h2>Uh oh, It looks like your profile is not registered as a restaurant owner!
+    If you are a restaurant owner and would like to post jobs,
+    please logout, register for a new account, and select "I am a restaurant
+    owner" on the sign-up page!</h2>
+
+    <br />
+    <h4>- Team Omelette</h4>
+
+
+</div>
+
+</body>
+
+
+
+
+</html>
