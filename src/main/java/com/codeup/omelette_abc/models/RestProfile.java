@@ -12,31 +12,31 @@ public class RestProfile {
     private long id;
 
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = false)
     private String about;
 
-    @Column(length = 250)
+    @Column
     private String picture;
 
-    @Column(length = 250)
+    @Column
     private String video;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false)
     private String street;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false)
     private String state;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false)
     private String zip;
 
     @OneToOne

@@ -29,13 +29,13 @@ public class Education {
     @GeneratedValue
     private long id;
 
-    @Column(length = 500)
+    @Column
     private String name;
 
-    @Column(length = 500)
+    @Column
     private String graduationDate;
 
-    @Column(length = 500)
+    @Column
     private String focus;
 
     @OneToOne
