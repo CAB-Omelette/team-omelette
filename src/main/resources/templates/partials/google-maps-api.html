@@ -12,9 +12,10 @@
 
     <section class="input">
         <div>
-            <input type="text" id="address" name="address" th:value="${rest.location}" placeholder="Please input the address of a location to map!" />
+            <input type="hidden" id="address" name="address" th:value="${rest.street} + ${rest.city} " />
         </div>
     </section>
+
 
     <section class="map">
         <div id="map-canvas"></div>

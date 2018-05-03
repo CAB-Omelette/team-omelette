@@ -11,17 +11,18 @@ public class JobListing {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     private String description;
 
-    @Column(length = 255)
+    @Column
     private String pay;
 
     @OneToOne
     private User user;
+
     public JobListing(String title, String description, String pay) {
         this.title = title;
         this.description = description;
@@ -36,14 +37,6 @@ public class JobListing {
         this.user = user;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public JobListing(JobListing copy) {
         id = copy.id;
         title = copy.title;
@@ -53,6 +46,14 @@ public class JobListing {
 
 
     public JobListing() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {

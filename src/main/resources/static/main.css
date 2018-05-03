@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Montserrat');
 
 * {
     box-sizing: border-box;
@@ -6,15 +6,29 @@
     padding: 0;
 }
 
+body{
+    margin-bottom: 25px;
+}
 
-.footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
+
+/*.footer {*/
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*padding: 1rem;*/
+    /*background-color: rgba(0,0,0,.2);*/
+    /*text-align: center;*/
+/*}*/
+
+
+.goog-te-gadget-simple {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+}
+
+#google_translate_element {
+    border-radius: 20px;
 }
 
 

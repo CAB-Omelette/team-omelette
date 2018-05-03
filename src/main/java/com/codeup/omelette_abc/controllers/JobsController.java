@@ -1,6 +1,5 @@
 package com.codeup.omelette_abc.controllers;
 
-
 import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
@@ -35,22 +34,26 @@ public class JobsController {
     }
 
 
+
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
         model.addAttribute("newJob", new JobListing());
         return "/jobs/create";
     }
 
-    @PostMapping( "/jobs/create")
-    public String saveNewJob(@ModelAttribute JobListing newJob){
+    @PostMapping("/jobs/create")
+    public String postJob(@ModelAttribute JobListing newJob){
         newJob.setUser(userSvc.currentUser());
         jobsRepo.save(newJob);
-        return "redirect:/all";
+        return"redirect:/profile";
     }
+
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
+        RestProfile rest = restRepo.findByUser(jobsRepo.findOne(id).getUser());
         model.addAttribute("job", jobsRepo.findOne(id));
+        model.addAttribute("rest", rest);
         return "jobs/view";
     }
 
