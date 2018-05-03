@@ -1,7 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
-
 import com.codeup.omelette_abc.models.JobListing;
+import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.JobsService;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class JobsController {
-
 
     private RestProfileRepository restRepo;
     private JobsService jobSvc;
@@ -42,19 +41,20 @@ public class JobsController {
         return "/jobs/create";
     }
 
-    @PostMapping( "/jobs/create")
-    public String saveNewJob(@ModelAttribute JobListing newJob){
+    @PostMapping("/jobs/create")
+    public String postJob(@ModelAttribute JobListing newJob){
         newJob.setUser(userSvc.currentUser());
         jobsRepo.save(newJob);
-        return "redirect:/all";
+        return"redirect:/profile";
     }
 
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
+        RestProfile rest = restRepo.findByUser(jobsRepo.findOne(id).getUser());
         model.addAttribute("job", jobsRepo.findOne(id));
+        model.addAttribute("rest", rest);
         return "jobs/view";
-
     }
 
     @GetMapping(value = "/all")

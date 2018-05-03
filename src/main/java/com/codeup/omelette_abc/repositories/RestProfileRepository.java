@@ -11,5 +11,11 @@ public interface RestProfileRepository extends CrudRepository<RestProfile, Long>
 
     RestProfile findByUser(User user);
 
+    @Override
+    Iterable<RestProfile> findAll();
+
+
+
+
 }
 

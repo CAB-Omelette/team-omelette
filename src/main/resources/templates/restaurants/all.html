@@ -9,13 +9,15 @@
 
 <div class="container">
     <div th:each="rest : ${restaurants}">
-        <h3><span th:text="${rest.rest_name}"></span> </h3>
-        <h5><span th:text="${rest.location}"></span></h5>
+        <h3><span th:text="${rest.name}"></span> </h3>
+        <h5><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h5>
         <a th:href="@{/restaurant/{id}(id=${rest.id})}">
             <button class="btn btn-default">View profile</button>
         </a>
         <hr />
     </div>
 </div>
+
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
