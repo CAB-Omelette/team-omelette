@@ -71,8 +71,6 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-
-
     @GetMapping("/jobhistory")
     public String addJobHistory(Model model){
         model.addAttribute("jobHistory", new JobHistory());

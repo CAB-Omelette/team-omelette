@@ -59,7 +59,13 @@ public class JobsController {
 
     @GetMapping(value = "/all")
     public String viewAllJobPosts(Model model) {
-        model.addAttribute("jobs", jobsRepo.findAll());
+        Iterable<JobListing> jobs = jobsRepo.findAll();
+        for (JobListing job: jobs
+             ) {
+            job.setRest(restRepo.findByUser(job.getUser()));
+        }
+        model.addAttribute("jobs", jobs);
+
         return "jobs/all";
     }
 

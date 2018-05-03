@@ -23,18 +23,23 @@ public class JobListing {
     @OneToOne
     private User user;
 
+    @Transient
+    private RestProfile rest;
+
     public JobListing(String title, String description, String pay) {
         this.title = title;
         this.description = description;
         this.pay = pay;
     }
 
-    public JobListing(Long id, String title, String description, String pay, User user){
+    public JobListing(Long id, String title, String description, String pay, User user, RestProfile rest){
         this.id = id;
         this.title = title;
         this.description = description;
         this.pay = pay;
         this.user = user;
+        this.rest = rest;
+
     }
 
     public JobListing(JobListing copy) {
@@ -44,9 +49,13 @@ public class JobListing {
         pay = copy.pay;
     }
 
-
     public JobListing() {
+
     }
+
+    public RestProfile getRest() { return rest; }
+
+    public void setRest(RestProfile rest) { this.rest = rest; }
 
     public User getUser() {
         return user;

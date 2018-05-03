@@ -13,6 +13,7 @@
 <h3>Job Description: <span th:text="${job.description}"></span></h3>
 </div>
 
+<div th:replace="partials/job-map :: google-maps"></div>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
