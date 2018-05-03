@@ -61,7 +61,7 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/chefjobhistory";
+        return "redirect:/jobhistory";
     }
 
     @PostMapping("/newuser/newrestprofile")
@@ -71,51 +71,51 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-    @GetMapping("/chefjobhistory")
+
+
+    @GetMapping("/jobhistory")
     public String addJobHistory(Model model){
         model.addAttribute("jobHistory", new JobHistory());
         return "newuser/chefjobhistory";
     }
 
-    @PostMapping("/newuser/chefjobhistory")
-    public String saveRestProfile(@ModelAttribute JobHistory jobHistory){
+    @PostMapping("/jobhistory")
+    public String addJobHistory(@ModelAttribute JobHistory jobHistory){
         jobHistory.setUser(userSvc.currentUser());
         jobHistRepo.save(jobHistory);
-        return "redirect:/chefjobhistory";
+        return "redirect:/jobhistory";
     }
 
+
+
     @GetMapping("/education")
-    public String addEducation(Model model){
+    public String chefEducation(Model model){
         model.addAttribute("education", new Education());
         return "newuser/education";
     }
 
-    @PostMapping("/newuser/education")
-    public String saveRestProfile(@ModelAttribute Education education){
+    @PostMapping("/education")
+    public String addEducation(@ModelAttribute Education education){
         education.setUser(userSvc.currentUser());
         edRepo.save(education);
         return "redirect:/education";
     }
 
-    @GetMapping("/newuser/skills")
+
+
+    @GetMapping("/skills")
     public String addSkill(Model model){
         model.addAttribute("skill", new Skills());
         return "/newuser/skills";
     }
 
-    @PostMapping("/newuser/skills")
+    @PostMapping("/skills")
     public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
-        return "redirect:/newuser/skills";
+        return "redirect:/skills";
     }
 
-    @PostMapping("/newuser/saveskills")
-    public String saveSkill(@ModelAttribute Skills skill){
-        skill.setUser(userSvc.currentUser());
-        skillsRepo.save(skill);
-        return "redirect:/profile";
-    }
 
 
     @GetMapping("/profile")

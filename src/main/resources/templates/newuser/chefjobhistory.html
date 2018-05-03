@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1 class="text-center">Job History</h1>
-<form th:action="@{/newuser/chefjobhistory}" th:method="post" th:object="${jobHistory}">
+<form th:action="@{/jobhistory}" th:method="post" th:object="${jobHistory}">
 
     <label for="title">Title</label>
     <input id="title" class="form-control" placeholder="Title held" type="text" th:field="*{title}" />
@@ -37,12 +37,12 @@
 
     <br />
 
-    <button class="btn btn-primary form-control">Save or add another</button>
+    <button class="btn btn-primary form-control">Save to profile</button>
     </form>
 
     <br />
 
-    <a href="/education"><button class="btn btn-success form-control">Continue to education</button></a>
+    <a href="/education"><button class="btn btn-success form-control">Continue To Education</button></a>
 
 </div>
 

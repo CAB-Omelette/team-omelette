@@ -45,7 +45,7 @@ public class JobsController {
     public String postJob(@ModelAttribute JobListing newJob){
         newJob.setUser(userSvc.currentUser());
         jobsRepo.save(newJob);
-        return"redirect:/profile";
+        return"redirect:/job/" + newJob.getId();
     }
 
 

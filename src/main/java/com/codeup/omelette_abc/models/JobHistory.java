@@ -11,19 +11,19 @@ public class JobHistory {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false)
+    @Column
     private String location;
 
-    @Column(nullable = false)
+    @Column
     private String title;
 
-    @Column(nullable = false)
+    @Column
     private String start_date;
 
-    @Column(nullable = false)
+    @Column
     private String end_date;
 
-    @Column(nullable = true)
+    @Column
     private String reason_left;
 
     @OneToOne

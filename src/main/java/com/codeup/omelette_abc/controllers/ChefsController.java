@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 
+import com.codeup.omelette_abc.models.ChefProfile;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.ProfileServices;
@@ -45,11 +46,12 @@ public class ChefsController {
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
-        User user = userSvc.currentUser();
-        model.addAttribute("chef", chefRepo.findByUser(user));
-        model.addAttribute("jobs", jobHistRepo.findByUser(user));
-        model.addAttribute("education", edRepo.findByUser(user));
-        model.addAttribute("skills", skillsRepo.findByUser(user));
+        ChefProfile chefId = chefRepo.findOne(id);
+        User chef = chefId.getUser();
+        model.addAttribute("chef", chefRepo.findOne(id));
+        model.addAttribute("jobs", jobHistRepo.findByUser(chef));
+        model.addAttribute("education", edRepo.findByUser(chef));
+        model.addAttribute("skills", skillsRepo.findByUser(chef));
         return "/chefs/view";
     }
 
