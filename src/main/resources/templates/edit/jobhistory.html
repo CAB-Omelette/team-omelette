@@ -10,7 +10,10 @@
 
 <div class="container">
     <h1 class="text-center">Job History</h1>
-    <form th:action="@{edit/jobhistory}" th:method="post" th:object="${job}">
+    <form th:action="@{/edit/history}" th:method="post" th:object="${job}">
+
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{user}" />
 
         <label for="title">Title</label>
         <input id="title" class="form-control" placeholder="Title held" type="text" th:field="*{title}" />

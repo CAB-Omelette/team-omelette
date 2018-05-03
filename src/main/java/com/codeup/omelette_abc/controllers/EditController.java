@@ -88,7 +88,7 @@ public String editProfile(Model model) {
         return"redirect:/job/" +job.getId();
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/delete/job/{id}")
     public String deleteJob(@PathVariable long id){
         JobListing job = jobPostRepo.findOne(id);
         jobPostRepo.delete(job);
@@ -103,10 +103,9 @@ public String editProfile(Model model) {
     }
 
 
-    @PostMapping("/edit/jobhistory")
+    @PostMapping("/edit/history")
     public String saveJobHistoryEdit(JobHistory job, Model model){
         model.addAttribute(job);
-        job.setUser(userSvc.currentUser());
         jobHistRepo.save(job);
         return"redirect:/profile";
     }
@@ -121,9 +120,36 @@ public String editProfile(Model model) {
     @PostMapping("/edit/education")
     public String saveEducationEdit(Education edu, Model model){
         model.addAttribute(edu);
-        edu.setUser(userSvc.currentUser());
         edRepo.save(edu);
         return"redirect:/profile";
+    }
+
+    @GetMapping("/edit/{id}/skill")
+    public String editSkill(@PathVariable long id, Model model){
+        Skills skill = skillsRepo.findOne(id);
+        model.addAttribute("skill", skill);
+        return"/edit/skills";
+    }
+
+    @PostMapping("/edit/skill")
+    public String saveSkillEdit(Skills skill, Model model){
+        model.addAttribute(skill);
+        skillsRepo.save(skill);
+        return"redirect:/profile";
+    }
+
+    @GetMapping("/delete/skill/{id}")
+    public String deleteSkill(@PathVariable long id){
+        Skills skill = skillsRepo.findOne(id);
+        skillsRepo.delete(skill);
+        return "redirect:/profile";
+    }
+
+    @GetMapping("/delete/education/{id}")
+    public String deleteEducation(@PathVariable long id){
+        Education edu = edRepo.findOne(id);
+        edRepo.delete(edu);
+        return "redirect:/profile";
     }
 
 

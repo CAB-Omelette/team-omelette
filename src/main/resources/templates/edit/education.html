@@ -13,6 +13,9 @@
 
     <form th:action="@{/edit/education}" th:method="post" th:object="${edu}">
 
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{user}" />
+
         <label for="school">School Name</label>
         <input id="school" class="form-control" placeholder="School name" type="text" th:field="*{name}" />
 
@@ -30,6 +33,11 @@
 
         <button class="btn btn-primary form-control">Save changes</button>
     </form>
+
+    <br />
+    <a th:href="@{/delete/education/{id}(id=${edu.id})}">
+        <button class="form-control btn btn-danger">Delete section</button>
+    </a>
 
     <br />
 
