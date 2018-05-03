@@ -37,6 +37,9 @@ public class JobsController {
 
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
+        if(!userSvc.currentUser().isOwner()){
+            return "newuser/switchprofiles";
+        }
         model.addAttribute("newJob", new JobListing());
         return "/jobs/create";
     }
