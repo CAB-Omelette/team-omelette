@@ -45,7 +45,7 @@ VALUES ("this is a job and its really cool and pays a ton!", "56,000/yr", "Execu
   ("this is a job and its really cool and pays a ton!", "56,000/yr", "Executive Chef"),
   ("this is a job and its really cool and pays a ton!", "56,000/yr", "Executive Chef");
 
-INSERT INTO rest_profile(about, location, phone, picture, rest_name, video, user_id)
+INSERT INTO rest_profile(about, location, phone, picture, name, video, user_id)
 VALUES ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepicturepicture", "little italy", "videovideovideovideo", 1),
   ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepicturepicture", "little italy", "videovideovideovideo", 2),
   ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepicturepicture", "little italy", "videovideovideovideo", 3),
@@ -56,16 +56,7 @@ VALUES ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepictur
   ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepicturepicture", "little italy", "videovideovideovideo", 8),
   ("aboutaboutaboutabout", "San Antonio", 5555555555, "picturepicturepicturepicture", "little italy", "videovideovideovideo", 9);
 
-INSERT INTO skills(skill_name)
-VALUES ("dicing wizard"),
-  ("braising wizard"),
-  ("STEAK wizard"),
-  ("BAKER wizard"),
-  ("flame wizard"),
-  ("chopping wizard"),
-  ("sauce wizard"),
-  ("soup wizard"),
-  ("everything wizard");
+
 
 INSERT INTO user_skills(picture, video)
 VALUES ("picturepicturepicture", "videovideovideo"),

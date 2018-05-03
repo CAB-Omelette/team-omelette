@@ -12,50 +12,100 @@ public class RestProfile {
     private long id;
 
 
-    @Column(nullable = false, length = 100)
-    private String rest_name;
+    @Column(nullable = false)
+    private String name;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = false)
     private String about;
 
-    @Column(length = 250)
+    @Column
     private String picture;
 
-    @Column(length = 250)
+    @Column
     private String video;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false, length = 250)
-    private String location;
+    @Column(nullable = false)
+    private String street;
+
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private String state;
+
+    @Column(nullable = false)
+    private String zip;
 
     @OneToOne
     private User user;
 
-
-    public RestProfile(String rest_name, String about, String picture, String phone, String video, String location) {
-        this.rest_name = rest_name;
-        this.about = about;
-        this.picture = picture;
-        this.video = video;
-        this.location = location;
-        this.phone = phone;
-    }
-    public RestProfile(Long id, String rest_name, String about, String picture, String phone, String video, String location, User user) {
+    public RestProfile(Long id,
+                       String name,
+                       String about,
+                       String picture,
+                       String video,
+                       String phone,
+                       String street,
+                       String city,
+                       String state,
+                       String zip,
+                       User user) {
         this.id = id;
-        this.rest_name = rest_name;
+        this.name = name;
         this.about = about;
         this.picture = picture;
         this.video = video;
-        this.location = location;
         this.phone = phone;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.user = user;
     }
 
+    public RestProfile(String name,
+                       String about,
+                       String picture,
+                       String video,
+                       String phone,
+                       String street,
+                       String city,
+                       String state,
+                       String zip,
+                       User user) {
+        this.name = name;
+        this.about = about;
+        this.picture = picture;
+        this.video = video;
+        this.phone = phone;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.user = user;
+    }
 
     public RestProfile() {
     }
+
+    public String getStreet() { return street; }
+
+    public void setStreet(String street) { this.street = street; }
+
+    public String getCity() { return city; }
+
+    public void setCity(String city) { this.city = city; }
+
+    public String getState() { return state; }
+
+    public void setState(String state) { this.state = state; }
+
+    public String getZip() { return zip; }
+
+    public void setZip(String zip) { this.zip = zip; }
 
     public User getUser() { return user; }
 
@@ -69,45 +119,21 @@ public class RestProfile {
         this.id = id;
     }
 
-    public String getRest_name() {
-        return rest_name;
-    }
+    public String getName() { return name; }
 
-    public void setRest_name(String rest_name) {
-        this.rest_name = rest_name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getAbout() {
-        return about;
-    }
+    public String getAbout() { return about; }
 
-    public void setAbout(String about) {
-        this.about = about;
-    }
+    public void setAbout(String about) { this.about = about; }
 
-    public String getPicture() {
-        return picture;
-    }
+    public String getPicture() { return picture; }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+    public void setPicture(String picture) { this.picture = picture; }
 
-    public String getVideo() {
-        return video;
-    }
+    public String getVideo() { return video; }
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    public void setVideo(String video) { this.video = video; }
 
     public String getPhone() { return phone; }
 

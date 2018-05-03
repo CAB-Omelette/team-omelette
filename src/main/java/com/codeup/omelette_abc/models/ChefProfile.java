@@ -12,22 +12,22 @@ public class ChefProfile {
     private long id;
 
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     private String first_name;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     private String last_name;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = false)
     private String bio;
 
-    @Column(length = 200)
+    @Column
     private String picture;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String phone;
 
-    @Column(length = 500)
+    @Column
     private String video;
 
     @OneToOne

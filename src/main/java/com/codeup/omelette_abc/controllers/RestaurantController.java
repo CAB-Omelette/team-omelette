@@ -29,7 +29,7 @@ public class RestaurantController {
 
     @GetMapping("/restaurant/{id}")
     public String showRestaurantProfile(@PathVariable long id, Model model){
-        model.addAttribute("restaurant", restRepo.findOne(id));
+        model.addAttribute("rest", restRepo.findOne(id));
         User user = restRepo.findOne(id).getUser();
         model.addAttribute("jobs", jobPostRepo.findByUser(user));
         return "restaurants/view";

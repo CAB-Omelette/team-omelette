@@ -11,10 +11,10 @@ public class JobHistory {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String location;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false)

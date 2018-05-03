@@ -40,16 +40,19 @@ public class ProfileController {
         this.jobPostRepo = jobPostRepo;
     }
 
-//    When a user clicks create a profile - this will determine if they are a rest or a chef
-//    and direct them to the correct profile creation page.
+//    When a user clicks create a profile - this will determine if they already have a profile and if
+// they are a rest or a chef and direct them to the correct profile creation page.
+
     @GetMapping("/createprofile")
-    public String createChefProfile(Model model){
-        if(userSvc.currentUser().isOwner()){
+    public String createProfile(Model model){
+        if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
             model.addAttribute("rest", new RestProfile());
             return "newuser/newrestprofile";
+        }else if (!userSvc.currentUser().isOwner() && !proSvc.hasChefProfile(userSvc.currentUser())){
+            model.addAttribute("chef", new ChefProfile());
+            return "newuser/newchefprofile";
         }
-        model.addAttribute("chef", new ChefProfile());
-        return "newuser/newchefprofile";
+        return"redirect:/profile";
     }
 
 //    Once a chef clicks submit on the profile creation form they will be directed to the
