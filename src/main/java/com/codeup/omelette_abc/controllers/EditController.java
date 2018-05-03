@@ -153,4 +153,12 @@ public String editProfile(Model model) {
     }
 
 
+    @GetMapping("/delete/jobhistory/{id}")
+    public String deleteJobHistory(@PathVariable long id){
+        JobHistory job = jobHistRepo.findOne(id);
+        jobHistRepo.delete(job);
+        return "redirect:/profile";
+    }
+
+
 }

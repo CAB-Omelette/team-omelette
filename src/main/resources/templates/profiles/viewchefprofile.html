@@ -27,6 +27,9 @@
     </a>
 
 <h2><u>Previous Experience:</u></h2>
+    <a th:href="@{/jobhistory}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
 <div th:each="job : ${jobs}">
     <p>Title:<span th:text="${job.title}"></span></p>
     <p>Location: <span th:text="${job.location}"></span></p>
@@ -42,6 +45,10 @@
 </div>
 
     <h2><u>Education:</u></h2>
+
+    <a th:href="@{/education}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
     <div th:each="ed : ${education}">
         <p>School:<span th:text="${ed.name}"></span></p>
         <p>Focus:<span th:text="${ed.focus}"></span> </p>
@@ -56,6 +63,9 @@
     </div>
 
     <h2><u>Skills:</u></h2>
+    <a th:href="@{/skills}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
     <ul>
     <div th:each="skill : ${skills}">
             <li><span th:text="${skill.name}"></span></li>
