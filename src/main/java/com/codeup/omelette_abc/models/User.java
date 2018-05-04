@@ -1,9 +1,11 @@
 package com.codeup.omelette_abc.models;
 
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
@@ -14,13 +16,15 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
-    @NotBlank
+    @NotBlank(message = "email field must not be empty")
+    @Email(message = "must enter a valid email address")
     private String email;
 
     @Column(nullable = false)
+    @NotBlank(message = "password field must not be empty")
     private String password;
 
-    @Column(nullable = false)
+    @Column
     private String username;
 
     @Column(nullable = false)

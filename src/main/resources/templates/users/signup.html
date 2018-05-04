@@ -14,12 +14,17 @@
 
     <label for="email">Email</label>
     <input class="form-control" id="email" th:field="*{email}" />
+    <p><code class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>
+    <br />
 
     <label for="password">Password</label>
     <input class="form-control" id="password" type="password" th:field="*{password}" />
+    <p><code class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></code></p>
+    <br />
 
     <label for="isOwner">I own a restaurant</label>
     <input id="isOwner" name="isOwner" type="checkbox" />
+    <br />
 
     <button class="btn btn-primary form-control">Sign Up</button>
 </form>
