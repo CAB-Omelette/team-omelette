@@ -13,11 +13,6 @@
 
             <form th:action="@{/newuser/newrestprofile}" th:method="post" th:object="${rest}">
 
-                <label for="picture">Insert Logo Picture</label>
-                <input id="picture" class="form-control" type="file" th:field="*{picture}"/>
-
-                <br />
-
                 <label for="rest_name">Restaurant Name</label>
                 <input id="rest_name" class="form-control" type="text" th:field="*{name}" />
 
@@ -51,6 +46,8 @@
 
                 <label for="about">About Restaurant</label>
                 <input id="about" class="form-control" placeholder="About Me" type="text" th:field="*{about}" />
+
+                <div th:replace="partials/filestack-api :: filestack-pic"></div>
 
                 <br />
 

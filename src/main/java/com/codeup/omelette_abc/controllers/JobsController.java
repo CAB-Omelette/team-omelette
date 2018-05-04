@@ -33,15 +33,14 @@ public class JobsController {
         this.userSvc = userSvc;
     }
 
-
-
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
-        if(!userSvc.currentUser().isOwner()){
-            return "newuser/switchprofiles";
+        if(restRepo.findFirstByUser(userSvc.currentUser())!= null) {
+            model.addAttribute("newJob", new JobListing());
+            model.addAttribute("isOwner", true);
+            return "/jobs/create";
         }
-        model.addAttribute("newJob", new JobListing());
-        return "/jobs/create";
+        return"redirect:/createprofile";
     }
 
     @PostMapping("/jobs/create")
@@ -50,7 +49,6 @@ public class JobsController {
         jobsRepo.save(newJob);
         return"redirect:/job/" + newJob.getId();
     }
-
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){

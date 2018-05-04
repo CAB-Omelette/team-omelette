@@ -6,6 +6,10 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
+
+<div th:if="${noProfile}">
+    <h1>You must first create a profile before you can post a job!</h1>
+</div>
 <div class="text-center container">
 <!--<img th:src="${rest.getPicture()}" alt="chuys profile picture" />-->
     <h3><span class="glyphicon glyphicon-earphone" aria-hidden="true"> </span>

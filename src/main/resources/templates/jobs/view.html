@@ -8,6 +8,7 @@
 
 <div class="container">
     <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+    <img class="profilePicture" th:src="${job.rest.picture}" alt="" />
     <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
     <h4>Pay: <span th:text="${job.pay}"></span></h4>
     <h4> <span th:text="${job.description}"></span></h4>

@@ -49,6 +49,7 @@ public class ProfileController {
     public String createProfile(Model model){
         if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
             model.addAttribute("rest", new RestProfile());
+            model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
         }else if (!userSvc.currentUser().isOwner() && !proSvc.hasChefProfile(userSvc.currentUser())){
             model.addAttribute("chef", new ChefProfile());
@@ -68,8 +69,9 @@ public class ProfileController {
     }
 
     @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
+    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model, @RequestParam ("upload") String picture){
         restProfile.setUser(userSvc.currentUser());
+        restProfile.setPicture(picture);
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
@@ -130,8 +132,8 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         Boolean isOwner = userSvc.currentUser().isOwner();
-        model.addAttribute("isOwner", isOwner);
         if(isOwner){
+            model.addAttribute("isOwner", true);
             User user = userSvc.currentUser();
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));

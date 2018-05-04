@@ -45,6 +45,14 @@ public class TestController {
         return "/index";
     }
 
+    @GetMapping("/loggedin")
+    public String loggedIn(Model model) {
+        if(userSvc.currentUser().isOwner()) {
+            model.addAttribute("isOwner", true);
+        }
+        return "/index";
+    }
+
 
 }
 

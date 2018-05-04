@@ -11,7 +11,8 @@
     <h1>Viewing All Restaurants</h1>
     <div th:each="rest : ${restaurants}">
         <div class="jobPost">
-        <h3><span th:text="${rest.name}"></span> </h3>
+            <img class="listPicture" th:src="${rest.picture}" alt="" />
+            <h3><span th:text="${rest.name}"></span> </h3>
         <h5><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h5>
         <a th:href="@{/restaurant/{id}(id=${rest.id})}">
             <button class="btn btn-default">View profile</button>

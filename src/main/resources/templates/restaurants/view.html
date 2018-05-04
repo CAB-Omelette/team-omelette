@@ -10,7 +10,9 @@
 <div class="text-center container">
 
 <h1 th:text="${rest.name}"></h1>
-<h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"> </span>
+    <img class="profilePicture" th:src="${rest.picture}" alt="" />
+
+    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"> </span>
     <span th:text="${rest.phone}"></span></h4>
     <h4> <span th:text="${rest.street}"></span></h4>
     <h4><span th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></span></h4>
