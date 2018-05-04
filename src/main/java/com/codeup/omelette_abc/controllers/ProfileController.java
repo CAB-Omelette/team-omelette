@@ -70,7 +70,6 @@ public class ProfileController {
     @PostMapping("/newuser/newrestprofile")
     public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());
-        model.addAttribute("isOwner");
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
@@ -79,6 +78,18 @@ public class ProfileController {
     public String addJobHistory(Model model){
         model.addAttribute("jobHistory", new JobHistory());
         return "newuser/chefjobhistory";
+    }
+
+    @GetMapping("/video")
+    public String uploadVideo(){
+        return("/newuser/omelettevideo");
+    }
+
+    @PostMapping("/video")
+    public String saveVideo(@RequestParam ("video") String video){
+        ChefProfile chef = chefRepo.findByUser(userSvc.currentUser());
+        chef.setVideo(video);
+        return"/profile";
     }
 
     @PostMapping("/jobhistory")
@@ -118,7 +129,9 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        if(userSvc.currentUser().isOwner()){
+        Boolean isOwner = userSvc.currentUser().isOwner();
+        model.addAttribute("isOwner", isOwner);
+        if(isOwner){
             User user = userSvc.currentUser();
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));

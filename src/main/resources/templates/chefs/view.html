@@ -44,7 +44,15 @@
             <li><span th:text="${skill.name}"></span></li>
         </div>
     </ul>
+
+    <video th:src="${chef.video}" th:controls="video"  >
+
+    </video>
+
+
 </div>
+
+
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>

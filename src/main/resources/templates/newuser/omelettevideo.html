@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Profile')">
+    <meta charset="UTF-8" />
+    <title> </title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<form th:action="@{/video}">
+<div th:replace="partials/filestack-api :: filestack-video"></div>
+    <button class="btn btn-success">Save</button>
+</form>
+
+
+
+
+</body>
+</html>
