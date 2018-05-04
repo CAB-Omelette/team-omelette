@@ -1,44 +1,23 @@
 package com.codeup.omelette_abc.repositories;
 
 import com.codeup.omelette_abc.models.*;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.concurrent.ListenableFuture;
-
+import java.util.List;
 
 @Repository
-public interface SearchRepository  {
-
-    @Async
-    ListenableFuture<ChefProfile> findChefFirstName(String first_name);
-
-    @Async
-    ListenableFuture<ChefProfile> findChefLastName(String last_name);
-
-    @Async
-    ListenableFuture<JobListing> findByJobTitle(String title);
-
-    @Async
-    ListenableFuture<JobListing> findByPay(String pay);
-
-    @Async
-    ListenableFuture<RestProfile> findByRestName(String name);
-
-    @Async
-    ListenableFuture<RestProfile> findByRestCity(String city);
-
-    @Async
-    ListenableFuture<RestProfile> findByRestState(String state);
-
-    @Async
-    ListenableFuture<RestProfile> findByRestZip(String zip);
-
-    @Async
-    ListenableFuture<Skills> findBySkill (String name);
+public interface SearchRepository extends CrudRepository<ChefProfile, Long>  {
 
 
-
+    @Query(value = "SELECT * FROM chef_profile cp WHERE " +
+            "LOWER(cp.first_name) LIKE LOWER(CONCAT('%',:searchbar, '%'))" +
+            " OR " +
+            "LOWER(cp.last_name) LIKE LOWER(CONCAT('%',:searchbar, '%'))",
+            nativeQuery = true
+    )
+    List<ChefProfile> findBySearchTermNative(@Param("searchbar") String searchbar);
 
 
 
