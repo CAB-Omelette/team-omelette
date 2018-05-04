@@ -1,4 +1,4 @@
-USE om_db;
+USE omelette_db;
 
 
 INSERT INTO chef_profile(bio, first_name, last_name, phone, picture, video, user_id)
