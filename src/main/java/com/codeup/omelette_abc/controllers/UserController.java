@@ -46,19 +46,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
-        return "users/login";
-    }
+    public String showLoginForm() { return "users/login"; }
 
-
-    @GetMapping("/home")
-    public String loggedIn(Model model){
-        if(userSvc.isLoggedIn()){
-            model.addAttribute("user", userSvc.currentUser());
-            return"/home";
-        }
-        return"redirect:/login";
-    }
 
     @GetMapping("/map")
     public String googleMap() {

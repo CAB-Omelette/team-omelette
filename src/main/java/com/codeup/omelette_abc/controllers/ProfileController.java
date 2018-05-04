@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProfileController {
@@ -59,14 +60,15 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
+    public String saveProfile(@ModelAttribute ChefProfile chefProfile, @RequestParam ("upload") String picture){
         chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setPicture(picture);
         chefRepo.save(chefProfile);
         return "redirect:/profile";
     }
 
     @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile){
+    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());
         restRepo.save(restProfile);
         return "redirect:/profile";
@@ -76,6 +78,18 @@ public class ProfileController {
     public String addJobHistory(Model model){
         model.addAttribute("jobHistory", new JobHistory());
         return "newuser/chefjobhistory";
+    }
+
+    @GetMapping("/video")
+    public String uploadVideo(){
+        return("/newuser/omelettevideo");
+    }
+
+    @PostMapping("/video")
+    public String saveVideo(ChefProfile chefProfile, @RequestParam ("video") String video){
+        chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setVideo(video);
+        return"redirect:/profile";
     }
 
     @PostMapping("/jobhistory")
@@ -100,7 +114,6 @@ public class ProfileController {
     }
 
 
-
     @GetMapping("/skills")
     public String addSkill(Model model){
         model.addAttribute("skill", new Skills());
@@ -116,7 +129,9 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        if(userSvc.currentUser().isOwner()){
+        Boolean isOwner = userSvc.currentUser().isOwner();
+        model.addAttribute("isOwner", isOwner);
+        if(isOwner){
             User user = userSvc.currentUser();
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
