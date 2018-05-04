@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface JobHistoryRepository extends CrudRepository<JobHistory, Long> {
 
-
     Iterable<JobHistory> findByUser(User user);
 
 }
