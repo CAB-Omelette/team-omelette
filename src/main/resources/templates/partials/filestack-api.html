@@ -20,26 +20,22 @@
 
 <!--<div th:field="*{picture}"></div>-->
 
-<!--<img src="https://cdn.filestackcontent.com/resize=width:400/crop_faces=faces:1,buffer:200,w:300/circle/2h25ZGRHTfmQ2DBEt3yR" alt="Image uploaded with Filestack" title="Image uploaded with Filestack">-->
-
-
-
     <div class="control-group">
         <div class="controls">
             <button id="picture" type="button" class="btn btn-link btn-secondary">Upload Image</button>
         </div>
     </div>
+    <div id="profile-pic"></div>
     <div id="picUrl"></div>
-    <div id="posts"></div>
 
-<!--video button call-->
+
     <div class="control-group">
         <div class="controls">
             <button id="video" type="button" class="btn btn-link btn-secondary">Upload Video</button>
         </div>
     </div>
+    <div id="profile-video"></div>
     <div id="videoUrl"></div>
-    <div id="video-post"></div>
 
 
 
@@ -65,11 +61,9 @@
     //this function handles the response from filestack and uploads the picture to the page
     function handleImageFilestack(response){
         console.log(response);
-        document.getElementById('posts').innerHTML = '<div>';
-        document.getElementById('picUrl').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '">';
-        document.getElementById('posts').innerHTML = '</div>';
+        document.getElementById('profile-pic').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '">';
+        document.getElementById('picUrl').innerHTML = '<input class="hideUrl" type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '">';
         document.getElementById('upload').dataset.handler = response.url;
-
     }
 
     //open ImagePicker button
@@ -97,10 +91,8 @@
 
     function handleVideoFilestack(response){
         console.log(response);
-        document.getElementById('video-post').innerHTML = '<div>';
-        document.getElementById('videoUrl').innerHTML = '<video id="video-upload" controls width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '"></video>';
-        document.getElementById('video-post').innerHTML = '</div>';
-
+        document.getElementById('profile-video').innerHTML = '<video id="video-upload" controls width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '"></video>';
+        document.getElementById('videoUrl').innerHTML = '<input class="hideUrl" type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '">';
         document.getElementById('video-upload').dataset.handler = response.url;
     }
 
