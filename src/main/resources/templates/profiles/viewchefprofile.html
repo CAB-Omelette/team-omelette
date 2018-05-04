@@ -9,7 +9,8 @@
 <div class="text-center">
     <div class="jobPost">
 <h1><span th:text="${chef.first_name}"></span>
-    <span th:text="${chef.last_name}"></span>'s profile</h1>
+     <span th:text="${chef.last_name}"></span>'s profile</h1>
+        <img class="profilePicture" th:src="${chef.picture}" alt="" />
 <h3 th:text="${user.email}"></h3>
     <h3>Phone: <span th:text="${chef.phone}"></span></h3>
 

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProfileController {
@@ -59,8 +60,9 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
+    public String saveProfile(@ModelAttribute ChefProfile chefProfile, @RequestParam ("upload") String picture){
         chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setPicture(picture);
         chefRepo.save(chefProfile);
         return "redirect:/profile";
     }
@@ -100,7 +102,7 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-    
+
     @GetMapping("/skills")
     public String addSkill(Model model){
         model.addAttribute("skill", new Skills());
