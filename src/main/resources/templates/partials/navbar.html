@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
 <nav th:fragment="navbar" class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,7 +33,6 @@
                     <!--</form>-->
                 <!--</li>-->
                 <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/createprofile">Edit Profile</a></li>
                 <li><a href="/all">View Jobs</a></li>
                 <li><a href="/chefs">View Chefs</a></li>
                 <li><a href="/restaurants">View Restaurants</a></li>
@@ -41,6 +41,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="" sec:authorize="!isAuthenticated()" href="/sign-up">Sign Up</a></li>
                 <li><a class="" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
+
+
 
 
                 <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">

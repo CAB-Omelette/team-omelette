@@ -25,7 +25,7 @@ public class ProfileServices {
     }
 
     public boolean hasRestProfile(User user){
-        if(restRepo.findByUser(user) == null){
+        if(restRepo.findFirstByUser(user) == null){
             return false;
         }
         return true;

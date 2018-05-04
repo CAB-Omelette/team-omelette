@@ -43,6 +43,7 @@ public class ProfileController {
 //    When a user clicks create a profile - this will determine if they already have a profile and if
 // they are a rest or a chef and direct them to the correct profile creation page.
 
+
     @GetMapping("/createprofile")
     public String createProfile(Model model){
         if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
@@ -61,7 +62,7 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/jobhistory";
+        return "redirect:/profile";
     }
 
     @PostMapping("/newuser/newrestprofile")
@@ -70,8 +71,6 @@ public class ProfileController {
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
-
-
 
     @GetMapping("/jobhistory")
     public String addJobHistory(Model model){
@@ -83,9 +82,8 @@ public class ProfileController {
     public String addJobHistory(@ModelAttribute JobHistory jobHistory){
         jobHistory.setUser(userSvc.currentUser());
         jobHistRepo.save(jobHistory);
-        return "redirect:/jobhistory";
+        return "redirect:/profile";
     }
-
 
 
     @GetMapping("/education")
@@ -98,7 +96,7 @@ public class ProfileController {
     public String addEducation(@ModelAttribute Education education){
         education.setUser(userSvc.currentUser());
         edRepo.save(education);
-        return "redirect:/education";
+        return "redirect:/profile";
     }
 
 
@@ -113,20 +111,19 @@ public class ProfileController {
     public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
-        return "redirect:/skills";
+        return "redirect:/profile";
     }
-
-
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
         if(userSvc.currentUser().isOwner()){
             User user = userSvc.currentUser();
-            model.addAttribute("rest", restRepo.findByUser(user));
+            model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
             User user = userSvc.currentUser();
+            model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));
             model.addAttribute("education", edRepo.findByUser(user));

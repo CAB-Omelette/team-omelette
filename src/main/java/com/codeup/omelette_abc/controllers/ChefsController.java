@@ -48,6 +48,7 @@ public class ChefsController {
     public String viewAllChefs(@PathVariable Long id, Model model) {
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();
+        model.addAttribute("user", chef);
         model.addAttribute("chef", chefRepo.findOne(id));
         model.addAttribute("jobs", jobHistRepo.findByUser(chef));
         model.addAttribute("education", edRepo.findByUser(chef));

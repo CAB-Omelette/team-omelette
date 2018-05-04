@@ -4,6 +4,7 @@ package com.codeup.omelette_abc.controllers;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
+import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,14 @@ public class RestaurantController {
 
     private RestProfileRepository restRepo;
     private JobPostRepository jobPostRepo;
+    private UserService userSvc;
 
     public RestaurantController(RestProfileRepository restRepo,
-                                JobPostRepository jobPostRepo){
+                                JobPostRepository jobPostRepo,
+                                UserService userSvc){
         this.restRepo = restRepo;
         this.jobPostRepo = jobPostRepo;
+        this.userSvc = userSvc;
     }
 
     @GetMapping("/restaurants")

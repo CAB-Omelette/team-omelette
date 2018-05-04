@@ -1,17 +1,23 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Job List')">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
+<div class="text-center">
 <div class="container">
-<div th:each="job : ${jobs}">
-<h3>Title: <span th:text="${job.title}"></span></h3>
-    <a th:href="@{/job/{id}(id=${job.id})}">
-        <button class="btn btn-default">View Job</button>
-    </a>
-    <hr />
+    <h1>Current Job Postings</h1>
+    <div th:each="job : ${jobs}">
+        <div class="jobPost">
+        <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+        <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
+        <a th:href="@{/job/{id}(id=${job.id})}">
+            <button class="btn btn-default">View Job</button>
+        </a>
+        </div>
+        <br />
+    </div>
 </div>
 </div>
 

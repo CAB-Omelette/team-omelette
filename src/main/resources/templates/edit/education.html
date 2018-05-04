@@ -10,7 +10,11 @@
 
 <div class="container">
     <h1 class="text-center">Education</h1>
-    <form th:action="@{/education}" th:method="post" th:object="${education}">
+
+    <form th:action="@{/edit/education}" th:method="post" th:object="${edu}">
+
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{user}" />
 
         <label for="school">School Name</label>
         <input id="school" class="form-control" placeholder="School name" type="text" th:field="*{name}" />
@@ -27,12 +31,19 @@
 
         <br />
 
-        <button class="btn btn-primary form-control">Save</button>
+        <button class="btn btn-primary form-control">Save changes</button>
     </form>
 
+    <br />
+    <a th:href="@{/delete/education/{id}(id=${edu.id})}">
+        <button class="form-control btn btn-danger">Delete section</button>
+    </a>
+
+    <br />
 
 
 </div>
+
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

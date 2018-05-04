@@ -50,6 +50,7 @@ public class User {
         username = copy.email;
         password = copy.password;
         isOwner = copy.isOwner;
+
     }
 
     public String getUsername() {

@@ -40,13 +40,13 @@ CHEF PROFILE PAGE
 
 - [ ] Able to add a video or picture that corresponds with each skill
 
-- [ ] Able to edit basic information of profile
+- [x] Able to edit basic information of profile
 
-- [ ] Able to edit/delete job history from profile
+- [x] Able to edit/delete job history from profile
 
-- [ ] Able to edit/delete education history from profile
+- [x] Able to edit/delete education history from profile
 
-- [ ] Able to edit/delete skills from profile
+- [x] Able to edit/delete skills from profile
 
 - [ ] Able to edit/delete profile picture
 
@@ -64,7 +64,7 @@ RESTAURANT PROFILE PAGE
 
 - [x] Able to display restaurant on a google map based on location from profile
 
-- [ ] Able to edit basic information of profile
+- [x] Able to edit basic information of profile
 
 - [ ] Able to edit/delete profile picture of restaurant
 
@@ -90,7 +90,7 @@ VIEW ALL JOB POSTINGS
 
 - [x] Able to view a list of all jobs posted from restaurants
 
-- [ ] Able to view what restaurant posted the job
+- [x] Able to view what restaurant posted the job
 
 - [x] Able to click a link and view more details of a specific job posting
 
@@ -102,9 +102,9 @@ JOB POSTING PAGE
 
 - [x] Able to post a new job listing for a logged in restaurant owner
 
-- [ ] Able to edit a job posting that is owned by currently logged in user
+- [x] Able to edit a job posting that is owned by currently logged in user
 
-- [ ] Able to delete a job posting that is owned by currently logged in user
+- [x] Able to delete a job posting that is owned by currently logged in user
 
 
 SEARCH FUNCTIONALITY
