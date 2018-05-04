@@ -62,7 +62,7 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/jobhistory";
+        return "redirect:/profile";
     }
 
     @PostMapping("/newuser/newrestprofile")
@@ -82,7 +82,7 @@ public class ProfileController {
     public String addJobHistory(@ModelAttribute JobHistory jobHistory){
         jobHistory.setUser(userSvc.currentUser());
         jobHistRepo.save(jobHistory);
-        return "redirect:/jobhistory";
+        return "redirect:/profile";
     }
 
 
@@ -96,7 +96,7 @@ public class ProfileController {
     public String addEducation(@ModelAttribute Education education){
         education.setUser(userSvc.currentUser());
         edRepo.save(education);
-        return "redirect:/education";
+        return "redirect:/profile";
     }
 
 
@@ -111,7 +111,7 @@ public class ProfileController {
     public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
-        return "redirect:/skills";
+        return "redirect:/profile";
     }
 
     @GetMapping("/profile")
@@ -123,6 +123,7 @@ public class ProfileController {
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
             User user = userSvc.currentUser();
+            model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));
             model.addAttribute("education", edRepo.findByUser(user));

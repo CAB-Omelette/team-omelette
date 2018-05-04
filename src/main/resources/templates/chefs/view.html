@@ -6,10 +6,11 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-
-<h1 class="text-center"><span th:text="${chef.first_name}"></span><span th:text="${chef.last_name}"></span></h1>
-
 <div class="text-center">
+<h1><span th:text="${chef.first_name}"></span><span th:text="${chef.last_name}"></span></h1>
+<h3 th:text="${user.email}"></h3>
+
+
     <h2>About me:</h2>
     <p><span th:text="${chef.bio}"></span></p>
 

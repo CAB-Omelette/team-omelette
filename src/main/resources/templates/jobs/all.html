@@ -5,15 +5,20 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
+<div class="text-center">
 <div class="container">
+    <h1>Current Job Postings</h1>
     <div th:each="job : ${jobs}">
-        <h3>Title: <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+        <div class="jobPost">
+        <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
         <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
         <a th:href="@{/job/{id}(id=${job.id})}">
             <button class="btn btn-default">View Job</button>
         </a>
-        <hr/>
+        </div>
+        <br />
     </div>
+</div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
