@@ -111,7 +111,7 @@ public class ProfileController {
     public String addSkill(@ModelAttribute Skills skill){
         skill.setUser(userSvc.currentUser());
         skillsRepo.save(skill);
-        return "redirect:/skills";
+        return "redirect:/profile";
     }
 
     @GetMapping("/profile")
@@ -123,6 +123,7 @@ public class ProfileController {
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
             User user = userSvc.currentUser();
+            model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));
             model.addAttribute("education", edRepo.findByUser(user));

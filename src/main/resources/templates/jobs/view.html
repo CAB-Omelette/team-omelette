@@ -11,6 +11,9 @@
     <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
     <h4>Pay: <span th:text="${job.pay}"></span></h4>
     <h4> <span th:text="${job.description}"></span></h4>
+    <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
+       <h5>More from <span th:text="${job.rest.name}"></span></h5>
+    </a>
 </div>
 
 <div th:replace="partials/job-map :: google-maps"></div>
