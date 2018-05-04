@@ -78,7 +78,7 @@
 
 <div class="control-group">
     <div class="controls">
-        <button id="video" type="button" class="btn btn-primary">Upload Video</button>
+        <button id="video" type="button" class="btn btn-primary form-control">Upload Video</button>
     </div>
 </div>
 <div id="profile-video"></div>
@@ -117,7 +117,7 @@
     function handleVideoFilestack(response){
         console.log(response);
         document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
-        document.getElementById('videoUrl').innerHTML = '<input class="hideUrl" type="text"  id="upload" name="video" value=" ' +response.filesUploaded['0'].url +  '" />';
+        document.getElementById('videoUrl').innerHTML = '<input class="hideUrl" type="text"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '" />';
         document.getElementById('video-upload').dataset.handler = response.url;
     }
     //open VideoPicker button

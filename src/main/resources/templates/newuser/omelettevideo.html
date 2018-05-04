@@ -7,13 +7,13 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<form th:action="@{/video}">
+<div class="text-center">
+<form th:action="@{/video}" method="post">
 <div th:replace="partials/filestack-api :: filestack-video"></div>
-    <button class="btn btn-success">Save</button>
+    <br />
+    <button class="btn btn-success form-control">Save</button>
 </form>
-
-
-
+</div>
 
 </body>
 </html>

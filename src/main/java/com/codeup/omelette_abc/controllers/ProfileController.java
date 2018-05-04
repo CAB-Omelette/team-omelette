@@ -86,10 +86,10 @@ public class ProfileController {
     }
 
     @PostMapping("/video")
-    public String saveVideo(@RequestParam ("video") String video){
-        ChefProfile chef = chefRepo.findByUser(userSvc.currentUser());
-        chef.setVideo(video);
-        return"/profile";
+    public String saveVideo(ChefProfile chefProfile, @RequestParam ("video") String video){
+        chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setVideo(video);
+        return"redirect:/profile";
     }
 
     @PostMapping("/jobhistory")

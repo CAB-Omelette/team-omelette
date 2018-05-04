@@ -13,9 +13,8 @@
     <h1 class="text-center">Basic Information</h1>
     <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
 
-        <div th:replace="partials/filestack-api :: filestack-pic"></div>
 
-        <br />
+
 
         <label for="first_name">First Name</label>
         <input id="first_name" class="form-control" placeholder="First Name" type="text" th:field="*{first_name}" />
@@ -33,6 +32,10 @@
 
         <label for="bio">About Me</label>
         <input id="bio" class="form-control" placeholder="About Me" type="text" th:field="*{bio}" />
+
+        <br />
+
+        <div th:replace="partials/filestack-api :: filestack-pic"></div>
 
         <br />
 

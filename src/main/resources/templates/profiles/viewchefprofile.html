@@ -11,13 +11,8 @@
 <h1><span th:text="${chef.first_name}"></span>
      <span th:text="${chef.last_name}"></span>'s profile</h1>
         <img class="profilePicture" th:src="${chef.picture}" alt="" />
-<h3 th:text="${user.email}"></h3>
-    <h3>Phone: <span th:text="${chef.phone}"></span></h3>
+    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
 
-
-
-    <h2>About</h2>
-    <!--<div th:replace="partials/filestack-api :: filestack"></div>-->
     <p><span th:text="${chef.bio}"></span></p>
 
 
@@ -84,6 +79,8 @@
         </div>
     </ul>
 </div>
+
+    <br />
 
     <div class="jobPost">
         <h2>Omelette Video</h2>
