@@ -129,7 +129,7 @@ CONNECTION FUNCTIONALITY
 
 - [ ] Able to make a connection request to a restaurant from a logged in chef
 
-- [ ] Able to accept a connetion request from a chef as a logged in restaurant owner
+- [ ] Able to accept a connection request from a chef as a logged in restaurant owner
 
 - [ ] Able to accept a connection request from a restaurant as a logged in chef
 

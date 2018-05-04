@@ -1,15 +1,50 @@
 package com.codeup.omelette_abc.controllers;
 
 
+import com.codeup.omelette_abc.repositories.*;
+import com.codeup.omelette_abc.services.ProfileServices;
+import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class TestController {
 
+    private ChefProfileRepository chefRepo;
+    private RestProfileRepository restRepo;
+    private UserService userSvc;
+    private ProfileServices proSvc;
+    private JobHistoryRepository jobHistRepo;
+    private EducationRepository edRepo;
+    private SkillsRepository skillsRepo;
+    private JobPostRepository jobPostRepo;
+
+    public TestController(ProfileServices proSvc,
+                             ChefProfileRepository chefRepo,
+                             UserService userSvc,
+                             RestProfileRepository restRepo,
+                             JobHistoryRepository jobHistRepo,
+                             EducationRepository edRepo,
+                             SkillsRepository skillsRepo,
+                             JobPostRepository jobPostRepo) {
+        this.proSvc = proSvc;
+        this.chefRepo = chefRepo;
+        this.userSvc = userSvc;
+        this.restRepo = restRepo;
+        this.jobHistRepo = jobHistRepo;
+        this.edRepo = edRepo;
+        this.skillsRepo = skillsRepo;
+        this.jobPostRepo = jobPostRepo;
+    }
+
+
+
     @GetMapping("/")
-    public String showIndex() {
-        return"/index";
+    public String showIndex(Model model) {
+        return "/index";
     }
-    }
+
+
+}
 

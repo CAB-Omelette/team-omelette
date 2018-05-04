@@ -66,8 +66,9 @@ public class ProfileController {
     }
 
     @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile){
+    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());
+        model.addAttribute("isOwner");
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
@@ -99,8 +100,7 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-
-
+    
     @GetMapping("/skills")
     public String addSkill(Model model){
         model.addAttribute("skill", new Skills());

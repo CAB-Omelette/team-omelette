@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+
     <title>Filestack</title>
 </head>
 <body>
@@ -30,6 +28,7 @@
     </div>
     <div id="picUrl"></div>
     <div id="posts"></div>
+
 
 <!--video button call-->
     <div class="control-group">
@@ -64,12 +63,12 @@
     //this function handles the response from filestack and uploads the picture to the page
     function handleImageFilestack(response){
         console.log(response);
-        document.getElementById('posts').innerHTML = '<div>';
-        document.getElementById('picUrl').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '">';
-        document.getElementById('posts').innerHTML = '</div>';
-
+        document.getElementById('posts').innerHTML = '<div class="container">';
+        document.getElementById('picUrl').append('<input type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>');
+        document.getElementById('picUrl').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '"/>';
         document.getElementById('upload').dataset.handler = response.url;
     }
+
 
     //open ImagePicker button
     var picture = document.getElementById('picture');
@@ -114,6 +113,8 @@
 
 </script>
 
-</main>
+<div th:replace="partials/footer :: footer"></div>
+
+
 </body>
 </html>
