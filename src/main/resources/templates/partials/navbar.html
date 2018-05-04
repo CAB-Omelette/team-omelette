@@ -22,6 +22,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
+                <!--Added Search Functionality-->
+                <!--<li>-->
+                    <!--<form>-->
+                        <!--<a href="/search"></a>-->
+                        <!--<input type="text" class="form-control" id="search_input" placeholder="Search...">-->
+                        <!--<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>-->
+                    <!--</form>-->
+                <!--</li>-->
                 <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
                 <li><a sec:authorize="isAuthenticated()" href="/createprofile">Edit Profile</a></li>
                 <li><a href="/all">View Jobs</a></li>
@@ -29,12 +38,6 @@
                 <li><a href="/restaurants">View Restaurants</a></li>
                 <li><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
-            <!--<form class="navbar-form navbar-left">-->
-                <!--<div class="form-group">-->
-                    <!--<input type="text" class="form-control" placeholder="Search" />-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default">Submit</button>-->
-            <!--</form>-->
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="" sec:authorize="!isAuthenticated()" href="/sign-up">Sign Up</a></li>
                 <li><a class="" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
