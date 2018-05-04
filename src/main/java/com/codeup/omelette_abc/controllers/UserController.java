@@ -6,9 +6,12 @@ import com.codeup.omelette_abc.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -34,10 +37,17 @@ public class UserController {
 
 
     @PostMapping("/sign-up")
-    public String saveUser(User user, @RequestParam(defaultValue = "false") boolean isOwner) {
+    public String saveUser(@Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+        if (errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            model.addAttribute("user", user);
+            return "users/signup";
+        }
+
         if(isOwner){
             user.setOwner(true);
         }
+
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
@@ -46,19 +56,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
-        return "users/login";
-    }
+    public String showLoginForm() { return "users/login"; }
 
-
-    @GetMapping("/home")
-    public String loggedIn(Model model){
-        if(userSvc.isLoggedIn()){
-            model.addAttribute("user", userSvc.currentUser());
-            return"/home";
-        }
-        return"redirect:/login";
-    }
 
     @GetMapping("/map")
     public String googleMap() {

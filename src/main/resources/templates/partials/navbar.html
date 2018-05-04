@@ -24,6 +24,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
+
                 <!--Added Search Functionality-->
                 <li>
                     <form th:action="@{'/search'}" th:method="GET">
@@ -36,11 +37,12 @@
                         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </li>
+
                 <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
                 <li><a href="/all">View Jobs</a></li>
                 <li><a href="/chefs">View Chefs</a></li>
                 <li><a href="/restaurants">View Restaurants</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
+                <li th:if="${isOwner}"><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="" sec:authorize="!isAuthenticated()" href="/sign-up">Sign Up</a></li>

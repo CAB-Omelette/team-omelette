@@ -46,6 +46,10 @@ public class ChefsController {
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
+        boolean hasVideo = chefRepo.findOne(id).getVideo()!=null;
+        if(hasVideo) {
+            model.addAttribute("hasVideo", true);
+        }
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();
         model.addAttribute("user", chef);
