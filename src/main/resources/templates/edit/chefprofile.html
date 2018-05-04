@@ -14,10 +14,11 @@
     <form th:action="@{/edit/chef}" th:method="post" th:object="${chef}">
 
         <input type="hidden" th:field="*{id}"/>
-        <input type="hidden" th:field="*{user}"/><br />
+        <input type="hidden" th:field="*{user}"/>
 
-        <label for="picture">Insert Profile Picture</label>
-        <input id="picture" class="form-control" placeholder="Profile Picture" type="file" th:field="*{picture}" />
+
+
+        <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
 
         <br />
 
