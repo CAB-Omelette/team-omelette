@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/main.css" />
 
     <title>Filestack</title>
 </head>
@@ -17,27 +21,23 @@
 
 <!--<div th:field="*{picture}"></div>-->
 
-<!--<img src="https://cdn.filestackcontent.com/resize=width:400/crop_faces=faces:1,buffer:200,w:300/circle/2h25ZGRHTfmQ2DBEt3yR" alt="Image uploaded with Filestack" title="Image uploaded with Filestack">-->
-
-
-
     <div class="control-group">
         <div class="controls">
             <button id="picture" type="button" class="btn btn-link btn-secondary">Upload Image</button>
         </div>
     </div>
+    <div id="profile-pic"></div>
     <div id="picUrl"></div>
-    <div id="posts"></div>
 
 
-<!--video button call-->
+
     <div class="control-group">
         <div class="controls">
             <button id="video" type="button" class="btn btn-link btn-secondary">Upload Video</button>
         </div>
     </div>
+    <div id="profile-video"></div>
     <div id="videoUrl"></div>
-    <div id="video-post"></div>
 
 
 
@@ -63,9 +63,8 @@
     //this function handles the response from filestack and uploads the picture to the page
     function handleImageFilestack(response){
         console.log(response);
-        document.getElementById('posts').innerHTML = '<div class="container">';
-        document.getElementById('picUrl').append('<input type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>');
-        document.getElementById('picUrl').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '"/>';
+        document.getElementById('profile-pic').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '">';
+        document.getElementById('picUrl').innerHTML = '<input class="hideUrl" type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '">';
         document.getElementById('upload').dataset.handler = response.url;
     }
 
@@ -95,10 +94,8 @@
 
     function handleVideoFilestack(response){
         console.log(response);
-        document.getElementById('video-post').innerHTML = '<div>';
-        document.getElementById('videoUrl').innerHTML = '<video id="video-upload" src=" ' +response.filesUploaded['0'].url +  '"></video>';
-        document.getElementById('video-post').innerHTML = '</div>';
-
+        document.getElementById('profile-video').innerHTML = '<video id="video-upload" controls width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '"></video>';
+        document.getElementById('videoUrl').innerHTML = '<input class="hideUrl" type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '">';
         document.getElementById('video-upload').dataset.handler = response.url;
     }
 
@@ -112,9 +109,6 @@
     } videoButton();
 
 </script>
-
-<div th:replace="partials/footer :: footer"></div>
-
 
 </body>
 </html>
