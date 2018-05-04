@@ -5,15 +5,19 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
-<h1>Log In</h1>
+<h1 class="text-center">Log In</h1>
 
 <form th:action="@{/login}" method="post">
 
     <label for="username">Email</label>
     <input class="form-control" id="username" name="username" type="text" />
 
+    <br />
     <label for="password">Password</label>
     <input class="form-control" id="password" name="password" type="password" />
+
+    <br />
+    <br />
 
     <button class="btn btn-primary form-control">Login</button>
 

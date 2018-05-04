@@ -7,10 +7,10 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
-    <h3>Title: <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-    <h3>Location: <span th:text="${job.rest.city}">, <span th:text="${job.rest.state}"></span></span></h3>
-    <h3>Pay: <span th:text="${job.pay}"></span></h3>
-    <h3>Job Description: <span th:text="${job.description}"></span></h3>
+    <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+    <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
+    <h4>Pay: <span th:text="${job.pay}"></span></h4>
+    <h4> <span th:text="${job.description}"></span></h4>
 </div>
 
 <div th:replace="partials/job-map :: google-maps"></div>
