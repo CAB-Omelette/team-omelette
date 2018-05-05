@@ -26,7 +26,7 @@ SIGN UP / LOG IN
 
 CHEF PROFILE PAGE
 
-- [ ] Able to add a profile picture
+- [x] Able to add a profile picture
 
 - [x] Able to create a profile with basic information
 
@@ -48,7 +48,7 @@ CHEF PROFILE PAGE
 
 - [x] Able to edit/delete skills from profile
 
-- [ ] Able to edit/delete profile picture
+- [x] Able to edit/delete profile picture
 
 - [ ] Able to edit/delete omelette video
 
@@ -56,7 +56,7 @@ CHEF PROFILE PAGE
 
 RESTAURANT PROFILE PAGE
 
-- [ ] Able to add a profile picture of restaurant
+- [x] Able to add a profile picture of restaurant
 
 - [x] Able to add basic information to profile
 
@@ -66,7 +66,7 @@ RESTAURANT PROFILE PAGE
 
 - [x] Able to edit basic information of profile
 
-- [ ] Able to edit/delete profile picture of restaurant
+- [x] Able to edit/delete profile picture of restaurant
 
 - [ ] Able to edit/delete profile video of restaurant
 
