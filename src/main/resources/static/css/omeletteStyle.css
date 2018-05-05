@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+img.OmLogo {
+    width: 20%;
+    vertical-align: middle;
+}
+
+
+#navLogo{
+    width: 40px
+}
+
+hr{
+    width: 50%;
+    text-align: center;
+}
+
+.job{
+    width: 50%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: "PT Mono";
+    background: #5D4157;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #A8CABA, #5D4157);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #A8CABA, #5D4157); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #FFF;
+}
+
+select{
+    color: black;
+}
+
+a,h5{
+    color: #FFF;
+}
+
+.landingPage{
+    background-image: url("https://images.pexels.com/photos/6420/metal-easter-eggs-basket.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100vh;
+}
+
+.jumbotron{
+    margin-top: 8%;
+    color: black;
+
+    background-color: #283A52;
+}
+
+
+#delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#deleteBtn{
+    background-color: transparent;
+    border: none;
+    color: red;
+}
+
+.card{
+    width: 220px;
+    height: 150px;
+    border-radius:15px;
+    border: 1px dashed rgba(0,0,0,.6);
+    padding: 10px;
+    margin: 20px;
+}
+
+.jobs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
