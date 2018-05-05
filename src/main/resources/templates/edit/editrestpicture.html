@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('Profile Picture')">
+<head th:replace="partials/header :: header('Profile')">
     <meta charset="UTF-8" />
     <title> </title>
 </head>
@@ -24,7 +24,7 @@
         <input type="hidden" th:field="*{picture}"/>
         <input type="hidden" th:field="*{video}"/>
 
-        <h1 class="text-center">Add a profile picture</h1>
+        <h1 class="text-center">Edit profile picture</h1>
 
         <br />
 
@@ -33,10 +33,9 @@
         <br />
 
 
-        <button class="btn btn-primary form-control">Save profile picture</button>
+        <button class="btn btn-primary form-control">save profile picture</button>
 
     </form>
-
 
     <footer th:replace="partials/footer :: footer"></footer>
 </div>

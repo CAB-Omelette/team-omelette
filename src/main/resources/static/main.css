@@ -15,11 +15,6 @@ body{
 }
 
 
-.btn-default{
-    background:transparent;
-    color: white;
-}
-
 .jobPost{
     border: 1px solid white;
     border-radius:5px;
@@ -34,13 +29,11 @@ body{
 
 .profilePicture{
     width: 25%;
-    border: 1px solid white;
     border-radius:50%;
 }
 
 .listPicture{
     width: 20%;
-    border: 1px solid white;
     border-radius:50%;
     margin: 0 auto;
     display: block;

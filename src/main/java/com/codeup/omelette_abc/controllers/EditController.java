@@ -57,6 +57,20 @@ public String editProfile(Model model) {
 
 }
 
+    @GetMapping("/edit/chefpic")
+    public String editChefPic(Model model){
+        ChefProfile chef = chefRepo.findByUser(userSvc.currentUser());
+        model.addAttribute("chef", chef);
+        return"/edit/editchefpicture";
+    }
+
+    @GetMapping("/edit/restpic")
+    public String editRestPic(Model model){
+        RestProfile rest = restRepo.findFirstByUser(userSvc.currentUser());
+        model.addAttribute("rest", rest);
+        return"/edit/editrestpicture";
+    }
+
     @PostMapping("/edit/restaurant")
     public String saveRestEdit(RestProfile restPro, Model model){
         model.addAttribute(restPro);

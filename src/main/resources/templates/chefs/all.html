@@ -10,16 +10,15 @@
 <div class="container">
 <h1>Viewing Chefs</h1>
 <div th:each="chef : ${chefs}">
+    <a th:href="@{/chefs/{id}(id=${chef.id})}">
     <div class="jobPost">
 <h3><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h3>
         <img class="listPicture" th:src="${chef.picture}" alt="" />
         <br />
-    <a th:href="@{/chefs/{id}(id=${chef.id})}">
-        <button class="btn btn-default">View profile</button>
+    </div>
     </a>
     </div>
     <br />
-</div>
 </div>
 </div>
 </body>
