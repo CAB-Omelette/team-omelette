@@ -52,10 +52,13 @@ public class ChefsController {
         }
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();
+        if(edRepo.findByUser(chef) != null){
+            model.addAttribute("hasEducation", true);
+            model.addAttribute("education", edRepo.findByUser(chef));
+        }
         model.addAttribute("user", chef);
         model.addAttribute("chef", chefRepo.findOne(id));
         model.addAttribute("jobs", jobHistRepo.findByUser(chef));
-        model.addAttribute("education", edRepo.findByUser(chef));
         model.addAttribute("skills", skillsRepo.findByUser(chef));
         return "/chefs/view";
     }

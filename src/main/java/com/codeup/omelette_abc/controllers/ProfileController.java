@@ -64,7 +64,7 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
-        return "redirect:/newchef/picture";
+        return "redirect:/profile";
     }
 
     @GetMapping("/newchef/picture")
@@ -82,14 +82,17 @@ public class ProfileController {
     }
 
     @PostMapping("/newchef/picture")
-    public String savePicture(@ModelAttribute ChefProfile chef, @RequestParam("upload") String picture ){
+    public String savePicture(@ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
+        if(picture == null){
+            return"redirect:/profile";
+        }
         chef.setPicture(picture);
         chefRepo.save(chef);
         return"redirect:/profile";
     }
 
     @PostMapping("/newrest/picture")
-    public String saveRestPic(@ModelAttribute RestProfile rest, @RequestParam("upload") String picture ){
+    public String saveRestPic(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
         rest.setPicture(picture);
         restRepo.save(rest);
         return"redirect:/profile";
@@ -114,7 +117,7 @@ public class ProfileController {
     }
 
     @PostMapping("/video")
-    public String saveVideo(ChefProfile chefProfile, @RequestParam ("video") String video){
+    public String saveVideo(ChefProfile chefProfile, @RequestParam ("upload") String video){
         chefProfile.setUser(userSvc.currentUser());
         chefProfile.setVideo(video);
         return"redirect:/profile";
@@ -157,20 +160,21 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        Boolean isOwner = userSvc.currentUser().isOwner();
+        User user = userSvc.currentUser();
+        Boolean isOwner = user.isOwner();
         if(isOwner){
             model.addAttribute("isOwner", true);
-            User user = userSvc.currentUser();
-            if(restRepo.findFirstByUser(user).getPicture() == null){
+            if(restRepo.findFirstByUser(user).getPicture() == null ||
+                    restRepo.findFirstByUser(user).getPicture().equals(" ")){
                 model.addAttribute("noPicture", true);
             }
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
             return"profiles/viewrestprofile";
-        }else if(!userSvc.currentUser().isOwner()) {
-            User user = userSvc.currentUser();
-            if(chefRepo.findByUser(user).getPicture() == null){
-                model.addAttribute("noPicture", true);
+        }else if(!user.isOwner()) {
+            if(chefRepo.findByUser(user).getPicture() == null ||
+                    chefRepo.findByUser(user).getPicture().equals(" ")){
+                    model.addAttribute("noPicture", true);
             }
             model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));
