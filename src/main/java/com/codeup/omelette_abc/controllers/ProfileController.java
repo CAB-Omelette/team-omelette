@@ -2,7 +2,7 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
-import com.codeup.omelette_abc.services.ProfileServices;
+import com.codeup.omelette_abc.services.ProfileService;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +17,13 @@ public class ProfileController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-    private ProfileServices proSvc;
+    private ProfileService proSvc;
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
-    public ProfileController(ProfileServices proSvc,
+    public ProfileController(ProfileService proSvc,
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,

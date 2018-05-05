@@ -6,13 +6,13 @@ import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProfileServices {
+public class ProfileService {
 
     private ChefProfileRepository chefProRepo;
     private RestProfileRepository restRepo;
 
-    public ProfileServices(ChefProfileRepository chefProRepo,
-                           RestProfileRepository restRepo){
+    public ProfileService(ChefProfileRepository chefProRepo,
+                          RestProfileRepository restRepo){
         this.chefProRepo = chefProRepo;
         this.restRepo = restRepo;
     }

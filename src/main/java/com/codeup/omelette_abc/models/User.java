@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -93,6 +94,12 @@ public class User {
 
     public void setOwner(boolean owner) { isOwner = owner; }
 
+
+    private List<User> user;
+
+    public List<User> getUser() { return user; }
+
+    public void setUser(List<User> user) { this.user = user; }
 
 
 }

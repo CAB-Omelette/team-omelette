@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.models;
 
 
+import javax.annotation.ManagedBean;
 import javax.persistence.*;
 
 @Entity
@@ -112,9 +113,7 @@ public class ChefProfile {
         return video;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
+    public void setVideo(String video) { this.video = video; }
 
 }
 

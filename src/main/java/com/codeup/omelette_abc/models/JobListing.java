@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -39,7 +40,6 @@ public class JobListing {
         this.pay = pay;
         this.user = user;
         this.rest = rest;
-
     }
 
     public JobListing(JobListing copy) {
@@ -49,9 +49,7 @@ public class JobListing {
         pay = copy.pay;
     }
 
-    public JobListing() {
-
-    }
+    public JobListing() { }
 
     public RestProfile getRest() { return rest; }
 
@@ -96,4 +94,12 @@ public class JobListing {
     public void setId(long id) {
         this.id = id;
     }
+
+    private List<JobListing> jobListing;
+
+    public List<JobListing> getJobListing() { return jobListing; }
+
+    public void setJobListing(List<JobListing> jobListing) { this.jobListing = jobListing; }
+
+
 }

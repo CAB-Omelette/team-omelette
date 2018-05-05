@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -138,5 +139,11 @@ public class RestProfile {
     public String getPhone() { return phone; }
 
     public void setPhone(String phone) { this.phone = phone; }
+
+    private List<RestProfile> restProfile;
+
+    public List<RestProfile> getRestProfile() { return restProfile; }
+
+    public void setRestProfile(List<RestProfile> restProfile) { this.restProfile = restProfile; }
 }
 

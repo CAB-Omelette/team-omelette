@@ -2,6 +2,7 @@ package com.codeup.omelette_abc.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="skills")
@@ -37,8 +38,7 @@ public class Skills {
         this.user = user;
     }
 
-    public Skills() {
-    }
+    public Skills() { }
 
     public Skills(String video) {
         this.video = video;
@@ -69,4 +69,11 @@ public class Skills {
     public User getUser() { return user; }
 
     public void setUser(User user) { this.user = user; }
+
+    private List<Skills> skill;
+
+    public List<Skills> getSkills() { return skill; }
+
+    public void setSkills(List<Skills> skill) { this.skill = skill; }
+
 }
