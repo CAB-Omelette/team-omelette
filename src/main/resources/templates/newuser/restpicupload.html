@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Profile')">
+    <meta charset="UTF-8" />
+    <title> </title>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+
+<div class="container">
+
+    <h1 class="text-center">Basic Information</h1>
+    <form th:action="@{/newrest/picture}" th:method="post" th:object="${rest}">
+
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{user}"/>
+        <input type="hidden" th:field="*{about}"/>
+        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{street}"/>
+        <input type="hidden" th:field="*{city}"/>
+        <input type="hidden" th:field="*{state}"/>
+        <input type="hidden" th:field="*{zip}"/>
+        <input type="hidden" th:field="*{phone}"/>
+        <input type="hidden" th:field="*{video}"/>
+
+        <h1>Add a profile picture</h1>
+
+        <br />
+
+        <div th:replace="partials/filestack-api :: filestack-pic"></div>
+
+        <br />
+
+
+        <button class="btn btn-primary form-control">Save</button>
+
+    </form>
+
+    <footer th:replace="partials/footer :: footer"></footer>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

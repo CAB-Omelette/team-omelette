@@ -61,17 +61,43 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-    public String saveProfile(@ModelAttribute ChefProfile chefProfile, @RequestParam ("upload") String picture){
+    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
-        chefProfile.setPicture(picture);
         chefRepo.save(chefProfile);
-        return "redirect:/profile";
+        return "redirect:/newchef/picture";
+    }
+
+    @GetMapping("/newchef/picture")
+    public String addChefPic(@ModelAttribute ChefProfile chefProfile, Model model){
+        chefProfile = chefRepo.findByUser(userSvc.currentUser());
+        model.addAttribute("chef", chefProfile);
+        return"/newuser/chefpicupload";
+    }
+
+    @GetMapping("/newrest/picture")
+    public String addRestPic(@ModelAttribute RestProfile restProfile, Model model){
+        restProfile = restRepo.findFirstByUser(userSvc.currentUser());
+        model.addAttribute("rest", restProfile);
+        return"/newuser/restpicupload";
+    }
+
+    @PostMapping("/newchef/picture")
+    public String savePicture(@ModelAttribute ChefProfile chef, @RequestParam("upload") String picture ){
+        chef.setPicture(picture);
+        chefRepo.save(chef);
+        return"redirect:/profile";
+    }
+
+    @PostMapping("/newrest/picture")
+    public String saveRestPic(@ModelAttribute RestProfile rest, @RequestParam("upload") String picture ){
+        rest.setPicture(picture);
+        restRepo.save(rest);
+        return"redirect:/profile";
     }
 
     @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model, @RequestParam ("upload") String picture){
+    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());
-        restProfile.setPicture(picture);
         restRepo.save(restProfile);
         return "redirect:/profile";
     }
@@ -135,11 +161,17 @@ public class ProfileController {
         if(isOwner){
             model.addAttribute("isOwner", true);
             User user = userSvc.currentUser();
+            if(restRepo.findFirstByUser(user).getPicture() == null){
+                model.addAttribute("noPicture", true);
+            }
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
             return"profiles/viewrestprofile";
         }else if(!userSvc.currentUser().isOwner()) {
             User user = userSvc.currentUser();
+            if(chefRepo.findByUser(user).getPicture() == null){
+                model.addAttribute("noPicture", true);
+            }
             model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));

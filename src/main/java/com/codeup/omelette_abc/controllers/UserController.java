@@ -28,29 +28,50 @@ public class UserController {
         this.userSvc = userSvc;
     }
 
-    @GetMapping("/sign-up")
+    @GetMapping("/profilechoice")
     public String showSignupForm(Model model) {
+        return "users/profilechoice";
+    }
+
+    @GetMapping("/rest/signup")
+    public String newRest(Model model){
         model.addAttribute("user", new User());
-        return "users/signup";
+        return"users/restsignup";
+    }
+
+    @GetMapping("/chef/signup")
+    public String newChef(Model model){
+        model.addAttribute("user", new User());
+        return"users/chefsignup";
     }
 
 
 
-    @PostMapping("/sign-up")
-    public String saveUser(@Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+    @PostMapping("/chef/signup")
+    public String saveChef(@Valid User user, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "users/signup";
+            return "users/chefsignup";
         }
-
-        if(isOwner){
-            user.setOwner(true);
-        }
-
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+        users.save(user);
+        return "redirect:/login";
+    }
+
+    @PostMapping("/rest/signup")
+    public String saveRest(@Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+        if (errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            model.addAttribute("user", user);
+            return "users/restsignup";
+        }
+        user.setUsername(user.getEmail());
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        user.setOwner(true);
         users.save(user);
         return "redirect:/login";
     }

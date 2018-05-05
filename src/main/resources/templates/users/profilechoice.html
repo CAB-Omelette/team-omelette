@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Home')">
+
+</head>
+<body>
+
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<a href="/chef/signup"><button class="btn btn-primary form-control">I'm a chef looking for a job</button></a>
+<a href="/rest/signup"><button class="btn btn-primary form-control">I'm a restaurant looking for a chef</button></a>
+
+
+</body>
+</html>
