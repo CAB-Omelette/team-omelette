@@ -7,11 +7,38 @@
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<div class="container">
-<h1 class="text-center">Welcome to Omelette!</h1>
 
-</div>
+    <div class="landingPage">
+        <div class="container text-center">
+            <h1>Welcome to Omelette</h1>
+                <img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <hr/>
+            <div class="textBody">
+                <h3>What is Omelette?</h3>
+                    <h5>Omelette is a web application that helps cooks build a portfolio of abilities, while allowing restaurant owners and managers find employees faster with the help of a visual/digital resume. Called Omelet based around the classic interview question for cooks where Chefs will ask potential hires to cook them an omelet. This allows the Chef to see how the potential hire gets/builds their mis en place(working tools, ingredients, and overall necessities to complete the task.), keeps their work area clean, executes the command, and general quality of the finished product.</h5>
 
+                <h3>Why Omelette?</h3>
+                <h5>Why have someone tell you they can do something when they can show you they can do it.</h5>
+                <h4>The Hiring Process:</h4>
+                    <h5>Chefs, Restaurant Owners, and Restaurant Managers time is very valuable and unfortunately, hiring is a very lengthy and expensive process. Expensive based on the cost to post and maintain ads on various avenues (ie CraigsList, ZipRecruiter, Poached, etc), but more importantly, it is expensive because the managers time is worth a lot of money. To waste days and weeks on posting, reviewing resumes, phone interviewing, in person interviewing, and finally deciding on a hire that has a +60% chance of not working out longer than the honeymoon stage of 4 months, is simply inefficient.</h5>
+
+                    <h4>Ugly Resumes:</h4>
+                    <h5>Most cooks and hospitality employees arn’t taught how to build a resume. It is unfortunate that potential employees might be written off based on the quality and design of their resume. I don’t even want to think about how many amazing potential employees that I had not given the time of day based on a poorly made resume and the fact that I had to review over 100 resumes while doing my job. </h5>
+
+
+                    <hr/>
+            </div>
+    <a href="/login"><button class="btn btn-primary">Find a Chef</button></a>
+
+    <a href="/login"><button class="btn btn-primary">Find a Job</button></a>
+                    <hr/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+        </div>
+    </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
