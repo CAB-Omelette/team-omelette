@@ -1,6 +1,5 @@
 package com.codeup.omelette_abc.controllers;
 
-import com.codeup.omelette_abc.models.ChefProfile;
 import com.codeup.omelette_abc.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
