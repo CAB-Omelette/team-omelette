@@ -15,7 +15,7 @@
 
     <div class="control-group">
         <div class="controls">
-            <button id="picture" type="button" class="btn btn-success form-control">Add Profile Picture</button>
+            <button id="picture" type="button" class="btn btn-success form-control">Choose picture</button>
         </div>
     </div>
     <div id="profile-pic"></div>
@@ -45,7 +45,7 @@
     function handleImageFilestack(response){
         console.log(response);
         document.getElementById('profile-pic').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '" />';
-        document.getElementById('picUrl').innerHTML = '<input  class="hideUrl" type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>';
+        document.getElementById('picUrl').innerHTML = '<input type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>';
         document.getElementById('upload').dataset.handler = response.url;
     }
 
@@ -109,8 +109,10 @@
     function handleVideoFilestack(response){
         console.log(response);
         document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
-        document.getElementById('videoUrl').innerHTML = '<input class="hideUrl" type="text"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '" />';
+        document.getElementById('videoUrl').innerHTML = '<input type="text"  id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '" />';
         document.getElementById('video-upload').dataset.handler = response.url;
+
+
     }
     //open VideoPicker button
     var video = document.getElementById('video');

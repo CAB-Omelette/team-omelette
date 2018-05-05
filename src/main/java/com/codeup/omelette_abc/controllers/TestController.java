@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 
+import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
@@ -47,8 +48,15 @@ public class TestController {
 
     @GetMapping("/loggedin")
     public String loggedIn(Model model) {
-        if(userSvc.currentUser().isOwner()) {
+        User user = userSvc.currentUser();
+        if(user.isOwner()) {
             model.addAttribute("isOwner", true);
+        }
+        if(restRepo.findFirstByUser(user) != null){
+            return"redirect:/profile";
+        }
+        if(chefRepo.findByUser(user) != null){
+            return"redirect:/profile";
         }
         return "/index";
     }
