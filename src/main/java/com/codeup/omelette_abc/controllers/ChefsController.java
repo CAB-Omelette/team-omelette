@@ -40,12 +40,20 @@ public class ChefsController {
 
     @GetMapping("/chefs")
     public String viewAllChefs(Model model) {
+        Boolean isOwner = userSvc.currentUser().isOwner();
+        if(isOwner) {
+            model.addAttribute("isOwner", true);
+        }
         model.addAttribute("chefs", chefRepo.findAll());
         return "/chefs/all";
     }
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
+        Boolean isOwner = userSvc.currentUser().isOwner();
+        if(isOwner) {
+            model.addAttribute("isOwner", true);
+        }
         boolean hasVideo = chefRepo.findOne(id).getVideo()!=null;
         if(hasVideo) {
             model.addAttribute("hasVideo", true);

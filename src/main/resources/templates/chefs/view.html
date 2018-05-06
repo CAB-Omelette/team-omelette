@@ -59,8 +59,8 @@
     <br />
 
 
-    <div th:if="${hasVideo}" class="jobPost">
-    <video th:src="${chef.video}" th:controls="video"  >
+    <div class="jobPost">
+    <video class="profileVideo" th:src="${chef.video}" th:controls="show"  >
     </video>
     </div>
 </div>
