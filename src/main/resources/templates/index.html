@@ -25,12 +25,19 @@
                     <!--<h4>Ugly Resumes:</h4>-->
                     <!--<h5>Most cooks and hospitality employees arn’t taught how to build a resume. It is unfortunate that potential employees might be written off based on the quality and design of their resume. I don’t even want to think about how many amazing potential employees that I had not given the time of day based on a poorly made resume and the fact that I had to review over 100 resumes while doing my job. </h5>-->
 
+                    <div th:if="!${loggedIn}">
     <a href="/rest/signup"><button class="btn btn-primary">Find a Chef</button></a>
 
     <a href="/chef/signup"><button class="btn btn-primary">Find a Job</button></a>
+
+                    </div>
+
+                    <div th:if="${loggedIn}">
+                        <a href="/profile"><button class="btn btn-primary">My Profile</button></a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>git ad
     </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

@@ -17,7 +17,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Omelette</a>
+            <a sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Omelette</a>
+            <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/loggedin">Omelette</a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,11 +28,6 @@
 
                 <!--Added Search Functionality-->
                     <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
-                        <!--<select name="selection" id="selection" class="selectpicker">-->
-                            <!--<option th:value="chefs">Chef</option>-->
-                            <!--<option th:value="rests">Rest</option>-->
-                            <!--<option th:value="jobs">Job</option>-->
-                        <!--</select>-->
                         <div class="form-group">
                        <input name="searchbar" type="text" class="form-control" id="searchbar" placeholder="Search" />
                         </div>
