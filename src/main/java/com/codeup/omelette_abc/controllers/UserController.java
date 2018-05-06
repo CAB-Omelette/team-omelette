@@ -2,6 +2,7 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
+import com.codeup.omelette_abc.repositories.UsersRepository;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,14 +17,14 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-    private UserRepository users;
+    private UsersRepository usersRepo;
     private PasswordEncoder passwordEncoder;
 
 
     private UserService userSvc;
 
-    public UserController(UserRepository users, PasswordEncoder passwordEncoder, UserService userSvc) {
-        this.users = users;
+    public UserController(UsersRepository usersRepo, PasswordEncoder passwordEncoder, UserService userSvc) {
+        this.usersRepo = usersRepo;
         this.passwordEncoder = passwordEncoder;
         this.userSvc = userSvc;
     }
@@ -44,6 +45,11 @@ public class UserController {
             return "users/signup";
         }
 
+//        if (usersRepo.findByUsername(user.getUsername()) != null) {
+//            errors.rejectValue("username", "user.username", "Duplicated username " + user.getUsername());
+//            return "users/signup";
+//        }
+
         if(isOwner){
             user.setOwner(true);
         }
@@ -51,7 +57,7 @@ public class UserController {
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
-        users.save(user);
+        usersRepo.save(user);
         return "redirect:/login";
     }
 
