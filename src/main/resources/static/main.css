@@ -78,26 +78,22 @@ body{
     border-radius: 20px;
 }
 
-.navbar-logo {
-
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width:768px) {
+    .navbar-toggle {
+        display: inline-block;
+    }
 }
 
-.see-all-posts-button {
 
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width:992px) {
+    .navbar-toggle {
+        display: inline-block;
+    }
 }
 
-.create-post-button {
-
-}
-
-.login-button {
-
-}
-
-.logout-button {
-
-}
-
-.sign-up-button {
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
 
 }
