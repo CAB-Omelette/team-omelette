@@ -42,6 +42,14 @@ body{
     border-radius:50%;
 }
 
+.profileVideo{
+    width: 80%;
+}
+
+.hiddenUrl{
+    display: none;
+}
+
 .listPicture{
     width: 20%;
     border-radius:50%;

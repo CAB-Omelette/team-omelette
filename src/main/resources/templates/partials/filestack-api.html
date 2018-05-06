@@ -92,13 +92,12 @@
             handleVideoFilestack(response);
         });
     }
+
     function handleVideoFilestack(response){
         console.log(response);
         document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
-        document.getElementById('videoUrl').innerHTML = '<input type="text"  id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '" />';
+        document.getElementById('videoUrl').innerHTML = '<input type="text" class="hiddenUrl"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '"/>';
         document.getElementById('video-upload').dataset.handler = response.url;
-
-
     }
     //open VideoPicker button
     var video = document.getElementById('video');
