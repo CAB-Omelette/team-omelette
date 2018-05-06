@@ -20,8 +20,6 @@ public class UserController {
     private UserRepository userRepo;
     private PasswordEncoder passwordEncoder;
     private UsersRepository usersRepo;
-
-
     private UserService userSvc;
 
     public UserController(UsersRepository usersRepo, UserRepository userRepo, PasswordEncoder passwordEncoder, UserService userSvc) {
