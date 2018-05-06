@@ -70,7 +70,11 @@ public class UserController {
     }
 
     @PostMapping("/rest/signup")
-    public String saveRest(@Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner) {
+    public String saveRest(@RequestParam ("email") String username, @Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner){
+        if(usersRepo.findByUsername(username) != null){
+            model.addAttribute("errors", errors);
+            model.addAttribute("exists", true);
+        }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
