@@ -20,8 +20,6 @@ public class UserController {
     private UserRepository userRepo;
     private PasswordEncoder passwordEncoder;
     private UsersRepository usersRepo;
-
-
     private UserService userSvc;
 
     public UserController(UsersRepository usersRepo, UserRepository userRepo, PasswordEncoder passwordEncoder, UserService userSvc) {
@@ -54,6 +52,7 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
+            return"users/chefsignup";
         }
 
         if (errors.hasErrors()) {
@@ -74,6 +73,7 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
+            return"users/restsignup";
         }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
