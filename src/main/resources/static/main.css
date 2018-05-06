@@ -7,18 +7,23 @@
 }
 
 body{
-    margin-bottom: 25px;
-    background: #141E30;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: rgba(255,255,255,.9);
+    font-family: "PT Mono";
+    background-color: lightsteelblue;
 }
 
-
-.btn-default{
-    background:transparent;
-    color: white;
+.textBody{
+    width: 60%;
+    margin-left: 20%;
 }
+
+/*body{*/
+    /*margin-bottom: 25px;*/
+    /*background: #141E30;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #243B55, #141E30);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #243B55, #141E30); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+    /*color: rgba(255,255,255,.9);*/
+/*}*/
+
 
 .jobPost{
     border: 1px solid white;
@@ -34,13 +39,11 @@ body{
 
 .profilePicture{
     width: 25%;
-    border: 1px solid white;
     border-radius:50%;
 }
 
 .listPicture{
     width: 20%;
-    border: 1px solid white;
     border-radius:50%;
     margin: 0 auto;
     display: block;
