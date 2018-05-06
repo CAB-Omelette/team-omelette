@@ -13,7 +13,8 @@
 
         <label for="email">Email</label>
         <input class="form-control" id="email" th:field="*{email}" />
-        <p><code class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>
+        <p><code th:if="${exists}" >"Username already exists"</code></p>
+        <p><code th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>
         <br />
 
         <label for="password">Password</label>
