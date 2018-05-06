@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
+import com.codeup.omelette_abc.models.UserWithRoles;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,11 +19,9 @@ public class UserController {
 
     private UserRepository users;
     private PasswordEncoder passwordEncoder;
-
-
     private UserService userSvc;
 
-    public UserController(UserRepository users, PasswordEncoder passwordEncoder, UserService userSvc) {
+    public UserController(UserRepository users, PasswordEncoder passwordEncoder, UserService userSvc, UserWithRoles userWroles) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.userSvc = userSvc;
@@ -52,7 +51,6 @@ public class UserController {
             model.addAttribute("user", user);
             return "users/chefsignup";
         }
-
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
