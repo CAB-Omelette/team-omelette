@@ -16,8 +16,14 @@
     <input type="hidden" th:field="*{last_name}"/>
     <input type="hidden" th:field="*{bio}"/>
     <input type="hidden" th:field="*{phone}"/>
+    <input type="hidden" th:field="*{video}"/>
+    <input type="hidden" th:field="*{picture}"/>
 
-<div th:replace="partials/filestack-api :: filestack-video"></div>
+
+
+
+
+    <div th:replace="partials/filestack-api :: filestack-video"></div>
     <br />
     <button class="btn btn-success form-control">Save</button>
 </form>

@@ -91,13 +91,6 @@ public class ProfileController {
         return"redirect:/profile";
     }
 
-    @PostMapping("/newrest/picture")
-    public String saveRestPic(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
-        rest.setPicture(picture);
-        restRepo.save(rest);
-        return"redirect:/profile";
-    }
-
     @PostMapping("/newuser/newrestprofile")
     public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());

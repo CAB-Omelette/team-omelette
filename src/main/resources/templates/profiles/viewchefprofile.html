@@ -100,8 +100,10 @@
     </a>
         </div>
 
-        <video th:controls="show" class="profileVideo" th:src="${chef.video}"></video>
+        <div th:if="!${noVideo}">
 
+        <video th:controls="show" class="profileVideo" th:src="${chef.video}"></video>
+        </div>
     </div>
 </div>
 
