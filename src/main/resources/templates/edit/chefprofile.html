@@ -15,6 +15,9 @@
 
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{user}"/>
+        <input type="hidden" th:field="*{picture}"/>
+        <input type="hidden" th:field="*{video}"/>
+
 
         <form th:action="@{/newuser/newchefprofile}" th:method="post" th:object="${chef}">
 
