@@ -52,6 +52,7 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
+            return"users/chefsignup";
         }
 
         if (errors.hasErrors()) {
@@ -72,6 +73,7 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
+            return"users/restsignup";
         }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
