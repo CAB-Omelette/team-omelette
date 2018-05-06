@@ -45,8 +45,6 @@ public class UserController {
         return"users/chefsignup";
     }
 
-
-
     @PostMapping("/chef/signup")
     public String saveChef(@Valid User user, Errors errors, Model model) {
         if (errors.hasErrors()) {
@@ -54,6 +52,7 @@ public class UserController {
             model.addAttribute("user", user);
             return "users/chefsignup";
         }
+
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
