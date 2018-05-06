@@ -8,7 +8,12 @@
 
 body{
     font-family: "PT Mono";
-    background-color: lightsteelblue;
+    background:lightskyblue;
+}
+
+
+li{
+    color: white;
 }
 
 .textBody{
@@ -26,8 +31,6 @@ body{
 
 
 .jobPost{
-    border: 1px solid white;
-    border-radius:5px;
     padding: 25px;
     width: 50%;
     margin: 0 auto;
@@ -35,6 +38,15 @@ body{
 
 #upload{
     display: none;
+}
+
+.jumbotron{
+    background-color: rgba(255,255,255,.6);
+}
+
+.OmLogo{
+    margin-bottom: 15px;
+    opacity:0.8;
 }
 
 .profilePicture{
