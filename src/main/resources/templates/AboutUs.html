@@ -1,15 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Home')">
 </head>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <body>
-
-
-
-
-
 <div class="w3-row-padding" id="about">
     <div class="w3-center w3-padding-64">
         <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
@@ -17,7 +11,7 @@
 
     <div class="w3-third w3-margin-bottom">
         <div class="w3-card-4">
-            <img src="/css/img/OmLogo.png" alt="Alex" style="width:100%">
+            <img src="/css/img/OmLogo.png" alt="Alex" style="width:10%"/>
             <div class="w3-container">
                 <h3>Alexander Bous</h3>
                 <p class="w3-opacity">CEO &amp; Founder</p>
@@ -29,10 +23,10 @@
 
     <div class="w3-third w3-margin-bottom">
         <div class="w3-card-4">
-            <img src="/css/img/OmLogo.png" alt="Chris" style="width:100%">
+            <img src="/css/img/OmLogo.png" alt="Chris" style="width:10%"/>
             <div class="w3-container">
                 <h3>Christopher Allen</h3>
-                <p class="w3-opacity">CTO</p>
+                <p class="w3-opacity">Title</p>
                 <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
                 <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
             </div>
@@ -41,10 +35,10 @@
 
     <div class="w3-third w3-margin-bottom">
         <div class="w3-card-4">
-            <img src="/css/img/OmLogo.png" alt="Ben" style="width:100%">
+            <img src="/css/img/OmLogo.png" alt="Ben" style="width:10%"/>
             <div class="w3-container">
                 <h3>Benjamin Rasmessan</h3>
-                <p class="w3-opacity">Security</p>
+                <p class="w3-opacity">Title</p>
                 <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
                 <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
             </div>
