@@ -91,13 +91,6 @@ public class ProfileController {
         return"redirect:/profile";
     }
 
-    @PostMapping("/newrest/picture")
-    public String saveRestPic(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
-        rest.setPicture(picture);
-        restRepo.save(rest);
-        return"redirect:/profile";
-    }
-
     @PostMapping("/newuser/newrestprofile")
     public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
         restProfile.setUser(userSvc.currentUser());
@@ -111,15 +104,18 @@ public class ProfileController {
         return "newuser/chefjobhistory";
     }
 
-    @GetMapping("/video")
-    public String uploadVideo(){
+    @GetMapping("/newchef/video")
+    public String uploadVideo(@ModelAttribute ChefProfile chefProfile, Model model){
+        chefProfile = chefRepo.findByUser(userSvc.currentUser());
+        model.addAttribute("chef", chefProfile);
         return("/newuser/omelettevideo");
     }
 
     @PostMapping("/video")
-    public String saveVideo(ChefProfile chefProfile, @RequestParam ("upload") String video){
+    public String saveVideo(ChefProfile chefProfile, @RequestParam ("video") String video){
         chefProfile.setUser(userSvc.currentUser());
         chefProfile.setVideo(video);
+        chefRepo.save(chefProfile);
         return"redirect:/profile";
     }
 
@@ -164,17 +160,17 @@ public class ProfileController {
         Boolean isOwner = user.isOwner();
         if(isOwner){
             model.addAttribute("isOwner", true);
-            if(restRepo.findFirstByUser(user).getPicture() == null ||
-                    restRepo.findFirstByUser(user).getPicture().equals(" ")){
-                model.addAttribute("noPicture", true);
-            }
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
             return"profiles/viewrestprofile";
         }else if(!user.isOwner()) {
             if(chefRepo.findByUser(user).getPicture() == null ||
-                    chefRepo.findByUser(user).getPicture().equals(" ")){
+                    chefRepo.findByUser(user).getPicture().equals("")){
                     model.addAttribute("noPicture", true);
+            }
+            if(chefRepo.findByUser(user).getVideo() == null ||
+                    chefRepo.findByUser(user).getVideo().equals("")){
+                model.addAttribute("noVideo", true);
             }
             model.addAttribute("user", user);
             model.addAttribute("chef", chefRepo.findByUser(user));

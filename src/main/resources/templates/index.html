@@ -10,6 +10,7 @@
     <div class="landingPage">
         <div class="container text-center">
                 <img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+
             <h1>Welcome to Omelette</h1>
             <main style="margin-left:25%; width:50%; background-color:#D5EBFB; border-radius:15px;" role="main" class="inner cover">
                 <div><p class="lead">Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</p></div>
@@ -56,6 +57,17 @@
                             <div class="project-category text-faded">Hiring</div>
                             <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
                         </div>
+
+                    <div th:if="!${loggedIn}">
+    <a href="/rest/signup"><button class="btn btn-primary">Find a Chef</button></a>
+
+    <a href="/chef/signup"><button class="btn btn-primary">Find a Job</button></a>
+
+                    </div>
+
+                    <div th:if="${loggedIn}">
+                        <a href="/createprofile"><button class="btn btn-primary">My Profile</button></a>
+
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
 
     //=====================IMAGE API CALL=====================//
 
-    var fsClient = filestack.init('ATnrBVr9hSauBEG4HxXF3z');
+    var fsClient = filestack.init('AbhIqQMRqu7QHwts92EwOz');
     function openImagePicker() {
         fsClient.pick({
             fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
@@ -48,7 +48,6 @@
         document.getElementById('picUrl').innerHTML = '<input type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>';
         document.getElementById('upload').dataset.handler = response.url;
     }
-
 
     //open ImagePicker button
     var picture = document.getElementById('picture');
@@ -80,21 +79,8 @@
 
 <script src="https://static.filestackapi.com/v3/filestack.js"></script>
 <script type="text/javascript">
-    //=====================IMAGE API CALL=====================//
-    var fsClient = filestack.init('ATnrBVr9hSauBEG4HxXF3z');
-    function openImagePicker() {
-        fsClient.pick({
-            fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
-            accept:["image/*"],
-            maxFiles:1,
-            maxSize:10485760,
-            transformations:{circle:true}
-        }).then(function (response) {
-            // declare this function to handle response
-            handleImageFilestack(response);
-        });
-    }
-
+    //=====================IMAGE VIDEO CALL=====================//
+    var fsClient = filestack.init('AbhIqQMRqu7QHwts92EwOz');
     function openVideoPicker() {
         fsClient.pick({
             fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
@@ -106,13 +92,12 @@
             handleVideoFilestack(response);
         });
     }
+
     function handleVideoFilestack(response){
         console.log(response);
         document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
-        document.getElementById('videoUrl').innerHTML = '<input type="text"  id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '" />';
+        document.getElementById('videoUrl').innerHTML = '<input type="text" class="hiddenUrl"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '"/>';
         document.getElementById('video-upload').dataset.handler = response.url;
-
-
     }
     //open VideoPicker button
     var video = document.getElementById('video');
