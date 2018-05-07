@@ -1,7 +1,6 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
-import com.codeup.omelette_abc.models.UserWithRoles;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
 import com.codeup.omelette_abc.services.UserService;
@@ -28,11 +27,6 @@ public class UserController {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
         this.userSvc = userSvc;
-    }
-
-    @GetMapping("/profilechoice")
-    public String showSignupForm(Model model) {
-        return "users/profilechoice";
     }
 
     @GetMapping("/rest/signup")

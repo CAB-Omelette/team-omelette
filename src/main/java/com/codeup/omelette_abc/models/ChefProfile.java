@@ -13,7 +13,7 @@ public class ChefProfile {
 
 
     @Column(nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(nullable = false)
     private String last_name;
@@ -41,9 +41,9 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(Long id, String first_name, String last_name,  String bio, String phone, String picture, String video, User user) {
+    public ChefProfile(Long id, String firstName, String last_name, String bio, String phone, String picture, String video, User user) {
         this.id = id;
-        this.first_name = first_name;
+        this.firstName = firstName;
         this.last_name = last_name;
         this.bio = bio;
         this.phone = phone;
@@ -52,8 +52,8 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(String first_name, String last_name, String bio, String phone, String picture, String video) {
-        this.first_name = first_name;
+    public ChefProfile(String firstName, String last_name, String bio, String phone, String picture, String video) {
+        this.firstName = firstName;
         this.last_name = last_name;
         this.bio = bio;
         this.phone = phone;
@@ -61,8 +61,8 @@ public class ChefProfile {
         this.video = video;
     }
 
-    public ChefProfile(String first_name, String last_name, String bio, String phone) {
-        this.first_name = first_name;
+    public ChefProfile(String firstName, String last_name, String bio, String phone) {
+        this.firstName = firstName;
         this.last_name = last_name;
         this.bio = bio;
         this.phone = phone;
@@ -78,12 +78,12 @@ public class ChefProfile {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLast_name() {

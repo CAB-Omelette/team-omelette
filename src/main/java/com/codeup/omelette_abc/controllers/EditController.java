@@ -3,7 +3,6 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
-import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +17,12 @@ public class EditController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-    private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
-    public EditController(ProfileServices proSvc,
+    public EditController(
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,
@@ -32,7 +30,6 @@ public class EditController {
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
                              JobPostRepository jobPostRepo) {
-        this.proSvc = proSvc;
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;

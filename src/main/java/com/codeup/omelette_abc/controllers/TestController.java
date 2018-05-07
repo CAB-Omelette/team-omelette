@@ -3,7 +3,6 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
-import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +14,12 @@ public class TestController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-    private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
-    public TestController(ProfileServices proSvc,
+    public TestController(
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,
@@ -29,7 +27,6 @@ public class TestController {
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
                              JobPostRepository jobPostRepo) {
-        this.proSvc = proSvc;
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;

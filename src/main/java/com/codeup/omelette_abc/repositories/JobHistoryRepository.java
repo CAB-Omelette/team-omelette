@@ -10,4 +10,6 @@ public interface JobHistoryRepository extends CrudRepository<JobHistory, Long> {
 
     Iterable<JobHistory> findByUser(User user);
 
+    Integer countByUser(User user);
+
 }

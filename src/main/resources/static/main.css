@@ -44,6 +44,11 @@ li{
     margin: 0 auto;
 }
 
+.glyphicon-envelope{
+    font-size: 2em;
+    margin-top: 2%;
+}
+
 #upload{
     display: none;
 }
