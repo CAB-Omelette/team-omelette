@@ -10,7 +10,6 @@
     padding: 0;
 }
 
-
 body{
     font-family: 'Istok Web', sans-serif;
     background-color: #00a7e1;
@@ -102,7 +101,7 @@ body{
 
 .modal-login-button:hover {
     -webkit-transition: all .25s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
+    box-shadow: inset 2px -100px 0 #D69F4B;
     border: 2px solid black;
     background: white;
     color: white;
@@ -125,7 +124,7 @@ body{
 
 .login-close-button:hover {
     -webkit-transition: all .25s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
+    box-shadow: inset 2px -100px 0 #D69F4B;
     border: 2px solid black;
     background: white;
     color: white;
@@ -135,6 +134,8 @@ body{
 .login-button {
     position: relative;
     top: 10px;
+    background-color: #D69F4B;
+    color: white;
 }
 
 

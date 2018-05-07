@@ -34,13 +34,15 @@
                 <li th:if="${isOwner}"><a style="color:white;" sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><button sec:authorize="!isAuthenticated()" type="button" class="btn btn-primary login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>
+
+                <li><button sec:authorize="!isAuthenticated()" type="button" class="btn login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>
                 <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
                     <div class="form-group">
                         <input name="search" type="text" class="form-control" id="search" placeholder="Search" />
                     </div>
                     <button class="btn btn-default" type="submit"><i class="black fa fa-search"></i></button>
                 </form>
+
                 <form class="navbar-form navbar-right" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                     <button class="btn btn-danger">Logout</button>
                 </form>
