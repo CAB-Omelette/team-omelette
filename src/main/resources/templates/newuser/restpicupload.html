@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('Profile')">
+<head th:replace="partials/header :: header('Profile Picture')">
     <meta charset="UTF-8" />
     <title> </title>
 </head>
@@ -15,15 +15,17 @@
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{user}"/>
         <input type="hidden" th:field="*{about}"/>
+        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{phone}"/>
         <input type="hidden" th:field="*{street}"/>
         <input type="hidden" th:field="*{city}"/>
-        <input type="hidden" th:field="*{zip}"/>
         <input type="hidden" th:field="*{state}"/>
-        <input type="hidden" th:field="*{picture}"/>
-        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{zip}"/>
 
 
-        <h1 class="text-center">Edit profile picture</h1>
+
+
+        <h1 class="text-center">Add a profile picture</h1>
 
         <br />
 
@@ -32,7 +34,7 @@
         <br />
 
 
-        <button class="btn btn-primary form-control">save profile picture</button>
+        <button class="btn btn-primary form-control">Save profile picture</button>
 
     </form>
 

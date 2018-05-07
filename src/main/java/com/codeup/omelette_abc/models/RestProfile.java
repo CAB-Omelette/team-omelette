@@ -21,9 +21,6 @@ public class RestProfile {
     @Column
     private String picture;
 
-    @Column
-    private String video;
-
     @Column(nullable = false)
     private String phone;
 
@@ -46,7 +43,6 @@ public class RestProfile {
                        String name,
                        String about,
                        String picture,
-                       String video,
                        String phone,
                        String street,
                        String city,
@@ -57,7 +53,6 @@ public class RestProfile {
         this.name = name;
         this.about = about;
         this.picture = picture;
-        this.video = video;
         this.phone = phone;
         this.street = street;
         this.city = city;
@@ -69,7 +64,6 @@ public class RestProfile {
     public RestProfile(String name,
                        String about,
                        String picture,
-                       String video,
                        String phone,
                        String street,
                        String city,
@@ -79,7 +73,6 @@ public class RestProfile {
         this.name = name;
         this.about = about;
         this.picture = picture;
-        this.video = video;
         this.phone = phone;
         this.street = street;
         this.city = city;
@@ -130,10 +123,6 @@ public class RestProfile {
     public String getPicture() { return picture; }
 
     public void setPicture(String picture) { this.picture = picture; }
-
-    public String getVideo() { return video; }
-
-    public void setVideo(String video) { this.video = video; }
 
     public String getPhone() { return phone; }
 

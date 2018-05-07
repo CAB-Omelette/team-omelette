@@ -61,9 +61,16 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
+    public String saveChefProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/newuser/newrestprofile")
+    public String saveRestProfile(@ModelAttribute RestProfile rest){
+        rest.setUser(userSvc.currentUser());
+        restRepo.save(rest);
         return "redirect:/profile";
     }
 
@@ -75,14 +82,14 @@ public class ProfileController {
     }
 
     @GetMapping("/newrest/picture")
-    public String addRestPic(@ModelAttribute RestProfile restProfile, Model model){
-        restProfile = restRepo.findFirstByUser(userSvc.currentUser());
-        model.addAttribute("rest", restProfile);
+    public String addRestPic(@ModelAttribute RestProfile rest, Model model){
+        rest = restRepo.findFirstByUser(userSvc.currentUser());
+        model.addAttribute("rest", rest);
         return"/newuser/restpicupload";
     }
 
     @PostMapping("/newchef/picture")
-    public String savePicture(@ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
+    public String saveChefPicture(@ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
@@ -91,11 +98,14 @@ public class ProfileController {
         return"redirect:/profile";
     }
 
-    @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
-        restProfile.setUser(userSvc.currentUser());
-        restRepo.save(restProfile);
-        return "redirect:/profile";
+    @PostMapping("/newrest/picture")
+    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
+        if(picture == null){
+            return"redirect:/profile";
+        }
+        rest.setPicture(picture);
+        restRepo.save(rest);
+        return"redirect:/profile";
     }
 
     @GetMapping("/jobhistory")
@@ -159,6 +169,10 @@ public class ProfileController {
         User user = userSvc.currentUser();
         Boolean isOwner = user.isOwner();
         if(isOwner){
+            if(restRepo.findFirstByUser(user).getPicture() == null ||
+                    restRepo.findFirstByUser(user).getPicture().equals("")){
+                model.addAttribute("noPicture", true);
+            }
             model.addAttribute("isOwner", true);
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
