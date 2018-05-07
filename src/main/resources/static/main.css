@@ -111,7 +111,7 @@ li {
 
 .modal-login-button:hover {
     -webkit-transition: all .25s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
+    box-shadow: inset 2px -100px 0 #DE9E36;
     border: 2px solid black;
     background: white;
     color: white;
@@ -128,7 +128,7 @@ li {
 
 .login-close-button:hover {
     -webkit-transition: all .25s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
+    box-shadow: inset 2px -100px 0 #DE9E36;
     border: 2px solid black;
     background: white;
     color: white;
