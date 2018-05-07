@@ -7,16 +7,18 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center">
-<h1><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h1>
+<h1><span th:text="${chef.firstName}"></span> <span th:text="${chef.last_name}"></span></h1>
     <img class="profilePicture" th:src="${chef.picture}" alt="" />
-    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
 
-    <h3 th:text="${user.email}"></h3>
+    <br />
+
+    <a th:href="'mailto:' + ${user.email} + '?Subject=Interest%Via%Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
 
     <p><span th:text="${chef.bio}"></span></p>
     <br />
 
-    <div class="jobPost">
+
+    <div th:if="${hasJobs}" class="jobPost">
     <h2><u>Previous Experience</u></h2>
 
     <div th:each="job : ${jobs}">
@@ -26,13 +28,15 @@
         <p>Reason for leaving</p>
         <p th:text="${job.reason_left}" />
 
-        <hr />
     </div>
     </div>
+
 
     <br />
 
-    <div th:if="${hasEducation}" class="jobPost">
+    <div class="jobPost">
+
+        <div th:if="${hasEdu}">
 
     <h2><u>Education</u></h2>
 
@@ -41,6 +45,8 @@
         <p><span th:text="${ed.focus}"></span> </p>
         <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
         <hr />
+    </div>
+
     </div>
     </div>
 
@@ -59,11 +65,15 @@
     <br />
 
 
+
     <div class="jobPost">
     <video class="profileVideo" th:src="${chef.video}" th:controls="show"  >
     </video>
     </div>
+
+
 </div>
+
 
 
 <footer th:replace="partials/footer :: footer"></footer>

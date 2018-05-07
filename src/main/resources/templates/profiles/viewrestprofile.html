@@ -9,6 +9,18 @@
 
 
 <h1 th:text="${rest.name}"></h1>
+
+    <a href="/newrest/picture" title ="edit">
+        <img class="profilePicture" th:src="${rest.picture}" alt="" />
+    </a>
+
+    <div th:if="${noPicture}">
+        <a href="/newrest/picture">
+            <button class="btn btn-success">Add a profile Picture</button>
+        </a>
+    </div>
+
+
     <h3><span class="glyphicon glyphicon-earphone" aria-hidden="true"> </span>
         <span th:text="${rest.phone}"></span></h3>
 <h5><span th:text="${rest.street}"></span></h5>

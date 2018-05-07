@@ -2,7 +2,10 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
+<<<<<<< HEAD
 import com.codeup.omelette_abc.services.ProfileService;
+=======
+>>>>>>> 06ac08daf94c45428609758fef68b074520a197f
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +20,20 @@ public class ProfileController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
+<<<<<<< HEAD
     private ProfileService proSvc;
+=======
+>>>>>>> 06ac08daf94c45428609758fef68b074520a197f
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
+<<<<<<< HEAD
     public ProfileController(ProfileService proSvc,
+=======
+    public ProfileController(
+>>>>>>> 06ac08daf94c45428609758fef68b074520a197f
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,
@@ -31,7 +41,6 @@ public class ProfileController {
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
                              JobPostRepository jobPostRepo) {
-        this.proSvc = proSvc;
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
@@ -41,17 +50,19 @@ public class ProfileController {
         this.jobPostRepo = jobPostRepo;
     }
 
-//    When a user clicks create a profile - this will determine if they already have a profile and if
-// they are a rest or a chef and direct them to the correct profile creation page.
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner();
+    }
+
 
 
     @GetMapping("/createprofile")
     public String createProfile(Model model){
-        if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
+        if(isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) == null){
             model.addAttribute("rest", new RestProfile());
             model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
-        }else if (!userSvc.currentUser().isOwner() && !proSvc.hasChefProfile(userSvc.currentUser())){
+        }else if (!userSvc.currentUser().isOwner() && chefRepo.findByUser(userSvc.currentUser()) == null){
             model.addAttribute("chef", new ChefProfile());
             return "newuser/newchefprofile";
         }
@@ -61,9 +72,16 @@ public class ProfileController {
 //    Once a chef clicks submit on the profile creation form they will be directed to the
 //    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
-    public String saveProfile(@ModelAttribute ChefProfile chefProfile){
+    public String saveChefProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
         chefRepo.save(chefProfile);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/newuser/newrestprofile")
+    public String saveRestProfile(@ModelAttribute RestProfile rest){
+        rest.setUser(userSvc.currentUser());
+        restRepo.save(rest);
         return "redirect:/profile";
     }
 
@@ -75,14 +93,14 @@ public class ProfileController {
     }
 
     @GetMapping("/newrest/picture")
-    public String addRestPic(@ModelAttribute RestProfile restProfile, Model model){
-        restProfile = restRepo.findFirstByUser(userSvc.currentUser());
-        model.addAttribute("rest", restProfile);
+    public String addRestPic(@ModelAttribute RestProfile rest, Model model){
+        rest = restRepo.findFirstByUser(userSvc.currentUser());
+        model.addAttribute("rest", rest);
         return"/newuser/restpicupload";
     }
 
     @PostMapping("/newchef/picture")
-    public String savePicture(@ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
+    public String saveChefPicture(@ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
@@ -91,11 +109,14 @@ public class ProfileController {
         return"redirect:/profile";
     }
 
-    @PostMapping("/newuser/newrestprofile")
-    public String saveRestProfile(@ModelAttribute RestProfile restProfile, Model model){
-        restProfile.setUser(userSvc.currentUser());
-        restRepo.save(restProfile);
-        return "redirect:/profile";
+    @PostMapping("/newrest/picture")
+    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
+        if(picture == null){
+            return"redirect:/profile";
+        }
+        rest.setPicture(picture);
+        restRepo.save(rest);
+        return"redirect:/profile";
     }
 
     @GetMapping("/jobhistory")
@@ -157,8 +178,11 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         User user = userSvc.currentUser();
-        Boolean isOwner = user.isOwner();
-        if(isOwner){
+        if(isOwner()){
+            if(restRepo.findFirstByUser(user).getPicture() == null ||
+                    restRepo.findFirstByUser(user).getPicture().equals("")){
+                model.addAttribute("noPicture", true);
+            }
             model.addAttribute("isOwner", true);
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
