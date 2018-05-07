@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url("https://fonts.googleapis.com/css?family=Archivo+Black|Istok+Web");
+
+
 
 * {
     box-sizing: border-box;
@@ -7,13 +10,16 @@
     padding: 0;
 }
 
-body {
-    font-family: "PT Mono";
+
+body{
+    font-family: 'Istok Web', sans-serif;
+    background-color: #00a7e1;
+    background-image: url("css/img/stardust.png");
+
 }
 
 li {
     color: white;
-
 }
 
 .textBody{
@@ -22,18 +28,10 @@ li {
 }
 
 .jumbotron {
-    background-color: lightslategrey;
+    background-color: #EBF5DF;
     background-size: cover;
-    color: white;
 }
 
-/*body{*/
-    /*margin-bottom: 25px;*/
-    /*background: #141E30;  !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to right, #243B55, #141E30);  !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to right, #243B55, #141E30); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-    /*color: rgba(255,255,255,.9);*/
-/*}*/
 
 
 .jobPost {
@@ -114,14 +112,17 @@ li {
     /*position: relative;*/
 /*}*/
 
-/*.find-a-chef-button:hover {*/
-    /*-webkit-transition: all .35s;*/
-    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
-    /*border: 2px solid goldenrod;*/
-    /*background: goldenrod;*/
-    /*color: goldenrod;*/
-    /*opacity: .7;*/
-/*}*/
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: rgba(0,0,0,.2);
+    text-align: center;
+}
+
 
 /*.find-a-job-button {*/
     /*font-size: 15px;*/
