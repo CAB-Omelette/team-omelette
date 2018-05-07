@@ -21,7 +21,6 @@ body{
 
 .textBody{
     width: 60%;
-    margin-left: 20%;
 }
 
 .jumbotron {
@@ -44,9 +43,6 @@ body{
     display: none;
 }
 
-.jumbotron{
-    background-color: rgba(255,255,255,.6);
-}
 
 .OmLogo{
     text-align: center;
@@ -113,6 +109,7 @@ body{
     opacity: .7;
 }
 
+
 .login-close-button {
     position: relative;
     top: 12px;
@@ -165,42 +162,14 @@ a{
 /*}*/
 
 
-/*.find-a-job-button {*/
-    /*font-size: 15px;*/
-    /*border: 2px solid deepskyblue;*/
-    /*color: deepskyblue;*/
-    /*padding: 15px 30px;*/
-    /*border-radius: 8px;*/
-    /*font-weight: 700;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'PT Mono', sans-serif;*/
-    /*margin-bottom: 15px;*/
-    /*line-height: 1.5;*/
-    /*background: transparent;*/
-    /*position: relative;*/
-/*}*/
 
-/*.find-a-job-button:hover {*/
-    /*-webkit-transition: all .35s;*/
-    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
-    /*border: 2px solid goldenrod;*/
-    /*background: goldenrod;*/
-    /*color: goldenrod;*/
-    /*opacity: .7;*/
-/*}*/
-
-/*.login-body{*/
-    /*background-color: #EBF5DF;*/
-/*}*/
-/*.login-form {*/
-    /*width: 500px;*/
-    /*height: 500px;*/
-/*}*/
-
+.modal-body-form {
+    margin: 25px;
+}
 
 
 /* Small devices (tablets, 768px and up) */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
 
 }
 
