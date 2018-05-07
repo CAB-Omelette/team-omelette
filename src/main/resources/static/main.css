@@ -24,7 +24,6 @@ li {
 
 .textBody{
     width: 60%;
-    margin-left: 20%;
 }
 
 .jumbotron {
@@ -49,9 +48,6 @@ li {
     display: none;
 }
 
-.jumbotron{
-    background-color: rgba(255,255,255,.6);
-}
 
 .OmLogo{
     text-align: center;
@@ -79,39 +75,6 @@ li {
     display: block;
 }
 
-.landingPage {
-    position: absolute;
-    top: 200px;
-    left: 130px;
-    text-align: center;
-}
-
-.landing-page-picture {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 860px;
-    width: 100%;
-    opacity: .9;
-    position: relative;
-    top: 0px;
-
-}
-
-/*.find-a-chef-button {*/
-    /*font-size: 15px;*/
-    /*border: 2px solid deepskyblue;*/
-    /*color: deepskyblue;*/
-    /*padding: 15px 30px;*/
-    /*border-radius: 8px;*/
-    /*font-weight: 700;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'PT Mono', sans-serif;*/
-    /*margin-bottom: 15px;*/
-    /*line-height: 1.5;*/
-    /*background: transparent;*/
-    /*position: relative;*/
-/*}*/
-
 
 .footer {
     position: fixed;
@@ -124,46 +87,12 @@ li {
 }
 
 
-/*.find-a-job-button {*/
-    /*font-size: 15px;*/
-    /*border: 2px solid deepskyblue;*/
-    /*color: deepskyblue;*/
-    /*padding: 15px 30px;*/
-    /*border-radius: 8px;*/
-    /*font-weight: 700;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'PT Mono', sans-serif;*/
-    /*margin-bottom: 15px;*/
-    /*line-height: 1.5;*/
-    /*background: transparent;*/
-    /*position: relative;*/
-/*}*/
-
-/*.find-a-job-button:hover {*/
-    /*-webkit-transition: all .35s;*/
-    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
-    /*border: 2px solid goldenrod;*/
-    /*background: goldenrod;*/
-    /*color: goldenrod;*/
-    /*opacity: .7;*/
-/*}*/
-
 .modal-body-form {
     margin: 25px;
 }
 
-/*.login-body{*/
-    /*background-color: #EBF5DF;*/
-/*}*/
-/*.login-form {*/
-    /*width: 500px;*/
-    /*height: 500px;*/
-/*}*/
-
-
-
 /* Small devices (tablets, 768px and up) */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
 
 }
 
