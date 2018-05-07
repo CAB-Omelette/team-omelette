@@ -17,8 +17,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Omelette</a>
-            <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/loggedin">Omelette</a>
+            <a style="color:white;" sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Omelette</a>
+            <a style="color:white;" sec:authorize="isAuthenticated()" class="navbar-brand" href="/loggedin">Omelette</a>
 
         </div>
 
@@ -27,11 +27,11 @@
             <ul class="nav navbar-nav">
 
 
-                <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
-                <li th:if="${isOwner}"><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
+                <li th:if="${isOwner}"><a style="color:white;" sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><button sec:authorize="!isAuthenticated()" type="button" class="btn btn-primary login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>

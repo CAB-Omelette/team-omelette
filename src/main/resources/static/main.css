@@ -137,6 +137,11 @@ body{
     top: 10px;
 }
 
+
+.whiteLink{
+    color: white;
+}
+
 .modal-body-form {
     margin: 25px;
 }
