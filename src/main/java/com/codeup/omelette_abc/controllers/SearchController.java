@@ -1,10 +1,16 @@
 package com.codeup.omelette_abc.controllers;
 
+import com.codeup.omelette_abc.models.ChefProfile;
 import com.codeup.omelette_abc.repositories.ChefProfileRepository;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.repositories.SearchRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 
 @Controller
@@ -25,12 +31,12 @@ public class SearchController {
     }
 
 
-//    @GetMapping("/search")
-//    public String search(@RequestParam ("search") String search, Model model) {
-//        List<ChefProfile> results = chefRepo.findByfirst_nameLike(search);
-//        model.addAttribute("results",results);
-//        return "/search";
-//    }
+    @GetMapping("/search")
+    public String search(@RequestParam("search") String search, Model model) {
+        List<ChefProfile> results = chefRepo.findByFirstNameLike(search);
+        model.addAttribute("results",results);
+        return "/partials/search";
+    }
 }
 
 

@@ -4,7 +4,6 @@ package com.codeup.omelette_abc.controllers;
 import com.codeup.omelette_abc.models.ChefProfile;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
-import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +16,12 @@ public class ChefsController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-    private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private UsersRepository usersRepo;
 
-    public ChefsController(ProfileServices proSvc,
+    public ChefsController(
                              UsersRepository usersRepo,
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
@@ -31,7 +29,6 @@ public class ChefsController {
                              JobHistoryRepository jobHistRepo,
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo) {
-        this.proSvc = proSvc;
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
@@ -46,7 +43,8 @@ public class ChefsController {
     }
 
     public boolean hasJobs(Long id){
-        return jobHistRepo.findByUser(chefRepo.findOne(id).getUser()) == null;
+       return jobHistRepo.countByUser(chefRepo.findOne(id).getUser()) >0;
+
     }
 
     public boolean hasEdu(Long id){
@@ -66,20 +64,16 @@ public class ChefsController {
     public String viewAllChefs(@PathVariable Long id, Model model) {
         User thisChef = chefRepo.findOne(id).getUser();
 
-        if(isOwner()) {
-            model.addAttribute("isOwner", true);
-        }
+            model.addAttribute("isOwner", isOwner());
 
-        if(hasJobs(id)){
-            model.addAttribute("hasJobs", true);
-        }
+            model.addAttribute("hasJobs", hasJobs(id));
 
-        if(hasEdu(id)){
-            model.addAttribute("hasEdu", true);
-        }
+            model.addAttribute("hasEdu", hasEdu(id));
+
 
         System.out.println(hasJobs(id));
         System.out.println(hasEdu(id));
+
 
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();

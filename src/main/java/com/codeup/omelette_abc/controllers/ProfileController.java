@@ -2,7 +2,6 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
-import com.codeup.omelette_abc.services.ProfileServices;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +16,12 @@ public class ProfileController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-    private ProfileServices proSvc;
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
-    public ProfileController(ProfileServices proSvc,
+    public ProfileController(
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
                              RestProfileRepository restRepo,
@@ -31,7 +29,6 @@ public class ProfileController {
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
                              JobPostRepository jobPostRepo) {
-        this.proSvc = proSvc;
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
@@ -49,11 +46,11 @@ public class ProfileController {
 
     @GetMapping("/createprofile")
     public String createProfile(Model model){
-        if(isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
+        if(isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) == null){
             model.addAttribute("rest", new RestProfile());
             model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
-        }else if (!userSvc.currentUser().isOwner() && !proSvc.hasChefProfile(userSvc.currentUser())){
+        }else if (!userSvc.currentUser().isOwner() && chefRepo.findByUser(userSvc.currentUser()) == null){
             model.addAttribute("chef", new ChefProfile());
             return "newuser/newchefprofile";
         }

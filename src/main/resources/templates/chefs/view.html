@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center">
-<h1><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h1>
+<h1><span th:text="${chef.firstName}"></span> <span th:text="${chef.last_name}"></span></h1>
     <img class="profilePicture" th:src="${chef.picture}" alt="" />
 
     <br />
@@ -46,6 +46,7 @@
         <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
         <hr />
     </div>
+
     </div>
     </div>
 

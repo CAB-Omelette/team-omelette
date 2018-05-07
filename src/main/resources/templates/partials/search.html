@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Search</title>
-    <meta charset="UTF-8"/>
+<head th:replace="partials/header :: header('Search Results')">
+    <meta charset="UTF-8" />
+    <title>Title</title>
 </head>
 <body id="search">
 
     <div class="container">\
-            <nav class="master-nav" th:include="fragments/navbar :: navbar"></nav>
+            <nav class="master-nav" th:include="partials/navbar :: navbar"></nav>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -15,15 +15,16 @@
                             <h1>Results</h1>
                         </div>
                         <div class="chefPost" th:each="result : ${results}">
-                            <p th:text="${result.first_name}"></p>
+                            <a th:href="@{/chefs/{id}(id=${result.id})}">
 
-                                <button class="btn btn-default">View profile</button>
+                                <button class="btn btn-default"><span th:text="${result.firstName}"></span></button>
+                            </a>
+
                         </div>
                         <br />
                     </div>
                 </div>
             </div>
-        </article>
     </div>
 </body>
 </html>
