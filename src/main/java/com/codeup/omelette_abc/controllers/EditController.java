@@ -3,10 +3,6 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
-<<<<<<< HEAD
-import com.codeup.omelette_abc.services.ProfileService;
-=======
->>>>>>> 06ac08daf94c45428609758fef68b074520a197f
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,26 +17,11 @@ public class EditController {
     private ChefProfileRepository chefRepo;
     private RestProfileRepository restRepo;
     private UserService userSvc;
-<<<<<<< HEAD
-    private ProfileService proSvc;
-=======
->>>>>>> 06ac08daf94c45428609758fef68b074520a197f
     private JobHistoryRepository jobHistRepo;
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
 
-<<<<<<< HEAD
-    public EditController(ProfileService proSvc,
-                          ChefProfileRepository chefRepo,
-                          UserService userSvc,
-                          RestProfileRepository restRepo,
-                          JobHistoryRepository jobHistRepo,
-                          EducationRepository edRepo,
-                          SkillsRepository skillsRepo,
-                          JobPostRepository jobPostRepo) {
-        this.proSvc = proSvc;
-=======
     public EditController(
                              ChefProfileRepository chefRepo,
                              UserService userSvc,
@@ -49,7 +30,6 @@ public class EditController {
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
                              JobPostRepository jobPostRepo) {
->>>>>>> 06ac08daf94c45428609758fef68b074520a197f
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;

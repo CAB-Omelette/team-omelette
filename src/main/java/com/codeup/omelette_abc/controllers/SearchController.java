@@ -1,7 +1,10 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.ChefProfile;
-import com.codeup.omelette_abc.repositories.*;
+import com.codeup.omelette_abc.repositories.ChefProfileRepository;
+import com.codeup.omelette_abc.repositories.JobPostRepository;
+import com.codeup.omelette_abc.repositories.RestProfileRepository;
+import com.codeup.omelette_abc.repositories.SearchRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,24 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+
 @Controller
 public class SearchController {
     private ChefProfileRepository chefRepo;
     private JobPostRepository jobRepo;
     private RestProfileRepository restRepo;
-    private SkillsRepository skillsRepo;
-
+    private SearchRepository searchRepo;
 
     public SearchController(ChefProfileRepository chefRepo,
                             JobPostRepository jobRepo,
                             RestProfileRepository restRepo,
-                            SkillsRepository skillsRepo){
+                            SearchRepository searchRepo){
+        this.searchRepo = searchRepo;
         this.chefRepo = chefRepo;
         this.jobRepo = jobRepo;
         this.restRepo = restRepo;
-        this.skillsRepo = skillsRepo;
     }
-
 
 
     @GetMapping("/search")
@@ -37,35 +39,6 @@ public class SearchController {
     }
 }
 
-//
-//    private final ChefProfileRepository chefProfileRepository;
-//    private final JobPostRepository jobPostRepository;
-//    private final RestProfileRepository restProfileRepository;
-//    private final SkillsRepository skillsRepository;
-//
-//    public SearchController(ChefProfileRepository chefProfileRepository,
-//                            JobPostRepository jobPostRepository,
-//                            RestProfileRepository restProfileRepository,
-//                            SkillsRepository skillsRepository) {
-//        this.chefProfileRepository = chefProfileRepository;
-//        this.jobPostRepository = jobPostRepository;
-//        this.restProfileRepository = restProfileRepository;
-//        this.skillsRepository = skillsRepository;
-//    }
-//
-//    @GetMapping("/search/results")
-//    public String showSearchResults(Model model, @RequestParam(name = "searchTerm") String search,
-//                                    @RequestParam(name = "searchChefs") String cp,
-//                                    @RequestParam(name = "searchRests") String rr,
-//                                    @RequestParam(name = "searchJobs") String jr,
-//                                    @RequestParam(name = "searchSkills") String sk){
-//            model.addAttribute("chefs", chefProfileRepository.findBySearchTerm(search));
-//            model.addAttribute("rests", restProfileRepository.findBySearchTerm(search));
-//            model.addAttribute("jobs", jobPostRepository.findBySearchTerm(search));
-//            model.addAttribute("skills", skillsRepository.findBySearchTerm(search));
-//
-//        return "/search/searchResults";
-//    }
-//}
+
 
 
