@@ -9,39 +9,73 @@
 
     <div class="landingPage">
         <div class="container text-center">
-        <div class="jumbotron jumbotron-fluid">
-            <h1>Welcome to Omelette</h1>
-
                 <img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
-        </div>
-            <main role="main" class="inner cover">
-                <h1 class="container cover-heading">What is Omelette</h1>
-                <div>
-                <p class="lead">Omelette is a web application that helps cooks build a portfolio of abilities, while allowing restaurant owners and managers find employees faster with the help of a visual/digital resume.</p>
-                </div>
-                <p class="lead">
-                    <a href="#"><button class="btn btn-lg btn-outline-dark">Example Profile</button></a>
-                </p>
-                <hr/>
-                <div>
-                <p class="lead">Why have someone tell you they can do something when they can show you they can do it. With Omelette, cooks of all types will be able to upload their abilities onto their Omelette profile to showcase themselves in a visual portfolio.</p>
-                </div>
+            <h1>Welcome to Omelette</h1>
+            <main style="margin-left:25%; width:50%; background-color:#D5EBFB; border-radius:15px;" role="main" class="inner cover">
+                <div><p class="lead">Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</p></div>
             </main>
-
-                <a href="/login"><button class="btn btn-lg btn-secondary">Find a Chef</button></a>
-                <a href="/login"><button class="btn btn-lg btn-secondary">Find a Job</button></a>
-
+            <br/>
+                <a href="/login"><button class="btn btn-lg btn-primary">Find a Chef</button></a>
+                <a href="/login"><button class="btn btn-lg btn-primary">Find a Job</button></a>
+            <br/>
             <hr/>
+            <br/>
+<section class="no-padding" id="portfolio">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-lg-4 col-sm-6">
+                <div class="portfolio-box">
+                    <img style="width:10%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <br/>
+                    <div class="portfolio-box-caption">
+                        <div style="padding:5px; background-color: #D5EBFB; border-radius: 30px;" class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">Portfolio</div>
+                            <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="portfolio-box">
+                    <img style="width:10%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <br/>
+                    <div class="portfolio-box-caption">
+                        <div  style="padding:5px; background-color: #D5EBFB; border-radius: 30px;" class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">Job Hunting</div>
+                            <div class="project-name">Easily find restaurants close to you that are hiring and apply with a oneClick function.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="portfolio-box">
+                    <img style="width:10%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <br/>
+                    <div class="portfolio-box-caption">
+                        <div style="padding:5px; background-color: #D5EBFB; border-radius: 30px;" class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">Hiring</div>
+                            <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
+</section>
+            <p class="lead">
+                <a href="/AboutUs"><button class="btn btn-lg btn-outline-dark">About Us.</button></a>
+            </p>
         <hr/>
         <br/>
         <br/>
+            <div>
+                Copyright © 2018 - Team Omelette
+            </div>
         <br/>
         <br/>
         <br/>
 
-<footer th:replace="partials/footer :: footer"></footer>
+        </div>
+    </div>
 </body>
 </html>
