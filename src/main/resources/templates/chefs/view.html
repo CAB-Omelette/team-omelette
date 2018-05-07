@@ -17,7 +17,8 @@
     <p><span th:text="${chef.bio}"></span></p>
     <br />
 
-    <div class="jobPost">
+
+    <div th:if="${hasJobs}" class="jobPost">
     <h2><u>Previous Experience</u></h2>
 
     <div th:each="job : ${jobs}">
@@ -27,13 +28,15 @@
         <p>Reason for leaving</p>
         <p th:text="${job.reason_left}" />
 
-        <hr />
     </div>
     </div>
+
 
     <br />
 
-    <div th:if="${hasEducation}" class="jobPost">
+    <div class="jobPost">
+
+        <div th:if="${hasEdu}">
 
     <h2><u>Education</u></h2>
 
@@ -42,6 +45,7 @@
         <p><span th:text="${ed.focus}"></span> </p>
         <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
         <hr />
+    </div>
     </div>
     </div>
 
@@ -60,10 +64,13 @@
     <br />
 
 
+
     <div class="jobPost">
     <video class="profileVideo" th:src="${chef.video}" th:controls="show"  >
     </video>
     </div>
+
+
 </div>
 
 

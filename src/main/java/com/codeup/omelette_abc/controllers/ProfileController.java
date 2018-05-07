@@ -41,13 +41,15 @@ public class ProfileController {
         this.jobPostRepo = jobPostRepo;
     }
 
-//    When a user clicks create a profile - this will determine if they already have a profile and if
-// they are a rest or a chef and direct them to the correct profile creation page.
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner();
+    }
+
 
 
     @GetMapping("/createprofile")
     public String createProfile(Model model){
-        if(userSvc.currentUser().isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
+        if(isOwner() && !proSvc.hasRestProfile(userSvc.currentUser())){
             model.addAttribute("rest", new RestProfile());
             model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
@@ -167,8 +169,7 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         User user = userSvc.currentUser();
-        Boolean isOwner = user.isOwner();
-        if(isOwner){
+        if(isOwner()){
             if(restRepo.findFirstByUser(user).getPicture() == null ||
                     restRepo.findFirstByUser(user).getPicture().equals("")){
                 model.addAttribute("noPicture", true);
