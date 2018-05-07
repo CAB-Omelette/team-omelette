@@ -84,7 +84,6 @@ li {
 }
 
 .landing-page-picture {
-    background-image: linear-gradient(to right bottom, #5e9bba, #33aab9, #30b6a3, #63bd7f, #9ebe59);
     background-size: 100%;
     background-repeat: no-repeat;
     height: 860px;
@@ -95,75 +94,70 @@ li {
 
 }
 
-.find-a-chef-button {
-    font-size: 15px;
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: 'PT Mono', sans-serif;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    background: transparent;
-    position: relative;
+/*.find-a-chef-button {*/
+    /*font-size: 15px;*/
+    /*border: 2px solid deepskyblue;*/
+    /*color: deepskyblue;*/
+    /*padding: 15px 30px;*/
+    /*border-radius: 8px;*/
+    /*font-weight: 700;*/
+    /*text-transform: uppercase;*/
+    /*font-family: 'PT Mono', sans-serif;*/
+    /*margin-bottom: 15px;*/
+    /*line-height: 1.5;*/
+    /*background: transparent;*/
+    /*position: relative;*/
+/*}*/
+
+/*.find-a-chef-button:hover {*/
+    /*-webkit-transition: all .35s;*/
+    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
+    /*border: 2px solid goldenrod;*/
+    /*background: goldenrod;*/
+    /*color: goldenrod;*/
+    /*opacity: .7;*/
+/*}*/
+
+/*.find-a-job-button {*/
+    /*font-size: 15px;*/
+    /*border: 2px solid deepskyblue;*/
+    /*color: deepskyblue;*/
+    /*padding: 15px 30px;*/
+    /*border-radius: 8px;*/
+    /*font-weight: 700;*/
+    /*text-transform: uppercase;*/
+    /*font-family: 'PT Mono', sans-serif;*/
+    /*margin-bottom: 15px;*/
+    /*line-height: 1.5;*/
+    /*background: transparent;*/
+    /*position: relative;*/
+/*}*/
+
+/*.find-a-job-button:hover {*/
+    /*-webkit-transition: all .35s;*/
+    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
+    /*border: 2px solid goldenrod;*/
+    /*background: goldenrod;*/
+    /*color: goldenrod;*/
+    /*opacity: .7;*/
+/*}*/
+
+.modal-body-form {
+    margin: 25px;
 }
 
-.find-a-chef-button:hover {
-    -webkit-transition: all .35s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
-    border: 2px solid goldenrod;
-    background: goldenrod;
-    color: goldenrod;
-    opacity: .7;
-}
-
-.find-a-job-button {
-    font-size: 15px;
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: 'PT Mono', sans-serif;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    background: transparent;
-    position: relative;
-}
-
-.find-a-job-button:hover {
-    -webkit-transition: all .35s;
-    box-shadow: inset 2px -100px 0 lightseagreen;
-    border: 2px solid goldenrod;
-    background: goldenrod;
-    color: goldenrod;
-    opacity: .7;
-}
-
-.navbar {
-    /*background-image: linear-gradient(to right bottom, goldenrod, goldenrod);*/
-}
-
-.login-button {
-
-}
+/*.login-body{*/
+    /*background-color: #EBF5DF;*/
+/*}*/
+/*.login-form {*/
+    /*width: 500px;*/
+    /*height: 500px;*/
+/*}*/
 
 
 
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 900px) {
-
-    .landingPage {
-        position: absolute;
-        left: -52px;
-        top: 200px;
-        width: 500px;
-        height: 300px;
-        text-align: center;
-    }
 
 }
 
