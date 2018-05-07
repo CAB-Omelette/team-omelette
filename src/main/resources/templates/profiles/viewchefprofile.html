@@ -20,6 +20,8 @@
         </a>
         </div>
 
+
+
     <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
 
     <p><span th:text="${chef.bio}"></span></p>
@@ -92,10 +94,16 @@
     <div class="jobPost">
         <h2>Videos</h2>
 
-    <a th:href="@{/video}">
+        <div th:if="${noVideo}">
+    <a th:href="@{newchef/video}">
         <button class="btn btn-success">Add a video</button>
     </a>
+        </div>
 
+        <div th:if="!${noVideo}">
+
+        <video th:controls="show" class="profileVideo" th:src="${chef.video}"></video>
+        </div>
     </div>
 </div>
 

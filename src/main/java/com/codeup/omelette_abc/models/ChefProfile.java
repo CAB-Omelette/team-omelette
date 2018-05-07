@@ -62,8 +62,14 @@ public class ChefProfile {
         this.video = video;
     }
 
-    public ChefProfile() {
+    public ChefProfile(String first_name, String last_name, String bio, String phone) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.bio = bio;
+        this.phone = phone;
     }
+
+    public ChefProfile() { }
 
     public long getId() {
         return id;

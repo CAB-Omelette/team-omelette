@@ -46,6 +46,10 @@ public class EditController {
 
 @GetMapping("/edit/profile")
 public String editProfile(Model model) {
+    Boolean isOwner = userSvc.currentUser().isOwner();
+    if(isOwner) {
+        model.addAttribute("isOwner", true);
+    }
     if (!userSvc.currentUser().isOwner()) {
         ChefProfile chefPro = chefRepo.findByUser(userSvc.currentUser());
         model.addAttribute("chef", chefPro);
@@ -66,6 +70,7 @@ public String editProfile(Model model) {
 
     @GetMapping("/edit/restpic")
     public String editRestPic(Model model){
+        model.addAttribute("isOwner", true);
         RestProfile rest = restRepo.findFirstByUser(userSvc.currentUser());
         model.addAttribute("rest", rest);
         return"/edit/editrestpicture";
@@ -87,6 +92,7 @@ public String editProfile(Model model) {
 
     @GetMapping("/job/{id}/edit")
     public String editJobPost(@PathVariable long id, Model model){
+        model.addAttribute("isOwner", true);
         RestProfile rest = restRepo.findFirstByUser(jobPostRepo.findOne(id).getUser());
         JobListing job = jobPostRepo.findOne(id);
         model.addAttribute("job", job);
@@ -96,14 +102,15 @@ public String editProfile(Model model) {
 
     @PostMapping("/edit/job")
     public String saveJobEdit(JobListing job, Model model){
+        model.addAttribute("isOwner", true);
         model.addAttribute(job);
         jobPostRepo.save(job);
-        System.out.println(job.getId());
         return"redirect:/job/" +job.getId();
     }
 
     @GetMapping("/delete/job/{id}")
-    public String deleteJob(@PathVariable long id){
+    public String deleteJob(@PathVariable long id, Model model){
+        model.addAttribute("isOwner", true);
         JobListing job = jobPostRepo.findOne(id);
         jobPostRepo.delete(job);
         return "redirect:/profile";

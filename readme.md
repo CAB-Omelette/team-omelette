@@ -36,9 +36,7 @@ CHEF PROFILE PAGE
 
 - [x] Able to add skills to chef profile
 
-- [ ] Able to add a video of chef making an omelette
-
-- [ ] Able to add a video or picture that corresponds with each skill
+- [x] Able to add a video of chef making an omelette
 
 - [x] Able to edit basic information of profile
 
@@ -50,25 +48,17 @@ CHEF PROFILE PAGE
 
 - [x] Able to edit/delete profile picture
 
-- [ ] Able to edit/delete omelette video
-
 
 
 RESTAURANT PROFILE PAGE
 
-- [x] Able to add a profile picture of restaurant
-
 - [x] Able to add basic information to profile
-
-- [ ] Able to add a video of restaurant
 
 - [x] Able to display restaurant on a google map based on location from profile
 
 - [x] Able to edit basic information of profile
 
 - [x] Able to edit/delete profile picture of restaurant
-
-- [ ] Able to edit/delete profile video of restaurant
 
 
 VIEW ALL CHEFS PAGE

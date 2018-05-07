@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
 
 * {
     box-sizing: border-box;
@@ -8,12 +9,24 @@
 
 body{
     font-family: "PT Mono";
-    background-color: lightsteelblue;
+    background:lightskyblue;
+}
+
+
+li{
+    color: white;
+
 }
 
 .textBody{
     width: 60%;
     margin-left: 20%;
+}
+
+.jumbotron {
+    background-color: lightslategrey;
+    background-size: cover;
+    color: white;
 }
 
 /*body{*/
@@ -26,8 +39,6 @@ body{
 
 
 .jobPost{
-    border: 1px solid white;
-    border-radius:5px;
     padding: 25px;
     width: 50%;
     margin: 0 auto;
@@ -37,9 +48,26 @@ body{
     display: none;
 }
 
+.jumbotron{
+    background-color: rgba(255,255,255,.6);
+}
+
+.OmLogo{
+    margin-bottom: 15px;
+    opacity:0.8;
+}
+
 .profilePicture{
     width: 25%;
     border-radius:50%;
+}
+
+.profileVideo{
+    width: 80%;
+}
+
+.hiddenUrl{
+    display: none;
 }
 
 .listPicture{
@@ -70,26 +98,17 @@ body{
     border-radius: 20px;
 }
 
-.navbar-logo {
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
 
 }
 
-.see-all-posts-button {
+/* Medium devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
 
 }
 
-.create-post-button {
-
-}
-
-.login-button {
-
-}
-
-.logout-button {
-
-}
-
-.sign-up-button {
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
 
 }
