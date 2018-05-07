@@ -7,13 +7,11 @@
     padding: 0;
 }
 
-body{
+body {
     font-family: "PT Mono";
-    background:lightskyblue;
 }
 
-
-li{
+li {
     color: white;
 
 }
@@ -38,7 +36,7 @@ li{
 /*}*/
 
 
-.jobPost{
+.jobPost {
     padding: 25px;
     width: 50%;
     margin: 0 auto;
@@ -58,6 +56,7 @@ li{
 }
 
 .OmLogo{
+    text-align: center;
     margin-bottom: 15px;
     opacity:0.8;
 }
@@ -82,29 +81,88 @@ li{
     display: block;
 }
 
+.landingPage {
+    position: absolute;
+    top: 200px;
+    left: 130px;
+    text-align: center;
+}
 
-/*.footer {*/
-    /*position: fixed;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*padding: 1rem;*/
-    /*background-color: rgba(0,0,0,.2);*/
-    /*text-align: center;*/
+.landing-page-picture {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 860px;
+    width: 100%;
+    opacity: .9;
+    position: relative;
+    top: 0px;
+
+}
+
+/*.find-a-chef-button {*/
+    /*font-size: 15px;*/
+    /*border: 2px solid deepskyblue;*/
+    /*color: deepskyblue;*/
+    /*padding: 15px 30px;*/
+    /*border-radius: 8px;*/
+    /*font-weight: 700;*/
+    /*text-transform: uppercase;*/
+    /*font-family: 'PT Mono', sans-serif;*/
+    /*margin-bottom: 15px;*/
+    /*line-height: 1.5;*/
+    /*background: transparent;*/
+    /*position: relative;*/
+/*}*/
+
+/*.find-a-chef-button:hover {*/
+    /*-webkit-transition: all .35s;*/
+    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
+    /*border: 2px solid goldenrod;*/
+    /*background: goldenrod;*/
+    /*color: goldenrod;*/
+    /*opacity: .7;*/
+/*}*/
+
+/*.find-a-job-button {*/
+    /*font-size: 15px;*/
+    /*border: 2px solid deepskyblue;*/
+    /*color: deepskyblue;*/
+    /*padding: 15px 30px;*/
+    /*border-radius: 8px;*/
+    /*font-weight: 700;*/
+    /*text-transform: uppercase;*/
+    /*font-family: 'PT Mono', sans-serif;*/
+    /*margin-bottom: 15px;*/
+    /*line-height: 1.5;*/
+    /*background: transparent;*/
+    /*position: relative;*/
+/*}*/
+
+/*.find-a-job-button:hover {*/
+    /*-webkit-transition: all .35s;*/
+    /*box-shadow: inset 2px -100px 0 lightseagreen;*/
+    /*border: 2px solid goldenrod;*/
+    /*background: goldenrod;*/
+    /*color: goldenrod;*/
+    /*opacity: .7;*/
+/*}*/
+
+.modal-body-form {
+    margin: 25px;
+}
+
+/*.login-body{*/
+    /*background-color: #EBF5DF;*/
+/*}*/
+/*.login-form {*/
+    /*width: 500px;*/
+    /*height: 500px;*/
 /*}*/
 
 
-.goog-te-gadget-simple {
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 20px;
-}
-
-#google_translate_element {
-    border-radius: 20px;
-}
 
 /* Small devices (tablets, 768px and up) */
-@media screen and (min-width:768px) {
+@media screen and (max-width: 900px) {
 
 }
 
