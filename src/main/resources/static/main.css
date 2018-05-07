@@ -91,8 +91,8 @@ li{
 }
 
 /* Small devices (tablets, 768px and up) */
-@media screen and (max-width:768px) {
-    .navbar-toggle {
+@media screen and (min-width:768px) {
+    button.navbar-toggle.collapsed {
         display: inline-block;
     }
 }
@@ -100,9 +100,7 @@ li{
 
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width:992px) {
-    .navbar-toggle {
-        display: inline-block;
-    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
