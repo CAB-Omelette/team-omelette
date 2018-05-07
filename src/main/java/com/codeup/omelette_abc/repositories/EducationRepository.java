@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface EducationRepository extends CrudRepository<Education, Long> {
 
     Iterable<Education> findByUser(User user);
+
+    Integer countByUser(User user);
+
 }
