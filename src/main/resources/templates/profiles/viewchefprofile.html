@@ -2,28 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Chef Profile')">
     <meta charset="UTF-8" />
-    <title>Title</title>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center">
-    <div class="jobPost">
+        <div class="jobPost">
 <h1><span th:text="${chef.first_name}"></span>
      <span th:text="${chef.last_name}"></span>'s profile</h1>
-        <img class="profilePicture" th:src="${chef.picture}" alt="" />
 
-        <a th:if="${noPicture}" href="/newchef/picture">
-        <button class="btn btn-success">
-            Add a profile Picture
-        </button>
+        <a href="/newchef/picture" title ="edit">
+        <img class="profilePicture" th:src="${chef.picture}" alt="" />
         </a>
+
+        <div th:if="${noPicture}">
+        <a href="/newchef/picture">
+        <button class="btn btn-success">Add a profile Picture</button>
+        </a>
+        </div>
+
     <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
 
     <p><span th:text="${chef.bio}"></span></p>
 
-
         <a th:href="@{/edit/profile}">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            <button class="btn btn-warning">Edit profile</button>
         </a>
     </div>
 
@@ -33,30 +35,28 @@
 
 <div class="jobPost">
 <h2>Previous Experience</h2>
-    <a th:href="@{/jobhistory}">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </a>
-<div th:each="job : ${jobs}">
-    <p>Title:<span th:text="${job.title}"></span></p>
-    <p>Location: <span th:text="${job.location}"></span></p>
-    <h5>Start Date:</h5>
-    <p><span th:text="${job.start_date}"></span> to <span th:text="${job.end_date}"></span> </p>
-    <h5>Reason for leaving</h5>
-    <p th:text="${job.reason_left}" />
 
+    <br />
+    
+<div th:each="job : ${jobs}">
+    <h4><span th:text="${job.title+' at '+job.location}"></span></h4>
+    <h5><span th:text="${job.start_date + ' to ' + job.end_date}"></span> </h5>
+        <p><u>Reason for leaving</u></p>
+        <p th:text="${job.reason_left}"></p>
     <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        edit
     </a>
+    <br />
+
 </div>
+    <a th:href="@{/jobhistory}">
+        <button class="btn btn-success">Add job history</button>
+    </a>
 </div>
     <br />
     <div class="jobPost">
 
     <h2>Education</h2>
-
-    <a th:href="@{/education}">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </a>
     <div th:each="ed : ${education}">
         <p>School:<span th:text="${ed.name}"></span></p>
         <p>Focus:<span th:text="${ed.focus}"></span> </p>
@@ -68,22 +68,23 @@
 
 
     </div>
+        <a th:href="@{/education}">
+            <button class="btn btn-success">Add education</button>
+        </a>
     </div>
 
     <br />
 
     <div class="jobPost">
     <h2>Skills</h2>
-    <a th:href="@{/skills}">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </a>
-    <ul>
     <div th:each="skill : ${skills}">
             <p><span th:text="${skill.name}"></span> <span> <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </a></span></p>
         </div>
-    </ul>
+        <a th:href="@{/skills}">
+            <button class="btn btn-success">Add a skill</button>
+        </a>
 </div>
 
     <br />
@@ -92,7 +93,7 @@
         <h2>Videos</h2>
 
     <a th:href="@{/video}">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <button class="btn btn-success">Add a video</button>
     </a>
 
     </div>

@@ -13,9 +13,7 @@
 
     <h3 th:text="${user.email}"></h3>
 
-    <div class="jobPost">
     <p><span th:text="${chef.bio}"></span></p>
-    </div>
     <br />
 
     <div class="jobPost">
@@ -23,17 +21,19 @@
 
     <div th:each="job : ${jobs}">
 
-        <p><span th:text="${job.title}"></span> at <span th:text="${job.location}"></span></p>
-        <h5>Start Date:</h5>
-        <p><span th:text="${job.start_date}"></span> to <span th:text="${job.end_date}"></span> </p>
-        <h5>Reason for leaving</h5>
+        <h4 th:text="${job.title + ' at ' + job.location}"></h4>
+        <h5 th:text="${job.start_date + ' to ' + job.end_date}"></h5>
+        <p>Reason for leaving</p>
         <p th:text="${job.reason_left}" />
+
+        <hr />
     </div>
     </div>
 
     <br />
 
-    <div class="jobPost">
+    <div th:if="${hasEducation}" class="jobPost">
+
     <h2><u>Education</u></h2>
 
     <div th:each="ed : ${education}">
