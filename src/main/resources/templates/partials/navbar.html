@@ -41,7 +41,6 @@
                 <li th:if="${isOwner}"><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><button sec:authorize="!isAuthenticated()" type="button" class="btn login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>
                 <form class="navbar-form navbar-right" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                     <button class="btn btn-danger">Logout</button>
                 </form>
