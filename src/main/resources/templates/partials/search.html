@@ -5,26 +5,18 @@
     <title>Title</title>
 </head>
 <body id="search">
+<nav th:replace="partials/navbar :: navbar"></nav>
 
-    <div class="container">\
-            <nav class="master-nav" th:include="partials/navbar :: navbar"></nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="title-filter">
+    <div class=" text-center container">
                             <h1>Results</h1>
-                        </div>
                         <div class="chefPost" th:each="result : ${results}">
                             <a th:href="@{/chefs/{id}(id=${result.id})}">
+                                <img class="listPicture" th:src="${result.picture}" alt="" />
 
-                                <button class="btn btn-default"><span th:text="${result.firstName}"></span></button>
+                            <h4 th:text="${result.firstName + ' ' + result.lastName}"></h4>
                             </a>
-
                         </div>
-                        <br />
-                    </div>
-                </div>
             </div>
-    </div>
+
 </body>
 </html>

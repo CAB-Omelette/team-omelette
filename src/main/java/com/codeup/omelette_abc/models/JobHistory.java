@@ -18,32 +18,32 @@ public class JobHistory {
     private String title;
 
     @Column
-    private String start_date;
+    private String startDate;
 
     @Column
-    private String end_date;
+    private String endDate;
 
     @Column
-    private String reason_left;
+    private String reasonLeft;
 
     @OneToOne
     private User user;
 
-    public JobHistory(String location, String title, String start_date, String end_date, String reason_left) {
+    public JobHistory(String location, String title, String startDate, String endDate, String reasonLeft) {
         this.location = location;
         this.title = title;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.reason_left = reason_left;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.reasonLeft = reasonLeft;
     }
 
-    public JobHistory(Long id, String location, String title, String start_date, String end_date, String reason_left, User user) {
+    public JobHistory(Long id, String location, String title, String startDate, String endDate, String reasonLeft, User user) {
         this.id = id;
         this.location = location;
         this.title = title;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.reason_left = reason_left;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.reasonLeft = reasonLeft;
         this.user = user;
     }
 
@@ -74,24 +74,24 @@ public class JobHistory {
         this.title = title;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(String start_date) { this.start_date = start_date; }
+    public void setStartDate(String startDate) { this.startDate = startDate; }
 
-    public void setEnd_date(String end_date) { this.end_date = end_date; }
+    public void setEndDate(String endDate) { this.endDate = endDate; }
 
-    public String getEnd_date() {
-        return end_date;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public String getReason_left() {
-        return reason_left;
+    public String getReasonLeft() {
+        return reasonLeft;
     }
 
-    public void setReason_left(String reason_left) {
-        this.reason_left = reason_left;
+    public void setReasonLeft(String reasonLeft) {
+        this.reasonLeft = reasonLeft;
     }
 
     public long getId() {

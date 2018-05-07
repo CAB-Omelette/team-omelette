@@ -14,5 +14,7 @@ public interface ChefProfileRepository extends CrudRepository<ChefProfile, Long>
     ChefProfile findByUser(User user);
 
     List<ChefProfile> findByFirstNameLike(String str);
+
+
 }
 
