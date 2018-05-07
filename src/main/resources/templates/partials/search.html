@@ -9,13 +9,25 @@
 
     <div class=" text-center container">
                             <h1>Results</h1>
-                        <div class="chefPost" th:each="result : ${results}">
-                            <a th:href="@{/chefs/{id}(id=${result.id})}">
-                                <img class="listPicture" th:src="${result.picture}" alt="" />
+                        <div class="chefPost" th:each="chef : ${chefResults}">
+                            <a th:href="@{/chefs/{id}(id=${chef.id})}">
+                                <img class="listPicture" th:src="${chef.picture}" alt="" />
 
-                            <h4 th:text="${result.firstName + ' ' + result.lastName}"></h4>
+                            <h4 th:text="${chef.firstName + ' ' + chef.lastName}"></h4>
                             </a>
                         </div>
+
+
+
+        <div class="chefPost" th:each="rest : ${restResults}">
+            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+                <img class="listPicture" th:src="${rest.picture}" alt="" />
+
+                <h4 th:text="${rest.name}"></h4>
+            </a>
+        </div>
+
+
             </div>
 
 </body>

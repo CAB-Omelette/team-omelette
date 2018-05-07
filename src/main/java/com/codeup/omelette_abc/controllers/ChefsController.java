@@ -56,7 +56,7 @@ public class ChefsController {
     }
 
     public boolean hasVideo(Long id){
-        return chefRepo.findOne(id).getVideo() != null || chefRepo.findOne(id).getVideo() != "";
+       return chefRepo.countByIdAndVideoNotNull(id)>0;
     }
 
     @GetMapping("/chefs")
@@ -67,6 +67,7 @@ public class ChefsController {
         model.addAttribute("chefs", chefRepo.findAll());
         return "/chefs/all";
     }
+
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
