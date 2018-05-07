@@ -90,26 +90,17 @@ li{
     border-radius: 20px;
 }
 
-.navbar-logo {
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
 
 }
 
-.see-all-posts-button {
+/* Medium devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
 
 }
 
-.create-post-button {
-
-}
-
-.login-button {
-
-}
-
-.logout-button {
-
-}
-
-.sign-up-button {
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
 
 }

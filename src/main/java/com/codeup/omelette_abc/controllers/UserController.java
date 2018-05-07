@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.User;
+import com.codeup.omelette_abc.models.UserWithRoles;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
 import com.codeup.omelette_abc.services.UserService;
@@ -60,7 +61,6 @@ public class UserController {
             model.addAttribute("user", user);
             return "users/chefsignup";
         }
-
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
