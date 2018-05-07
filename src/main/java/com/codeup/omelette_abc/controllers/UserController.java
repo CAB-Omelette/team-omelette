@@ -85,4 +85,9 @@ public class UserController {
         return "/googlemaps";
     }
 
+    @GetMapping("/AboutUs")
+    public String AboutUs() {
+        return "/AboutUs";
+    }
+
 }
