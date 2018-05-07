@@ -9,9 +9,10 @@
 <div class="text-center">
 <h1><span th:text="${chef.first_name}"></span> <span th:text="${chef.last_name}"></span></h1>
     <img class="profilePicture" th:src="${chef.picture}" alt="" />
-    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
 
-    <h3 th:text="${user.email}"></h3>
+    <br />
+
+    <a th:href="'mailto:' + ${user.email} + '?Subject=Interest%Via%Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
 
     <p><span th:text="${chef.bio}"></span></p>
     <br />
@@ -64,6 +65,7 @@
     </video>
     </div>
 </div>
+
 
 
 <footer th:replace="partials/footer :: footer"></footer>
