@@ -8,35 +8,44 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
     <div class="landingPage">
-        <div class="container text-center">
-                <img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
-
-            <h1>Welcome to Omelette</h1>
-            <main style="padding: 15px; margin-left:30%; width:40%; background-color:#D5EBFB; border-radius:15px;" role="main" class="inner cover">
-                <div><p class="lead">Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</p></div>
-            </main>
-            <br/>
-            <div th:if="!${loggedIn}">
-                <a href="/rest/signup"><button class="btn btn-primary">Find a Chef</button></a>
-
-                <a href="/chef/signup"><button class="btn btn-primary">Find a Job</button></a>
+        <div style="" class="container text-center">
+            <header style="display: flex; justify-content: center;">
+            <div >
+                <img style=" justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
             </div>
-            <div th:if="${loggedIn}">
-                <a href="/createprofile"><button class="btn btn-primary">My Profile</button></a>
+
+            <div style="width:100%; margin-top: 5%">
+                <h1 style="margin-top:10%;font-size: 50px; font-family: 'Archivo Black', sans-serif; color:White;">Welcome to Omelette</h1>
+                <br/>
+                    <div style="color:white; width:100%;font-size: 25px;font-weight: normal;">
+                        <div>Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</div>
+                    </div>
+                <br/>
+                <div>
+                    <div th:if="!${loggedIn}">
+                        <a href="/rest/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Chef</button></a>
+
+                        <a href="/chef/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Job</button></a>
+                    </div>
+
+                    <div th:if="${loggedIn}">
+                        <a href="/createprofile"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">My Profile</button></a>
+                    </div>
+                </div>
             </div>
-            <br/>
+
+            </header>
             <hr/>
-            <br/>
-<section class="no-padding" id="portfolio">
+<section style="display: inline-flex;" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
                 <div class="portfolio-box">
-                    <img style="width:10%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
                     <br/>
                     <div class="portfolio-box-caption">
-                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 15px; height:100%;" class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">Portfolio</div>
+                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
+                            <div style="font-size: medium" class="project-category text-faded">Portfolio</div>
                             <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
                         </div>
                     </div>
@@ -44,11 +53,11 @@
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="portfolio-box">
-                    <img style="width:10%;" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <img style="width:20%;" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
                     <br/>
                     <div class="portfolio-box-caption">
-                        <div  style="padding:10px; background-color: #D5EBFB; border-radius: 15px; height:100%;" class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">Job Hunting</div>
+                        <div  style="background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
+                            <div style="font-size: medium" class="project-category text-faded">Job Hunting</div>
                             <div class="project-name">Easily find restaurants close to you that are hiring and apply with a oneClick function.</div>
                         </div>
                     </div>
@@ -56,11 +65,11 @@
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="portfolio-box">
-                    <img style="width:10%;" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                    <img style="width:20%;" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
                     <br/>
                     <div class="portfolio-box-caption">
-                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 15px; height:100%;" class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">Hiring</div>
+                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
+                            <div style="font-size: medium" class="project-category text-faded">Hiring</div>
                             <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
                         </div>
 
@@ -71,9 +80,12 @@
     </div>
     </div>
 </section>
+            <br/>
+            <br/>
             <p class="lead">
-                <a href="/AboutUs"><button class="btn btn-lg btn-outline-dark">About Us.</button></a>
+                <a href="/AboutUs"><button style="font-size: large;width:200px; height:40px;" class="btn btn-lg btn-outline-dark">About Us.</button></a>
             </p>
+
         <hr/>
         <br/>
         <br/>

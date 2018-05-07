@@ -10,9 +10,11 @@
     padding: 0;
 }
 
+
 body{
     font-family: 'Istok Web', sans-serif;
-    background:#00A7E1;
+    background-color: #00a7e1;
+    background-image: url("css/img/stardust.png");
 }
 
 
