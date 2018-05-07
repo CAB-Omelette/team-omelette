@@ -12,5 +12,8 @@ public interface JobPostRepository extends CrudRepository<JobListing, Long> {
 
     Iterable<JobListing> findAll();
 
+    Integer countByUser(User user);
+
+
 
 }

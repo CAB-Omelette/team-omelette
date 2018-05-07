@@ -48,7 +48,15 @@ public class ChefsController {
     }
 
     public boolean hasEdu(Long id){
-        return edRepo.findByUser(chefRepo.findOne(id).getUser()) != null;
+        return edRepo.countByUser(chefRepo.findOne(id).getUser()) >0;
+    }
+
+    public boolean hasSkills(Long id){
+        return skillsRepo.countByUser(chefRepo.findOne(id).getUser()) >0;
+    }
+
+    public boolean hasVideo(Long id){
+        return chefRepo.findOne(id).getVideo() != null || chefRepo.findOne(id).getVideo() != "";
     }
 
     @GetMapping("/chefs")
@@ -63,18 +71,11 @@ public class ChefsController {
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
         User thisChef = chefRepo.findOne(id).getUser();
-
             model.addAttribute("isOwner", isOwner());
-
             model.addAttribute("hasJobs", hasJobs(id));
-
             model.addAttribute("hasEdu", hasEdu(id));
-
-
-        System.out.println(hasJobs(id));
-        System.out.println(hasEdu(id));
-
-
+            model.addAttribute("hasSkills", hasSkills(id));
+            model.addAttribute("hasVideo", hasVideo(id));
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();
 

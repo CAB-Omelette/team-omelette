@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface SkillsRepository extends CrudRepository<Skills, Long> {
 
     Iterable<Skills> findByUser(User user);
+
+    Integer countByUser(User user);
+
 }

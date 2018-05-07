@@ -1,7 +1,7 @@
 USE omelette_db;
 
 
-INSERT INTO chef_profile(bio, firstName, last_name, phone, picture, video, user_id)
+INSERT INTO chef_profile(bio, firstName, lastName, phone, picture, video, user_id)
 VALUES("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 1),
   ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 2),
   ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 3),
@@ -24,7 +24,7 @@ VALUES ("focusfocusfocusfocusfocusfocus", "YYYY-MM-DD HH:MI:SS", "University of 
   ("focusfocusfocusfocusfocusfocus", "YYYY-MM-DD HH:MI:SS", "Princeton"),
   ("focusfocusfocusfocusfocusfocus", "YYYY-MM-DD HH:MI:SS", "Yale");
 
-INSERT INTO job_history(end_date, location, reason_left, start_date, title)
+INSERT INTO job_history(endDate, location, reasonLeft, startDate, title)
 VALUES ("YYYY-MM-DD HH:MI:SS", "Atlanta", "fired", "YYYY-MM-DD HH:MI:SS", "line cook"),
   ("YYYY-MM-DD HH:MI:SS", "Sacramento", "quit", "YYYY-MM-DD HH:MI:SS", "sous chef"),
   ("YYYY-MM-DD HH:MI:SS", "Atlanta", "left for better opportunities", "YYYY-MM-DD HH:MI:SS", "executive chef"),
