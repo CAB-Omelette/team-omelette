@@ -97,31 +97,63 @@ li {
 
 }
 
-/*.find-a-chef-button {*/
-    /*font-size: 15px;*/
-    /*border: 2px solid deepskyblue;*/
-    /*color: deepskyblue;*/
-    /*padding: 15px 30px;*/
-    /*border-radius: 8px;*/
-    /*font-weight: 700;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'PT Mono', sans-serif;*/
-    /*margin-bottom: 15px;*/
-    /*line-height: 1.5;*/
-    /*background: transparent;*/
-    /*position: relative;*/
-/*}*/
-
-
-.footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: rgba(0,0,0,.2);
-    text-align: center;
+.login-error {
+ position: absolute;
+    left: 25px;
+    bottom: 25px;
 }
+
+.modal-login-button {
+    border: 2px solid deepskyblue;
+    color: deepskyblue;
+    background: transparent;
+}
+
+.modal-login-button:hover {
+    -webkit-transition: all .25s;
+    box-shadow: inset 2px -100px 0 lightseagreen;
+    border: 2px solid black;
+    background: white;
+    color: white;
+    opacity: .7;
+}
+
+.login-close-button {
+    position: relative;
+    top: 12px;
+    border: 2px solid deepskyblue;
+    color: deepskyblue;
+    background: transparent;
+}
+
+.login-close-button:hover {
+    -webkit-transition: all .25s;
+    box-shadow: inset 2px -100px 0 lightseagreen;
+    border: 2px solid black;
+    background: white;
+    color: white;
+    opacity: .7;
+}
+
+.login-button {
+    position: relative;
+    top: 10px;
+}
+
+.modal-body-form {
+    margin: 25px;
+}
+
+
+/*.footer {*/
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*padding: 1rem;*/
+    /*background-color: rgba(0,0,0,.2);*/
+    /*text-align: center;*/
+/*}*/
 
 
 /*.find-a-job-button {*/
@@ -147,10 +179,6 @@ li {
     /*color: goldenrod;*/
     /*opacity: .7;*/
 /*}*/
-
-.modal-body-form {
-    margin: 25px;
-}
 
 /*.login-body{*/
     /*background-color: #EBF5DF;*/
