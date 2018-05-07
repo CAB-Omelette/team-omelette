@@ -7,7 +7,7 @@
 <body>
 
 
-<nav th:fragment="navbar" class="navbar navbar-default">
+<nav th:fragment="navbar" class="navbar navbar-default navbar-inner">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -17,8 +17,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Omelette</a>
-            <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/loggedin">Omelette</a>
+            <a style="color:white;" sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Omelette</a>
+            <a style="color:white;" sec:authorize="isAuthenticated()" class="navbar-brand" href="/loggedin">Omelette</a>
 
         </div>
 
@@ -26,22 +26,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <!--Added Search Functionality-->
-                    <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
-                        <div class="form-group">
-                       <input name="search" type="text" class="form-control" id="search" placeholder="Search" />
-                        </div>
-                        <button class="btn btn-default" type="submit"><i class="black fa fa-search"></i></button>
-                    </form>
 
-                <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
-                <li><a sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
-                <li th:if="${isOwner}"><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
+                <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
+                <li th:if="${isOwner}"><a style="color:white;" sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+
                 <li><button sec:authorize="!isAuthenticated()" type="button" class="btn login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>
+                <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
+                    <div class="form-group">
+                        <input name="search" type="text" class="form-control" id="search" placeholder="Search" />
+                    </div>
+                    <button class="btn btn-default" type="submit"><i class="black fa fa-search"></i></button>
+                </form>
+
                 <form class="navbar-form navbar-right" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                     <button class="btn btn-danger">Logout</button>
                 </form>
