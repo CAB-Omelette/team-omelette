@@ -18,9 +18,6 @@ body{
 
 }
 
-li {
-    color: white;
-}
 
 .textBody{
     width: 60%;
@@ -31,8 +28,6 @@ li {
     background-color: #EBF5DF;
     background-size: cover;
 }
-
-
 
 .jobPost {
     padding: 25px;
@@ -126,6 +121,11 @@ li {
     background: transparent;
 }
 
+.navbar-inner {
+    background:transparent;
+    border: none;
+}
+
 .login-close-button:hover {
     -webkit-transition: all .25s;
     box-shadow: inset 2px -100px 0 lightseagreen;
@@ -143,6 +143,15 @@ li {
 .modal-body-form {
     margin: 25px;
 }
+
+navbar-brand{
+    color: #D69F4B;
+}
+
+a{
+    color: white;
+}
+
 
 
 /*.footer {*/
