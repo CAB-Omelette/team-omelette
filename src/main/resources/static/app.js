@@ -1,19 +1,15 @@
 "use strict";
 
-//modal for login and signup//
-$('#exampleModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget); // Button that triggered the modal
-    var recipient = button.data('whatever'); // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this);
-    modal.find('.modal-title').text('New message to ' + recipient);
-    modal.find('.modal-body input').val(recipient);
-});
+    $('#login-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+    });
 
-// $('.action_compute').click(function() {
-//     if($('#username').val() == ""){
-//         $('#show_error').show();
-//         return false;
-//     }
+
+
+// $('#login-modal').modal({
+//     backdrop: 'static',
+//     keyboard: false
 // });
