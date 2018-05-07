@@ -29,22 +29,20 @@
                     <br />
                     <a href="/rest/signup">Register a new restaurant account</a>
 
-                    <div th:if="${param.error}">
-                        <h3><code>Incorrect Username and Password.</code></h3>
-                    </div>
-                    <div th:if="${param.logout}">
-                        <h3><code>You have been logged out.</code></h3>
-                    </div>
-
-                </form>
-            </div>
             <div class="modal-footer">
+                <div th:if="${param.error}" class="login-error">
+                    <h4><code>Incorrect Username and Password.</code></h4>
+                </div>
+                <div th:if="${param.logout}">
+                    <h4><code>You have been logged out.</code></h4>
+                </div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
             </div>
         </div>
     </div>
 </div>
-
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
