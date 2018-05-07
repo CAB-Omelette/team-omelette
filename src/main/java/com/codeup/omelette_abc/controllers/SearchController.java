@@ -1,6 +1,8 @@
 package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.JobListing;
+import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.ChefProfileRepository;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
@@ -33,8 +35,16 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(@RequestParam("search") String search, Model model) {
-        List<ChefProfile> results = chefRepo.findByFirstNameLike(search);
-        model.addAttribute("results",results);
+        search = "%"+search+"%";
+        List<ChefProfile> chefResults = chefRepo.findByFirstNameLike(search);
+        List<RestProfile> restResults = restRepo.findByNameIsLike(search);
+        List<JobListing> jobResults = jobRepo.findByTitleIsLike(search);
+        for (JobListing job: jobResults) {
+            job.setRest(restRepo.findFirstByUser(job.getUser()));
+        }
+        model.addAttribute("chefResults",chefResults);
+        model.addAttribute("restResults", restResults);
+        model.addAttribute("jobResults", jobResults);
         return "/partials/search";
     }
 }

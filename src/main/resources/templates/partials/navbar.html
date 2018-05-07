@@ -7,7 +7,7 @@
 <body>
 
 
-<nav th:fragment="navbar" class="navbar navbar-default">
+<nav th:fragment="navbar" class="navbar navbar-default navbar-inner">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -26,13 +26,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <!--Added Search Functionality-->
-                    <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
-                        <div class="form-group">
-                       <input name="search" type="text" class="form-control" id="search" placeholder="Search" />
-                        </div>
-                        <button class="btn btn-default" type="submit"><i class="black fa fa-search"></i></button>
-                    </form>
 
                 <li><a class="" sec:authorize="isAuthenticated()" href="/createprofile">My Profile</a></li>
                 <li><a sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
@@ -41,13 +34,57 @@
                 <li th:if="${isOwner}"><a sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="login-button" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
+                <li><button sec:authorize="!isAuthenticated()" type="button" class="btn btn-primary login-button" data-toggle="modal" data-target="#login-modal">Login</button></li>
+                <form class="navbar-form navbar-left" sec:authorize="isAuthenticated()" th:action="@{'/search'}" th:method="GET">
+                    <div class="form-group">
+                        <input name="search" type="text" class="form-control" id="search" placeholder="Search" />
+                    </div>
+                    <button class="btn btn-default" type="submit"><i class="black fa fa-search"></i></button>
+                </form>
                 <form class="navbar-form navbar-right" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                     <button class="btn btn-danger">Logout</button>
                 </form>
-
             </ul>
         </div><!-- /.navbar-collapse -->
+
+
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-content-border">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="" id="">Login</h4>
+                    </div>
+                    <div class="modal-body-form">
+                        <form th:action="@{/login}" th:method="post">
+                            <div class="form-group">
+                                <label for="username">Email</label>
+                                <input class="form-control" id="username" name="username" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input class="form-control" id="password" name="password" type="password" />
+                            </div>
+                            <button type="submit" class="btn btn-primary form-control modal-login-button">Login</button>
+                            <a href="/chef/signup">Register a new chef account</a>
+                            <br />
+                            <a href="/rest/signup">Register a new restaurant account</a>
+
+                            <div class="modal-footer">
+                                <div th:if="${param.error}" class="login-error">
+                                    <h4><code>Incorrect Username and Password.</code></h4>
+                                </div>
+                                <div th:if="${param.logout}" class="login-error">
+                                    <h4><code>You have been logged out.</code></h4>
+                                </div>
+                                <button type="button" class="btn btn-default login-close-button" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- /.container-fluid -->
 </nav>
 

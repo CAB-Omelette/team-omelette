@@ -18,9 +18,6 @@ body{
 
 }
 
-li {
-    color: white;
-}
 
 .textBody{
     width: 60%;
@@ -30,8 +27,6 @@ li {
     background-color: #EBF5DF;
     background-size: cover;
 }
-
-
 
 .jobPost {
     padding: 25px;
@@ -75,21 +70,103 @@ li {
     display: block;
 }
 
-
-.footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: rgba(0,0,0,.2);
+.landingPage {
+    position: absolute;
+    top: 200px;
+    left: 130px;
     text-align: center;
 }
+
+.landing-page-picture {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 860px;
+    width: 100%;
+    opacity: .9;
+    position: relative;
+    top: 0px;
+
+}
+
+.login-error {
+ position: absolute;
+    left: 25px;
+    bottom: 25px;
+}
+
+.modal-login-button {
+    border: 2px solid deepskyblue;
+    color: deepskyblue;
+    background: transparent;
+}
+
+.modal-login-button:hover {
+    -webkit-transition: all .25s;
+    box-shadow: inset 2px -100px 0 lightseagreen;
+    border: 2px solid black;
+    background: white;
+    color: white;
+    opacity: .7;
+}
+
+
+.login-close-button {
+    position: relative;
+    top: 12px;
+    border: 2px solid deepskyblue;
+    color: deepskyblue;
+    background: transparent;
+}
+
+.navbar-inner {
+    background:transparent;
+    border: none;
+}
+
+.login-close-button:hover {
+    -webkit-transition: all .25s;
+    box-shadow: inset 2px -100px 0 lightseagreen;
+    border: 2px solid black;
+    background: white;
+    color: white;
+    opacity: .7;
+}
+
+.login-button {
+    position: relative;
+    top: 10px;
+}
+
+.modal-body-form {
+    margin: 25px;
+}
+
+navbar-brand{
+    color: #D69F4B;
+}
+
+a{
+    color: white;
+}
+
+
+
+/*.footer {*/
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*padding: 1rem;*/
+    /*background-color: rgba(0,0,0,.2);*/
+    /*text-align: center;*/
+/*}*/
+
 
 
 .modal-body-form {
     margin: 25px;
 }
+
 
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {

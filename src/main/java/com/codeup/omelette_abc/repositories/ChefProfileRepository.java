@@ -15,6 +15,7 @@ public interface ChefProfileRepository extends CrudRepository<ChefProfile, Long>
 
     List<ChefProfile> findByFirstNameLike(String str);
 
+    int countByIdAndVideoNotNull(Long id);
 
 }
 
