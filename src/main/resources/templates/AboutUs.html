@@ -4,55 +4,45 @@
 </head>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <body>
-
 <div>
     <h1>Who We Are</h1>
 </div>
+<section style="display: inline-flex; justify-content: center" class="container-fluid text-center">
+    <div style="width: 30%;justify-self: left; margin: 0 5px;">
 
-<section style="display: flex; justify-content: center">
-    <div class="container">
-                <div style="width: 30%;" >
-                    <div class="card-4">
-                        <img src="/css/img/OmLogo.png" alt="Alex" style="width:30%"/>
-                        <div class="container">
-                            <h3>Alexander Bous</h3>
-                            <div style="width: 30%; padding:10px; background-color: #D5EBFB; border-radius: 15px; height:115px;">
-                            <p class="opacity">CEO &amp; Founder</p>
-                            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                            <p><a href="mailto:AlexMBous@gmail.com">AlexMBous@gmail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <img src="/css/img/alexheadshot.jpeg" alt="Alex" style="position: relative; width:50%" class="img-circle"/>
+            <div style="margin-top: 25px; padding:10px; background-color: #D5EBFB; border-radius: 5px; height:305px;">
+                <h3>Alexander Bous - Founder</h3>
+                <p class="lead">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                <p><a href="mailto:AlexMBous@gmail.com"><i class="fa fa-envelope fa-md icon"></i>AlexMBous@gmail.com</a></p>
+                <p><a href="https://github.com/alexmbous"><i class="fab fa-linkedin"></i>Alexander-Bous</a></p>
+                <p><a href="https://linkedin.com/in/alex-bous"><i class="fab fa-github"></i>Alexander-Bous</a></p>
+            </div>
+    </div>
+    <div style="width: 30%;justify-self: left; margin: 0 5px;  ">
 
-                <div style="width: 30%;">
-                    <div class="card-4">
-                        <img src="/css/img/OmLogo.png" alt="Chris" style="width:30%"/>
-                        <div class="container">
-                            <h3>Christopher Allen</h3>
-                            <div style="width: 30%; padding:10px; background-color: #D5EBFB; border-radius: 15px; height:115px;">
-                            <p class="opacity">CO-FOUNDER</p>
-                            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                            <p><a href="mailto:chrishughallen@gmail.com">ChrisHughAllen@gmail.com</a></p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+        <img src="/css/img/chrisallenheadshot.jpeg" alt="Chris" style="position: relative; width:50%" class="img-circle"/>
+        <div style=" margin-top: 25px; padding:10px; background-color: #D5EBFB; border-radius: 5px; height:305px;">
+            <h3>Christopher Allen - CO-Founder</h3>
+            <p class="lead">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+            <p><a href="mailto:ChrisHughAllen@gmail.com"><i class="fa fa-envelope fa-md icon"></i>ChrishughAllen@gmail.com</a></p>
+            <p><a href="https://github.com/chrishughallen"><i class="fab fa-linkedin"></i>Christopher-Allen</a></p>
+            <p><a href="https://linkedin.com/in/chrishughallen/"><i class="fab fa-github"></i>Christopher-Allen</a></p>
+        </div>
+    </div>
+    <div style="width: 30%;justify-self: left; margin: 0 5px;">
 
-                <div style="width: 30%; ">
-                    <div class="card-4">
-                        <img src="/css/img/OmLogo.png" alt="Ben" style="width:30%; border-radius: 50%"/>
-                        <div class="container">
-                            <h3>Benjamin Rasmessan</h3>
-                            <div style="width: 30%; padding:10px; background-color: #D5EBFB; border-radius: 15px; height:115px;">
-                            <p class="opacity">CO-FOUNDER</p>
-                            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                            <p><a href="mailto:benrasmussen11@gmail.com">benrasmussen11@gmail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <img src="/css/img/benrasheadshot.jpeg" alt="Ben" style="position: relative; width:50%" class="img-circle"/>
+        <div style="margin-top: 25px; padding:10px; background-color: #D5EBFB; border-radius: 5px; height:305px;">
+            <h3>Benjamin Rasmussen - CO-Founder</h3>
+            <p class="lead">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+            <p><a href="mailto:benrasmussen11@gmail.com"><i class="fa fa-envelope fa-md icon"></i>benrasmussen11@gmail.com</a></p>
+            <p><a href="https://github.com/benrasmussen"><i class="fab fa-linkedin"></i>Benjamin-Rasmussen</a></p>
+            <p><a href="https://linkedin.com/in/ben-rasmussen"><i class="fab fa-github"></i>Benjamin-Rasmussen</a></p>
+        </div>
     </div>
 </section>
+
+<footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
