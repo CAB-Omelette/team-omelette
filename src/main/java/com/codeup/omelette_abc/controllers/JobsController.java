@@ -33,10 +33,13 @@ public class JobsController {
         this.userSvc = userSvc;
     }
 
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner();
+    }
+
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
-        Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
+        if(isOwner()) {
             model.addAttribute("isOwner", true);
         }
         if(restRepo.findFirstByUser(userSvc.currentUser())!= null) {
@@ -49,8 +52,7 @@ public class JobsController {
 
     @PostMapping("/jobs/create")
     public String postJob(@ModelAttribute JobListing newJob, Model model){
-        Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
+        if(isOwner()) {
             model.addAttribute("isOwner", true);
         }
         newJob.setUser(userSvc.currentUser());
@@ -60,8 +62,7 @@ public class JobsController {
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
-        Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
+        if(isOwner()) {
             model.addAttribute("isOwner", true);
         }
         JobListing job = jobsRepo.findOne(id);
@@ -73,8 +74,7 @@ public class JobsController {
 
     @GetMapping(value = "/all")
     public String viewAllJobPosts(Model model) {
-        Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
+        if(isOwner()) {
             model.addAttribute("isOwner", true);
         }
         Iterable<JobListing> jobs = jobsRepo.findAll();
