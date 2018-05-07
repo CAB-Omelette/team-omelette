@@ -69,23 +69,6 @@ body{
     display: block;
 }
 
-.landingPage {
-    position: absolute;
-    top: 200px;
-    left: 130px;
-    text-align: center;
-}
-
-.landing-page-picture {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 860px;
-    width: 100%;
-    opacity: .9;
-    position: relative;
-    top: 0px;
-
-}
 
 .login-error {
  position: absolute;
@@ -155,17 +138,6 @@ a{
     color: white;
 }
 
-
-
-/*.footer {*/
-    /*position: fixed;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*padding: 1rem;*/
-    /*background-color: rgba(0,0,0,.2);*/
-    /*text-align: center;*/
-/*}*/
 
 
 
