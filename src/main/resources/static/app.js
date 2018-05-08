@@ -57,7 +57,7 @@
 
 // http://jquerymodal.com/
 
-$("#custom-close").modal({
-    closeClass: 'icon-remove',
-    closeText: '!'
-});
+// $("#custom-close").modal({
+//     closeClass: 'icon-remove',
+//     closeText: '!'
+// });
