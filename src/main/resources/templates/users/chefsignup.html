@@ -6,41 +6,26 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<!--<button type="button" class="btn chef-sign-up-button" data-toggle="modal" data-target="#chef-sign-up-modal" data-whatever="@mdo">Register as a Chef</button>-->
+<div class="container">
+    <h1 class="text-center">Create a new chef account</h1>
 
-<!--<div class="modal fade" id="chef-sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">-->
-    <!--<div class="modal-dialog" role="document">-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                <!--<h4 class="modal-title" id="exampleModalLabel">New message</h4>-->
-            <!--</div>-->
-            <!--<div class="modal-body-form">-->
-                <!--<h1 class="text-center">Create a new chef account</h1>-->
-                <!--<form th:action="@{/chef/signup}" method="POST" th:object="${user}">-->
-                    <!--<label for="email">Email</label>-->
-                    <!--<input class="form-control" id="email" th:field="*{email}" />-->
-                    <!--<p><code th:if="${exists}" >User already exists</code></p>-->
-                    <!--<p><code th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>-->
-                    <!--<br />-->
+    <form th:action="@{/chef/signup}" method="POST" th:object="${user}">
 
-                    <!--<label for="password">Password</label>-->
-                    <!--<input class="form-control" id="password" type="password" th:field="*{password}" />-->
-                    <!--<p><code class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></code></p>-->
-                    <!--<br />-->
-                    <!--<button class="btn btn-primary form-control">Sign Up</button>-->
-                <!--</form>-->
-                <!--<a href="/login">Already have an account?</a>-->
-            <!--</div>-->
-            <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+        <label for="email">Email</label>
+        <input class="form-control" id="email" th:field="*{email}" />
+        <p><code th:if="${exists}" >User already exists</code></p>
+        <p><code th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>
+        <br />
 
+        <label for="password">Password</label>
+        <input class="form-control" id="password" type="password" th:field="*{password}" />
+        <p><code class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></code></p>
+        <br />
+        <button class="btn btn-primary form-control">Sign Up</button>
+    </form>
 
-
+    <a href="/login">Already have an account?</a>
+</div>
 
 <footer th:replace="partials/footer :: footer"></footer>
 

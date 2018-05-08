@@ -40,7 +40,7 @@ public class UserController {
     @GetMapping("/chef/signup")
     public String newChef(Model model){
         model.addAttribute("user", new User());
-        return"/index";
+        return"users/chefsignup";
     }
 
     @PostMapping("/chef/signup")
@@ -49,19 +49,19 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
-            return"/index";
+            return"users/chefsignup";
         }
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "/index";
+            return "users/chefsignup";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersRepo.save(user);
-        return "redirect:/index";
+        return "redirect:/login";
     }
 
     @PostMapping("/rest/signup")
