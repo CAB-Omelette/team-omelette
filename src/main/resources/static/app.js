@@ -1,13 +1,16 @@
 "use strict";
 
 //login modal//
+function showModal() {
     $('#login-modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this);
     });
+}
 
+//chef sign up modal//
 $('#chef-sign-up-modal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var recipient = button.data('whatever'); // Extract info from data-* attributes
@@ -17,10 +20,22 @@ $('#chef-sign-up-modal').on('show.bs.modal', function (event) {
     modal.find('.modal-body input').val(recipient)
 });
 
-
-// $('#login-modal').modal({
-//     show: 'false',
-//     keyboard: true
+// $('#login-modal').on('submit', function(e) {
+//     var username = $('#username');
+//     var password = $('#password');
+//
+//     // Check if there is an entered value
+//     if(username === null || password === null ) {
+//         // Add errors highlight
+//         username.closest('.form-group').removeClass('has-success').addClass('has-error');
+//         password.closest('.form-group').removeClass('has-success').addClass('has-error');
+//         // Stop submission of the form
+//         e.preventDefault();
+//     } else {
+//
+//         username.closest('.form-group').removeClass('has-error').addClass('has-success');
+//         password.closest('.form-group').removeClass('has-error').addClass('has-success');
+//     }
 // });
 
 // $('#myModal').modal({
