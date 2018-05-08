@@ -10,20 +10,24 @@
     <div class=" text-center container">
         <h1>Search results</h1>
 
-                        <div class="chefPost" th:each="chef : ${chefResults}">
-                            <h1>Chef's</h1>
+        <h1>Chef's</h1>
+        <div class="chefPost" th:each="chef : ${chefResults}">
                             <a th:href="@{/chefs/{id}(id=${chef.id})}">
                                 <img class="listPicture" th:src="${chef.picture}" alt="" />
-
                             <h4 th:text="${chef.firstName + ' ' + chef.lastName}"></h4>
                             </a>
                         </div>
 
+        <h1>Restaurant's</h1>
+        <div class="chefPost" th:each="rest : ${cityResults}">
+            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+                <img class="listPicture" th:src="${rest.picture}" alt="" />
+                <h4 th:text="${rest.name}"></h4>
+            </a>
 
 
-
+        </div>
         <div class="chefPost" th:each="rest : ${restResults}">
-            <h1>Restaurant's</h1>
             <a th:href="@{/restaurant/{id}(id=${rest.id})}">
                 <img class="listPicture" th:src="${rest.picture}" alt="" />
 
@@ -32,12 +36,12 @@
         </div>
 
 
+        <h1>Job's</h1>
         <div class="chefPost" th:each="job : ${jobResults}">
-            <h1>Job's</h1>
+
             <a th:href="@{/job/{id}(id=${job.id})}">
                 <h4 th:text="${job.title + ' at ' + job.rest.name}"> </h4>
             <h5 th:text="${job.rest.city + ', ' + job.rest.state}"></h5>
-            <img class="listPicture" th:src="${job.rest.picture}" alt="" />
             </a>
         </div>
 

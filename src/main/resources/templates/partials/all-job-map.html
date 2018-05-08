@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="google-maps">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="alljobs-google-maps">
 
 <head>
     <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
 
 
     <section class="map">
-        <div id="map-canvas"></div>
+        <div id="map-canvas-viewAll"></div>
     </section>
 
 </main>
@@ -47,7 +47,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map-canvas-viewAll"), mapOptions);
     var geocoder = new google.maps.Geocoder();
 
     function initMap(address) {
@@ -74,6 +74,5 @@
 </script>
 </body>
 </html>
-
 
 

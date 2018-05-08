@@ -18,7 +18,7 @@ public class ChefProfile {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String bio;
 
     @Column

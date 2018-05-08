@@ -99,33 +99,14 @@ JOB POSTING PAGE
 
 SEARCH FUNCTIONALITY
 
-- [ ] Able to search for chef by skill
 
 - [ ] Able to search for chef by previous job title
 
-- [ ] Able to search for a restaurant by restaurant name
+- [x] Able to search for a restaurant by restaurant name
 
-- [ ] Able to search for a restaurant by location
+- [x] Able to search for a restaurant by city/state/zip
 
-- [ ] Able to search for job posting by job title
-
-- [ ] Able to search for a job posting by restaurant name
-
-- [ ] Able to search for a job posting by description (any matching words)
-
-CONNECTION FUNCTIONALITY
-
-- [ ] Able to make a connection request to a chef from a logged in restaurant owner
-
-- [ ] Able to make a connection request to a restaurant from a logged in chef
-
-- [ ] Able to accept a connection request from a chef as a logged in restaurant owner
-
-- [ ] Able to accept a connection request from a restaurant as a logged in chef
-
-- [ ] Able to view a list of all connections with links to corresponding profile page
-
-
+- [x] Able to search for job posting by job title
 
 
 
