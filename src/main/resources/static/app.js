@@ -48,3 +48,16 @@
 // }, false);
 
 // https://www.smashingmagazine.com/2014/09/making-modal-windows-better-for-everyone/
+
+// https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp
+
+// https://github.com/kylefox/jquery-modal
+
+// https://jqueryui.com/dialog/
+
+// http://jquerymodal.com/
+
+// $("#custom-close").modal({
+//     closeClass: 'icon-remove',
+//     closeText: '!'
+// });
