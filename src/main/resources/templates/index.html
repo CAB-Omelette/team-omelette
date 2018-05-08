@@ -8,91 +8,91 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 
-    <div class="landingPage">
-        <div style="" class="container-fluid text-center">
-            <header style="display: flex; justify-content: center;">
-                <div class="container-fluid">
-                    <img style=" justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
-                </div>
+<div class="landingPage">
+    <div style="" class="container-fluid text-center">
+        <header style="display: flex; justify-content: center;">
+            <div class="container-fluid">
+                <img style=" justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+            </div>
 
             <div style="width:100%;">
                 <h1 style="margin-top:10%;font-size: 50px; font-family: 'Archivo Black', sans-serif; color:White;">Welcome to Omelette</h1>
                 <br/>
-                    <div style="color:white; width:100%;font-size: 25px;font-weight: normal;">
-                        <div>Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</div>
-                    </div>
+                <div style="color:white; width:100%;font-size: 25px;font-weight: normal;">
+                    <div>Omelette was designed to help cooks build a portfolio of abilities, and allow restaurants to find good employees faster.</div>
+                </div>
                 <br/>
                 <div>
                     <div th:if="!${loggedIn}">
-                        <a href="/rest/signup"><button class="btn landing-button">Find a Chef</button></a>
+                        <a href="/rest/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Chef</button></a>
 
-                        <button type="button" data-toggle="modal" data-target="#chef-sign-up-modal" class="btn landing-button">Find a Job</button>
+                        <a href="/chef/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Job</button></a>
                     </div>
 
                     <div th:if="${loggedIn}">
-                        <a href="/createprofile"><button class="btn landing-button">My Profile</button></a>
+                        <a href="/createprofile"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">My Profile</button></a>
                     </div>
                 </div>
             </div>
 
-            </header>
-            <hr/>
-<section style="display: inline-flex;" id="portfolio">
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-box">
-                    <!--<img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />-->
-                    <div style="color: #2E4057;">
-                        <i class="fas fa-folder-open fa-7x"></i>
-                    </div>
-                    <br/>
-                    <div class="portfolio-box-caption">
-                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
-                            <div style="font-size: medium" class="project-category text-faded">Portfolio</div>
-                            <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
+        </header>
+        <hr/>
+        <section style="display: inline-flex;" id="portfolio">
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-box">
+                            <!--<img style="width:20%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />-->
+                            <div style="color: #2E4057;">
+                                <i class="fas fa-folder-open fa-7x"></i>
+                            </div>
+                            <br/>
+                            <div class="portfolio-box-caption">
+                                <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
+                                    <div style="font-size: medium" class="project-category text-faded">Portfolio</div>
+                                    <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-box">
-                    <div style="color: #2E4057;">
-                        <i class="fas fa-bullseye fa-7x"></i>
-                    </div>
-                    <br/>
-                    <div class="portfolio-box-caption">
-                        <div  style="background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
-                            <div style="font-size: medium" class="project-category text-faded">Job Hunting</div>
-                            <div class="project-name">Easily find restaurants close to you that are hiring and apply.</div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-box">
+                            <div style="color: #2E4057;">
+                                <i class="fas fa-bullseye fa-7x"></i>
+                            </div>
+                            <br/>
+                            <div class="portfolio-box-caption">
+                                <div  style="background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
+                                    <div style="font-size: medium" class="project-category text-faded">Job Hunting</div>
+                                    <div class="project-name">Easily find restaurants close to you that are hiring and apply.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-box">
-                    <div style="color: #2E4057;">
-                        <i class="fas fa-user-clock fa-7x"></i>
-                    </div>
-                    <br/>
-                    <div class="portfolio-box-caption">
-                        <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
-                            <div style="font-size: medium" class="project-category text-faded">Hiring</div>
-                            <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
-                        </div>
-                        
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-box">
+                            <div style="color: #2E4057;">
+                                <i class="fas fa-user-clock fa-7x"></i>
+                            </div>
+                            <br/>
+                            <div class="portfolio-box-caption">
+                                <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
+                                    <div style="font-size: medium" class="project-category text-faded">Hiring</div>
+                                    <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-</section>
+        </section>
 
-            <br/>
-            <br/>
-            <p class="lead">
-                <a href="/AboutUs"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn btn-lg btn-outline-dark">About Us</button></a>
-            </p>
+        <br/>
+        <br/>
+        <p class="lead">
+            <a href="/AboutUs"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn btn-lg btn-outline-dark">About Us</button></a>
+        </p>
 
 
         <hr/>
@@ -107,39 +107,6 @@
 
     </div>
 </div>
-
-<!--<div class="modal fade" id="chef-sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">-->
-    <!--<div class="modal-dialog" role="document">-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                <!--<h4 class="modal-title" id="exampleModalLabel">New message</h4>-->
-            <!--</div>-->
-            <!--<div class="modal-body-form">-->
-                <!--<h1 class="text-center">Create a new chef account</h1>-->
-                <!--<form th:action="@{/chef/signup}" method="POST" th:object="${user}">-->
-                    <!--<label for="email">Email</label>-->
-                    <!--<input class="form-control" id="email" th:field="*{email}" />-->
-                    <!--<p><code th:if="${exists}" >User already exists</code></p>-->
-                    <!--<p><code th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></code></p>-->
-                    <!--<br />-->
-
-                    <!--<label for="password">Password</label>-->
-                    <!--<input class="form-control" id="password" type="password" th:field="*{password}" />-->
-                    <!--<p><code class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></code></p>-->
-                    <!--<br />-->
-                    <!--<button class="btn btn-primary form-control">Sign Up</button>-->
-                <!--</form>-->
-                <!--<a href="/login">Already have an account?</a>-->
-            <!--</div>-->
-            <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
 
 <footer th:replace="partials/footer :: footer"></footer>
 
