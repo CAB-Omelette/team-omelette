@@ -10,7 +10,9 @@
     <h1>Current Job Postings</h1>
 
     <div th:each="job : ${jobs}">
+
         <section id="viewAllJobsLoop" class="container-fluid">
+
 
             <div>
                 <div th:include="partials/job-map :: google-maps"></div>

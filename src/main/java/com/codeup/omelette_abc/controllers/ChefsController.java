@@ -61,9 +61,7 @@ public class ChefsController {
 
     @GetMapping("/chefs")
     public String viewAllChefs(Model model) {
-        if(isOwner()) {
-            model.addAttribute("isOwner", true);
-        }
+        model.addAttribute("isOwner", true);
         model.addAttribute("chefs", chefRepo.findAll());
         return "/chefs/all";
     }

@@ -5,106 +5,98 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-        <div class="jobPost">
-<h1><span th:text="${chef.firstName}"></span>
-     <span th:text="${chef.lastName}"></span>'s profile</h1>
 
-        <a href="/newchef/picture" title ="edit">
-        <img class="profilePicture" th:src="${chef.picture}" alt="" />
-        </a>
-
-        <div th:if="${noPicture}">
-        <a href="/newchef/picture">
-        <button class="btn btn-success">Add a profile Picture</button>
-        </a>
+<div class="container">
+    <div class="aboutChef">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="/newchef/picture" title ="edit">
+                <img class="chefProfilePic" th:src="${chef.picture}" />
+                </a>
+                <div th:if="${noPicture}">
+                    <a href="/newchef/picture">
+                        <button class="btn btn-success">Add a profile Picture</button>
+                    </a>
+                </div>
+            </div>
+            <div  class="col-xs-8 profileName">
+                <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
+                <h3 style="font-family: 'Istok Web', sans-serif; color:#2E4057;" th:text="${chef.bio}"></h3>
+                <a th:href="@{/edit/profile}">
+                    <button class="btn btn-warning">Edit profile</button>
+                </a>
+                <a style="color: #2E4057; font-family: 'Istok Web', sans-serif;" th:href="'mailto:' + ${user.email} + '?Subject=Interest Via Omelette'"><h4>Contact <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></h4></a>
+            </div>
         </div>
-
-
-
-    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
-
-    <h4><span th:text="${chef.bio}"></span></h4>
-
-        <a th:href="@{/edit/profile}">
-            <button class="btn btn-warning">Edit profile</button>
-        </a>
     </div>
+    <div class="viewChefProfile">
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <h2 style="color:#D69F4B;" class="profileName">Previous Experience</h2>
+                        <a th:href="@{/jobhistory}">
+                            <button class="btn btn-success">Add job history</button>
+                        </a>
+                        <div th:each="job : ${jobs}" class="text-center">
+                            <div class="col-xs-12">
+                                <h4 style="font-family:Istok Web; color:white;"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></h4>
+                                <h5 style="font-family:Istok Web; color:white;">Reason for leaving: <span th:text="${job.reasonLeft}"></span></h5>
+                                <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
+                                    edit
+                                </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <hr/>
+                        <h2 style="color:#D69F4B;" class="profileName">Education</h2>
+                        <a th:href="@{/education}">
+                            <button class="btn btn-success">Add education</button>
+                        </a>
+                        <div th:each="ed : ${education}">
+                            <div class="col-xs-12">
+                                <h4 style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></h4>
+                                <a th:href="@{/education/{id}/edit(id=${ed.id})}">edit</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <br />
-
-
-
-<div class="jobPost">
-<h2>Previous Experience</h2>
-
-    <br />
-    
-<div th:each="job : ${jobs}">
-    <h4><span th:text="${job.title+' at '+job.location}"></span></h4>
-    <h5><span th:text="${job.startDate + ' to ' + job.endDate}"></span> </h5>
-        <p><u>Reason for leaving</u></p>
-        <p th:text="${job.reasonLeft}"></p>
-    <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
-        edit
-    </a>
-    <br />
-
-</div>
-    <a th:href="@{/jobhistory}">
-        <button class="btn btn-success">Add job history</button>
-    </a>
-</div>
-    <br />
-    <div class="jobPost">
-
-    <h2>Education</h2>
-    <div th:each="ed : ${education}">
-        <p>School:<span th:text="${ed.name}"></span></p>
-        <p>Focus:<span th:text="${ed.focus}"></span> </p>
-        <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
-
-        <a th:href="@{/education/{id}/edit(id=${ed.id})}">
-            edit
-        </a>
-
-
-    </div>
-        <a th:href="@{/education}">
-            <button class="btn btn-success">Add education</button>
-        </a>
-    </div>
-
-    <br />
-
-    <div class="jobPost">
-    <h2>Skills</h2>
-    <div th:each="skill : ${skills}">
-            <p><span th:text="${skill.name}"></span> <span> <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <hr />
+                        <h2 style="color:#D69F4B;" class="profileName">Skills</h2>
+                        <div th:each="skill : ${skills}">
+                            <p style="font-family:Istok Web; color:white;" ><span th:text="${skill.name}"></span> <span> <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">
             edit
         </a></span></p>
+                        </div>
+                        <a th:href="@{/skills}">
+                            <button class="btn btn-success">Add a skill</button>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <hr/>
+                    <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
+                    <a href="/newchef/video" style="color:white;font-family:Istok web;"><button class="btn btn-success">Edit Video</button></a>
+                    <br />
+                        <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a th:href="@{/skills}">
-            <button class="btn btn-success">Add a skill</button>
-        </a>
-</div>
-
-    <br />
-
-    <div class="jobPost">
-        <h2>Videos</h2>
-
-        <div th:if="${noVideo}">
-    <a th:href="@{newchef/video}">
-        <button class="btn btn-success">Add a video</button>
-    </a>
-        </div>
-
-        <div th:if="!${noVideo}">
-
-        <video th:controls="show" class="profileVideo" th:src="${chef.video}"></video>
-        </div>
-    </div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

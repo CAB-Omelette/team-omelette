@@ -25,22 +25,22 @@ public class RestaurantController {
         this.userSvc = userSvc;
     }
 
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner();
+    }
+
+
     @GetMapping("/restaurants")
     public String viewAllRestaurants(Model model){
         Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
-            model.addAttribute("isOwner", true);
-        }
+        model.addAttribute("isOwner", isOwner());
         model.addAttribute("restaurants", restRepo.findAll());
         return"/restaurants/all";
     }
 
     @GetMapping("/restaurant/{id}")
     public String showRestaurantProfile(@PathVariable long id, Model model){
-        Boolean isOwner = userSvc.currentUser().isOwner();
-        if(isOwner) {
-            model.addAttribute("isOwner", true);
-        }
+        model.addAttribute("isOwner", isOwner());
         model.addAttribute("rest", restRepo.findOne(id));
         User user = restRepo.findOne(id).getUser();
         model.addAttribute("jobs", jobPostRepo.findByUser(user));

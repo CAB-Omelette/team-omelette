@@ -14,5 +14,7 @@ public interface RestProfileRepository extends CrudRepository<RestProfile, Long>
 
     List<RestProfile> findByStateLike(String str);
 
+    List<RestProfile> findByCityIsLike(String str);
+
 }
 
