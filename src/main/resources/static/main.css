@@ -17,7 +17,6 @@ body{
 
 }
 
-
 .textBody{
     width: 60%;
 }
@@ -134,14 +133,18 @@ navbar-brand{
     color: #D69F4B;
 }
 
-
-
-
-
 .modal-body-form {
     margin: 25px;
 }
 
+.landing-button {
+    font-weight: bold;
+    font-size: 25px;
+    width:250px;
+    height:50px;
+    background-color: #DE9E36;
+    color:white;
+}
 
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
