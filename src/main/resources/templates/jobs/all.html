@@ -8,16 +8,45 @@
 <div class="text-center">
 <div class="container">
     <h1>Current Job Postings</h1>
+    <div th:replace="partials/job-map :: google-maps"></div>
+
     <div th:each="job : ${jobs}">
+
+    <div class="container-fluid" style="background: #EBF5DF; border-radius: 5px">
         <div class="jobPost">
-            <img class="listPicture" th:src="${job.rest.picture}" alt="" />
+
+            <div>
+                <img class="listPicture" th:src="${job.rest.picture}" alt="" />
+            </div>
+
             <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+
+
         <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
-        <a th:href="@{/job/{id}(id=${job.id})}">
-            <button class="btn btn-default">View Job</button>
-        </a>
+
+            <div>
+                <a th:href="@{/job/{id}(id=${job.id})}">
+                    <button class="btn btn-default">View Job</button>
+                </a>
+            </div>
+
         </div>
+    </div>
+
+
+
+
+
+
+
+
+
         <br />
+
+
+
+
+
     </div>
 </div>
 </div>
