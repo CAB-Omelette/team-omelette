@@ -33,10 +33,6 @@ body{
     margin: 0 auto;
 }
 
-.glyphicon-envelope{
-    font-size: 2em;
-    margin-top: 2%;
-}
 
 #upload{
     display: none;
@@ -49,6 +45,20 @@ body{
     opacity:0.8;
 }
 
+.viewChefProfile{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #2E4057;
+    padding: 25px;
+}
+
+.aboutChef{
+    width: 80%;
+    margin: 0 auto;
+    padding: 25px;
+    background-color:#EBF5DF;
+}
+
 .profilePicture{
     width: 25%;
     border-radius:50%;
@@ -56,6 +66,7 @@ body{
 
 .profileVideo{
     width: 80%;
+    margin: 0 auto;
 }
 
 .hiddenUrl{
@@ -137,6 +148,16 @@ navbar-brand{
 
 
 
+/*CHEF PROFILE STYLING*/
+.chefProfilePic{
+    width: 100%;
+}
+
+.profileName{
+    font-family: archivo black;
+    color: white;
+    margin-top: 5%;
+}
 
 .modal-body-form {
     margin: 25px;
