@@ -43,6 +43,7 @@ public class TestController {
 
     @GetMapping("/")
     public String showIndex(Model model) {
+        model.addAttribute("user", new User());
         if(userSvc.isLoggedIn()){
             model.addAttribute("loggedIn", true);
         }
