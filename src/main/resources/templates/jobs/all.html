@@ -8,44 +8,30 @@
 <div class="text-center">
 <div class="container">
     <h1>Current Job Postings</h1>
-    <div th:replace="partials/job-map :: google-maps"></div>
 
     <div th:each="job : ${jobs}">
-
-    <div class="container-fluid" style="background: #EBF5DF; border-radius: 5px">
-        <div class="jobPost">
+        <section id="viewAllJobsLoop" class="container-fluid">
 
             <div>
-                <img class="listPicture" th:src="${job.rest.picture}" alt="" />
+                <div th:include="partials/job-map :: google-maps"></div>
+            </div>
+            <div style="display:flex">
+            <div style="flex:1"><img class="listPictureJobsPage" th:src="${job.rest.picture}" alt="" /></div>
+
+            <div style="flex:1">
+                <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+                <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
             </div>
 
-            <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-
-
-        <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
-
-            <div>
+            <div class="viewJobButtonAllJobs">
                 <a th:href="@{/job/{id}(id=${job.id})}">
-                    <button class="btn btn-default">View Job</button>
-                </a>
+                <button class="btn btn-default">View Job</button>
+            </a>
             </div>
-
-        </div>
-    </div>
-
-
-
-
-
-
-
-
+            </div>
+        </section>
 
         <br />
-
-
-
-
 
     </div>
 </div>
