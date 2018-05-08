@@ -22,3 +22,11 @@
 // function modalClose () {
 //     lastFocus.focus(); // place focus on the saved element
 // }
+
+
+var modal = document.getElementById('your-modal-id-here');
+
+function modalShow () {
+    modal.setAttribute('tabindex', '0');
+    modal.focus();
+}
