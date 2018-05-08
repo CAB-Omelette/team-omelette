@@ -37,6 +37,9 @@ public class TestController {
     }
 
 
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner();
+    }
 
     @GetMapping("/")
     public String showIndex(Model model) {
@@ -50,9 +53,7 @@ public class TestController {
     public String loggedIn(Model model) {
         model.addAttribute("loggedIn", true);
         User user = userSvc.currentUser();
-        if(user.isOwner()) {
-            model.addAttribute("isOwner", true);
-        }
+        model.addAttribute("isOwner", isOwner());
         if(restRepo.findFirstByUser(user) != null){
             return"redirect:/";
         }
@@ -61,7 +62,6 @@ public class TestController {
         }
         return "/index";
     }
-
 
 }
 

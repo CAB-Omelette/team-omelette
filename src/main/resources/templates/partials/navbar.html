@@ -31,6 +31,7 @@
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
+
                 <li th:if="${isOwner}"><a style="color:white;" sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
