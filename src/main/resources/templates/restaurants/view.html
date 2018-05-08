@@ -10,19 +10,46 @@
 
 
 <div class="container">
-    <div class="aboutChef">
+    <div class="viewChefProfile">
         <div class="row">
             <div class="col-xs-4">
                 <img class="chefProfilePic" th:src="${rest.picture}" />
             </div>
             <div  class="col-xs-8 profileName">
-                <h1 style="color:#2E4057" th:text="${rest.name}"></h1>
-                <h3 style="color:#2E4057" th:text="${rest.about}"></h3>
-                <a style="color: #2E4057; font-family: 'Istok Web', sans-serif;" th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><h4>Contact <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></h4></a>
+                <h1 style="color:white" th:text="${rest.name}"></h1>
+                <h3 style="color:white;font-family: Istok Web;" th:text="${rest.about}"></h3>
+                <h4><a style="color:white; font-family: 'Istok Web', sans-serif;" th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
+                <h4 style="color:white; font-family: 'Istok Web', sans-serif;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
+                <h4 style="color:white;font-family: Istok Web;"  th:text="${rest.street}"></h4>
+                <h4 style="color:white;font-family: Istok Web;" th:text="${rest.city + ', ' + rest.state}"></h4>
+                <h4 style="color:white;font-family: Istok Web;" th:text="${rest.zip}"></h4>
             </div>
         </div>
     </div>
 </div>
+
+<br />
+    <div class="row">
+        <div class="col-xs-12">
+            <div th:replace="partials/google-maps-api :: google-maps"></div>
+        </div>
+        <div class="col-xs-12">
+            <div class="text-center">
+                <h1 style="font-family:Istok Web; color:#2E4057;">Jobs at <span th:text="${rest.name}"></span></h1>
+                <div th:each="job : ${jobs}">
+                    <a th:href="@{/job/{id}(id=${job.id})}">
+                        <h3 style="font-family:Istok Web; color:white;" th:text="${job.title}"></h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
 
 
 
