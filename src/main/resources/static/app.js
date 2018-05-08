@@ -66,3 +66,5 @@
 //     backdrop: 'static',
 //     keyboard: true
 // })
+
+// http://i-like-robots.github.io/jQuery-Modal/
