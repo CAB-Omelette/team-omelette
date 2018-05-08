@@ -61,3 +61,8 @@
 //     closeClass: 'icon-remove',
 //     closeText: '!'
 // });
+
+// $('#myModal').modal({
+//     backdrop: 'static',
+//     keyboard: true
+// })
