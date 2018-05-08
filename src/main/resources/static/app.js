@@ -41,9 +41,9 @@
 // document.addEventListener('keydown', modalClose);
 
 
-mOverlay.addEventListener('click', function( e )
-if (e.target == modal.parentNode)
-    modalClose( e );
-}
-}, false);
+// mOverlay.addEventListener('click', function( e )
+// if (e.target == modal.parentNode)
+//     modalClose( e );
+// }
+// }, false);
 
