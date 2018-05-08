@@ -54,3 +54,8 @@
 // https://jqueryui.com/dialog/
 
 // http://jquerymodal.com/
+
+$("#custom-close").modal({
+    closeClass: 'icon-remove',
+    closeText: '!'
+});
