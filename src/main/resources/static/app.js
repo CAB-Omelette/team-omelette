@@ -48,3 +48,5 @@
 // }, false);
 
 // https://www.smashingmagazine.com/2014/09/making-modal-windows-better-for-everyone/
+
+// https://github.com/kylefox/jquery-modal
