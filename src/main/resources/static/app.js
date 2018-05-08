@@ -70,3 +70,5 @@
 // http://i-like-robots.github.io/jQuery-Modal/
 
 // https://www.sitepoint.com/14-jquery-modal-dialog-boxes/
+
+// http://www.jacklmoore.com/notes/jquery-modal-tutorial/
