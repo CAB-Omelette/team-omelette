@@ -52,3 +52,5 @@
 // https://github.com/kylefox/jquery-modal
 
 // https://jqueryui.com/dialog/
+
+// http://jquerymodal.com/
