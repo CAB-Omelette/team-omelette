@@ -32,11 +32,18 @@
 // }
 
 
-function modalClose ( e ) {
-    if ( !e.keyCode || e.keyCode === 27 ) {
-        // code to close modal goes here
-    }
-}
+// function modalClose ( e ) {
+//     if ( !e.keyCode || e.keyCode === 27 ) {
+//         // code to close modal goes here
+//     }
+// }
+//
+// document.addEventListener('keydown', modalClose);
 
-document.addEventListener('keydown', modalClose);
+
+mOverlay.addEventListener('click', function( e )
+if (e.target == modal.parentNode)
+    modalClose( e );
+}
+}, false);
 
