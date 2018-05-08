@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="alljobs-google-maps">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>View Location</title>
+    <link rel="stylesheet" href="/googlemapsstyle.css" />
+</head>
+<body>
+
+<main>
+
+    <section class="input">
+        <div>
+            <input type="hidden" id="address" name="address" th:value="${job.rest.street + ' ' + job.rest.city + ' ' + job.rest.street } " />
+        </div>
+    </section>
+
+
+    <section class="map">
+        <div id="map-canvas-viewAll"></div>
+    </section>
+
+</main>
+
+<script th:src="${'https://maps.googleapis.com/maps/api/js?key=' + @environment.getProperty('google.maps.api.key')}"></script>
+<script>
+    "use strict";
+
+    var addressInput = document.getElementById('address');
+
+    function keyPress () {
+        addressInput.addEventListener('keypress', function (e) {
+            var address = addressInput.value;
+            var key = e.which || e.keyCode;
+            if (key == 13) {
+                initMap(address);
+            }
+        });
+    } keyPress();
+
+    // Generate a map that shows the city with your favorite restaurant using geocoding.
+    var mapOptions = {
+        // Set the zoom level
+        zoom: 17,
+        // Show this map in satellite view
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map-canvas-viewAll"), mapOptions);
+    var geocoder = new google.maps.Geocoder();
+
+    function initMap(address) {
+        // Geocode our address
+        geocoder.geocode({ "address": address }, function(results, status) {
+            // Check for a successful result
+            if (status === google.maps.GeocoderStatus.OK) {
+                // Recenter the map over the address
+                map.setCenter(results[0].geometry.location);
+                // Add the marker to our existing map
+                var marker = new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map,
+                    animation: google.maps.Animation.DROP
+                });
+            } else {
+                // Show an error message with the status if our request fails
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+    }
+    initMap(addressInput.value);
+
+</script>
+</body>
+</html>
+
+
