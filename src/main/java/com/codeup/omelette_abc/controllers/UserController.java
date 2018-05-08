@@ -7,8 +7,10 @@ import com.codeup.omelette_abc.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,7 +40,7 @@ public class UserController {
     @GetMapping("/chef/signup")
     public String newChef(Model model){
         model.addAttribute("user", new User());
-        return"users/chefsignup";
+        return"/index";
     }
 
     @PostMapping("/chef/signup")
@@ -47,19 +49,19 @@ public class UserController {
         if(usersRepo.findByUsername(username) != null){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
-            return"users/chefsignup";
+            return"/index";
         }
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "users/chefsignup";
+            return "/index";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersRepo.save(user);
-        return "redirect:/login";
+        return "redirect:/index";
     }
 
     @PostMapping("/rest/signup")
