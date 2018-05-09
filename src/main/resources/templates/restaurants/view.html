@@ -26,18 +26,20 @@
 
 <br />
 
-    <div class="rest-jobs-view">
-        <div class="col-xs-12">
-            <div class="text-center">
-                <h1>Jobs at <span th:text="${rest.name}"></span></h1>
-                <div th:each="job : ${jobs}">
-                    <a th:href="@{/job/{id}(id=${job.id})}">
-                        <h3 th:text="${job.title}"></h3>
-                    </a>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="job-container">
+        <h1>Jobs at <span th:text="${rest.name}"></span></h1>
+            <div class="col-sm-4 rest-jobs-view" th:each="job : ${jobs}">
+                <a th:href="@{/job/{id}(id=${job.id})}">
+                    <h3 th:text="${job.title}"></h3>
+                    <h3 th:text="${job.description}"></h3>
+                </a>
             </div>
         </div>
     </div>
+</div>
+
 
 
 
