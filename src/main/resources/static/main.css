@@ -262,6 +262,10 @@ navbar-brand{
     word-wrap: break-word;
 }
 
+.istok {
+    font-family: "Istok Web", sans-serif;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
 
