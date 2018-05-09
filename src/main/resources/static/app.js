@@ -9,6 +9,10 @@ function showModal() {
         var modal = $(this);
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> c9df1c91f06aa5e85c827a1df138cef45e22cb1f
 
 $('#chef-modal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
@@ -23,6 +27,7 @@ $('#rest-modal').on('show.bs.modal', function (event) {
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this);
 });
+<<<<<<< HEAD
 
 
 // $('#login-modal').modal({
@@ -81,3 +86,6 @@ $('#chef-sign-up-modal').on('show.bs.modal', function (event) {
 // http://i-like-robots.github.io/jQuery-Modal/
 // https://www.sitepoint.com/14-jquery-modal-dialog-boxes/
 // http://www.jacklmoore.com/notes/jquery-modal-tutorial/
+=======
+}
+>>>>>>> c9df1c91f06aa5e85c827a1df138cef45e22cb1f

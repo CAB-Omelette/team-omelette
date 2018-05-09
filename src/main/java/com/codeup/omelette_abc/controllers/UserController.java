@@ -1,5 +1,5 @@
-package com.codeup.omelette_abc.controllers;
 
+package com.codeup.omelette_abc.controllers;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
@@ -10,21 +10,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
-=======
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
->>>>>>> ef9a027a11940b93cafc3f90b77c20523d231358
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
 @Controller
 public class UserController {
 
