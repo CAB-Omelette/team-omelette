@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 @import url("https://fonts.googleapis.com/css?family=Archivo+Black|Istok+Web");
 
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,6 +34,7 @@ body{
     margin: .1em;
     padding: .3em;
 }
+
 
 .textBody{
     width: 60%;
@@ -127,8 +126,8 @@ body{
 }
 
 .modal-login-button {
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
+    border: 2px solid #00a7e1;
+    color: #00a7e1;
     background: transparent;
     margin-bottom: 10px;
 }
@@ -145,8 +144,8 @@ body{
 .login-close-button {
     position: relative;
     top: 12px;
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
+    border: 2px solid #00a7e1;
+    color: #00a7e1;
     background: transparent;
 }
 
@@ -184,6 +183,18 @@ navbar-brand{
     color: #D69F4B;
 }
 
+
+/*CHEF PROFILE STYLING*/
+.chefProfilePic{
+    width: 100%;
+}
+
+.profileName{
+    font-family: archivo black;
+    color: white;
+    margin-top: 5%;
+}
+
 .modal-body-form {
     margin: 25px;
 }
@@ -210,9 +221,8 @@ navbar-brand{
     height: 440px;
     border-radius: 10px;
     position: absolute;
-    bottom: 7px;
-    right: -105px;
-    border: 4px solid #EBF5DF;
+    top: -420px;
+    right: -490px;
 }
 
 .rest-jobs-view {

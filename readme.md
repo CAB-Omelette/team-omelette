@@ -3,7 +3,7 @@ OMELETTE FEAUTURE LIST
 
 LANDING PAGE
 
-- [ ] About us section
+- [x] About us section
 
 - [ ] View example chef profile
 
@@ -99,8 +99,6 @@ JOB POSTING PAGE
 
 SEARCH FUNCTIONALITY
 
-
-- [ ] Able to search for chef by previous job title
 
 - [x] Able to search for a restaurant by restaurant name
 
