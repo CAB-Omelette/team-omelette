@@ -18,12 +18,12 @@
                 <img class="profilePicture rest-profile-pic" th:src="${rest.picture}" alt="" />
             </a>            <h1 th:text="${rest.name}"></h1>
             <h3 th:text="${rest.about}"></h3>
-            <a th:href="@{/edit/profile}">
-                <button class="btn btn-warning">Edit profile</button>
-            </a>
             <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
             <h4 class="address" th:text="${rest.street}"></h4>
             <h4 th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            <a th:href="@{/edit/profile}">
+                <button class="istok btn btn-warning">Edit profile</button>
+            </a>
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>
     </div>
@@ -38,8 +38,11 @@
                 <h1 th:text="${job.title}"></h1>
                     <h3 class="istok" th:text="${job.description}"></h3>
                     <a th:href="@{/job/{id}/edit(id=${job.id})}">
-                        <h6><span class="glyph-style glyphicon glyphicon-pencil" aria-hidden="true">  EDIT</span></h6></a>
-                <h6><a class="glyph-style" th:href="@{/job/{id}(id=${job.id})}">See Job Post</a></h6>
+                        <button class="btn btn-warning istok">Edit Job</button>
+                    </a>
+                <a th:href="@{/job/{id}(id=${job.id})}">
+                    <button class="btn btn-success istok">View Job</button>
+                </a>
             </div>
         </div>
     </div>
