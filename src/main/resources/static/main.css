@@ -208,7 +208,7 @@ navbar-brand{
     color:white;
 }
 
-/*RESTAURANT VIEW STYLING BELOW******************************/
+/*RESTAURANT VIEW STYLING BELOW*********************************/
 .rest-container-view {
     border-radius: 10px;
 }
@@ -247,10 +247,10 @@ navbar-brand{
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
+     display: flex;
+     flex-wrap: wrap;
+     padding: 0 4px;
+ }
 
 .rest-jobs-view {
     width: 31.6%;
