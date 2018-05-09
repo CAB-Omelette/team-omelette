@@ -8,24 +8,20 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="text-center">
-<form th:action="@{/video}" method="post" th:object="${chef}">
+    <form th:action="@{/video}" method="post" th:object="${chef}">
 
-    <input type="hidden" th:field="*{id}"/>
-    <input type="hidden" th:field="*{user}"/>
-    <input type="hidden" th:field="*{firstName}"/>
-    <input type="hidden" th:field="*{lastName}"/>
-    <input type="hidden" th:field="*{bio}"/>
-    <input type="hidden" th:field="*{phone}"/>
-    <input type="hidden" th:field="*{picture}"/>
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{user}"/>
+        <input type="hidden" th:field="*{firstName}"/>
+        <input type="hidden" th:field="*{lastName}"/>
+        <input type="hidden" th:field="*{bio}"/>
+        <input type="hidden" th:field="*{phone}"/>
+        <input type="hidden" th:field="*{picture}"/>
 
-
-
-
-
-    <div th:replace="partials/filestack-api :: filestack-video"></div>
-    <br />
-    <button class="btn btn-success form-control">Save</button>
-</form>
+        <div th:replace="partials/filestack-api :: filestack-video"></div>
+        <br />
+        <button class="btn btn-success form-control">Save</button>
+    </form>
 </div>
 
 </body>
