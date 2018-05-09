@@ -208,7 +208,7 @@ navbar-brand{
     color:white;
 }
 
-/*RESTAURANT VIEW STYLING*/
+/*RESTAURANT VIEW STYLING BELOW******************************/
 .rest-container-view {
     border-radius: 10px;
 }
@@ -241,8 +241,18 @@ navbar-brand{
     margin-top: 30px;
 }
 
+.job-container {
+    width: 100%;
+    text-align: center;
+}
+
 .rest-jobs-view {
-/**/
+    width: 100%;
+    /*margin: 10px;*/
+    background-color: #2E4057;
+    /*font-family: archivo black, sans-serif;*/
+    /*color: white;*/
+    /*border-radius: 10px;*/
 }
 
 /* Small devices (tablets, 768px and up) */
