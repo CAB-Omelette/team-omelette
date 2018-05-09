@@ -101,7 +101,7 @@ public class ProfileController {
     }
 
     @PostMapping("/newrest/picture")
-    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
+    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="restPic") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
@@ -183,7 +183,6 @@ public class ProfileController {
             model.addAttribute("newEducation", new Education());
             model.addAttribute("newSkill", new Skills());
             model.addAttribute("user", user);
-            model.addAttribute("noVideo", chefSvc.hasVideo(user));
             model.addAttribute("noPicture", chefSvc.hasPicture(user));
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));

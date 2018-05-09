@@ -10,14 +10,11 @@
     <div class="aboutChef">
         <div class="row">
             <div class="col-xs-4">
-                <a href="/newchef/picture" title ="edit">
-                <img class="chefProfilePic" th:src="${chef.picture}" />
-                </a>
-                <div th:if="${noPicture}">
-                    <a href="/newchef/picture">
-                        <button class="btn btn-success">Add a profile Picture</button>
-                    </a>
-                </div>
+
+
+                <img id="current-pic" class="chefProfilePic" th:src="${chef.picture}" />
+                <button class="btn btn-warning" id="newPicture">Edit Picture</button>
+                <div th:replace="partials/filestack-api :: filestack-pic-chef"></div>
             </div>
             <div  class="col-xs-8 profileName">
                 <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
@@ -184,6 +181,7 @@
                 <div class="text-center">
                     <hr/>
                     <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
+                    <div th:replace="partials/filestack-api :: filestack-video"></div>
                     <a href="/newchef/video" style="color:white;font-family:Istok web;"><button class="btn btn-success">Edit Video</button></a>
                     <br />
                         <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
