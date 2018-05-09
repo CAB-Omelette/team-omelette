@@ -9,38 +9,39 @@
 
 
 
-<div class="container rest-container-view">
-    <div class="viewChefProfile">
+<div class="container">
+    <div class="viewChefProfile rest-container-view">
         <div class="row">
             <div class="col-xs-4">
                 <img class="chefProfilePic" th:src="${rest.picture}" />
             </div>
-            <div  class="col-xs-8 profileName">
-                <h1 style="color:white" th:text="${rest.name}"></h1>
-                <h3 style="color:white;font-family: Istok Web;" th:text="${rest.about}"></h3>
-                <h4><a style="color:white; font-family: 'Istok Web', sans-serif;" th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
-                <h4 style="color:white; font-family: 'Istok Web', sans-serif;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
-                <h4 style="color:white;font-family: Istok Web;"  th:text="${rest.street}"></h4>
-                <h4 style="color:white;font-family: Istok Web;" th:text="${rest.city + ', ' + rest.state}"></h4>
-                <h4 style="color:white;font-family: Istok Web;" th:text="${rest.zip}"></h4>
+            <div class="col-xs-8 profileName">
+                <h1 th:text="${rest.name}"></h1>
+                <h3 th:text="${rest.about}"></h3>
+                <h4><a th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
+                <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
+                <h4 th:text="${rest.street}"></h4>
+                <h4 th:text="${rest.city + ', ' + rest.state}"></h4>
+                <h4 th:text="${rest.zip}"></h4>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div th:replace="partials/google-maps-api :: google-maps"></div>
         </div>
     </div>
 </div>
 
 <br />
-    <div class="row rest-google-maps-view">
-        <div class="col-xs-12">
-            <div th:replace="partials/google-maps-api :: google-maps"></div>
-        </div>
-    </div>
+
     <div class="rest-jobs-view">
         <div class="col-xs-12">
             <div class="text-center">
-                <h1 style="font-family:Istok Web; color:#2E4057;">Jobs at <span th:text="${rest.name}"></span></h1>
+                <h1>Jobs at <span th:text="${rest.name}"></span></h1>
                 <div th:each="job : ${jobs}">
                     <a th:href="@{/job/{id}(id=${job.id})}">
-                        <h3 style="font-family:Istok Web; color:white;" th:text="${job.title}"></h3>
+                        <h3 th:text="${job.title}"></h3>
                     </a>
                 </div>
             </div>
