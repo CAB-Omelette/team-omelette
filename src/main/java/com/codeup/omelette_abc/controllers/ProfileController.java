@@ -179,6 +179,9 @@ public class ProfileController {
         }
 
         else if(!user.isOwner()) {
+            model.addAttribute("newJobHistory", new JobHistory());
+            model.addAttribute("newEducation", new Education());
+            model.addAttribute("newSkill", new Skills());
             model.addAttribute("user", user);
             model.addAttribute("noVideo", chefSvc.hasVideo(user));
             model.addAttribute("noPicture", chefSvc.hasPicture(user));
