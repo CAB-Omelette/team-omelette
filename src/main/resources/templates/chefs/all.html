@@ -9,15 +9,22 @@
 <div class="text-center">
 <div class="container">
 <h1>Viewing Chefs</h1>
+
 <div th:each="chef : ${chefs}">
-    <a th:href="@{/chefs/{id}(id=${chef.id})}">
-    <div class="jobPost">
-<h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
-        <img class="listPicture" th:src="${chef.picture}" alt="" />
-        <br />
-    </div>
-    </a>
-    </div>
+
+    <section id="viewAllJobsLoop" class="container-fluid">
+        <div style="display:flex">
+        <a th:href="@{/chefs/{id}(id=${chef.id})}">
+        <div class="jobPost">
+            <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
+                    <img class="listPicture" th:src="${chef.picture}" alt="" />
+            <br />
+        </div>
+        </a>
+        </div>
+    </section>
+
+</div>
     <br />
 </div>
 </div>
