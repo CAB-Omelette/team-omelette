@@ -173,9 +173,8 @@
 
 
                         <div th:each="skill : ${skills}">
-                            <p style="font-family:Istok Web; color:white;" ><span th:text="${skill.name}"></span> <span> <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">
-            edit
-        </a></span></p>
+                            <p style="font-family:Istok Web; color:white;" ><span th:text="${skill.name}"></span> <span>
+                                <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">edit</a></span></p>
                         </div>
                     </div>
                     </div>
