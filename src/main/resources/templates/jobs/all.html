@@ -9,14 +9,12 @@
 <div class="container">
     <h1>Current Job Postings</h1>
 
+
     <div th:each="job : ${jobs}">
+        <div th:include="partials/job-map :: google-maps"></div>
 
         <section id="viewAllJobsLoop" class="container-fluid">
 
-
-            <div>
-                <div th:include="partials/job-map :: google-maps"></div>
-            </div>
             <div style="display:flex">
             <div style="flex:1"><img class="listPictureJobsPage" th:src="${job.rest.picture}" alt="" /></div>
 
@@ -31,11 +29,13 @@
             </a>
             </div>
             </div>
+
         </section>
 
-        <br />
 
+        <br />
     </div>
+
 </div>
 </div>
 

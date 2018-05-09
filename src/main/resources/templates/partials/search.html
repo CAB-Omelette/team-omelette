@@ -18,6 +18,7 @@
                             </a>
                         </div>
 
+
         <h1>Restaurant's</h1>
         <div class="chefPost" th:each="rest : ${cityResults}">
             <a th:href="@{/restaurant/{id}(id=${rest.id})}">
