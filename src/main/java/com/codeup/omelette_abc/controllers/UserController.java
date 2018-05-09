@@ -57,13 +57,13 @@ public class UserController {
         if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
-            return"users/chefsignup";
+            return"/";
         }
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "users/chefsignup";
+            return "/";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
@@ -77,19 +77,19 @@ public class UserController {
         if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
-            return"users/restsignup";
+            return"/";
         }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "users/restsignup";
+            return "/";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.setOwner(true);
         usersRepo.save(user);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
