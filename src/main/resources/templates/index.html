@@ -48,7 +48,7 @@
                                             <label for="password">Password</label>
                                             <input class="form-control" id="password" type="password" th:field="*{password}" />
                                         </div>
-                                        <button type="submit" data-toggle="modal" data-target="#login-modal" class="btn btn-primary form-control modal-login-button">Sign up</button>
+                                        <button type="submit" class="btn btn-primary form-control modal-login-button">Sign up</button>
                                         <div class="modal-footer">
                                             <div th:if="${param.error}" class="login-error">
                                                 <h4><code>Incorrect Username and Password.</code></h4>
