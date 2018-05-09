@@ -55,7 +55,7 @@
                 <div class="modal-content modal-content-border">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="" id="">Login</h4>
+                        <h4><span class="glyphicon glyphicon-lock"></span>Login</h4>
                     </div>
                     <div class="modal-body-form">
                         <form th:action="@{/login}" th:method="post">
@@ -67,7 +67,14 @@
                                 <label for="password">Password</label>
                                 <input class="form-control" id="password" name="password" type="password" />
                             </div>
+<<<<<<< HEAD
                             <button type="submit" class="btn btn-primary form-control modal-login-button">Login</button>
+=======
+                            <button type="submit" id="jquery-login-button" class="btn btn-primary form-control modal-login-button">Login</button>
+                            <a href="/chef/signup">Register a new chef account</a>
+                            <br />
+                            <a href="/rest/signup">Register a new restaurant account</a>
+>>>>>>> ef9a027a11940b93cafc3f90b77c20523d231358
 
                             <br />
                             <div class="modal-footer">
