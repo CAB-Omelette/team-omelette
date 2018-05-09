@@ -209,6 +209,15 @@ navbar-brand{
 }
 
 /*RESTAURANT PROFILE*/
+.rest-jobs-view-profile {
+    margin: 10px;
+    background-color: #2E4057;
+    font-family: archivo black, sans-serif;
+    color: #DE9E36;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
 .glyph-style {
     font-weight: bolder;
     font-size: 15px;
