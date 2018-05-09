@@ -218,17 +218,6 @@ navbar-brand{
     word-wrap: break-word;
 }
 
-.glyph-style {
-    font-weight: bolder;
-    font-size: 15px;
-    color: lightseagreen;
-    font-family: "Istok Web", sans-serif;
-}
-
-.glyph-style:hover {
-    color: orangered;
-}
-
 /*RESTAURANT VIEW STYLING BELOW*********************************/
 .rest-container-view {
     border-radius: 10px;
