@@ -5,6 +5,7 @@ import com.codeup.omelette_abc.models.RestProfile;
 import com.codeup.omelette_abc.repositories.JobPostRepository;
 import com.codeup.omelette_abc.repositories.RestProfileRepository;
 import com.codeup.omelette_abc.services.JobsService;
+import com.codeup.omelette_abc.services.RestProfileService;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,15 +23,18 @@ public class JobsController {
     private JobListing jobList;
     private JobPostRepository jobsRepo;
     private UserService userSvc;
+    private RestProfileService restSvc;
 
     public JobsController(RestProfileRepository restRepo,
                           JobsService jobSvc,
                           JobPostRepository jobsRepo,
-                          UserService userSvc){
+                          UserService userSvc,
+                          RestProfileService restSvc){
         this.restRepo = restRepo;
         this.jobSvc = jobSvc;
         this.jobsRepo = jobsRepo;
         this.userSvc = userSvc;
+        this.restSvc = restSvc;
     }
 
     public boolean isOwner(){
@@ -40,7 +44,7 @@ public class JobsController {
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
             model.addAttribute("isOwner", isOwner());
-        if(restRepo.findFirstByUser(userSvc.currentUser())!= null) {
+        if(restSvc.hasProfile()) {
             model.addAttribute("newJob", new JobListing());
             model.addAttribute("isOwner", true);
             return "/jobs/create";

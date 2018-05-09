@@ -23,11 +23,99 @@
                     </div>
                 <br/>
                 <div>
-                    <div th:if="!${loggedIn}">
-                        <a href="/rest/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Chef</button></a>
 
-                        <a href="/chef/signup"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">Find a Job</button></a>
+
+                    <div th:if="!${loggedIn}">
+
+
+                        <!--NEW CHEF SIGNUP MODAL-->
+
+                        <button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#chef-modal">Find a Job</button>
+
+                    <div class="modal fade" id="chef-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content modal-content-border">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="" id="">Create a new chef account</h4>
+                                </div>
+                                <div class="modal-body-form">
+                                    <form th:action="@{/chef/signup}" method="POST" th:object="${user}">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input class="form-control" id="email" th:field="*{email}" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input class="form-control" id="password" type="password" th:field="*{password}" />
+                                        </div>
+                                        <button type="submit" class="btn btn-primary form-control modal-login-button">Sign up</button>
+                                        <div class="modal-footer">
+                                            <div th:if="${param.error}" class="login-error">
+                                                <h4><code>Incorrect Username and Password.</code></h4>
+                                            </div>
+                                            <div th:if="${param.logout}" class="login-error">
+                                                <h4><code>You have been logged out.</code></h4>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
+
+<!--NEW REST MODAL SIGNUP-->
+
+                        <button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#rest-modal">Find a Chef</button>
+
+                        <div class="modal fade" id="rest-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content modal-content-border">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="" id="">Create a new restaurant account</h4>
+                                    </div>
+                                    <div class="modal-body-form">
+                                        <form th:action="@{/rest/signup}" method="POST" th:object="${user}">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input class="form-control" id="email" th:field="*{email}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input class="form-control" id="password" type="password" th:field="*{password}" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary form-control modal-login-button">Sign up</button>
+                                            <div class="modal-footer">
+                                                <div th:if="${param.error}" class="login-error">
+                                                    <h4><code>Incorrect Username and Password.</code></h4>
+                                                </div>
+                                                <div th:if="${param.logout}" class="login-error">
+                                                    <h4><code>You have been logged out.</code></h4>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
 
                     <div th:if="${loggedIn}">
                         <a href="/createprofile"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">My Profile</button></a>
