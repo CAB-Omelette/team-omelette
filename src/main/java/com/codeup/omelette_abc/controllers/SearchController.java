@@ -43,6 +43,9 @@ public class SearchController {
 
     @GetMapping("/search")
     public String search(@RequestParam("search") String search, Model model) {
+        if(search.equals("")){
+            return "redirect:/";
+        }
         search = "%"+search+"%";
         List<ChefProfile> chefResults = chefRepo.findByFirstNameLike(search);
         List<RestProfile> restResults = restRepo.findByNameIsLike(search);
@@ -53,7 +56,6 @@ public class SearchController {
         model.addAttribute("restResults", restResults);
         model.addAttribute("jobResults", jobResults);
         model.addAttribute("cityResults", cityResults);
-
 
         for (JobListing job: jobResults) {
             job.setRest(restRepo.findFirstByUser(job.getUser()));

@@ -65,6 +65,7 @@ public class ProfileController {
     @PostMapping("/newuser/newchefprofile")
     public String saveChefProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setPicture("https://i.imgur.com/Lk4Awmf.png");
         chefRepo.save(chefProfile);
         return "redirect:/profile";
     }
@@ -72,6 +73,7 @@ public class ProfileController {
     @PostMapping("/newuser/newrestprofile")
     public String saveRestProfile(@ModelAttribute RestProfile rest){
         rest.setUser(userSvc.currentUser());
+        rest.setPicture("https://i.imgur.com/Lk4Awmf.png");
         restRepo.save(rest);
         return "redirect:/profile";
     }

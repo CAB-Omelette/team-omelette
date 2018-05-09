@@ -62,14 +62,13 @@ public class ChefsController {
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
-        User thisChef = chefRepo.findOne(id).getUser();
+            model.addAttribute("hasVideo", chefRepo.countByIdAndVideoNotNull(id));
             model.addAttribute("isOwner", userSvc.isOwner());
             model.addAttribute("hasJobs", hasJobs(id));
             model.addAttribute("hasEdu", hasEdu(id));
             model.addAttribute("hasSkills", hasSkills(id));
-            model.addAttribute("hasVideo", chefRepo.findOne(id).getVideo() != null || !chefRepo.findOne(id).getVideo().equals(""));
-        ChefProfile chefId = chefRepo.findOne(id);
-        User chef = chefId.getUser();
+            ChefProfile chefId = chefRepo.findOne(id);
+            User chef = chefId.getUser();
 
         if(edRepo.findByUser(chef) != null){
             model.addAttribute("hasEducation", true);

@@ -73,14 +73,14 @@ body{
 }
 
 .viewChefProfile{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     background-color: #2E4057;
     padding: 25px;
 }
 
 .aboutChef{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 25px;
     background-color:#EBF5DF;

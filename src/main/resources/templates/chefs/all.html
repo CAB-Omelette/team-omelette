@@ -10,6 +10,7 @@
 <div class="container">
 <h1>Viewing Chefs</h1>
 <div th:each="chef : ${chefs}">
+
     <a th:href="@{/chefs/{id}(id=${chef.id})}">
     <div class="jobPost">
 <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>

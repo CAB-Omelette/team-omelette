@@ -74,9 +74,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="text-center">
+                    <div th:if="${hasVideo}">
                     <hr/>
                     <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
-                    <div th:if="${hasVideo}">
+
                             <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
                     </div>
                 </div>
