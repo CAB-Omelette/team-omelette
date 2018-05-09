@@ -1,5 +1,4 @@
 package com.codeup.omelette_abc.controllers;
-
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
