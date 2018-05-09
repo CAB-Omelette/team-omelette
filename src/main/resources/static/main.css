@@ -27,6 +27,7 @@ body{
     background-image: url("css/img/stardust.png");
 }
 
+
 .textBody{
     width: 60%;
 }
@@ -110,6 +111,7 @@ body{
     border: 2px solid #00a7e1;
     color: #00a7e1;
     background: transparent;
+    margin-bottom: 10px;
 }
 
 .modal-login-button:hover {
@@ -120,7 +122,6 @@ body{
     color: white;
     opacity: .7;
 }
-
 
 .login-close-button {
     position: relative;
@@ -180,6 +181,14 @@ navbar-brand{
     margin: 25px;
 }
 
+.landing-button {
+    font-weight: bold;
+    font-size: 25px;
+    width:250px;
+    height:50px;
+    background-color: #DE9E36;
+    color:white;
+}
 
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {

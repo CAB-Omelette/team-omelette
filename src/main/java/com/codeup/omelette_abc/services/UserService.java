@@ -28,6 +28,14 @@ public class UserService {
         return userRepo.findOne(user.getId());
     }
 
+    public boolean userExists(String username){
+        return userRepo.findByUsername(username) != null;
+    }
+
+    public boolean isOwner(){
+        return currentUser().isOwner();
+    }
+
 
 
 }
