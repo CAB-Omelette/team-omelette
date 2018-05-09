@@ -9,7 +9,7 @@
 
 
 
-<div class="container">
+<div class="container rest-container-view">
     <div class="viewChefProfile">
         <div class="row">
             <div class="col-xs-4">
@@ -29,10 +29,12 @@
 </div>
 
 <br />
-    <div class="row">
+    <div class="row rest-google-maps-view">
         <div class="col-xs-12">
             <div th:replace="partials/google-maps-api :: google-maps"></div>
         </div>
+    </div>
+    <div class="rest-jobs-view">
         <div class="col-xs-12">
             <div class="text-center">
                 <h1 style="font-family:Istok Web; color:#2E4057;">Jobs at <span th:text="${rest.name}"></span></h1>

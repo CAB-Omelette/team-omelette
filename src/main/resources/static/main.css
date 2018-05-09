@@ -193,6 +193,20 @@ navbar-brand{
     color:white;
 }
 
+/*tRESTAURANT VIEW STYLING*/
+.rest-container-view {
+
+}
+
+.rest-google-maps-view {
+    width: 400px;
+    height: 270px;
+}
+
+.rest-jobs-view {
+
+}
+
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
 
