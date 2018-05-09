@@ -2,6 +2,8 @@ package com.codeup.omelette_abc.controllers;
 
 import com.codeup.omelette_abc.models.*;
 import com.codeup.omelette_abc.repositories.*;
+import com.codeup.omelette_abc.services.ChefService;
+import com.codeup.omelette_abc.services.RestProfileService;
 import com.codeup.omelette_abc.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ public class ProfileController {
     private EducationRepository edRepo;
     private SkillsRepository skillsRepo;
     private JobPostRepository jobPostRepo;
+    private RestProfileService restSvc;
+    private ChefService chefSvc;
 
     public ProfileController(
                              ChefProfileRepository chefRepo,
@@ -28,7 +32,9 @@ public class ProfileController {
                              JobHistoryRepository jobHistRepo,
                              EducationRepository edRepo,
                              SkillsRepository skillsRepo,
-                             JobPostRepository jobPostRepo) {
+                             JobPostRepository jobPostRepo,
+                             RestProfileService restSvc,
+                             ChefService chefSvc) {
         this.chefRepo = chefRepo;
         this.userSvc = userSvc;
         this.restRepo = restRepo;
@@ -36,29 +42,25 @@ public class ProfileController {
         this.edRepo = edRepo;
         this.skillsRepo = skillsRepo;
         this.jobPostRepo = jobPostRepo;
-    }
-
-    public boolean isOwner(){
-        return userSvc.currentUser().isOwner();
+        this.restSvc = restSvc;
+        this.chefSvc = chefSvc;
     }
 
 
 
     @GetMapping("/createprofile")
     public String createProfile(Model model){
-        if(isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) == null){
+        if(userSvc.isOwner() && !restSvc.hasProfile()){
             model.addAttribute("rest", new RestProfile());
             model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
-        }else if (!userSvc.currentUser().isOwner() && chefRepo.findByUser(userSvc.currentUser()) == null){
+        }else if (!userSvc.isOwner() && !chefSvc.hasProfile()){
             model.addAttribute("chef", new ChefProfile());
             return "newuser/newchefprofile";
         }
         return"redirect:/profile";
     }
 
-//    Once a chef clicks submit on the profile creation form they will be directed to the
-//    next portion of the profile which will be the job history form.
     @PostMapping("/newuser/newchefprofile")
     public String saveChefProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
@@ -166,25 +168,19 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         User user = userSvc.currentUser();
-        if(isOwner()){
-            if(restRepo.findFirstByUser(user).getPicture() == null ||
-                    restRepo.findFirstByUser(user).getPicture().equals("")){
-                model.addAttribute("noPicture", true);
-            }
+
+        if(userSvc.isOwner()){
+            model.addAttribute("noPicture", restSvc.hasPicture(user));
             model.addAttribute("isOwner", true);
             model.addAttribute("rest", restRepo.findFirstByUser(user));
             model.addAttribute("jobs", jobPostRepo.findByUser(user));
             return"profiles/viewrestprofile";
-        }else if(!user.isOwner()) {
-            if(chefRepo.findByUser(user).getPicture() == null ||
-                    chefRepo.findByUser(user).getPicture().equals("")){
-                    model.addAttribute("noPicture", true);
-            }
-            if(chefRepo.findByUser(user).getVideo() == null ||
-                    chefRepo.findByUser(user).getVideo().equals("")){
-                model.addAttribute("noVideo", true);
-            }
+        }
+
+        else if(!user.isOwner()) {
             model.addAttribute("user", user);
+            model.addAttribute("noVideo", chefSvc.hasVideo(user));
+            model.addAttribute("noPicture", chefSvc.hasPicture(user));
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));
             model.addAttribute("education", edRepo.findByUser(user));

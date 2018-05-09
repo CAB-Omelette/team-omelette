@@ -115,6 +115,7 @@ body{
     border: 2px solid deepskyblue;
     color: deepskyblue;
     background: transparent;
+    margin-bottom: 10px;
 }
 
 .modal-login-button:hover {
@@ -125,7 +126,6 @@ body{
     color: white;
     opacity: .7;
 }
-
 
 .login-close-button {
     position: relative;

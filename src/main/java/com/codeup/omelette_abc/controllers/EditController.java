@@ -43,11 +43,8 @@ public class EditController {
 
 @GetMapping("/edit/profile")
 public String editProfile(Model model) {
-    Boolean isOwner = userSvc.currentUser().isOwner();
-    if(isOwner) {
-        model.addAttribute("isOwner", true);
-    }
-    if (!userSvc.currentUser().isOwner()) {
+        model.addAttribute("isOwner", userSvc.isOwner());
+    if (!userSvc.isOwner()) {
         ChefProfile chefPro = chefRepo.findByUser(userSvc.currentUser());
         model.addAttribute("chef", chefPro);
         return "/edit/chefprofile";

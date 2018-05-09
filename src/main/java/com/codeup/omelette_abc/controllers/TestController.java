@@ -43,9 +43,10 @@ public class TestController {
 
     @GetMapping("/")
     public String showIndex(Model model) {
-        model.addAttribute("user", new User());
-        if(userSvc.isLoggedIn()){
-            model.addAttribute("loggedIn", true);
+            model.addAttribute("loggedIn", userSvc.isLoggedIn());
+
+        if (!userSvc.isLoggedIn()) {
+            model.addAttribute("user", new User());
         }
         return "/index";
     }
@@ -55,12 +56,6 @@ public class TestController {
         model.addAttribute("loggedIn", true);
         User user = userSvc.currentUser();
         model.addAttribute("isOwner", isOwner());
-        if(restRepo.findFirstByUser(user) != null){
-            return"redirect:/";
-        }
-        if(chefRepo.findByUser(user) != null){
-            return"redirect:/";
-        }
         return "/index";
     }
 
