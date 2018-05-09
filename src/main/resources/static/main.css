@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 @import url("https://fonts.googleapis.com/css?family=Archivo+Black|Istok+Web");
 
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,15 +21,11 @@
     padding: .3em;
 }
 
-
-
 body{
     font-family: 'Istok Web', sans-serif;
     background-color: #00a7e1;
     background-image: url("css/img/stardust.png");
-
 }
-
 
 .textBody{
     width: 60%;
@@ -113,8 +107,8 @@ body{
 }
 
 .modal-login-button {
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
+    border: 2px solid #00a7e1;
+    color: #00a7e1;
     background: transparent;
 }
 
@@ -131,8 +125,8 @@ body{
 .login-close-button {
     position: relative;
     top: 12px;
-    border: 2px solid deepskyblue;
-    color: deepskyblue;
+    border: 2px solid #00a7e1;
+    color: #00a7e1;
     background: transparent;
 }
 
@@ -169,8 +163,6 @@ body{
 navbar-brand{
     color: #D69F4B;
 }
-
-
 
 
 /*CHEF PROFILE STYLING*/
