@@ -208,6 +208,18 @@ navbar-brand{
     color:white;
 }
 
+/*RESTAURANT PROFILE*/
+.glyph-style {
+    font-weight: bolder;
+    font-size: 15px;
+    color: lightseagreen;
+    font-family: "Istok Web", sans-serif;
+}
+
+.glyph-style:hover {
+    color: orangered;
+}
+
 /*RESTAURANT VIEW STYLING BELOW*********************************/
 .rest-container-view {
     border-radius: 10px;
@@ -241,29 +253,29 @@ navbar-brand{
     margin-top: 30px;
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
 .job-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.row {
-     display: flex;
-     flex-wrap: wrap;
-     padding: 0 4px;
- }
-
 .rest-jobs-view {
-    width: 31.6%;
     margin: 10px;
     background-color: #2E4057;
     font-family: archivo black, sans-serif;
-    color: white;
+    color: #DE9E36;
     border-radius: 10px;
     word-wrap: break-word;
 }
 
 .istok {
     font-family: "Istok Web", sans-serif;
+    color: white;
 }
 
 /* Small devices (tablets, 768px and up) */
