@@ -22,7 +22,7 @@
             <h4 class="address" th:text="${rest.street}"></h4>
             <h4 th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
             <a th:href="@{/edit/profile}">
-                <button class="btn btn-warning">Edit profile</button>
+                <button class="istok btn btn-warning">Edit profile</button>
             </a>
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>

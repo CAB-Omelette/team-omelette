@@ -179,7 +179,11 @@ body{
     margin: 25px;
 }
 
-navbar-brand{
+.navbar-brand{
+     color: #D69F4B;
+ }
+
+.orange{
     color: #D69F4B;
 }
 
