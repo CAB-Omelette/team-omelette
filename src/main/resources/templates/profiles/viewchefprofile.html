@@ -176,19 +176,20 @@
                     </div>
                     </div>
                 </div>
+
+
         <div class="row">
             <div class="col-xs-12">
                 <div class="text-center">
                     <hr/>
                     <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
-                    <div th:replace="partials/filestack-api :: filestack-video"></div>
                     <a href="/newchef/video" style="color:white;font-family:Istok web;"><button class="btn btn-success">Edit Video</button></a>
                     <br />
-                        <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
-                    </div>
+                    <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

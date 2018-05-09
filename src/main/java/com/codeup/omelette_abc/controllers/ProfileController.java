@@ -131,6 +131,7 @@ public class ProfileController {
         return"redirect:/profile";
     }
 
+
     @PostMapping("/jobhistory")
     public String addJobHistory(@ModelAttribute JobHistory jobHistory){
         jobHistory.setUser(userSvc.currentUser());
