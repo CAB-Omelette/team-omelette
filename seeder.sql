@@ -1,16 +1,16 @@
 USE omelette_db;
 
 
-INSERT INTO chef_profile(bio, firstName, lastName, phone, picture, video, user_id)
-VALUES("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 1),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 2),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 3),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 4),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 5),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 6),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 7),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 8),
-  ("biographybiographybiographybiographybiographybiography", "billy", "smith", 7709987654, "picturepicturepicture", "videovideovideovideo", 9);
+INSERT INTO chef_profile(bio, first_name, last_name, phone, user_id)
+VALUES("biographybiographybiographybiographybiographybiography", "billy", "smith", "7709987654", 1),
+  ("biographybiographybiographybiographybiographybiography", "John", "smith", "7709987654",2),
+  ("biographybiographybiographybiographybiographybiography", "Dave", "Jones", "7709987654",3),
+  ("biographybiographybiographybiographybiographybiography", "Matt", "Pike", "7709987654",4),
+  ("biographybiographybiographybiographybiographybiography", "Dimebag", "Darrell", "7709987654",5),
+  ("biographybiographybiographybiographybiographybiography", "Billy", "Corgan", "7709987654",6),
+  ("biographybiographybiographybiographybiographybiography", "Bon", "Scott", "7709987654",7),
+  ("biographybiographybiographybiographybiographybiography", "Al", "Cisneros", "7709987654",8),
+  ("biographybiographybiographybiographybiographybiography", "Jason", "Stevens", "7709987654", 9);
 
 
 INSERT INTO education(focus, graduation_date, name)

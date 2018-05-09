@@ -20,9 +20,8 @@ public class ChefService {
                 chefRepo.findByUser(user).getPicture().equals("");
     }
 
-    public boolean hasVideo(User user){
-        return chefRepo.findByUser(user).getVideo() == null ||
-                chefRepo.findByUser(user).getVideo().equals("");
+    public boolean hasVideo(Long id){
+        return chefRepo.countByIdAndVideoNotNull(id)>0;
     }
 
     public boolean hasProfile(){
