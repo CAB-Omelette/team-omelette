@@ -44,7 +44,7 @@ public class JobsController {
     @GetMapping("/jobs/create")
     public String createNewJob(Model model){
             model.addAttribute("isOwner", isOwner());
-        if(restSvc.hasProfile()) {
+        if(restRepo.findFirstByUser(userSvc.currentUser()) != null) {
             model.addAttribute("newJob", new JobListing());
             model.addAttribute("isOwner", true);
             return "/jobs/create";

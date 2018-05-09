@@ -48,14 +48,16 @@ public class SearchController {
         List<RestProfile> restResults = restRepo.findByNameIsLike(search);
         List<RestProfile> cityResults = restRepo.findByCityIsLike(search);
         List<JobListing> jobResults = jobRepo.findByTitleIsLike(search);
-        for (JobListing job: jobResults) {
-            job.setRest(restRepo.findFirstByUser(job.getUser()));
-        }
         model.addAttribute("isOwner", isOwner());
         model.addAttribute("chefResults",chefResults);
         model.addAttribute("restResults", restResults);
         model.addAttribute("jobResults", jobResults);
         model.addAttribute("cityResults", cityResults);
+
+
+        for (JobListing job: jobResults) {
+            job.setRest(restRepo.findFirstByUser(job.getUser()));
+        }
         return "/partials/search";
     }
 }
