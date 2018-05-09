@@ -23,12 +23,12 @@
                 <h4 th:text="${rest.street}"></h4>
                 <h4 th:text="${rest.city + ', ' + rest.state}"></h4>
                 <h4 th:text="${rest.zip}"></h4>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div th:replace="partials/google-maps-api :: google-maps"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div th:replace="partials/google-maps-api :: google-maps"></div>
         </div>
     </div>
 </div>
