@@ -1,3 +1,4 @@
+
 package com.codeup.omelette_abc.controllers;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
@@ -11,11 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
 @Controller
 public class UserController {
 
