@@ -214,6 +214,7 @@ navbar-brand{
     background-color: #2E4057;
     font-family: archivo black, sans-serif;
     color: #DE9E36;
+    padding: 15px;
     border-radius: 10px;
     word-wrap: break-word;
 }
