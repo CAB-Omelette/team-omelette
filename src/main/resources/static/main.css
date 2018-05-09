@@ -208,7 +208,7 @@ navbar-brand{
     color:white;
 }
 
-/*RESTAURANT VIEW STYLING*/
+/*RESTAURANT VIEW STYLING BELOW******************************/
 .rest-container-view {
     border-radius: 10px;
 }
@@ -216,7 +216,7 @@ navbar-brand{
 /*RESTAURANT VIEW - GOOGLE MAPS CANVAS*/
 #map-canvas {
     width: 350px;
-    height: 450px;
+    height: 500px;
     border-radius: 10px;
     float: right;
 }
@@ -241,8 +241,20 @@ navbar-brand{
     margin-top: 30px;
 }
 
+.job-container {
+    width: 100%;
+    text-align: center;
+}
+
 .rest-jobs-view {
-/**/
+    width: 31.6%;
+    margin: 10px;
+    background-color: #2E4057;
+    font-family: archivo black, sans-serif;
+    color: white;
+    border-radius: 10px;
+    word-wrap: break-word;
+    float: left;
 }
 
 /* Small devices (tablets, 768px and up) */
