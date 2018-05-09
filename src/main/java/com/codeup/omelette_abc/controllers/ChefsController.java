@@ -67,7 +67,7 @@ public class ChefsController {
             model.addAttribute("hasJobs", hasJobs(id));
             model.addAttribute("hasEdu", hasEdu(id));
             model.addAttribute("hasSkills", hasSkills(id));
-            model.addAttribute("hasVideo", hasVideo(id));
+            model.addAttribute("hasVideo", chefRepo.findOne(id).getVideo() != null || !chefRepo.findOne(id).getVideo().equals(""));
         ChefProfile chefId = chefRepo.findOne(id);
         User chef = chefId.getUser();
 
