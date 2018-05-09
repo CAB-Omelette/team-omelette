@@ -50,11 +50,12 @@ public class ProfileController {
 
     @GetMapping("/createprofile")
     public String createProfile(Model model){
-        if(userSvc.isOwner() && !restSvc.hasProfile()){
+        User user = userSvc.currentUser();
+        if(user.isOwner() && restRepo.findFirstByUser(user) == null){
             model.addAttribute("rest", new RestProfile());
             model.addAttribute("isOwner", true);
             return "newuser/newrestprofile";
-        }else if (!userSvc.isOwner() && !chefSvc.hasProfile()){
+        }else if (!user.isOwner() && chefRepo.findByUser(user) == null){
             model.addAttribute("chef", new ChefProfile());
             return "newuser/newchefprofile";
         }
