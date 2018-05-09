@@ -242,8 +242,14 @@ navbar-brand{
 }
 
 .job-container {
-    width: 100%;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
 }
 
 .rest-jobs-view {
@@ -254,7 +260,6 @@ navbar-brand{
     color: white;
     border-radius: 10px;
     word-wrap: break-word;
-    float: left;
 }
 
 /* Small devices (tablets, 768px and up) */

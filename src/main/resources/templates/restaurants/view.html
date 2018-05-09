@@ -29,8 +29,8 @@
 <div class="container">
     <div class="row">
         <div class="job-container">
-        <h1>Jobs at <span th:text="${rest.name}"></span></h1>
             <div class="col-sm-4 rest-jobs-view" th:each="job : ${jobs}">
+                <h1>Jobs Available</h1>
                 <a th:href="@{/job/{id}(id=${job.id})}">
                     <h3 th:text="${job.title}"></h3>
                     <h3 th:text="${job.description}"></h3>
