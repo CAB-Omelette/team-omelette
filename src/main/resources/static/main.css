@@ -205,7 +205,7 @@ navbar-brand{
 /*RESTAURANT VIEW - GOOGLE MAPS CANVAS*/
 #map-canvas {
     width: 350px;
-    height: 450px;
+    height: 500px;
     border-radius: 10px;
     float: right;
 }
