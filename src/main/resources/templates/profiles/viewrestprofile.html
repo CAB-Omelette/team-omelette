@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('Chef Profile')">
+<head th:replace="partials/header :: header('Restaurant Profile')">
     <meta charset="UTF-8" />
 </head>
 <body>
@@ -34,13 +34,12 @@
 <div class="container">
     <div class="row">
         <div class="job-container">
-            <div class="col-sm-4 rest-jobs-view" th:each="job : ${jobs}">
+            <div class="col-sm-4 rest-jobs-view-profile" th:each="job : ${jobs}">
                 <h1 th:text="${job.title}"></h1>
-                    <h3 th:text="${job.description}"></h3>
+                    <h3 class="istok" th:text="${job.description}"></h3>
                     <a th:href="@{/job/{id}/edit(id=${job.id})}">
                         <h6><span class="glyph-style glyphicon glyphicon-pencil" aria-hidden="true">  EDIT</span></h6></a>
                 <h6><a class="glyph-style" th:href="@{/job/{id}(id=${job.id})}">See Job Post</a></h6>
-
             </div>
         </div>
     </div>
