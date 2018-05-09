@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <title>View Location</title>
-    <link rel="stylesheet" href="/googlemapsstyle.css" />
 </head>
 <body>
 
@@ -18,7 +17,7 @@
 
 
     <section class="map">
-        <div id="map-canvas"></div>
+        <div id="job-map-canvas"></div>
     </section>
 
 </main>
@@ -47,7 +46,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("job-map-canvas"), mapOptions);
     var geocoder = new google.maps.Geocoder();
 
     function initMap(address) {

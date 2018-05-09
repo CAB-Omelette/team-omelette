@@ -8,6 +8,20 @@
     padding: 0;
 }
 
+body{
+    font-family: 'Istok Web', sans-serif;
+    background-color: #00a7e1;
+    background-image: url("css/img/stardust.png");
+}
+
+/*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
+#job-map-canvas {
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
+}
+
+/*VIEW ALL JOBS LOOP*************************/
 #viewAllJobsLoop{
     height: 20%;
     width: 30%;
@@ -19,12 +33,6 @@
 #viewAllJobsLoop > div{
     margin: .1em;
     padding: .3em;
-}
-
-body{
-    font-family: 'Istok Web', sans-serif;
-    background-color: #00a7e1;
-    background-image: url("css/img/stardust.png");
 }
 
 
@@ -43,16 +51,25 @@ body{
     margin: 0 auto;
 }
 
-
 #upload{
     display: none;
 }
-
 
 .OmLogo{
     text-align: center;
     margin-bottom: 15px;
     opacity:0.8;
+}
+
+/*VIEW CHEF PROFILE*************************/
+.chefProfilePic{
+    width: 100%;
+}
+
+.profileName{
+    font-family: archivo black, sans-serif;
+    color: white;
+    margin-top: 5%;
 }
 
 .viewChefProfile{
@@ -82,6 +99,7 @@ body{
 .hiddenUrl{
     display: none;
 }
+
 .listPictureJobsPage{
     width: 100%;
     border-radius:50%;
@@ -188,6 +206,28 @@ navbar-brand{
     height:50px;
     background-color: #DE9E36;
     color:white;
+}
+
+/*RESTAURANT VIEW STYLING*/
+.rest-container-view {
+    border-radius: 10px;
+    position: relative;
+    left: -240px;
+}
+
+/*RESTAURANT VIEW - GOOGLE MAPS CANVAS*/
+#map-canvas {
+    width: 450px;
+    height: 440px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 7px;
+    right: -105px;
+    border: 4px solid #EBF5DF;
+}
+
+.rest-jobs-view {
+
 }
 
 /* Small devices (tablets, 768px and up) */
