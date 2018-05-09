@@ -1,19 +1,19 @@
 package com.codeup.omelette_abc.controllers;
-
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
 import com.codeup.omelette_abc.services.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Controller
@@ -31,6 +31,15 @@ public class UserController {
         this.userSvc = userSvc;
     }
 
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }
+
     @GetMapping("/rest/signup")
     public String newRest(Model model){
         model.addAttribute("user", new User());
@@ -46,7 +55,7 @@ public class UserController {
     @PostMapping("/chef/signup")
     public String saveChef(@Valid User user, Errors errors, Model model, @RequestParam ("email") String username) {
 
-        if(usersRepo.findByUsername(username) != null){
+        if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
             return"users/chefsignup";
@@ -61,12 +70,12 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersRepo.save(user);
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @PostMapping("/rest/signup")
     public String saveRest(@RequestParam ("email") String username, @Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner){
-        if(usersRepo.findByUsername(username) != null){
+        if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
             return"users/restsignup";
@@ -81,11 +90,15 @@ public class UserController {
         user.setPassword(hash);
         user.setOwner(true);
         usersRepo.save(user);
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @GetMapping("/login")
-    public String showLoginForm() { return "/index"; }
+    public String showLoginForm(Model model) {
+        if(!userSvc.isLoggedIn()){
+            model.addAttribute("user", new User());
+        }
+        return "/index"; }
 
 
     @GetMapping("/map")
