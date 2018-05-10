@@ -16,9 +16,10 @@ body{
 
 /*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
 #job-map-canvas {
-    width: 100%;
-    height: 250px;
-    margin: 0 auto;
+    width: 350px;
+    height: 440px;
+    border-radius: 10px;
+    float: right;
 }
 
 #all-job-map-canvas{
@@ -202,11 +203,14 @@ body{
 }
 
 /*SING JOB VIEW*/
-
-.single-job-view {
-    float: right;
+.job-view {
+    background-color: #2E4057;
+    font-family: archivo black, sans-serif;
+    color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 25px;
 }
-
 
 /*CHEF PROFILE STYLING*/
 .chefProfilePic{

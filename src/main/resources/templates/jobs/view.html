@@ -9,24 +9,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 rest-profile-name">
+        <div class="col-sm-8 job-view">
             <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
-            <div class="single-job-view">
                 <h1> <span th:text="${job.title}"></span></h1>
-                <br />
                 <h3><span th:text="${job.rest.name}"></span></h3>
-                <br />
                 <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-                <br />
                 <h4>Pay: <span th:text="${job.pay}"></span></h4>
-                <br />
                 <h4> <span th:text="${job.description}"></span></h4>
-                <br />
                 <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
-                   <h5>More from <span th:text="${job.rest.name}"></span></h5>
+                    <button class="btn btn-success">More from <span th:text="${job.rest.name}"></span></button>
                 </a>
-            </div>
         </div>
+        <div class="col-sm-4" th:replace="partials/job-map :: google-maps"></div>
     </div>
 </div>
 
