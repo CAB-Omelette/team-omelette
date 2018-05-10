@@ -245,7 +245,7 @@ body{
 /*RESTAURANT VIEW - GOOGLE MAPS CANVAS*/
 #map-canvas {
     width: 350px;
-    height: 400px;
+    height: 440px;
     border-radius: 10px;
     float: right;
 }
