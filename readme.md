@@ -84,8 +84,6 @@ VIEW ALL JOB POSTINGS
 
 - [x] Able to click a link and view more details of a specific job posting
 
-- [ ] Able to view a google map with markers for all jobs in a certain area
-
 
 
 JOB POSTING PAGE

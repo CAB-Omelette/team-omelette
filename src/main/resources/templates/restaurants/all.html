@@ -5,16 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-    <div  class="container">
-        <h1>Viewing All Restaurants</h1>
+<section class="viewAllBody">
+    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 class="viewAllTitle"> Viewing All Restaurants</h1></div>
+<div id="viewAllBackground" class="text-center">
+    <div  style="display: flex" class="container">
+
 
         <section class="rowAll" style="text-align: center;" >
             <div th:each="rest : ${restaurants}">
 
-                <div class="column col-md-3" id="viewAllTiles">
+                <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
 
                     <div>
                         <div>
@@ -45,15 +46,7 @@
 
     </div>
 </div>
-
+</section>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
-
-
-
-
-
-
-
-=

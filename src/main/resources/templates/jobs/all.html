@@ -4,16 +4,15 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
-
-    <nav th:replace="partials/navbar :: navbar"></nav>
-        <div class="text-center">
-            <div class="container">
-                <h1>Current Job Postings</h1>
-
-            <section class="rowAll" style="text-align: center;" >
+<nav th:replace="partials/navbar :: navbar"></nav>
+<section class="viewAllBody">
+    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 class="viewAllTitle"> Viewing All Current Jobs</h1></div>
+    <div id="viewAllBackground" class="text-center">
+        <div class="container">
+            <section class="rowAll" style="text-align: center;">
                 <div th:each="job : ${jobs}">
 
-                <div class="column col-md-3" id="viewAllTiles">
+                <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
                     <div>
                         <div>
                             <img class="listPictureJobsPage" th:src="${job.rest.picture}" alt="" />
@@ -37,7 +36,7 @@
             </section>
         </div>
     </div>
-
+</section>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
