@@ -351,6 +351,10 @@ body{
     color: white;
 }
 
+.display-flow-root {
+    display: flow-root;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
 
