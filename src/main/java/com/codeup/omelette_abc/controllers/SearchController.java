@@ -37,9 +37,8 @@ public class SearchController {
     }
 
     public boolean isOwner(){
-        return userSvc.currentUser().isOwner();
+        return userSvc.currentUser().isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) != null;
     }
-
 
     @GetMapping("/search")
     public String search(@RequestParam("search") String search, Model model) {
@@ -51,6 +50,7 @@ public class SearchController {
         List<RestProfile> restResults = restRepo.findByNameIsLike(search);
         List<RestProfile> cityResults = restRepo.findByCityIsLike(search);
         List<JobListing> jobResults = jobRepo.findByTitleIsLike(search);
+        model.addAttribute("newJob", new JobListing());
         model.addAttribute("isOwner", isOwner());
         model.addAttribute("chefResults",chefResults);
         model.addAttribute("restResults", restResults);

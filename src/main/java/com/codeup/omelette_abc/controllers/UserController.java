@@ -1,5 +1,7 @@
 
 package com.codeup.omelette_abc.controllers;
+
+import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.UserRepository;
 import com.codeup.omelette_abc.repositories.UsersRepository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -76,11 +79,13 @@ public class UserController {
     public String saveRest(@RequestParam ("email") String username, @Valid User user, Errors errors, Model model, @RequestParam(defaultValue = "false") boolean isOwner){
         if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
+            model.addAttribute("newJob", new JobListing());
             model.addAttribute("exists", true);
             return"/";
         }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
+            model.addAttribute("newJob", new JobListing());
             model.addAttribute("user", user);
             return "/";
         }
@@ -88,6 +93,7 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.setOwner(true);
+        model.addAttribute("newJob", new JobListing());
         usersRepo.save(user);
         return "redirect:/login";
     }
@@ -96,6 +102,7 @@ public class UserController {
     public String showLoginForm(Model model) {
         if(!userSvc.isLoggedIn()){
             model.addAttribute("user", new User());
+            model.addAttribute("newJob", new JobListing());
         }
         return "/index"; }
 

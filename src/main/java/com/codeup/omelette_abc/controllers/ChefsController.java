@@ -2,6 +2,7 @@ package com.codeup.omelette_abc.controllers;
 
 
 import com.codeup.omelette_abc.models.ChefProfile;
+import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.UserService;
@@ -52,9 +53,14 @@ public class ChefsController {
        return chefRepo.countByIdAndVideoNotNull(id)>0;
     }
 
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) != null;
+    }
+
     @GetMapping("/chefs")
     public String viewAllChefs(Model model) {
-        model.addAttribute("isOwner", userSvc.isOwner());
+        model.addAttribute("isOwner", isOwner());
+        model.addAttribute("newJob", new JobListing());
         model.addAttribute("chefs", chefRepo.findAll());
         return "/chefs/all";
     }
@@ -62,8 +68,9 @@ public class ChefsController {
 
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
+        model.addAttribute("newJob", new JobListing());
             model.addAttribute("hasVideo", chefRepo.countByIdAndVideoNotNull(id));
-            model.addAttribute("isOwner", userSvc.isOwner());
+            model.addAttribute("isOwner", isOwner());
             model.addAttribute("hasJobs", hasJobs(id));
             model.addAttribute("hasEdu", hasEdu(id));
             model.addAttribute("hasSkills", hasSkills(id));
