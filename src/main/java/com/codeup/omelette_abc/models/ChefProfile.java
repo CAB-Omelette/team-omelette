@@ -11,7 +11,6 @@ public class ChefProfile {
     @GeneratedValue
     private long id;
 
-
     @Column(nullable = false)
     private String firstName;
 

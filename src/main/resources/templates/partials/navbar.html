@@ -100,12 +100,12 @@
                         <form th:action="@{/jobs/create}" method="POST" th:object="${newJob}">
 
                             <div class="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">Title (100 char maximum)</label>
                                 <input class="form-control" id="title" th:field="*{title}" />
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">Description (300 char maximum)</label>
                                 <input class="form-control" id="description" th:field="*{description}" />
                             </div>
 
