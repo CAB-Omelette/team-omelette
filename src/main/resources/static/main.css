@@ -313,6 +313,12 @@ body{
     margin-top: 30px;
 }
 
+.examples{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
