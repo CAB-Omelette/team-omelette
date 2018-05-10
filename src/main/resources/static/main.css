@@ -297,13 +297,15 @@ body{
     flex-wrap: wrap;
     padding: 10px;
 }
+
 #map {
     height: 400px;
     width: 100%;
     background-color: grey;
 }
+
 #viewAllTiles {
-    font-family: "Istok Web", sans-serif;
+    font-family: archivo black, sans-serif;
     color: white;
     background: #2E4057;
     margin: 5px;
