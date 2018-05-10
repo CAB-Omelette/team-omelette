@@ -10,9 +10,8 @@
 <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="Omelette Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Chefs</h1></div>
 <div id="viewAllBackground" class="text-center">
 
-    <div  style="display: flex" class="container">
-
-        <section id="viewAllChefsLoop" class="rowAll">
+    <div class="container">
+        <section class="rowAll" style="text-align: center;">
             <div th:each="chef : ${chefs}">
 
                 <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">

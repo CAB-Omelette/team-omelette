@@ -15,12 +15,12 @@
                 <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
                     <div>
                         <div>
-                            <img class="listPictureJobsPage" th:src="${job.rest.picture}" alt="" />
+                            <img class="listPictureProfileChef" th:src="${job.rest.picture}" alt="" />
                         </div>
 
                         <div>
-                            <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-                            <h4 class="istok" th:text="${job.rest.street + ', ' + job.rest.city + ', ' + job.rest.state}"></h4>
+                            <h3><span th:text="${job.title}"></span></h3>
+                            <h4 class="istok"><span th:text="${job.rest.name}"></span></h4>
                          </div>
 
                         <div class="viewJobButtonAllJobs">
