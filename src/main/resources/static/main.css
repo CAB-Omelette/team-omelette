@@ -201,6 +201,12 @@ body{
     color: #D69F4B;
 }
 
+/*SING JOB VIEW*/
+
+.single-job-view {
+    float: right;
+}
+
 
 /*CHEF PROFILE STYLING*/
 .chefProfilePic{
