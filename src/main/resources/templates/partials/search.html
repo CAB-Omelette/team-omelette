@@ -10,7 +10,6 @@
     <div class=" text-center container">
         <h1>Search results</h1>
 
-        <h1>Chef's</h1>
         <div class="chefPost" th:each="chef : ${chefResults}">
                             <a th:href="@{/chefs/{id}(id=${chef.id})}">
                                 <img class="listPicture" th:src="${chef.picture}" alt="" />
@@ -19,11 +18,10 @@
                         </div>
 
 
-        <h1>Restaurant's</h1>
         <div class="chefPost" th:each="rest : ${cityResults}">
             <a th:href="@{/restaurant/{id}(id=${rest.id})}">
                 <img class="listPicture" th:src="${rest.picture}" alt="" />
-                <h4 th:text="${rest.name}"></h4>
+                <span th:text="${rest.name}"></span>
             </a>
 
 
@@ -37,7 +35,6 @@
         </div>
 
 
-        <h1>Job's</h1>
         <div class="chefPost" th:each="job : ${jobResults}">
 
             <a th:href="@{/job/{id}(id=${job.id})}">

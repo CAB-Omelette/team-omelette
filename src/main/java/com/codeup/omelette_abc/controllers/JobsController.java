@@ -38,7 +38,7 @@ public class JobsController {
     }
 
     public boolean isOwner(){
-        return userSvc.currentUser().isOwner();
+        return userSvc.currentUser().isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) != null;
     }
 
     @GetMapping("/jobs/create")
@@ -56,6 +56,7 @@ public class JobsController {
     public String postJob(@ModelAttribute JobListing newJob, Model model){
         model.addAttribute("isOwner", isOwner());
         newJob.setUser(userSvc.currentUser());
+        model.addAttribute("newJob", new JobListing());
         jobsRepo.save(newJob);
         return"redirect:/job/" + newJob.getId();
     }
@@ -63,6 +64,7 @@ public class JobsController {
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
         model.addAttribute("isOwner", isOwner());
+        model.addAttribute("newJob", new JobListing());
         JobListing job = jobsRepo.findOne(id);
         RestProfile rest = restRepo.findFirstByUser(job.getUser());
         job.setRest(rest);
@@ -73,6 +75,7 @@ public class JobsController {
     @GetMapping(value = "/all")
     public String viewAllJobPosts(Model model) {
         model.addAttribute("isOwner", isOwner());
+        model.addAttribute("newJob", new JobListing());
         Iterable<JobListing> jobs = jobsRepo.findAll();
         for (JobListing job: jobs) {
             job.setRest(restRepo.findFirstByUser(job.getUser()));
