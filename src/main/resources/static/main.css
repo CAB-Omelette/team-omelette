@@ -21,6 +21,13 @@ body{
     margin: 0 auto;
 }
 
+#all-job-map-canvas{
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+}
+
+
 /*VIEW ALL JOBS LOOP*************************/
 #viewAllJobsLoop{
     height: 20%;
@@ -29,6 +36,12 @@ body{
     border-radius: 5px;
     justify-content: center;
 }
+/*#viewAllChefsLoop{*/
+    /*background-color: #D5EBFB;*/
+    /*border-radius: 5px;*/
+    /*justify-content: center;*/
+    /*margin: 10px;*/
+/*}*/
 
 #viewAllJobsLoop > div{
     margin: .1em;
@@ -101,7 +114,7 @@ body{
 }
 
 .listPictureJobsPage{
-    width: 100%;
+    width: 70%;
     border-radius:50%;
     margin: 0 auto;
     display: block;
@@ -117,6 +130,13 @@ body{
      margin: 0 auto;
      display: block;
  }
+
+.listPictureProfileChef{
+    width: 80%;
+    border-radius:50%;
+    margin: 0 auto;
+    display: flex;
+}
 
 
 .login-error {
@@ -224,6 +244,12 @@ navbar-brand{
     top: -420px;
     right: -490px;
 }
+#map {
+    height: 400px;
+    width: 100%;
+    background-color: grey;
+}
+
 
 .rest-jobs-view {
 /**/

@@ -79,3 +79,5 @@ $('#chef-sign-up-modal').on('show.bs.modal', function (event) {
 // http://i-like-robots.github.io/jQuery-Modal/
 // https://www.sitepoint.com/14-jquery-modal-dialog-boxes/
 // http://www.jacklmoore.com/notes/jquery-modal-tutorial/
+
+

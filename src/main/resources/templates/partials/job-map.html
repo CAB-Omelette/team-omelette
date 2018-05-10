@@ -9,16 +9,14 @@
 
 <main>
 
-    <section class="input">
-        <div>
-            <input type="hidden" id="address" name="address" th:value="${job.rest.street + ' ' + job.rest.city + ' ' + job.rest.street } " />
-        </div>
-    </section>
+    <!--<section class="input">-->
+            <!--<input type="hidden" id="address" name="address" th:value="${job.rest.street + ' ' + job.rest.city + ' ' + job.rest.state } " />-->
+    <!--</section>-->
 
 
-    <section class="map">
-        <div id="job-map-canvas"></div>
-    </section>
+    <!--<section class="map">-->
+        <!--<div id="job-map-canvas"></div>-->
+    <!--</section>-->
 
 </main>
 
@@ -69,6 +67,8 @@
         });
     }
     initMap(addressInput.value);
+
+
 
 </script>
 </body>
