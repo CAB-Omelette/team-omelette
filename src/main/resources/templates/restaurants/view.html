@@ -13,12 +13,14 @@
     <div class="row">
         <div class="col-sm-8 rest-profile-name">
             <img class="rest-profile-pic" th:src="${rest.picture}" />
+            <div class="display-flow-root">
             <h1 th:text="${rest.name}"></h1>
-            <h3 th:text="${rest.about}"></h3>
-            <h4><a th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
-            <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
-            <h4 class="address" th:text="${rest.street}"></h4>
-            <h4 th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            <h3 class="istok" th:text="${rest.about}"></h3>
+            <h4><a class="" th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
+            <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span class="istok" th:text="${rest.phone}"></span></h4>
+            <h4 class="address istok" th:text="${rest.street}"></h4>
+            <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            </div>
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>
     </div>
