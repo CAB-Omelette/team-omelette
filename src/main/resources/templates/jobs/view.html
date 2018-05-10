@@ -12,10 +12,10 @@
         <div class="col-sm-8 job-view">
             <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
                 <h1> <span th:text="${job.title}"></span></h1>
-                <h3><span th:text="${job.rest.name}"></span></h3>
-                <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-                <h4>Pay: <span th:text="${job.pay}"></span></h4>
-                <h4> <span th:text="${job.description}"></span></h4>
+                <h3 class="istok"><span th:text="${job.rest.name}"></span></h3>
+                <h3 class="istok"> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
+                <h4 class="istok">Pay: <span th:text="${job.pay}"></span></h4>
+                <h4 class="istok"> <span th:text="${job.description}"></span></h4>
                 <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
                     <button class="btn btn-success">More from <span th:text="${job.rest.name}"></span></button>
                 </a>

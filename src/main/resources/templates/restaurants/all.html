@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <section class="viewAllBody">
-    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 class="viewAllTitle"> Viewing All Restaurants</h1></div>
+    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Restaurants</h1></div>
 <div id="viewAllBackground" class="text-center">
     <div  style="display: flex" class="container">
 
@@ -24,7 +24,7 @@
                         </div>
                         <div>
                             <h3><span th:text="${rest.name}"></span> </h3>
-                            <h4><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
+                            <h4 class="istok"><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
                         </div>
 
                         <div class="viewJobButtonAllJobs">
