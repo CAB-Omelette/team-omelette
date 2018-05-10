@@ -43,7 +43,7 @@
         <div class="job-container">
             <div class="rest-jobs-view-profile" th:each="job : ${jobs}">
                 <h1 th:text="${job.title}"></h1>
-                    <h3 class="istok" th:text="${job.description}"></h3>
+                    <p class="istok" th:text="${job.description}"></p>
                     <a th:href="@{/job/{id}/edit(id=${job.id})}">
                         <button class="btn btn-warning istok">Edit Job</button>
                     </a>
