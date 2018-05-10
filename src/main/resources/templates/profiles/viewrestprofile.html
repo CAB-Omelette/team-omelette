@@ -14,8 +14,6 @@
 
             <div class="col-xs-4" id="rest-picture-upload">
                 <img class="chefProfilePic" th:src="${rest.picture}" />
-                <button class="btn btn-warning" id="newPicture">Edit Picture</button>
-                <div th:replace="partials/filestack-api :: filestack-pic-rest"></div>
             </div>
 
             <h1 th:text="${rest.name}"></h1>
@@ -23,9 +21,13 @@
             <h4 class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
             <h4 class="address istok" th:text="${rest.street}"></h4>
             <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
-            <a th:href="@{/edit/profile}">
-                <button class="istok btn btn-warning">Edit profile</button>
-            </a>
+            <div>
+                <a th:href="@{/edit/profile}">
+                    <button class="btn btn-warning">Edit profile</button>
+                </a>
+                <button class="center-button btn btn-warning" id="newPicture">Edit Picture</button>
+                <div th:replace="partials/filestack-api :: filestack-pic-rest"></div>
+            </div>
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>
     </div>
@@ -36,7 +38,7 @@
 <div class="container">
     <div class="row">
         <div class="job-container">
-            <div class="col-sm-4 rest-jobs-view-profile" th:each="job : ${jobs}">
+            <div class="rest-jobs-view-profile" th:each="job : ${jobs}">
                 <h1 th:text="${job.title}"></h1>
                     <h3 class="istok" th:text="${job.description}"></h3>
                     <a th:href="@{/job/{id}/edit(id=${job.id})}">
