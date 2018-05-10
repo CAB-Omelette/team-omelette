@@ -9,10 +9,8 @@
 <section class="viewAllBody">
     <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Restaurants</h1></div>
 <div id="viewAllBackground" class="text-center">
-    <div  style="display: flex" class="container">
-
-
-        <section class="rowAll" style="text-align: center;" >
+    <div class="container">
+        <section class="rowAll" style="text-align: center;">
             <div th:each="rest : ${restaurants}">
 
                 <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
