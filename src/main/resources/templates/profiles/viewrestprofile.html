@@ -16,11 +16,14 @@
                 <img class="chefProfilePic" th:src="${rest.picture}" />
             </div>
 
-            <h1 th:text="${rest.name}"></h1>
-            <h3 class="istok" th:text="${rest.about}"></h3>
-            <h4 class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
-            <h4 class="address istok" th:text="${rest.street}"></h4>
-            <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            <div class="display-flow-root">
+                <h1 th:text="${rest.name}"></h1>
+                <h3 class="istok" th:text="${rest.about}"></h3>
+                <h4 class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
+                <h4 class="address istok" th:text="${rest.street}"></h4>
+                <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            </div>
+
             <div>
                 <a th:href="@{/edit/profile}">
                     <button class="btn btn-warning">Edit profile</button>
@@ -40,7 +43,7 @@
         <div class="job-container">
             <div class="rest-jobs-view-profile" th:each="job : ${jobs}">
                 <h1 th:text="${job.title}"></h1>
-                    <h3 class="istok" th:text="${job.description}"></h3>
+                    <p class="istok" th:text="${job.description}"></p>
                     <a th:href="@{/job/{id}/edit(id=${job.id})}">
                         <button class="btn btn-warning istok">Edit Job</button>
                     </a>
