@@ -22,7 +22,6 @@
 
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
@@ -31,8 +30,8 @@
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/all">View Jobs</a></li>
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/chefs">View Chefs</a></li>
                 <li><a style="color:white;" sec:authorize="isAuthenticated()" href="/restaurants">View Restaurants</a></li>
+                <li th:if="${isOwner}"><a style="color:white;cursor: pointer" sec:authorize="isAuthenticated()" data-toggle="modal" data-target="#post-job-modal">Post a Job</a></li>
 
-                <li th:if="${isOwner}"><a style="color:white;" sec:authorize="isAuthenticated()" href="/jobs/create">Post a Job</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
@@ -89,6 +88,68 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="post-job-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-content-border">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4><span class="glyphicon glyphicon-lock"></span>Post a job</h4>
+                    </div>
+                    <div class="modal-body-form">
+                        <form th:action="@{/jobs/create}" method="POST" th:object="${newJob}">
+
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input class="form-control" id="title" th:field="*{title}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input class="form-control" id="description" th:field="*{description}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Pay (optional)</label>
+                                <input class="form-control" id="pay" th:field="*{pay}" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-control modal-login-button">Post</button>
+
+                            <br />
+                            <div class="modal-footer">
+                                <div th:if="${param.error}" class="login-error">
+                                    <h4><code>Incorrect Username and Password.</code></h4>
+                                </div>
+                                <div th:if="${param.logout}" class="login-error">
+                                    <h4><code>You have been logged out.</code></h4>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div><!-- /.container-fluid -->
 </nav>
 

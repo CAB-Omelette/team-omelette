@@ -37,9 +37,8 @@ public class SearchController {
     }
 
     public boolean isOwner(){
-        return userSvc.currentUser().isOwner();
+        return userSvc.currentUser().isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) != null;
     }
-
 
     @GetMapping("/search")
     public String search(@RequestParam("search") String search, Model model) {
@@ -60,6 +59,7 @@ public class SearchController {
         for (JobListing job: jobResults) {
             job.setRest(restRepo.findFirstByUser(job.getUser()));
         }
+        model.addAttribute("newJob", new JobListing());
         return "/partials/search";
     }
 }

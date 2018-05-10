@@ -49,9 +49,10 @@ body{
 
 /*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
 #job-map-canvas {
-    width: 100%;
-    height: 250px;
-    margin: 0 auto;
+    width: 350px;
+    height: 440px;
+    border-radius: 10px;
+    float: right;
 }
 
 #all-job-map-canvas{
@@ -234,6 +235,15 @@ body{
     color: #D69F4B;
 }
 
+/*SING JOB VIEW*/
+.job-view {
+    background-color: #2E4057;
+    font-family: archivo black, sans-serif;
+    color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 25px;
+}
 
 /*CHEF PROFILE STYLING*/
 .chefProfilePic{
@@ -270,17 +280,6 @@ body{
     word-wrap: break-word;
 }
 
-.glyph-style {
-    font-weight: bolder;
-    font-size: 15px;
-    color: lightseagreen;
-    font-family: "Istok Web", sans-serif;
-}
-
-.glyph-style:hover {
-    color: orangered;
-}
-
 /*RESTAURANT VIEW STYLING BELOW*********************************/
 .rest-container-view {
     border-radius: 10px;
@@ -289,7 +288,7 @@ body{
 /*RESTAURANT VIEW - GOOGLE MAPS CANVAS*/
 #map-canvas {
     width: 350px;
-    height: 500px;
+    height: 440px;
     border-radius: 10px;
     float: right;
 }

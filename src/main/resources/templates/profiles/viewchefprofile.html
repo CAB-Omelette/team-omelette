@@ -9,18 +9,20 @@
 <div class="container">
     <div class="aboutChef">
         <div class="row">
-            <div class="col-xs-4">
 
 
-                <img id="current-pic" class="chefProfilePic" th:src="${chef.picture}" />
+            <div class="col-xs-4" id="picture-upload">
+                <img class="chefProfilePic" th:src="${chef.picture}" />
                 <button class="btn btn-warning" id="newPicture">Edit Picture</button>
                 <div th:replace="partials/filestack-api :: filestack-pic-chef"></div>
             </div>
+
+
             <div  class="col-xs-8 profileName">
                 <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
                 <h3 style="font-family: 'Istok Web', sans-serif; color:#2E4057;" th:text="${chef.bio}"></h3>
                 <a th:href="@{/edit/profile}">
-                    <button class="btn btn-warning">Edit profile</button>
+                    <button class="btn btn-warning istok">Edit profile</button>
                 </a>
             </div>
         </div>
