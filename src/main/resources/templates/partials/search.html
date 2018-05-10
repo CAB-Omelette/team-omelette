@@ -10,41 +10,49 @@
     <div class=" text-center container">
         <h1>Search results</h1>
 
-        <div class="chefPost" th:each="chef : ${chefResults}">
-                            <a th:href="@{/chefs/{id}(id=${chef.id})}">
+        <div class="rest-jobs-view istok" th:each="chef : ${chefResults}">
                                 <img class="listPicture" th:src="${chef.picture}" alt="" />
                             <h4 th:text="${chef.firstName + ' ' + chef.lastName}"></h4>
-                            </a>
+            <a th:href="@{/chefs/{id}(id=${chef.id})}">
+                <button class="btn btn-success">View Profile</button>
+            </a>
                         </div>
 
 
-        <div class="chefPost" th:each="rest : ${cityResults}">
-            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+        <div class="rest-jobs-view istok" th:each="rest : ${cityResults}">
                 <img class="listPicture" th:src="${rest.picture}" alt="" />
-                <span th:text="${rest.name}"></span>
+            <h4 th:text="${rest.name}"></h4>
+            <br />
+            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+                <button class="btn btn-success">View Profile</button>
             </a>
 
 
         </div>
-        <div class="chefPost" th:each="rest : ${restResults}">
-            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
-                <img class="listPicture" th:src="${rest.picture}" alt="" />
+        <div class="rest-jobs-view istok" th:each="rest : ${restResults}">
 
+                <img class="listPicture" th:src="${rest.picture}" alt="" />
                 <h4 th:text="${rest.name}"></h4>
+            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+                <button class="btn btn-success">View Restuarant</button>
             </a>
         </div>
 
 
-        <div class="chefPost" th:each="job : ${jobResults}">
+        <div  class="rest-jobs-view istok" th:each="job : ${jobResults}">
 
-            <a th:href="@{/job/{id}(id=${job.id})}">
-                <h4 th:text="${job.title + ' at ' + job.rest.name}"> </h4>
+                <img class="listPicture" th:src="${job.rest.picture}" alt="" />
+                <h4  th:text="${job.title + ' at ' + job.rest.name}"> </h4>
             <h5 th:text="${job.rest.city + ', ' + job.rest.state}"></h5>
+            <a th:href="@{/job/{id}(id=${job.id})}">
+                <button class="btn btn-success">View Job</button>
+
             </a>
         </div>
-
-
             </div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+
 
 </body>
 </html>
