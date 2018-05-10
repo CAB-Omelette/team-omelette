@@ -5,12 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
-
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-    <div  class="container">
-        <h1>Viewing Chefs</h1>
+<section class="viewAllBody">
+<div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="Omelette Logo" /><h1 class="viewAllTitle"> Viewing All Chefs</h1></div>
+<div id="viewAllBackground" class="text-center">
+
+    <div  style="display: flex" class="container">
 
         <section id="viewAllChefsLoop" class="rowAll">
             <div th:each="chef : ${chefs}">
@@ -38,6 +38,6 @@
 
     </div>
 </div>
-
+</section>
 </body>
 </html>
