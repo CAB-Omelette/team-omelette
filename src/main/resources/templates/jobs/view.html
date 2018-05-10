@@ -37,18 +37,20 @@
 <!--</div>-->
 
 
-
 <div class="container">
     <div class="row">
-        <div class="rest-profile-name">
-            <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-            <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
-            <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-            <h4>Pay: <span th:text="${job.pay}"></span></h4>
-            <h4> <span th:text="${job.description}"></span></h4>
-            <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
-               <h5>More from <span th:text="${job.rest.name}"></span></h5>
-            </a>
+        <div class="col-sm-12 rest-profile-name">
+            <h1> <span th:text="${job.title}"></span></h1>
+            <div class="single-job-view">
+                <h3><span th:text="${job.rest.name}"></span></h3>
+                <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
+                <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
+                <h4>Pay: <span th:text="${job.pay}"></span></h4>
+                <h4> <span th:text="${job.description}"></span></h4>
+                <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
+                   <h5>More from <span th:text="${job.rest.name}"></span></h5>
+                </a>
+            </div>
         </div>
     </div>
 </div>
