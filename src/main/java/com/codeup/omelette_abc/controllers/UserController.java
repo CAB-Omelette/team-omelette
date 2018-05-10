@@ -34,22 +34,27 @@ public class UserController {
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    public String logoutPage (Model model, HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
+        model.addAttribute("newJob", new JobListing());
         return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
     }
 
     @GetMapping("/rest/signup")
     public String newRest(Model model){
+        model.addAttribute("newJob", new JobListing());
+
         model.addAttribute("user", new User());
         return"users/restsignup";
     }
 
     @GetMapping("/chef/signup")
     public String newChef(Model model){
+        model.addAttribute("newJob", new JobListing());
+
         model.addAttribute("user", new User());
         return"users/chefsignup";
     }

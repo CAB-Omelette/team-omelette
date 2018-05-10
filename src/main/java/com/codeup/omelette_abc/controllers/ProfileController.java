@@ -62,6 +62,7 @@ public class ProfileController {
             return "newuser/newrestprofile";
         }else if (!user.isOwner() && chefRepo.findByUser(user) == null){
             model.addAttribute("chef", new ChefProfile());
+            model.addAttribute("newJob", new JobListing());
             return "newuser/newchefprofile";
         }
         return"redirect:/profile";
@@ -105,6 +106,7 @@ public class ProfileController {
     @PostMapping("/newchef/picture")
     public String saveChefPicture(Model model, @ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
         if(picture == null){
+            model.addAttribute("chef", chef);
             model.addAttribute("newJob", new JobListing());
             return"redirect:/profile";
         }
@@ -115,10 +117,11 @@ public class ProfileController {
     }
 
     @PostMapping("/newrest/picture")
-    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="restPic") String picture ){
+    public String saveRestPicture(Model model, @ModelAttribute RestProfile rest, @RequestParam(required = false, name="restPic") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
+        model.addAttribute("rest", rest);
         rest.setPicture(picture);
         restRepo.save(rest);
         return"redirect:/profile";
