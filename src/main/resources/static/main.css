@@ -292,6 +292,10 @@ body{
     flex-wrap: wrap;
     padding: 0 4px;
 }
+.rowAll {
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
 
 .job-container {
     display: flex;
