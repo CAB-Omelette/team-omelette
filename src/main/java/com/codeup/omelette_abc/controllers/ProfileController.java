@@ -65,6 +65,7 @@ public class ProfileController {
     @PostMapping("/newuser/newchefprofile")
     public String saveChefProfile(@ModelAttribute ChefProfile chefProfile){
         chefProfile.setUser(userSvc.currentUser());
+        chefProfile.setPicture("https://i.imgur.com/Lk4Awmf.png");
         chefRepo.save(chefProfile);
         return "redirect:/profile";
     }
@@ -72,6 +73,7 @@ public class ProfileController {
     @PostMapping("/newuser/newrestprofile")
     public String saveRestProfile(@ModelAttribute RestProfile rest){
         rest.setUser(userSvc.currentUser());
+        rest.setPicture("https://i.imgur.com/Lk4Awmf.png");
         restRepo.save(rest);
         return "redirect:/profile";
     }
@@ -101,7 +103,7 @@ public class ProfileController {
     }
 
     @PostMapping("/newrest/picture")
-    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
+    public String saveRestPicture(@ModelAttribute RestProfile rest, @RequestParam(required = false, name="restPic") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
@@ -130,6 +132,7 @@ public class ProfileController {
         chefRepo.save(chefProfile);
         return"redirect:/profile";
     }
+
 
     @PostMapping("/jobhistory")
     public String addJobHistory(@ModelAttribute JobHistory jobHistory){
@@ -179,8 +182,10 @@ public class ProfileController {
         }
 
         else if(!user.isOwner()) {
+            model.addAttribute("newJobHistory", new JobHistory());
+            model.addAttribute("newEducation", new Education());
+            model.addAttribute("newSkill", new Skills());
             model.addAttribute("user", user);
-            model.addAttribute("noVideo", chefSvc.hasVideo(user));
             model.addAttribute("noPicture", chefSvc.hasPicture(user));
             model.addAttribute("chef", chefRepo.findByUser(user));
             model.addAttribute("jobs", jobHistRepo.findByUser(user));

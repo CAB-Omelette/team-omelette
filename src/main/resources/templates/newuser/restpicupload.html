@@ -21,19 +21,7 @@
         <input type="hidden" th:field="*{city}"/>
         <input type="hidden" th:field="*{state}"/>
         <input type="hidden" th:field="*{zip}"/>
-
-
-
-
-        <h1 class="text-center">Add a profile picture</h1>
-
-        <br />
-
-        <div th:replace="partials/filestack-api :: filestack-pic"></div>
-
-        <br />
-
-
+        <div th:replace="partials/filestack-api :: filestack-pic-rest"></div>
         <button class="btn btn-primary form-control">Save profile picture</button>
 
     </form>

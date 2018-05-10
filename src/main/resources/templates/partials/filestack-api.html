@@ -10,14 +10,16 @@
     <title>Filestack</title>
 </head>
 <body>
-<div th:fragment="filestack-pic">
 
 
-    <div class="control-group">
-        <div class="controls">
-            <button id="picture" type="button" class="btn btn-success form-control">Choose picture</button>
-        </div>
-    </div>
+<div th:fragment="filestack-pic-chef">
+
+
+    <!--<div class="control-group">-->
+        <!--<div class="controls">-->
+            <!--<button id="picture" type="button" class="btn btn-success form-control">Choose picture</button>-->
+        <!--</div>-->
+    <!--</div>-->
     <div id="profile-pic"></div>
     <div id="picUrl"></div>
 
@@ -44,13 +46,26 @@
     //this function handles the response from filestack and uploads the picture to the page
     function handleImageFilestack(response){
         console.log(response);
-        document.getElementById('profile-pic').innerHTML = '<img id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '" />';
-        document.getElementById('picUrl').innerHTML = '<input type="text" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>';
+        document.getElementById('profile-pic').innerHTML =
+            '<img width="100%" height="100%" id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '" />'+
+            '<form th:action="@{/newchef/picture}" th:method="post" th:object="${chef}">' +
+            '<input type="hidden" th:field="*{id}"/>'+
+            '<input type="hidden" th:field="*{user}"/>'+
+            '<input type="hidden" th:field="*{firstName}"/>'+
+            '<input type="hidden" th:field="*{lastName}"/>'+
+            '<input type="hidden" th:field="*{bio}"/>' +
+            '<input type="hidden" th:field="*{phone}"/>' +
+            '<input type="hidden" th:field="*{video}"/>' +
+            '<button class="btn btn-success">Save New Picture</button>' +
+            '<input type="text" style="display:none;" id="upload" name="upload" value=" ' +response.filesUploaded['0'].url +  '"/>' +
+            '</form>'+
+                '<a th:href="@{/profile}"><button class="btn btn=danger">Cancel</button></a>'
+
         document.getElementById('upload').dataset.handler = response.url;
     }
 
     //open ImagePicker button
-    var picture = document.getElementById('picture');
+    var picture = document.getElementById('newPicture');
     function pictureButton () {
         picture.addEventListener('click', function () {
             openImagePicker();
@@ -61,52 +76,110 @@
 
 
 </script>
+
 </div>
+
+
+
+
+
+
+<div th:fragment="filestack-pic-rest">
+
+
+    <div class="control-group">
+    <div class="controls">
+    <button id="newPicture" type="button" class="btn btn-success form-control">Choose picture</button>
+    </div>
+    </div>
+    <div id="rest-pic"></div>
+    <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+    <script type="text/javascript">
+
+        //=====================IMAGE API CALL=====================//
+
+        var fsClient = filestack.init('AbhIqQMRqu7QHwts92EwOz');
+        function openImagePicker() {
+            fsClient.pick({
+                fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
+                accept:["image/*"],
+                maxFiles:1,
+                maxSize:10485760,
+                transformations:{circle:true}
+            }).then(function (response) {
+                // declare this function to handle response
+                handleImageFilestack(response);
+            });
+        }
+
+        //this function handles the response from filestack and uploads the picture to the page
+        function handleImageFilestack(response){
+            console.log(response);
+            document.getElementById('rest-pic').innerHTML =
+                '<img width="100%" height="100%" id="upload" name="upload" src=" ' +response.filesUploaded['0'].url +  '" />'+
+                '<input type="text" style="display:none;" id="restPic" name="restPic" value=" ' +response.filesUploaded['0'].url +  '"/>'
+            document.getElementById('upload').dataset.handler = response.url;
+        }
+
+        //open ImagePicker button
+        var picture = document.getElementById('newPicture');
+        function pictureButton () {
+            picture.addEventListener('click', function () {
+                openImagePicker();
+            });
+        } pictureButton();
+
+
+    </script>
+
+</div>
+
 
 
 <div th:fragment="filestack-video">
 
 
-<div class="control-group">
-    <div class="controls">
-        <button id="video" type="button" class="btn btn-primary form-control">Upload Video</button>
+    <div class="control-group">
+        <div class="controls">
+            <button id="video" type="button" class="btn btn-primary form-control">Upload Video</button>
+        </div>
     </div>
+    <div id="profile-video"></div>
+    <div id="videoUrl"></div>
+
+
+
+    <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+    <script type="text/javascript">
+        //=====================IMAGE VIDEO CALL=====================//
+        var fsClient = filestack.init('AbhIqQMRqu7QHwts92EwOz');
+        function openVideoPicker() {
+            fsClient.pick({
+                fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
+                accept:["video/*"],
+                maxFiles:1,
+                maxSize:1048576000
+            }).then(function (response) {
+                // declare this function to handle response
+                handleVideoFilestack(response);
+            });
+        }
+        function handleVideoFilestack(response){
+            console.log(response);
+            document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
+            document.getElementById('videoUrl').innerHTML = '<input type="text" class="hiddenUrl"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '"/>';
+            document.getElementById('video-upload').dataset.handler = response.url;
+        }
+        //open VideoPicker button
+        var video = document.getElementById('video');
+        function videoButton () {
+            video.addEventListener('click', function () {
+                openVideoPicker();
+            });
+        } videoButton();
+    </script>
 </div>
-<div id="profile-video"></div>
-<div id="videoUrl"></div>
 
 
-
-<script src="https://static.filestackapi.com/v3/filestack.js"></script>
-<script type="text/javascript">
-    //=====================IMAGE VIDEO CALL=====================//
-    var fsClient = filestack.init('AbhIqQMRqu7QHwts92EwOz');
-    function openVideoPicker() {
-        fsClient.pick({
-            fromSources:["local_file_system", "url", "imagesearch", "facebook", "instagram", "dropbox"],
-            accept:["video/*"],
-            maxFiles:1,
-            maxSize:1048576000
-        }).then(function (response) {
-            // declare this function to handle response
-            handleVideoFilestack(response);
-        });
-    }
-
-    function handleVideoFilestack(response){
-        console.log(response);
-        document.getElementById('profile-video').innerHTML = '<video id="video-upload" width="480" height="360"><source src=" ' +response.filesUploaded['0'].url +  '" /></video>';
-        document.getElementById('videoUrl').innerHTML = '<input type="text" class="hiddenUrl"  id="video" name="video" value=" ' +response.filesUploaded['0'].url +  '"/>';
-        document.getElementById('video-upload').dataset.handler = response.url;
-    }
-    //open VideoPicker button
-    var video = document.getElementById('video');
-    function videoButton () {
-        video.addEventListener('click', function () {
-            openVideoPicker();
-        });
-    } videoButton();
-</script>
-</div>
 </body>
 </html>
