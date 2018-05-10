@@ -9,13 +9,13 @@
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center">
-    <div style="justify-content: center" class="container">
+    <div  class="container">
         <h1>Viewing Chefs</h1>
 
         <section id="viewAllChefsLoop" class="rowAll">
             <div th:each="chef : ${chefs}">
 
-                <div class="column col-md-3" style="background: antiquewhite; margin: 10px; padding:10px; border-radius: 5px;">
+                <div class="column col-md-3" id="viewAllTiles">
 
                     <div>
                         <div>

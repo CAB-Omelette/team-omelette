@@ -36,12 +36,6 @@ body{
     border-radius: 5px;
     justify-content: center;
 }
-/*#viewAllChefsLoop{*/
-    /*background-color: #D5EBFB;*/
-    /*border-radius: 5px;*/
-    /*justify-content: center;*/
-    /*margin: 10px;*/
-/*}*/
 
 #viewAllJobsLoop > div{
     margin: .1em;
@@ -292,6 +286,7 @@ body{
     flex-wrap: wrap;
     padding: 0 4px;
 }
+/*every row on View All Pages*/
 .rowAll {
     flex-wrap: wrap;
     padding: 0 4px;
@@ -307,7 +302,14 @@ body{
     width: 100%;
     background-color: grey;
 }
-
+#viewAllTiles {
+    font-family: "Istok Web", sans-serif;
+    color: white;
+    background: #2E4057;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 .rest-jobs-view {
     margin: 10px;
