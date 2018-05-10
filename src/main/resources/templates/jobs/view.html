@@ -5,19 +5,54 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="col-sm-8 rest-profile-name">-->
+            <!--<img class="rest-profile-pic" th:src="${rest.picture}" />-->
+            <!--<h1 th:text="${rest.name}"></h1>-->
+            <!--<h3 th:text="${rest.about}"></h3>-->
+            <!--<h4><a th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>-->
+            <!--<h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>-->
+            <!--<h4 class="address" th:text="${rest.street}"></h4>-->
+            <!--<h4 th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<br />-->
+
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="job-container">-->
+            <!--<div class="col-sm-4 rest-jobs-view" th:each="job : ${jobs}">-->
+                <!--<h1 th:text="${job.title}"></h1>-->
+                <!--<h3 class="istok" th:text="${job.description}"></h3>-->
+                <!--<a th:href="@{/job/{id}(id=${job.id})}">-->
+                    <!--<button class="btn btn-success">View Job</button>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
 
 <div class="container">
-    <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-    <img class="profilePicture" th:src="${job.rest.picture}" alt="" />
-    <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-    <h4>Pay: <span th:text="${job.pay}"></span></h4>
-    <h4> <span th:text="${job.description}"></span></h4>
-    <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
-       <h5>More from <span th:text="${job.rest.name}"></span></h5>
-    </a>
+    <div class="row">
+        <div class="rest-profile-name">
+            <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
+            <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
+            <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
+            <h4>Pay: <span th:text="${job.pay}"></span></h4>
+            <h4> <span th:text="${job.description}"></span></h4>
+            <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
+               <h5>More from <span th:text="${job.rest.name}"></span></h5>
+            </a>
+        </div>
+    </div>
 </div>
 
-<div th:replace="partials/job-map :: google-maps"></div>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
