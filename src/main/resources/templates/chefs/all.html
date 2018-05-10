@@ -5,30 +5,39 @@
     <title>Title</title>
 </head>
 <body>
+
+
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="text-center">
-<div class="container">
-<h1>Viewing Chefs</h1>
+    <div style="justify-content: center" class="container">
+        <h1>Viewing Chefs</h1>
 
-<div th:each="chef : ${chefs}">
+        <section id="viewAllChefsLoop" class="rowAll">
+            <div th:each="chef : ${chefs}">
 
+                <div class="column col-md-3" style="background: antiquewhite; margin: 10px; padding:10px; border-radius: 5px;">
 
-    <section id="viewAllJobsLoop" class="container-fluid">
-        <div style="display:flex">
-        <a th:href="@{/chefs/{id}(id=${chef.id})}">
-        <div class="jobPost">
-            <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
-                    <img class="listPicture" th:src="${chef.picture}" alt="" />
+                    <div>
+                        <div>
+                            <img class="listPictureProfileChef" th:src="${chef.picture}" alt="" />
+                        </div>
+                        <div>
+                            <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
+                        </div>
+
+                        <div class="viewJobButtonAllJobs">
+                            <a th:href="@{/chefs/{id}(id=${chef.id})}">
+                                <button style="background-color: #DE9E36" class="btn btn-default">View Chef</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br />
-        </div>
-        </a>
-        </div>
-    </section>
+        </section>
 
+    </div>
 </div>
 
-    <br />
-</div>
-</div>
 </body>
 </html>
