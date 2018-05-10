@@ -117,7 +117,7 @@ public class ProfileController {
     }
 
     @PostMapping("/newrest/picture")
-    public String saveRestPicture(Model model, @ModelAttribute RestProfile rest, @RequestParam(required = false, name="restPic") String picture ){
+    public String saveRestPicture(Model model, @ModelAttribute RestProfile rest, @RequestParam(required = false, name="upload") String picture ){
         if(picture == null){
             return"redirect:/profile";
         }
