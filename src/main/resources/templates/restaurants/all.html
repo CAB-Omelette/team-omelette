@@ -24,21 +24,16 @@
                             <h3><span th:text="${rest.name}"></span> </h3>
                             <h4 class="istok"><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
                         </div>
-
-                        <div class="viewJobButtonAllJobs">
                             <a th:href="@{/restaurant/{id}(id=${rest.id})}">
-                                <button style="background-color: #DE9E36" class="btn btn-default">View Restaurant</button>
+                                <button class="istok btn btn-success">View Restaurant</button>
                             </a>
-                        </div>
                     </div>
 
                     <section class="input">
                         <input type="hidden" id="address" name="address" th:value="${rest.street + ' ' + rest.city + ' ' + rest.state } " />
                     </section>
                 </div>
-
             </div>
-
             <br />
         </section>
 

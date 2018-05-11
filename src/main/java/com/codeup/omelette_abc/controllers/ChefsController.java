@@ -74,6 +74,9 @@ public class ChefsController {
             model.addAttribute("hasJobs", hasJobs(id));
             model.addAttribute("hasEdu", hasEdu(id));
             model.addAttribute("hasSkills", hasSkills(id));
+            if(chefRepo.findOne(id).getUser() == userSvc.currentUser()){
+                model.addAttribute("chefOwns", true);
+            }
             ChefProfile chefId = chefRepo.findOne(id);
             User chef = chefId.getUser();
 
