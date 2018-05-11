@@ -25,7 +25,7 @@
                     <div th:if="!${loggedIn}">
                         <!--NEW CHEF SIGNUP MODAL-->
 
-                        <button class="btn indexButtons" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
+                        <button class="btn indexButtons hvr-grow" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
 
                     <div class="modal fade" id="chef-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                         <div class="modal-dialog" role="document">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 <!--NEW REST MODAL SIGNUP-->
-                        <button class="btn indexButtons" data-toggle="modal" data-target="#rest-modal">I'm a restaurant</button>
+                        <button class="btn indexButtons hvr-grow" data-toggle="modal" data-target="#rest-modal">I'm a restaurant</button>
 
                         <div class="modal fade" id="rest-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog" role="document">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div th:if="${loggedIn}">
-                        <a href="/createprofile"><button class="btn indexButtons">My Profile</button></a>
+                        <a href="/createprofile"><button class="btn indexButtons hvr-grow">My Profile</button></a>
                     </div>
                 </div>
                 </div>
@@ -150,7 +150,7 @@
         <br/>
         <br/>
         <p class="lead">
-            <a href="/AboutUs"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn btn-lg btn-outline-dark">About Us</button></a>
+            <a href="/AboutUs"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="hvr-grow btn btn-lg btn-outline-dark">About Us</button></a>
         </p>
         <hr/>
         <br/>
