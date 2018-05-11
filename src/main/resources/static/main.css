@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+.lead{
+    font-size: 10px;
+}
+
 body{
     font-family: 'Istok Web', sans-serif;
     background-color: #00a7e1;
