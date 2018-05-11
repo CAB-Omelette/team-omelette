@@ -119,7 +119,8 @@ public class UserController {
 
 
     @GetMapping("/AboutUs")
-    public String AboutUs() {
+    public String AboutUs(Model model) {
+        model.addAttribute("newJob", new JobListing());
         return "/AboutUs";
     }
 
