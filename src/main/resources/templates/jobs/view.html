@@ -16,8 +16,9 @@
                 <h3 class="istok"> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
                 <h4 class="istok">Pay: <span th:text="${job.pay}"></span></h4>
                 <h4 class="istok"> <span th:text="${job.description}"></span></h4>
-                <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
-                    <button class="btn btn-success">More from <span th:text="${job.rest.name}"></span></button>
+            <h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>
+            <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
+                    <button class="btn btn-success istok">More from <span th:text="${job.rest.name}"></span></button>
                 </a>
         </div>
         <div class="col-sm-4" th:replace="partials/job-map :: google-maps"></div>
