@@ -5,104 +5,190 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-        <div class="jobPost">
-<h1><span th:text="${chef.firstName}"></span>
-     <span th:text="${chef.last_name}"></span>'s profile</h1>
 
-        <a href="/newchef/picture" title ="edit">
-        <img class="profilePicture" th:src="${chef.picture}" alt="" />
-        </a>
+<div class="container">
+    <div class="aboutChef">
+        <div class="row">
 
-        <div th:if="${noPicture}">
-        <a href="/newchef/picture">
-        <button class="btn btn-success">Add a profile Picture</button>
-        </a>
+
+            <div class="col-xs-4" id="picture-upload">
+                <img class="chefProfilePic" th:src="${chef.picture}" />
+                <button class="btn btn-warning" id="newPicture">Edit Picture</button>
+                <div th:replace="partials/filestack-api :: filestack-pic-chef"></div>
+            </div>
+
+
+            <div  class="col-xs-8 profileName">
+                <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
+                <h3 style="font-family: 'Istok Web', sans-serif; color:#2E4057;" th:text="${chef.bio}"></h3>
+                <a th:href="@{/edit/profile}">
+                    <button class="btn btn-warning istok">Edit profile</button>
+                </a>
+            </div>
         </div>
-
-
-
-    <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${chef.phone}"></span></h4>
-
-    <p><span th:text="${chef.bio}"></span></p>
-
-        <a th:href="@{/edit/profile}">
-            <button class="btn btn-warning">Edit profile</button>
-        </a>
     </div>
+    <div class="viewChefProfile">
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <h2 style="color:#D69F4B;" class="profileName">Previous Experience</h2>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#new-job-modal">Add a job</button>
+                            <div class="modal fade" id="new-job-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content modal-content-border">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="" id="">Add a previous job</h4>
+                                        </div>
+                                        <div class="modal-body-form">
+                                            <form th:action="@{/jobhistory}" method="POST" th:object="${newJobHistory}">
+                                                <div class="form-group">
+                                                    <label for="title">Title</label>
+                                                    <input id="title" class="form-control" placeholder="Title held" type="text" th:field="*{title}" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="location">Location</label>
+                                                    <input id="location" class="form-control" placeholder="Location" type="text" th:field="*{location}" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="startDate">Start Date</label>
+                                                    <input id="startDate" class="form-control" type="date" th:field="*{startDate}" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="endDate">End Date</label>
+                                                    <input id="endDate" class="form-control" type="date" th:field="*{endDate}" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="reasonLeft">Reason for leaving</label>
+                                                    <input id="reasonLeft" class="form-control" type="text" th:field="*{reasonLeft}" />
+                                                </div>
+                                                <button type="submit" class="btn btn-primary form-control modal-login-button">Save</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    <br />
+                        <div th:each="job : ${jobs}" class="text-center">
+                            <div class="col-xs-12">
+                                <h4 style="font-family:Istok Web; color:white;"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></h4>
+                                <h5 style="font-family:Istok Web; color:white;">Reason for leaving: <span th:text="${job.reasonLeft}"></span></h5>
+                                <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
+                                    edit
+                                </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <hr/>
+                        <h2 style="color:#D69F4B;" class="profileName">Education</h2>
+
+                        <button class="btn btn-success" data-toggle="modal" data-target="#new-education-modal">Add education</button>
+                        <div class="modal fade" id="new-education-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content modal-content-border">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="" id="">Add education</h4>
+                                    </div>
+                                    <div class="modal-body-form">
+                                        <form th:action="@{/education}" method="POST" th:object="${newEducation}">
+                                            <div class="form-group">
+                                                <label for="school">School Name</label>
+                                                <input id="school" class="form-control" placeholder="School name" type="text" th:field="*{name}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="focus">Focus</label>
+                                                <input id="focus" class="form-control" placeholder="area of focus" type="text" th:field="*{focus}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="startDate">Graduation Date</label>
+                                                <input id="grad_date" class="form-control" type="date" th:field="*{graduationDate}" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary form-control modal-login-button">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-<div class="jobPost">
-<h2>Previous Experience</h2>
 
-    <br />
-    
-<div th:each="job : ${jobs}">
-    <h4><span th:text="${job.title+' at '+job.location}"></span></h4>
-    <h5><span th:text="${job.start_date + ' to ' + job.end_date}"></span> </h5>
-        <p><u>Reason for leaving</u></p>
-        <p th:text="${job.reason_left}"></p>
-    <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
-        edit
-    </a>
-    <br />
-
-</div>
-    <a th:href="@{/jobhistory}">
-        <button class="btn btn-success">Add job history</button>
-    </a>
-</div>
-    <br />
-    <div class="jobPost">
-
-    <h2>Education</h2>
-    <div th:each="ed : ${education}">
-        <p>School:<span th:text="${ed.name}"></span></p>
-        <p>Focus:<span th:text="${ed.focus}"></span> </p>
-        <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
-
-        <a th:href="@{/education/{id}/edit(id=${ed.id})}">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </a>
+                        <div th:each="ed : ${education}">
+                            <div class="col-xs-12">
+                                <h4 style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></h4>
+                                <a th:href="@{/education/{id}/edit(id=${ed.id})}">edit</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    </div>
-        <a th:href="@{/education}">
-            <button class="btn btn-success">Add education</button>
-        </a>
-    </div>
 
-    <br />
 
-    <div class="jobPost">
-    <h2>Skills</h2>
-    <div th:each="skill : ${skills}">
-            <p><span th:text="${skill.name}"></span> <span> <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </a></span></p>
-        </div>
-        <a th:href="@{/skills}">
-            <button class="btn btn-success">Add a skill</button>
-        </a>
-</div>
 
-    <br />
 
-    <div class="jobPost">
-        <h2>Videos</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="text-center">
+                        <hr />
+                        <h2 style="color:#D69F4B;" class="profileName">Skills</h2>
 
-        <div th:if="${noVideo}">
-    <a th:href="@{newchef/video}">
-        <button class="btn btn-success">Add a video</button>
-    </a>
-        </div>
 
-        <div th:if="!${noVideo}">
 
-        <video th:controls="show" class="profileVideo" th:src="${chef.video}"></video>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#new-skill-modal">Add a skill</button>
+                        <div class="modal fade" id="new-skill-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content modal-content-border">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="" id="">Add education</h4>
+                                    </div>
+                                    <div class="modal-body-form">
+                                        <form th:action="@{/skills}" method="POST" th:object="${newSkill}">
+                                            <div class="form-group">
+                                                <label for="skill">Skill</label>
+                                                <input id="skill" class="form-control" type="text" placeholder="add a skill" th:field="*{name}" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary form-control modal-login-button">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div th:each="skill : ${skills}">
+                            <p style="font-family:Istok Web; color:white;" ><span th:text="${skill.name}"></span> <span>
+                                <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">edit</a></span></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <hr/>
+                    <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
+                    <a href="/newchef/video" style="color:white;font-family:Istok web;"><button class="btn btn-success">Edit Video</button></a>
+                    <br />
+                    <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -6,20 +6,41 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-<div class="container">
-<h1>Viewing Chefs</h1>
-<div th:each="chef : ${chefs}">
-    <a th:href="@{/chefs/{id}(id=${chef.id})}">
-    <div class="jobPost">
-<h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.last_name}"></span></h3>
-        <img class="listPicture" th:src="${chef.picture}" alt="" />
-        <br />
+<section class="viewAllBody">
+<div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="Omelette Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Chefs</h1></div>
+<div id="viewAllBackground" class="text-center">
+
+    <div class="container">
+        <section class="rowAll" style="text-align: center;">
+            <div th:each="chef : ${chefs}">
+
+                <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
+
+                    <div>
+                        <div>
+                            <img class="listPictureProfileChef" th:src="${chef.picture}" alt="" />
+                        </div>
+                        <div>
+                            <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
+                        </div>
+
+                        <div class="viewJobButtonAllJobs">
+                            <a th:href="@{/chefs/{id}(id=${chef.id})}">
+                                <button style="background-color: #DE9E36" class="btn btn-default">View Chef</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </section>
+
     </div>
-    </a>
-    </div>
-    <br />
 </div>
-</div>
+
+</section>
+
+<footer th:replace="partials/footer :: footer"></footer>
+
 </body>
 </html>

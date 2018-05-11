@@ -12,14 +12,13 @@ public class ChefProfile {
     @GeneratedValue
     private long id;
 
-
     @Column(nullable = false)
     private String firstName;
 
     @Column(nullable = false)
-    private String last_name;
+    private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String bio;
 
     @Column
@@ -42,10 +41,10 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(Long id, String firstName, String last_name, String bio, String phone, String picture, String video, User user) {
+    public ChefProfile(Long id, String firstName, String lastName, String bio, String phone, String picture, String video, User user) {
         this.id = id;
         this.firstName = firstName;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.bio = bio;
         this.phone = phone;
         this.picture = picture;
@@ -53,18 +52,18 @@ public class ChefProfile {
         this.user = user;
     }
 
-    public ChefProfile(String firstName, String last_name, String bio, String phone, String picture, String video) {
+    public ChefProfile(String firstName, String lastName, String bio, String phone, String picture, String video) {
         this.firstName = firstName;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.bio = bio;
         this.phone = phone;
         this.picture = picture;
         this.video = video;
     }
 
-    public ChefProfile(String firstName, String last_name, String bio, String phone) {
+    public ChefProfile(String firstName, String lastName, String bio, String phone) {
         this.firstName = firstName;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.bio = bio;
         this.phone = phone;
     }
@@ -87,12 +86,12 @@ public class ChefProfile {
         this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhone() { return phone; }

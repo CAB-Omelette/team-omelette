@@ -7,36 +7,41 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<div class="text-center container">
-
-<h1 th:text="${rest.name}"></h1>
-    <img class="profilePicture" th:src="${rest.picture}" alt="" />
 
 
-
-    <br />
-    <a th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest%Via%Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-
-    <h4> <span th:text="${rest.street}"></span></h4>
-    <h4><span th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></span></h4>
-<p><span th:text="${rest.about}"></span></p>
-    <div th:replace="partials/google-maps-api :: google-maps"></div>
-
-
-    <hr />
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 rest-profile-name">
+            <img class="rest-profile-pic" th:src="${rest.picture}" />
+            <div class="display-flow-root">
+            <h1 th:text="${rest.name}"></h1>
+            <h3 class="istok" th:text="${rest.about}"></h3>
+            <h4><a class="" th:href="'mailto:' + ${rest.user.email} + '?Subject=Interest Via Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a></h4>
+            <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span class="istok" th:text="${rest.phone}"></span></h4>
+            <h4 class="address istok" th:text="${rest.street}"></h4>
+            <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            </div>
+        </div>
+        <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>
+    </div>
 </div>
-<h1 class="text-center">Current Job Listings for <span th:text="${rest.name}"></span></h1>
-<div class="text-center">
-<div th:each="job : ${jobs}">
 
-    <h3><span th:text="${job.title}"></span></h3>
-    <a th:href="@{/job/{id}(id=${job.id})}">
-        <button class="btn btn-default">View Job</button>
-    </a>
-    <hr />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="job-container">
+            <div class="rest-jobs-view" th:each="job : ${jobs}">
+                <h1 th:text="${job.title}"></h1>
+                    <p class="istok" th:text="${job.description}"></p>
+                    <a th:href="@{/job/{id}(id=${job.id})}">
+                    <button class="btn btn-success">View Job</button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>

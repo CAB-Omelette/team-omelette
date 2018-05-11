@@ -1,6 +1,7 @@
 package com.codeup.omelette_abc.controllers;
 
 
+import com.codeup.omelette_abc.models.JobListing;
 import com.codeup.omelette_abc.models.User;
 import com.codeup.omelette_abc.repositories.*;
 import com.codeup.omelette_abc.services.UserService;
@@ -37,31 +38,28 @@ public class TestController {
     }
 
 
+    public boolean isOwner(){
+        return userSvc.currentUser().isOwner() && restRepo.findFirstByUser(userSvc.currentUser()) != null;
+    }
 
     @GetMapping("/")
     public String showIndex(Model model) {
-        if(userSvc.isLoggedIn()){
-            model.addAttribute("loggedIn", true);
+        model.addAttribute("loggedIn", userSvc.isLoggedIn());
+        if (!userSvc.isLoggedIn()) {
+            model.addAttribute("user", new User());
+            model.addAttribute("newJob", new JobListing());
         }
         return "/index";
     }
 
     @GetMapping("/loggedin")
     public String loggedIn(Model model) {
+        model.addAttribute("newJob", new JobListing());
         model.addAttribute("loggedIn", true);
         User user = userSvc.currentUser();
-        if(user.isOwner()) {
-            model.addAttribute("isOwner", true);
-        }
-        if(restRepo.findFirstByUser(user) != null){
-            return"redirect:/";
-        }
-        if(chefRepo.findByUser(user) != null){
-            return"redirect:/";
-        }
+        model.addAttribute("isOwner", isOwner());
         return "/index";
     }
-
 
 }
 

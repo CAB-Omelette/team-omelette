@@ -6,18 +6,25 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
+
 <div class="container">
-    <h3> <span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-    <img class="profilePicture" th:src="${job.rest.picture}" alt="" />
-    <h3> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-    <h4>Pay: <span th:text="${job.pay}"></span></h4>
-    <h4> <span th:text="${job.description}"></span></h4>
-    <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
-       <h5>More from <span th:text="${job.rest.name}"></span></h5>
-    </a>
+    <div class="row">
+        <div class="col-sm-8 job-view">
+            <img class="rest-profile-pic" th:src="${job.rest.picture}" alt="" />
+                <h1> <span th:text="${job.title}"></span></h1>
+                <h3 class="istok"><span th:text="${job.rest.name}"></span></h3>
+                <h3 class="istok"> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
+                <h4 class="istok">Pay: <span th:text="${job.pay}"></span></h4>
+                <h4 class="istok"> <span th:text="${job.description}"></span></h4>
+            <h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>
+            <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
+                    <button class="btn btn-success istok">More from <span th:text="${job.rest.name}"></span></button>
+                </a>
+        </div>
+        <div class="col-sm-4" th:replace="partials/job-map :: google-maps"></div>
+    </div>
 </div>
 
-<div th:replace="partials/job-map :: google-maps"></div>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

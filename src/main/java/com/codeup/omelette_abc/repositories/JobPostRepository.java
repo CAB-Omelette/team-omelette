@@ -5,6 +5,8 @@ import com.codeup.omelette_abc.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface JobPostRepository extends CrudRepository<JobListing, Long> {
 
@@ -12,5 +14,8 @@ public interface JobPostRepository extends CrudRepository<JobListing, Long> {
 
     Iterable<JobListing> findAll();
 
+    Integer countByUser(User user);
+
+    List<JobListing> findByTitleIsLike(String str);
 
 }

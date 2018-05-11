@@ -6,76 +6,85 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-<h1><span th:text="${chef.firstName}"></span> <span th:text="${chef.last_name}"></span></h1>
-    <img class="profilePicture" th:src="${chef.picture}" alt="" />
-
-    <br />
-
-    <a th:href="'mailto:' + ${user.email} + '?Subject=Interest%Via%Omelette'"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-
-    <p><span th:text="${chef.bio}"></span></p>
-    <br />
 
 
-    <div th:if="${hasJobs}" class="jobPost">
-    <h2><u>Previous Experience</u></h2>
 
-    <div th:each="job : ${jobs}">
-
-        <h4 th:text="${job.title + ' at ' + job.location}"></h4>
-        <h5 th:text="${job.start_date + ' to ' + job.end_date}"></h5>
-        <p>Reason for leaving</p>
-        <p th:text="${job.reason_left}" />
-
-    </div>
-    </div>
-
-
-    <br />
-
-    <div class="jobPost">
-
-        <div th:if="${hasEdu}">
-
-    <h2><u>Education</u></h2>
-
-    <div th:each="ed : ${education}">
-        <p><span th:text="${ed.name}"></span></p>
-        <p><span th:text="${ed.focus}"></span> </p>
-        <p>Graduation date: <span th:text="${ed.graduationDate}"></span></p>
-        <hr />
-    </div>
-
-    </div>
-    </div>
-
-    <br />
-
-    <div class="jobPost">
-    <h2><u>Skills</u></h2>
-
-    <ul>
-        <div th:each="skill : ${skills}">
-            <p th:text="${skill.name}"></p>
+<div class="container">
+    <div class="aboutChef">
+        <div class="row">
+            <div class="col-xs-4">
+                <img class="chefProfilePic" th:src="${chef.picture}" />
+            </div>
+            <div  class="col-xs-8 profileName">
+                <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
+                <h3 style="font-family: 'Istok Web', sans-serif; color:#2E4057;" th:text="${chef.bio}"></h3>
+                <a  th:href="'mailto:' + ${user.email} + '?Subject=Interest Via Omelette'"><h4 class="orange ">Contact <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></h4></a>
+            </div>
         </div>
-    </ul>
     </div>
+    <div class="viewChefProfile">
+        <div class="row">
+            <div class="col-xs-12">
+                <div th:if="${hasJobs}">
+                    <div class="text-center">
+                        <h2 style="color:#D69F4B;" class="profileName">Previous Experience</h2>
+                        <div th:each="job : ${jobs}" class="text-center">
+                            <div class="col-xs-12">
+                            <h4 style="font-family:Istok Web; color:white;"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></h4>
+                            <h5 style="font-family:Istok Web; color:white;">Reason for leaving: <span th:text="${job.reasonLeft}"></span></h5>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div  th:if="${hasEdu}">
+                    <div class="text-center">
+                        <hr/>
+                        <h2 style="color:#D69F4B;" class="profileName">Education</h2>
+                        <div th:each="ed : ${education}">
+                            <div class="col-xs-12">
+                            <h4 style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></h4>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <div th:if="${hasSkills}">
+                    <div class="text-center">
+                        <hr />
+                        <h2 style="color:#D69F4B;" class="profileName">Skills</h2>
+                         <h4 style="font-family:Istok Web; color:white;">
+                                <span th:each="skill : ${skills}">
+                                    <span th:text="${'-' + skill.name + ' '}"></span>
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <div th:if="${hasVideo}">
+                    <hr/>
+                    <h2 style="color:#D69F4B;" class="profileName">Featured Video</h2>
 
-
-
-    <div class="jobPost">
-    <video class="profileVideo" th:src="${chef.video}" th:controls="show"  >
-    </video>
+                            <video class="profileVideo" th:src="${chef.video}" th:controls="show"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 </div>
-
-
-
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

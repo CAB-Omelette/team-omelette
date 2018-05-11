@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('Chef Profile')">
+<head th:replace="partials/header :: header('View All Restaurants')">
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-<div class="container">
-    <h1>Viewing All Restaurants</h1>
-    <div th:each="rest : ${restaurants}">
-        <div class="jobPost">
-            <img class="listPicture" th:src="${rest.picture}" alt="" />
-            <h3><span th:text="${rest.name}"></span> </h3>
-        <h5><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h5>
-        <a th:href="@{/restaurant/{id}(id=${rest.id})}">
-            <button class="btn btn-default">View profile</button>
-        </a>
-        </div>
-        <br />
+<section class="viewAllBody">
+    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Restaurants</h1></div>
+<div id="viewAllBackground" class="text-center">
+    <div class="container">
+        <section class="rowAll" style="text-align: center;">
+            <div th:each="rest : ${restaurants}">
+
+                <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
+
+                    <div>
+                        <div>
+                            <img class="listPictureProfileChef" th:src="${rest.picture}" alt="" />
+
+                        </div>
+                        <div>
+                            <h3><span th:text="${rest.name}"></span> </h3>
+                            <h4 class="istok"><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
+                        </div>
+
+                        <div class="viewJobButtonAllJobs">
+                            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
+                                <button style="background-color: #DE9E36" class="btn btn-default">View Restaurant</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <section class="input">
+                        <input type="hidden" id="address" name="address" th:value="${rest.street + ' ' + rest.city + ' ' + rest.state } " />
+                    </section>
+                </div>
+
+            </div>
+
+            <br />
+        </section>
+
     </div>
 </div>
-</div>
+</section>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

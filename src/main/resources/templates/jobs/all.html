@@ -5,23 +5,38 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="text-center">
-<div class="container">
-    <h1>Current Job Postings</h1>
-    <div th:each="job : ${jobs}">
-        <div class="jobPost">
-            <img class="listPicture" th:src="${job.rest.picture}" alt="" />
-            <h3><span th:text="${job.title}"></span> at <span th:text="${job.rest.name}"></span></h3>
-        <h4 th:text="${job.rest.city + ', ' + job.rest.state}"></h4>
-        <a th:href="@{/job/{id}(id=${job.id})}">
-            <button class="btn btn-default">View Job</button>
-        </a>
-        </div>
-        <br />
-    </div>
-</div>
-</div>
+<section class="viewAllBody">
+    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 class="viewAllTitle" style="color:white;"> Viewing All Jobs</h1></div>
+    <div id="viewAllBackground" class="text-center">
+        <div class="container">
+            <section class="rowAll" style="text-align: center;">
+                <div th:each="job : ${jobs}">
 
+                <div class="column col-md-3 rest-jobs-view" id="viewAllTiles">
+                    <div>
+                        <div>
+                            <img class="listPictureProfileChef" th:src="${job.rest.picture}" alt="" />
+                        </div>
+
+                        <div>
+                            <h3><span th:text="${job.title}"></span></h3>
+                            <h4 class="istok"><span th:text="${job.rest.name}"></span></h4>
+                         </div>
+
+                        <div class="viewJobButtonAllJobs">
+                        <a th:href="@{/job/{id}(id=${job.id})}">
+                        <button style="background-color: #DE9E36" class="btn btn-default">View Job</button>
+                        </a>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+                <br />
+            </section>
+        </div>
+    </div>
+</section>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>
