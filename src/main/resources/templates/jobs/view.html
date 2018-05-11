@@ -20,6 +20,9 @@
             <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
                     <button class="btn btn-success istok">More from <span th:text="${job.rest.name}"></span></button>
                 </a>
+            <a th:if="${ownsJob}" th:href="@{/job/{id}/edit(id=${job.id})}">
+                <button class="btn btn-warning istok">Edit Job</button>
+            </a>
         </div>
         <div class="col-sm-4" th:replace="partials/job-map :: google-maps"></div>
     </div>

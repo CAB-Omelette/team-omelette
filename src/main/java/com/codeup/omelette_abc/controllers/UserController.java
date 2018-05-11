@@ -65,13 +65,13 @@ public class UserController {
         if(userSvc.userExists(username)){
             model.addAttribute("errors", errors);
             model.addAttribute("exists", true);
-            return"/";
+            return"redirect:/";
         }
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("user", user);
-            return "/";
+            return "redirect:/";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());
@@ -86,13 +86,13 @@ public class UserController {
             model.addAttribute("errors", errors);
             model.addAttribute("newJob", new JobListing());
             model.addAttribute("exists", true);
-            return"/";
+            return"redirect:/";
         }
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
             model.addAttribute("newJob", new JobListing());
             model.addAttribute("user", user);
-            return "/";
+            return "redirect:/";
         }
         user.setUsername(user.getEmail());
         String hash = passwordEncoder.encode(user.getPassword());

@@ -1,7 +1,5 @@
 package com.codeup.omelette_abc.models;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,11 +13,9 @@ public class JobListing {
     private long id;
 
     @Column(nullable = false)
-    @NotBlank(message = "Title cannot be blank")
     private String title;
 
     @Column(nullable = false)
-    @NotBlank(message = "Description cannot be blank")
     private String description;
 
     @Column
