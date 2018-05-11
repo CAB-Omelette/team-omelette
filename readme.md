@@ -1,13 +1,9 @@
-OMELETTE FEAUTURE LIST
+OMELETTE FEATURE LIST
 
 
 LANDING PAGE
 
 - [x] About us section
-
-- [ ] View example chef profile
-
-- [ ] View example restaurant profile
 
 - [x] Access sign up / login
 
