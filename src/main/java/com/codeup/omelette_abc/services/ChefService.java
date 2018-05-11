@@ -21,7 +21,7 @@ public class ChefService {
     }
 
     public boolean hasVideo(Long id){
-        return chefRepo.countByIdAndVideoNotNull(id)>0;
+        return chefRepo.countByIdAndVideoNotNull(id)>0 || !chefRepo.findOne(id).getVideo().equalsIgnoreCase("");
     }
 
     public boolean hasProfile(){
