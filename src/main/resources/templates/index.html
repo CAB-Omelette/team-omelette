@@ -9,12 +9,14 @@
 
 <div class="landingPage">
     <div style="" class="container-fluid text-center">
-        <header style="display: flex; justify-content: center;">
-            <div class="container-fluid">
-                <img style=" justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
-            </div>
+        <header style="display: flex; justify-content: center;" class="container-fluid">
+            <div class=" row">
+                <div class="column col-md-6">
+                <img style="position: relative; justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
+                </div>
 
-            <div style="width:100%;">
+
+            <div class="column col-md-6">
                 <h1 style="margin-top:10%;font-size: 50px; font-family: 'Archivo Black', sans-serif; color:White;">Welcome to Omelette</h1>
                 <br/>
                 <div style="color:white; width:100%;font-size: 25px;font-weight: normal;">
@@ -29,14 +31,14 @@
 
                         <!--NEW CHEF SIGNUP MODAL-->
 
-                        <button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
+                        <button style="margin-bottom: 5px;font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
 
                     <div class="modal fade" id="chef-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content modal-content-border">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="" id="">Create a new chef account</h4>
+                                    <h4>Create a new chef account</h4>
                                 </div>
                                 <div class="modal-body-form">
                                     <form th:action="@{/chef/signup}" method="POST" th:object="${user}">
@@ -74,7 +76,7 @@
                                 <div class="modal-content modal-content-border">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="" id="">Create a new restaurant account</h4>
+                                        <h4>Create a new restaurant account</h4>
                                     </div>
                                     <div class="modal-body-form">
                                         <form th:action="@{/rest/signup}" method="POST" th:object="${user}">
@@ -120,6 +122,7 @@
                         <a href="/createprofile"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">My Profile</button></a>
                     </div>
                 </div>
+                </div>
             </div>
 
         </header>
@@ -149,9 +152,9 @@
                             </div>
                             <br/>
                             <div class="portfolio-box-caption">
-                                <div  style="background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
+                                <div  style="padding: 10px; background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
                                     <div style="font-size: medium" class="project-category text-faded">Job Hunting</div>
-                                    <div class="project-name">Easily find restaurants close to you that are hiring and apply.</div>
+                                    <div class="project-name">Don't know who is hiring? Omelette will help you easily find restaurants close to you that are hiring and apply.</div>
                                 </div>
                             </div>
                         </div>
