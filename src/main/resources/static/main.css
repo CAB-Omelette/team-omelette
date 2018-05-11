@@ -25,9 +25,13 @@ body{
 }
 
 
+
+
+
 .lead{
     font-size: 15px;
 }
+
 .aboutUsImg{
     position: relative;
     width:50%
@@ -218,7 +222,7 @@ body{
 
 .modal-login-button:hover {
     -webkit-transition: all .25s;
-    box-shadow: inset 2px -100px 0 #D69F4B;
+    box-shadow: inset 2px -100px 0 #deb841;
     border: 2px solid black;
     background: white;
     color: white;
@@ -234,7 +238,7 @@ body{
 }
 
 .navbar-inner {
-    background:transparent;
+    background:#deb841;
     border: none;
 }
 
@@ -250,9 +254,36 @@ body{
 .login-button {
     position: relative;
     top: 10px;
-    background-color: #D69F4B;
+    background-color: #00a7e1;
     color: white;
 }
+
+
+#bs-example-navbar-collapse-1>ul>li>a:hover{
+    color: #2E4057;
+    font-weight: bold;
+
+}
+
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+
 
 
 .whiteLink{
