@@ -66,6 +66,9 @@ public class JobsController {
         if(jobsRepo.findOne(id).getUser() == userSvc.currentUser()){
             model.addAttribute("ownsJob", true);
         }
+        if(jobsRepo.findOne(id).getPay()!= null || !jobsRepo.findOne(id).getPay().equals("")){
+            model.addAttribute("hasPay", true);
+        }
         model.addAttribute("isOwner", isOwner());
         model.addAttribute("newJob", new JobListing());
         JobListing job = jobsRepo.findOne(id);
