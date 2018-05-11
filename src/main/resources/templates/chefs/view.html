@@ -18,7 +18,7 @@
             <div  class="col-xs-8 profileName">
                 <h1 style="color:#2E4057"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h1>
                 <h3 style="font-family: 'Istok Web', sans-serif; color:#2E4057;" th:text="${chef.bio}"></h3>
-                <a  th:href="'mailto:' + ${user.email} + '?Subject=Interest Via Omelette'"><h4 class="orange ">Contact <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></h4></a>
+                <a  th:href="'mailto:' + ${user.email} + '?Subject=Interest Via Omelette'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a>
             </div>
         </div>
     </div>
