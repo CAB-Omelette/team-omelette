@@ -13,6 +13,23 @@ body{
     background-color: #00a7e1;
     background-image: url("css/img/stardust.png");
 }
+
+
+.textBoxIndex{
+    padding:10px;
+    background-color: #2E4057;
+    background-image: url("css/img/stardust.png");
+    border-radius: 5px;
+    height:115px;
+}
+
+.project-name{
+    color: white;
+    font-size: 16px;
+    font-family: 'Istok Web', sans-serif;
+}
+
+
 .indexButtons{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -34,7 +51,7 @@ body{
 
 .aboutUsImg{
     position: relative;
-    width:50%
+    width:70%
 }
 
 .aboutUsSection{
