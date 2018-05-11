@@ -14,6 +14,32 @@ body{
     background-image: url("css/img/stardust.png");
 }
 
+.lead{
+    font-size: 15px;
+}
+.aboutUsImg{
+    position: relative;
+    width:50%
+}
+
+.aboutUsSection{
+    display: inline-flex;
+    justify-content: center
+}
+
+.aboutUSTile{
+    width: 30%;
+    justify-self: left;
+    margin: 0 5px;
+}
+.insideAboutUsTile{
+    margin-top: 25px;
+    padding:10px;
+    background-color: #D5EBFB;
+    border-radius: 5px;
+    height:305px;"
+}
+
 .viewAllTitle{
     margin-top: 2%;
     font-family: 'Archivo Black', sans-serif;
