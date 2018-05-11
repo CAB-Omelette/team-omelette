@@ -14,8 +14,6 @@
                 <div class="column col-md-6">
                 <img style="position: relative; justify-content: center; width:70%" class="OmLogo" src="css/img/OmLogo.png" alt="omelete Logo" />
                 </div>
-
-
             <div class="column col-md-6">
                 <h1 style="margin-top:10%;font-size: 50px; font-family: 'Archivo Black', sans-serif; color:White;">Welcome to Omelette</h1>
                 <br/>
@@ -24,14 +22,10 @@
                 </div>
                 <br/>
                 <div>
-
-
                     <div th:if="!${loggedIn}">
-
-
                         <!--NEW CHEF SIGNUP MODAL-->
 
-                        <button style="margin-bottom: 5px;font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
+                        <button class="btn indexButtons" data-toggle="modal" data-target="#chef-modal">I'm a chef</button>
 
                     <div class="modal fade" id="chef-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                         <div class="modal-dialog" role="document">
@@ -64,12 +58,8 @@
                             </div>
                         </div>
                     </div>
-
-
-
 <!--NEW REST MODAL SIGNUP-->
-
-                        <button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn" data-toggle="modal" data-target="#rest-modal">I'm a restaurant</button>
+                        <button class="btn indexButtons" data-toggle="modal" data-target="#rest-modal">I'm a restaurant</button>
 
                         <div class="modal fade" id="rest-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog" role="document">
@@ -102,29 +92,13 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
                     <div th:if="${loggedIn}">
-                        <a href="/createprofile"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn">My Profile</button></a>
+                        <a href="/createprofile"><button class="btn indexButtons">My Profile</button></a>
                     </div>
                 </div>
                 </div>
             </div>
-
         </header>
         <hr/>
         <section style="display: inline-flex;" id="portfolio">
@@ -136,10 +110,9 @@
                             <div style="color: #2E4057;">
                                 <i class="fas fa-folder-open fa-7x"></i>
                             </div>
-                            <br/>
                             <div class="portfolio-box-caption">
+                                <div  class="text-center"><h2>Portfolio</h2></div>
                                 <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
-                                    <div style="font-size: medium" class="project-category text-faded">Portfolio</div>
                                     <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
                                 </div>
                             </div>
@@ -150,10 +123,9 @@
                             <div style="color: #2E4057;">
                                 <i class="fas fa-bullseye fa-7x"></i>
                             </div>
-                            <br/>
                             <div class="portfolio-box-caption">
+                                <div  class="text-center"><h2>Job Hutning</h2></div>
                                 <div  style="padding: 10px; background-color: #D5EBFB; border-radius: 5px; height:115px; padding-top: 20px" class="portfolio-box-caption-content">
-                                    <div style="font-size: medium" class="project-category text-faded">Job Hunting</div>
                                     <div class="project-name">Don't know who is hiring? Omelette will help you easily find restaurants close to you that are hiring and apply.</div>
                                 </div>
                             </div>
@@ -164,11 +136,10 @@
                             <div style="color: #2E4057;">
                                 <i class="fas fa-user-clock fa-7x"></i>
                             </div>
-                            <br/>
                             <div class="portfolio-box-caption">
+                                <div  class="text-center"><h2>Hiring</h2></div>
                                 <div style="padding:10px; background-color: #D5EBFB; border-radius: 5px; height:115px;" class="portfolio-box-caption-content">
-                                    <div style="font-size: medium" class="project-category text-faded">Hiring</div>
-                                    <div class="project-name">Stop waisting your time with the other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with the digital Stage experience.</div>
+                                    <div class="project-name">Stop wasting time with other sites that are too expensive and rarely get you the best hire. With Omelette, simply review potential hires right on the app with a digital experience.</div>
                                 </div>
 
                             </div>
@@ -183,16 +154,6 @@
         <p class="lead">
             <a href="/AboutUs"><button style="font-weight: bold;font-size: 25px; width:250px; height:50px; background-color: #DE9E36;color:white;" class="btn btn-lg btn-outline-dark">About Us</button></a>
         </p>
-
-
-
-
-
-        <!--<div class="examples">-->
-            <!--<img src="https://i.imgur.com/7FHCGOX.png" alt="example chef profile" />-->
-
-        <!--</div>-->
-
         <hr/>
         <br/>
         <br/>
@@ -202,7 +163,6 @@
         <br/>
         <br/>
         <br/>
-
     </div>
 </div>
 
