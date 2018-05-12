@@ -46,11 +46,9 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary form-control modal-login-button">Sign up</button>
                                         <div class="modal-footer">
+                                            <p class="text-center">After signing up, click the login button in the navbar</p>
                                             <div th:if="${param.error}" class="login-error">
                                                 <h4><code>Incorrect Username and Password.</code></h4>
-                                            </div>
-                                            <div th:if="${param.logout}" class="login-error">
-                                                <h4><code>You have been logged out.</code></h4>
                                             </div>
                                         </div>
                                     </form>
@@ -80,11 +78,9 @@
                                             </div>
                                             <button type="submit" class="btn btn-primary form-control modal-login-button">Sign up</button>
                                             <div class="modal-footer">
+                                                <p class="text-center">After signing up, click the login button in the navbar</p>
                                                 <div th:if="${param.error}" class="login-error">
                                                     <h4><code>Incorrect Username and Password.</code></h4>
-                                                </div>
-                                                <div th:if="${param.logout}" class="login-error">
-                                                    <h4><code>You have been logged out.</code></h4>
                                                 </div>
                                             </div>
                                         </form>
@@ -112,7 +108,7 @@
                             <div class="portfolio-box-caption">
                                 <div  class="text-center"><h2>Portfolio</h2></div>
                                 <div class="textBoxIndex portfolio-box-caption-content">
-                                    <div class="project-name">Gone is the day of your traditional resume. Allow Omelette the pleasure of helping you build your resume based of what you can do, and NOT where you have worked.</div>
+                                    <div class="project-name">Gone is the day of your traditional resume. Use omelette to help you build your resume based of what you can do, and not just where you have worked.</div>
                                 </div>
                             </div>
                         </div>
