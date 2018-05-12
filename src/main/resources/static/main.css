@@ -246,6 +246,10 @@ body{
     opacity: .7;
 }
 
+.viewJobPage{
+    margin-top: 10%;
+}
+
 .login-close-button {
     position: relative;
     top: 12px;
@@ -271,7 +275,7 @@ body{
 .login-button {
     position: relative;
     top: 10px;
-    background-color: #00a7e1;
+    background-color: #00A43A;
     color: white;
 }
 
@@ -456,6 +460,10 @@ body{
     }
     .margin-user-clock {
         margin-top: 20px;
+    }
+
+    .viewJobPage{
+        margin-top: 2%;
     }
 }
 
