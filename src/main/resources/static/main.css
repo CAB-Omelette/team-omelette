@@ -418,6 +418,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    margin-left: 20px;
 }
 
 #map {
@@ -456,6 +457,18 @@ body{
     }
     .margin-user-clock {
         margin-top: 20px;
+    }
+    #map-canvas {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    #job-map-canvas {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    .job-container {
+        margin: 0 auto;
     }
 }
 
