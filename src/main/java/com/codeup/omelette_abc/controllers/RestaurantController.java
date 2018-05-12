@@ -44,6 +44,9 @@ public class RestaurantController {
         model.addAttribute("isOwner", isOwner());
         model.addAttribute("rest", restRepo.findOne(id));
         model.addAttribute("newJob", new JobListing());
+        if(restRepo.findOne(id).getUser() == userSvc.currentUser()){
+            model.addAttribute("restOwns", true);
+        }
         User user = restRepo.findOne(id).getUser();
         model.addAttribute("jobs", jobPostRepo.findByUser(user));
         return "restaurants/view";
