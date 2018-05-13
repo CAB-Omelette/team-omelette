@@ -69,7 +69,9 @@ public class ChefsController {
     @GetMapping("/chefs/{id}")
     public String viewAllChefs(@PathVariable Long id, Model model) {
         model.addAttribute("newJob", new JobListing());
-            model.addAttribute("hasVideo", chefRepo.countByIdAndVideoNotNull(id));
+        if(chefRepo.countByIdAndVideoNotNull(id) != 0 || !chefRepo.findOne(id).getVideo().equals("")){
+            model.addAttribute("hasVideo", true);
+        }
             model.addAttribute("isOwner", isOwner());
             model.addAttribute("hasJobs", hasJobs(id));
             model.addAttribute("hasEdu", hasEdu(id));
