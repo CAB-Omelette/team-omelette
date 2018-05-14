@@ -63,6 +63,7 @@ public class JobsController {
 
     @GetMapping("/job/{id}")
     public String viewJob(@PathVariable Long id, Model model){
+        model.addAttribute("user", userSvc.currentUser());
         if(jobsRepo.findOne(id).getUser() == userSvc.currentUser()){
             model.addAttribute("ownsJob", true);
         }

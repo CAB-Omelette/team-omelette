@@ -16,7 +16,55 @@
                 <h3 class="istok"> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
                 <h4 th:if="${hasPay}" class="istok">Pay: <span th:text="${job.pay}"></span></h4>
                 <h4 class="istok"> <span th:text="${job.description}"></span></h4>
-            <h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>
+            <!--<h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>-->
+
+
+            <button class="btn btn-warning istok" data-toggle="modal" data-target="#contact-modal">Apply</button>
+
+            <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-content-border">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 style="color:black;">Apply</h4>
+                        </div>
+                        <div class="modal-body-form">
+                            <form th:action="'https://formspree.io/'+${job.user.email}" method="POST">
+
+
+                                <div class="form-group">
+                                <input class="form-control" id="email" type="hidden" name="email" th:value="${user.email}" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label style="color:black;" for="body">Your message</label>
+                                <textarea style="color:black" class="form-control" id="body" name="body" placeholder="Your message"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                <button class="btn btn-primary form-control" type="submit">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <a th:href="@{/restaurant/{id}(id=${job.rest.id})}">
                     <button class="btn btn-success istok">More from <span th:text="${job.rest.name}"></span></button>
                 </a>
