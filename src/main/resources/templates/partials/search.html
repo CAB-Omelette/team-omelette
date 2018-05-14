@@ -10,7 +10,7 @@
     <div class=" text-center container">
         <h1>Search results</h1>
 
-        <div class="rest-jobs-view istok" th:each="chef : ${chefResults}">
+        <div class="view-all-view istok" th:each="chef : ${chefResults}">
                                 <img class="listPicture" th:src="${chef.picture}" alt="" />
                             <h4 th:text="${chef.firstName + ' ' + chef.lastName}"></h4>
             <a th:href="@{/chefs/{id}(id=${chef.id})}">
@@ -19,7 +19,7 @@
                         </div>
 
 
-        <div class="rest-jobs-view istok" th:each="rest : ${cityResults}">
+        <div class="view-all-view istok" th:each="rest : ${cityResults}">
                 <img class="listPicture" th:src="${rest.picture}" alt="" />
                 <span th:text="${rest.name}"></span>
             <br />
@@ -29,7 +29,7 @@
 
 
         </div>
-        <div class="rest-jobs-view istok" th:each="rest : ${restResults}">
+        <div class="view-all-view istok" th:each="rest : ${restResults}">
 
                 <img class="listPicture" th:src="${rest.picture}" alt="" />
                 <h4 th:text="${rest.name}"></h4>
@@ -39,7 +39,7 @@
         </div>
 
 
-        <div  class="rest-jobs-view istok" th:each="job : ${jobResults}">
+        <div  class="view-all-view istok" th:each="job : ${jobResults}">
 
                 <img class="listPicture" th:src="${job.rest.picture}" alt="" />
                 <h4  th:text="${job.title + ' at ' + job.rest.name}"> </h4>
