@@ -34,7 +34,11 @@
 
                                 <div class="form-group">
                                 <input class="form-control" id="email" type="hidden" name="email" th:value="${user.email}" />
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="_subject">Subject</label>
+                                    <input id="_subject" class="form-control" style="color:black;" name="_subject" th:value="'Interested in the ' + ${job.title + ' title at ' + job.rest.name}" />
                                 </div>
 
                                 <div class="form-group">
