@@ -19,7 +19,7 @@
             <!--<h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>-->
 
 
-            <button class="btn btn-warning istok" data-toggle="modal" data-target="#contact-modal">Apply</button>
+            <button th:if="!${ownsJob}" class="btn btn-warning istok" data-toggle="modal" data-target="#contact-modal">Apply</button>
 
             <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog" role="document">
@@ -28,6 +28,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 style="color:black;">Apply</h4>
                         </div>
+
                         <div class="modal-body-form">
                             <form th:action="'https://formspree.io/'+${job.user.email}" method="POST">
 
@@ -38,33 +39,22 @@
 
                                 <div class="form-group">
                                     <label for="_subject">Subject</label>
-                                    <input id="_subject" class="form-control" style="color:black;" name="_subject" th:value="'Interested in the ' + ${job.title + ' title at ' + job.rest.name}" />
+                                    <input id="_subject" class="istok form-control" style="color:black;" name="_subject" th:value="'Interested in the ' + ${job.title + ' position at ' + job.rest.name}" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label style="color:black;" for="body">Your message</label>
-                                <textarea style="color:black" class="form-control" id="body" name="body" placeholder="Your message"></textarea>
+                                    <label class="istok" style="color:black;" for="body">Your message</label>
+                                <textarea style="color:black" class="istok form-control" id="body" name="body" placeholder="Your message"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                <button class="btn btn-primary form-control" type="submit">Send</button>
+                                <button class="istok btn btn-primary form-control" type="submit">Send</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
