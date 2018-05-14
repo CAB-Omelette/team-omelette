@@ -366,6 +366,9 @@ body{
     padding: 15px;
     border-radius: 10px;
     word-wrap: break-word;
+    clear: both;
+    min-width: 31%;
+    max-width: 31%;
 }
 
 /*RESTAURANT VIEW STYLING BELOW*********************************/
@@ -423,6 +426,7 @@ body{
     flex-wrap: wrap;
     padding: 10px;
     margin-left: 25px;
+    width: 100%;
 }
 
 #map {
@@ -432,6 +436,19 @@ body{
 }
 
 .rest-jobs-view {
+    margin: 10px;
+    background-color: #2E4057;
+    font-family: archivo black, sans-serif;
+    color: #DE9E36;
+    padding: 15px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    clear: both;
+    min-width: 31%;
+    max-width: 31%;
+}
+
+.view-all-view {
     margin: 10px;
     background-color: #2E4057;
     font-family: archivo black, sans-serif;
@@ -450,29 +467,64 @@ body{
     display: flow-root;
 }
 
-
-/*CUSTOM VIEW CHEF PROFILE*/
-
-
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 800px) {
+
+    .job-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin-right: 40px;
+        width: 100%;
+    }
+
+
+    .rest-jobs-view-profile {
+        margin: 10px;
+        background-color: #2E4057;
+        font-family: archivo black, sans-serif;
+        color: #DE9E36;
+        padding: 15px;
+        border-radius: 10px;
+        word-wrap: break-word;
+        clear: both;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+
+    .rest-jobs-view {
+        margin: 10px;
+        background-color: #2E4057;
+        font-family: archivo black, sans-serif;
+        color: #DE9E36;
+        padding: 15px;
+        border-radius: 10px;
+        word-wrap: break-word;
+        clear: both;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+
     .portfolio-box-caption-content {
         margin-bottom: 20px;
     }
+
     .margin-user-clock {
         margin-top: 20px;
     }
+
     #map-canvas {
         margin-top: 20px;
         width: 407px;
     }
+
     #job-map-canvas {
         margin-top: 20px;
         width: 407px;
     }
-    .job-container {
-        margin: 0 auto;
-    }
+
     .viewJobPage {
         margin-top: 2%;
     }
