@@ -62,7 +62,8 @@ public class TestController {
     }
 
     @GetMapping("/ourRecipe")
-    public String showOurRecipe() {
+    public String showOurRecipe(Model model) {
+        model.addAttribute("newJob", new JobListing());
         return "/ourRecipe";
     }
 
