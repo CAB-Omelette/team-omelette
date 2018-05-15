@@ -61,5 +61,10 @@ public class TestController {
         return "/index";
     }
 
+    @GetMapping("/ourRecipe")
+    public String showOurRecipe() {
+        return "/ourRecipe";
+    }
+
 }
 
