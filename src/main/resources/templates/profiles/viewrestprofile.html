@@ -7,6 +7,7 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
+    <div class="viewAllPageBackground">
     <div class="row">
 
 
@@ -20,8 +21,6 @@
                 <h1 th:text="${rest.name}"></h1>
                 <p class="istok" th:text="${rest.about}"></p>
                 <p class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></p>
-                <p class="address istok" th:text="${rest.street}"></p>
-                <p class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></p>
             </div>
 
             <div>
@@ -34,15 +33,19 @@
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>
     </div>
-</div>
 
 
 
-<div class="container">
+    <div style="margin-top: 5%;">
+
+
+
+
     <div class="row">
-        <div class="job-container">
-            <div class="rest-jobs-view-profile text-center" th:each="job : ${jobs}">
-                <h1 th:text="${job.title}"></h1>
+            <div  th:each="job : ${jobs}">
+                <div class=" col-md-3 text-center">
+                    <div class="jobPostBlock">
+                <p class="text-center istok" style="color:#2E4057;" th:text="${job.title}"></p>
                    <a th:href="@{/job/{id}/edit(id=${job.id})}">
                         <button class="btn btn-warning istok">Edit Job</button>
                    </a>
@@ -51,7 +54,10 @@
                 </a>
             </div>
         </div>
+            </div>
     </div>
+    </div>
+</div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
