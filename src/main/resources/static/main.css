@@ -42,9 +42,6 @@ body{
 }
 
 
-
-
-
 .lead{
     font-size: 15px;
 }
@@ -52,6 +49,12 @@ body{
 .aboutUsImg{
     position: relative;
     width:70%
+}
+
+.ourRecipeImg{
+    position: relative;
+    width:80%;
+    border-radius: 5px;
 }
 
 .aboutUsSection{
@@ -70,6 +73,17 @@ body{
     background-color: #D5EBFB;
     border-radius: 5px;
     height:305px;"
+}
+
+.insideOurRecipeTile{
+    position: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    padding:10px;
+    width:45%;
+    background-color: #D5EBFB;
+    border-radius: 5px;
+
 }
 
 .viewAllTitle{
@@ -411,11 +425,11 @@ body{
     width: 100%;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
+/*.row {*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*padding: 0 4px;*/
+/*}*/
 /*every row on View All Pages*/
 .rowAll {
     flex-wrap: wrap;
