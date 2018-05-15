@@ -14,8 +14,8 @@
                 <h1> <span th:text="${job.title}"></span></h1>
                 <h3 class="istok"><span th:text="${job.rest.name}"></span></h3>
                 <h3 class="istok"> <span th:text="${job.rest.city + ', ' + job.rest.state}"></span></h3>
-                <h4 th:if="${hasPay}" class="istok">Pay: <span th:text="${job.pay}"></span></h4>
-                <h4 class="istok"> <span th:text="${job.description}"></span></h4>
+                <p th:if="${hasPay}" class="istok">Pay: <span th:text="${job.pay}"></span></p>
+                <p class="istok"> <span th:text="${job.description}"></span></p>
             <!--<h4><a class="istok" th:href="'mailto:' + ${job.rest.user.email + '?Subject=Interested in the ' + job.title} + ' position'"><button class="btn btn-warning"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</button></a></h4>-->
 
 
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="_subject">Subject</label>
+                                    <label class="istok" style="color:black;" for="_subject">Subject</label>
                                     <input id="_subject" class="istok form-control" style="color:black;" name="_subject" th:value="'Interested in the ' + ${job.title + ' position at ' + job.rest.name}" />
                                 </div>
 

@@ -20,8 +20,8 @@
                 <a th:if="${restOwns}" href="/profile"><button class="btn btn-warning istok">Edit profile</button></a>
 
                 <h4><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span class="istok" th:text="${rest.phone}"></span></h4>
-            <h4 class="address istok" th:text="${rest.street}"></h4>
-            <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+            <p class="address istok" th:text="${rest.street}"></p>
+            <p class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></p>
             </div>
         </div>
         <div class="col-sm-4" th:replace="partials/google-maps-api :: google-maps"></div>

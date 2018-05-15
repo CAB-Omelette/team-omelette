@@ -18,10 +18,10 @@
 
             <div class="display-flow-root">
                 <h1 th:text="${rest.name}"></h1>
-                <h3 class="istok" th:text="${rest.about}"></h3>
-                <h4 class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></h4>
-                <h4 class="address istok" th:text="${rest.street}"></h4>
-                <h4 class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></h4>
+                <p class="istok" th:text="${rest.about}"></p>
+                <p class="istok"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <span th:text="${rest.phone}"></span></p>
+                <p class="address istok" th:text="${rest.street}"></p>
+                <p class="istok" th:text="${rest.city + ', ' + rest.state + ' ' + rest.zip}"></p>
             </div>
 
             <div>

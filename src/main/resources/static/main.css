@@ -12,22 +12,22 @@ body{
     font-family: 'Istok Web', sans-serif;
     background-color: #00a7e1;
     background-image: url("css/img/stardust.png");
+    font-size: 2.25em;
 }
+
 
 
 .textBoxIndex{
-    padding:10px;
+    padding:15px;
     background-color: #2E4057;
     background-image: url("css/img/stardust.png");
     border-radius: 5px;
-    height:125px;
+    /*height: 170px;*/
+    display: flex;
+    word-wrap:break-word;
+    flex: 1;
 }
 
-.project-name{
-    color: white;
-    font-size: 16px;
-    font-family: 'Istok Web', sans-serif;
-}
 
 
 .indexButtons{
@@ -86,24 +86,36 @@ body{
     height:10%;
 }
 
-#viewAllTiles {
-    font-family: archivo black, sans-serif;
-    color: white;
+/*#viewAllTiles {*/
+    /*font-family: archivo black, sans-serif;*/
+    /*color: white;*/
+    /*background: #2E4057;*/
+    /*margin: 10px;*/
+    /*padding: 10px;*/
+    /*border-radius: 10px;*/
+    /*justify-content: center;*/
+    /*min-height: 400px;*/
+/*}*/
+
+
+.viewAllPageBackground{
     background: #2E4057;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    justify-content: center;
-    min-height: 400px;
+    background-image: url("css/img/stardust.png");
+    padding: 2%;
+    border-radius:10px;
 }
 
-#viewAllBackground{
-    background:#EBF5DF;
+
+.jobPostBlock{
+    background-color: #EBF5DF;
     background-image: url("css/img/stardust.png");
-    border-radius: 15px;
-    display: flow-root;
-    padding-left: 8.5%;
+    border-radius:10px;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom:5%;
 }
+
+
 
 /*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
 #job-map-canvas {
@@ -165,6 +177,13 @@ body{
     width: 100%;
 }
 
+.archivo{
+    font-family: archivo black, sans-serif;
+    color: white;
+}
+
+
+
 .profileName{
     font-family: archivo black, sans-serif;
     color: white;
@@ -191,7 +210,7 @@ body{
 }
 
 .profileVideo{
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -271,6 +290,13 @@ body{
     background: white;
     color: white;
     opacity: .7;
+}
+
+
+.orangeLink{
+    color:#D69F4B;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .login-button {
@@ -411,24 +437,22 @@ body{
     width: 100%;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
+/*.row {*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*padding: 0 4px;*/
+/*}*/
 /*every row on View All Pages*/
 .rowAll {
     flex-wrap: wrap;
     padding: 0 4px;
 }
 
-.job-container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin-left: 25px;
-    width: 100%;
+.viewAllPic{
+    width: 50%;
+    border-radius:50%;
 }
+
 
 #map {
     height: 400px;
