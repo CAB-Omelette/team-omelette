@@ -6,40 +6,40 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<section class="viewAllBody">
-    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Restaurants</h1></div>
-<div id="viewAllBackground" class="text-center">
-    <div class="container">
-        <section class="rowAll" style="text-align: center;">
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <img class="center-block" width="8%" height="auto" src="css/img/OmLogo.png" alt="omelete Logo" />
+        </div>
+        <div class="col-md-12">
+            <h1 class="text-center archivo" style="color:#2E4057;"> Viewing All Restaurants</h1>
+        </div>
+    </div>
+    <br />
+
+    <div class="viewAllPageBackground">
+        <div class="row">
             <div th:each="rest : ${restaurants}">
-
-                <div class="column col-md-3 view-all-view" id="viewAllTiles">
-
-                    <div>
+                <div class=" col-md-3 text-center">
+                    <div class="jobPostBlock">
+                        <img class="center-block viewAllPic" th:src="${rest.picture}" alt="resturant picture" />
                         <div>
-                            <img class="listPictureProfileChef" th:src="${rest.picture}" alt="" />
+                            <b><p class="text-center istok" style="color:#2E4057;"><span th:text="${rest.name}"></span></p></b>
+                            <p class="text-center istok" style="color:#2E4057;"><span th:text="${rest.city + ', ' + rest.state}"></span></p>
 
                         </div>
-                        <div>
-                            <h3><span th:text="${rest.name}"></span> </h3>
-                            <h4 class="istok"><span th:text="${rest.city}"></span>, <span th:text="${rest.state}"></span></h4>
-                        </div>
-                            <a th:href="@{/restaurant/{id}(id=${rest.id})}">
-                                <button class="istok btn btn-success">View Restaurant</button>
-                            </a>
-                    </div>
-
-                    <section class="input">
+                        <a th:href="@{/restaurant/{id}(id=${rest.id})}"><button class="istok btn btn-success center-block">View Restaurant</button></a>
                         <input type="hidden" id="address" name="address" th:value="${rest.street + ' ' + rest.city + ' ' + rest.state } " />
-                    </section>
+                    </div>
                 </div>
             </div>
-            <br />
-        </section>
-
+        </div>
     </div>
 </div>
-</section>
+
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

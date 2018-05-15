@@ -31,8 +31,8 @@
                         <h2 style="color:#D69F4B;" class="profileName">Previous Experience</h2>
                         <div th:each="job : ${jobs}" class="text-center">
                             <div class="col-xs-12">
-                            <h4 style="font-family:Istok Web; color:white;"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></h4>
-                            <h5 style="font-family:Istok Web; color:white;">Reason for leaving: <span th:text="${job.reasonLeft}"></span></h5>
+                            <p class="istok"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></p>
+                            <p class="istok">Reason for leaving: <span th:text="${job.reasonLeft}"></span></p>
                             </div>
                             <br />
                         </div>
@@ -48,7 +48,7 @@
                         <h2 style="color:#D69F4B;" class="profileName">Education</h2>
                         <div th:each="ed : ${education}">
                             <div class="col-xs-12">
-                            <h4 style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></h4>
+                            <p style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></p>
                             </div>
                             <br />
                         </div>
@@ -63,11 +63,11 @@
                     <div class="text-center">
                         <hr />
                         <h2 style="color:#D69F4B;" class="profileName">Skills</h2>
-                         <h4 style="font-family:Istok Web; color:white;">
+                         <p class="istok">
                                 <span th:each="skill : ${skills}">
                                     <span th:text="${'-' + skill.name + ' '}"></span>
                                 </span>
-                            </h4>
+                            </p>
                         </div>
                     </div>
                 </div>

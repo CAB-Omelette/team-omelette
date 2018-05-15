@@ -5,36 +5,37 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<section class="viewAllBody">
-    <div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="omelete Logo" /><h1 class="viewAllTitle" style="color:white;"> Viewing All Jobs</h1></div>
-    <div id="viewAllBackground" class="text-center">
-        <div class="container">
-            <section class="rowAll" style="text-align: center;">
-                <div th:each="job : ${jobs}">
+<div class="container">
 
-                <div class="column col-md-3 view-all-view" id="viewAllTiles">
-                    <div>
-                        <div>
-                            <img class="listPictureProfileChef" th:src="${job.rest.picture}" alt="" />
-                        </div>
 
-                        <div>
-                            <h3><span th:text="${job.title}"></span></h3>
-                            <h4 class="istok"><span th:text="${job.rest.name}"></span></h4>
-                         </div>
+    <div class="row">
+        <div class="col-md-12">
+                <img class="center-block" width="8%" height="auto" src="css/img/OmLogo.png" alt="omelete Logo" />
+        </div>
+            <div class="col-md-12">
+                <h1 class="text-center archivo" style="color:#2E4057;"> Viewing All Jobs</h1>
+            </div>
+        </div>
+    <br />
 
-                        <a th:href="@{/job/{id}(id=${job.id})}">
-                            <button class="istok btn btn-success">View Job</button>
-                        </a>
-
-                    </div>
+<div class="viewAllPageBackground">
+    <div class="row">
+        <div th:each="job : ${jobs}">
+            <div class=" col-md-3 text-center">
+                <div class="jobPostBlock">
+                <img class="center-block viewAllPic" th:src="${job.rest.picture}" alt="resturant picture" />
+                <div>
+                    <p class="text-center istok" style="color:#2E4057;" th:text="${job.title}"></p>
+                    <b><p class="text-center istok" style="color:#2E4057;" th:text="${job.rest.name}"></p></b>
                 </div>
+                <a th:href="@{/job/{id}(id=${job.id})}"><button class="istok btn btn-success center-block">View Job</button></a>
                 </div>
-                <br />
-            </section>
+            </div>
         </div>
     </div>
-</section>
+</div>
+</div>
+
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

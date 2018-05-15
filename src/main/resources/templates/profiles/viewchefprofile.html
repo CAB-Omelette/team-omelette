@@ -38,7 +38,7 @@
                                     <div class="modal-content modal-content-border">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="" id="">Add a previous job</h4>
+                                            <h4>Add a previous job</h4>
                                         </div>
                                         <div class="modal-body-form">
                                             <form th:action="@{/jobhistory}" method="POST" th:object="${newJobHistory}">
@@ -71,9 +71,9 @@
 
                         <div th:each="job : ${jobs}" class="text-center">
                             <div class="col-xs-12">
-                                <h4 style="font-family:Istok Web; color:white;"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></h4>
-                                <h5 style="font-family:Istok Web; color:white;">Reason for leaving: <span th:text="${job.reasonLeft}"></span></h5>
-                                <a th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
+                                <p class="istok"  th:text="${job.title + ' at ' + job.location + ' from ' + job.startDate + ' to ' + job.endDate}"></p>
+                                <p class="istok">Reason for leaving: <span th:text="${job.reasonLeft}"></span></p>
+                                <a class="orangeLink" th:href="@{/jobhistory/{id}/edit(id=${job.id})}">
                                     edit
                                 </a>
                             </div>
@@ -122,8 +122,8 @@
 
                         <div th:each="ed : ${education}">
                             <div class="col-xs-12">
-                                <h4 style="font-family:Istok Web; color:white;" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></h4>
-                                <a th:href="@{/education/{id}/edit(id=${ed.id})}">edit</a>
+                                <p class="istok" th:text="${ed.name + ' ' + ed.graduationDate + ' - ' + ed.focus}"></p>
+                                <a class="orangeLink" th:href="@{/education/{id}/edit(id=${ed.id})}">edit</a>
                             </div>
                             <br />
                         </div>
@@ -171,8 +171,8 @@
 
 
                         <div th:each="skill : ${skills}">
-                            <p style="font-family:Istok Web; color:white;" ><span th:text="${skill.name}"></span> <span>
-                                <a th:href="@{/edit/{id}/skill/(id=${skill.id})}">edit</a></span></p>
+                            <p class="istok" ><span th:text="${skill.name}"></span> <span>
+                                <a class="orangeLink" th:href="@{/edit/{id}/skill/(id=${skill.id})}">edit</a></span></p>
                         </div>
                     </div>
                     </div>
