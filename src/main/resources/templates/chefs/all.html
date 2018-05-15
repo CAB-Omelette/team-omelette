@@ -6,37 +6,38 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<section class="viewAllBody">
-<div style="display: flex" class="container"><img class="OmLogo viewAllLogo" src="css/img/OmLogo.png" alt="Omelette Logo" /><h1 style="color:white;" class="viewAllTitle"> Viewing All Chefs</h1></div>
-<div  class="text-center">
 
-    <div class="container">
-        <section class="rowAll" style="text-align: center;">
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <img class="center-block" width="8%" height="auto" src="css/img/OmLogo.png" alt="omelete Logo" />
+        </div>
+        <div class="col-md-12">
+            <h1 class="text-center archivo" style="color:#2E4057;"> Viewing All Chefs</h1>
+        </div>
+    </div>
+    <br />
+
+    <div class="viewAllPageBackground">
+        <div class="row">
             <div th:each="chef : ${chefs}">
-
-                <div class="column col-md-3 view-all-view" id="viewAllTiles">
-
-                    <div>
+                <div class=" col-md-3 text-center">
+                    <div class="jobPostBlock">
+                        <img class="center-block viewAllPic" th:src="${chef.picture}" alt="resturant picture" />
                         <div>
-                            <img class="listPictureProfileChef" th:src="${chef.picture}" alt="" />
-                        </div>
-                        <div>
-                            <h3><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></h3>
+                            <p class="text-center istok" style="color:#2E4057;"><span th:text="${chef.firstName}"></span> <span th:text="${chef.lastName}"></span></p>
                         </div>
 
-                            <a th:href="@{/chefs/{id}(id=${chef.id})}">
-                                <button class="istok btn btn-success">View Chef</button>
-                            </a>
+                        <a th:href="@{/chefs/{id}(id=${chef.id})}"><button class="istok btn btn-success center-block">View Chef</button></a>
                     </div>
                 </div>
             </div>
-            <br />
-        </section>
-
+        </div>
     </div>
 </div>
 
-</section>
 
 <footer th:replace="partials/footer :: footer"></footer>
 

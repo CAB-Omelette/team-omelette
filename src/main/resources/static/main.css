@@ -86,17 +86,6 @@ body{
     height:10%;
 }
 
-/*#viewAllTiles {*/
-    /*font-family: archivo black, sans-serif;*/
-    /*color: white;*/
-    /*background: #2E4057;*/
-    /*margin: 10px;*/
-    /*padding: 10px;*/
-    /*border-radius: 10px;*/
-    /*justify-content: center;*/
-    /*min-height: 400px;*/
-/*}*/
-
 
 .viewAllPageBackground{
     background: #2E4057;
@@ -104,7 +93,6 @@ body{
     padding: 2%;
     border-radius:10px;
 }
-
 
 .jobPostBlock{
     background-color: #EBF5DF;
@@ -120,7 +108,7 @@ body{
 /*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
 #job-map-canvas {
     width: 350px;
-    height: 440px;
+    height: 400px;
     border-radius: 10px;
     float: right;
 }
@@ -419,7 +407,7 @@ body{
 }
 
 .rest-profile-name {
-    background-color: #2E4057;
+    /*background-color: #2E4057;*/
     font-family: archivo black, sans-serif;
     color: white;
     border-radius: 10px;
