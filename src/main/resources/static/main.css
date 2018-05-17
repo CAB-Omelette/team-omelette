@@ -48,7 +48,10 @@ body{
 
 .aboutUsImg{
     position: relative;
-    width:70%
+    width:70%;
+    -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
 }
 
 .ourRecipeImg{
