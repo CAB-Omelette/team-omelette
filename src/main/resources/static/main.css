@@ -120,6 +120,12 @@ body{
     box-shadow: 11px 6px 17px 1px rgba(0,0,0,0.75);
 }
 
+.btn{
+    -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+}
+
 
 
 /*JOB MAP - GOOGLE MAPS CANVAS VIEW*/
