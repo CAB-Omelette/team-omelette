@@ -115,9 +115,9 @@ body{
     margin-bottom: 5%;
     padding-top: 5%;
     padding-bottom:5%;
-    -webkit-box-shadow: 11px 6px 17px 1px rgba(222,158,54,0.75);
-    -moz-box-shadow: 11px 6px 17px 1px rgba(222,158,54,0.75);
-    box-shadow: 11px 6px 17px 1px rgba(222,158,54,0.75);
+    -webkit-box-shadow: 11px 6px 17px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 11px 6px 17px 1px rgba(0,0,0,0.75);
+    box-shadow: 11px 6px 17px 1px rgba(0,0,0,0.75);
 }
 
 
