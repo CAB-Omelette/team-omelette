@@ -66,6 +66,7 @@ body{
     width: 30%;
     justify-self: left;
     margin: 0 5px;
+
 }
 .insideAboutUsTile{
     margin-top: 25px;
@@ -73,6 +74,9 @@ body{
     background-color: #D5EBFB;
     border-radius: 5px;
     height:305px;"
+-webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
+    box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.37);
 }
 
 .insideOurRecipeTile{
@@ -545,6 +549,7 @@ body{
 
     .portfolio-box-caption-content {
         margin-bottom: 20px;
+
     }
 
     .margin-user-clock {
