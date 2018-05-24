@@ -87,22 +87,6 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-    @GetMapping("/newchef/picture")
-    public String addChefPic(@ModelAttribute ChefProfile chefProfile, Model model){
-        chefProfile = chefRepo.findByUser(userSvc.currentUser());
-        model.addAttribute("newJob", new JobListing());
-        model.addAttribute("chef", chefProfile);
-        return"/newuser/chefpicupload";
-    }
-
-    @GetMapping("/newrest/picture")
-    public String addRestPic(@ModelAttribute RestProfile rest, Model model){
-        rest = restRepo.findFirstByUser(userSvc.currentUser());
-        model.addAttribute("newJob", new JobListing());
-        model.addAttribute("rest", rest);
-        return"/newuser/restpicupload";
-    }
-
     @PostMapping("/newchef/picture")
     public String saveChefPicture(Model model, @ModelAttribute ChefProfile chef, @RequestParam(required = false, name="upload") String picture ){
         if(picture == null){
@@ -125,13 +109,6 @@ public class ProfileController {
         rest.setPicture(picture);
         restRepo.save(rest);
         return"redirect:/profile";
-    }
-
-    @GetMapping("/jobhistory")
-    public String addJobHistory(Model model){
-        model.addAttribute("newJob", new JobListing());
-        model.addAttribute("jobHistory", new JobHistory());
-        return "newuser/chefjobhistory";
     }
 
     @GetMapping("/newchef/video")
@@ -160,28 +137,12 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-
-    @GetMapping("/education")
-    public String chefEducation(Model model){
-        model.addAttribute("newJob", new JobListing());
-        model.addAttribute("education", new Education());
-        return "newuser/education";
-    }
-
     @PostMapping("/education")
     public String addEducation(@ModelAttribute Education education, Model model){
         model.addAttribute("newJob", new JobListing());
         education.setUser(userSvc.currentUser());
         edRepo.save(education);
         return "redirect:/profile";
-    }
-
-
-    @GetMapping("/skills")
-    public String addSkill(Model model){
-        model.addAttribute("skill", new Skills());
-        model.addAttribute("newJob", new JobListing());
-        return "/newuser/skills";
     }
 
     @PostMapping("/skills")

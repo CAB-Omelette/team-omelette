@@ -73,4 +73,6 @@ $('#new-skill-modal').on('show.bs.modal', function (event) {
 
 
 
+
+
 }
