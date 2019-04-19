@@ -4,6 +4,8 @@ import com.codeup.omelette_abc.models.JobListing;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+//notes
 public class AuthenticationController {
     @GetMapping("/login")
     public String showLoginForm(Model model) {
