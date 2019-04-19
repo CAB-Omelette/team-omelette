@@ -11,15 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-
     private com.codeup.omelette_abc.services.UserDetailsLoader usersLoader;
-
 
     public SecurityConfiguration(com.codeup.omelette_abc.services.UserDetailsLoader usersLoader) {
         this.usersLoader = usersLoader;
     }
-
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

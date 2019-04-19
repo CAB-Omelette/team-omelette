@@ -5,6 +5,9 @@ img.OmLogo {
     vertical-align: middle;
 }
 
+.form-control{
+    width: 50%;
+}
 
 #navLogo{
     width: 40px

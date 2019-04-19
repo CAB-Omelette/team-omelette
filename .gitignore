@@ -29,3 +29,4 @@ src/main/resources/application.properties
 src/main/resources/templates/partials/google-maps-api-key
 
 my-friends-ssh-key.pub
+
